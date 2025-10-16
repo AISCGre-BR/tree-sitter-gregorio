@@ -195,19 +195,57 @@ module.exports = grammar({
     ),
 
     // =========================================================================
-    // NABC SNIPPET (St. Gall Neumes)
+    // NABC SNIPPET (St. Gall and Laon Neumes)
     // =========================================================================
     
     nabc_snippet: $ => repeat1(
       choice(
         $.nabc_neume,
-        $.nabc_modifier,
-        /[^|)]+/  // Temporary: accept any content until we define full NABC grammar
+        $.nabc_modifier
       )
     ),
 
-    nabc_neume: $ => /[a-z]+/,  // Placeholder for NABC neume codes
-    nabc_modifier: $ => /[0-9`'-]+/,  // Placeholder for NABC modifiers
+    // NABC Neume Codes (2-letter identifiers)
+    // Unified list from St. Gall and Laon codifications
+    // Common to both: vi, pu, ta, gr, cl, pe, po, to, ci, sc, pf, sf, tr,
+    //                 ds, ts, tg, bv, tv, pq, pr, pi, vs, or, sa, ql, qi, pt, ni
+    // St. Gall specific: st (stropha)
+    // Laon specific: oc (oriscus-clivis), un (uncinus)
+    nabc_neume: $ => token(choice(
+      'vi',  // virga
+      'pu',  // punctum
+      'ta',  // tractulus
+      'gr',  // gravis
+      'cl',  // clivis
+      'pe',  // pes
+      'po',  // porrectus
+      'to',  // torculus
+      'ci',  // climacus
+      'sc',  // scandicus
+      'pf',  // porrectus flexus
+      'sf',  // scandicus flexus
+      'tr',  // torculus resupinus
+      'st',  // stropha (St. Gall)
+      'ds',  // distropha
+      'ts',  // tristropha
+      'tg',  // trigonus
+      'bv',  // bivirga
+      'tv',  // trivirga
+      'pq',  // pes quassus
+      'pr',  // pressus maior
+      'pi',  // pressus minor
+      'vs',  // virga strata
+      'or',  // oriscus
+      'sa',  // scandicus
+      'ql',  // quilisma (3 loops)
+      'qi',  // quilisma (2 loops)
+      'pt',  // pes stratus
+      'ni',  // nihil (null neume, placeholder)
+      'oc',  // oriscus-clivis (Laon)
+      'un'   // uncinus (Laon)
+    )),
+    
+    nabc_modifier: $ => /[0-9`'\-~.!\/]+/,  // Modifiers that can follow neumes
 
     // =========================================================================
     // GABC ELEMENTS

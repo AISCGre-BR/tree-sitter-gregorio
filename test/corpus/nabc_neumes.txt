@@ -1,0 +1,86 @@
+==================
+NABC neume codes - simple
+==================
+
+name: Test;
+%%
+(e|vi)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      (field_name)
+      (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))
+          (nabc_snippet
+            (nabc_neume)))))))
+
+==================
+NABC neumes with modifiers
+==================
+
+name: Test;
+%%
+(a|gr-cl|b|pe.po)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      (field_name)
+      (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))
+          (nabc_snippet
+            (nabc_neume)
+            (nabc_modifier)
+            (nabc_neume))
+          (gabc_snippet
+            (pitch))
+          (nabc_snippet
+            (nabc_neume)
+            (nabc_modifier)
+            (nabc_neume)))))))
+
+==================
+Laon-specific neumes
+==================
+
+name: Test;
+%%
+(a|oc|b|un)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      (field_name)
+      (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))
+          (nabc_snippet
+            (nabc_neume))
+          (gabc_snippet
+            (pitch))
+          (nabc_snippet
+            (nabc_neume)))))))
