@@ -3,7 +3,7 @@
 **Project**: tree-sitter-gregorio  
 **Target**: Tree-sitter parser for GABC (Gregorian Chant) notation  
 **Language**: JavaScript (grammar.js)  
-**Date**: October 16, 2024
+**Date**: October 16, 2025
 
 ---
 
@@ -15,6 +15,7 @@
 4. [Implementation History](#implementation-history)
    - [Phase 1: Initial Setup](#phase-1-initial-setup)
    - [Phase 2: NABC Neume Codes](#phase-2-nabc-neume-codes)
+   - [Phase 3: NABC Glyph Modifiers](#phase-3-nabc-glyph-modifiers)
 5. [Parser Rules Reference](#parser-rules-reference)
 6. [Testing Strategy](#testing-strategy)
 7. [Comparison with Vim Syntax](#comparison-with-vim-syntax)
@@ -295,6 +296,143 @@ name: Test;
 
 ---
 
+### Phase 3: NABC Glyph Modifiers
+
+**Date**: October 16, 2025  
+**Commit**: `0e444e6`
+
+**Problem**: NABC neume codes were parsed, but subsequent glyph modifiers were captured by the generic `nabc_modifier` pattern.
+
+**Solution**: Create specific `nabc_glyph_modifier` rule for the 6 documented modifier types.
+
+**Implementation**:
+
+```javascript
+nabc_snippet: $ => repeat1(
+  choice(
+    $.nabc_neume,
+    $.nabc_glyph_modifier,
+    $.nabc_modifier
+  )
+),
+
+// NABC Glyph Modifiers: follow neume codes (St. Gall and Laon)
+// S = modification of the mark
+// G = modification of the grouping (neumatic break)
+// M = melodic modification
+// - = addition of episema
+// > = augmentive liquescence
+// ~ = diminutive liquescence
+// Each can optionally take a numeric suffix 1-9
+nabc_glyph_modifier: $ => token(seq(
+  choice('S', 'G', 'M', '-', '>', '~'),
+  optional(/[1-9]/)
+)),
+
+nabc_modifier: $ => /[0-9`'!.\/]+/,  // Other modifiers (removed glyph modifier chars)
+```
+
+**Key Decisions**:
+
+1. **`token(seq(...))` for atomic matching**: Ensures modifier + suffix parsed as single token
+   - Alternative: `seq(choice(...), optional(...))` would create two nodes
+   - `token()` wraps the sequence into one indivisible token
+
+2. **Explicit choice of 6 characters**: `choice('S', 'G', 'M', '-', '>', '~')`
+   - Clearer than regex: `/[SGM\->~]/`
+   - Better error messages if grammar changes
+   - Mirrors Vim syntax implementation structure
+
+3. **Optional numeric suffix**: `optional(/[1-9]/)`
+   - Suffix 1-9 (not 0-9) per Gregorio specification
+   - Integrated into same token for single AST node
+
+4. **Updated `nabc_modifier` regex**: Removed `\-~` characters
+   - Previously: `/[0-9`'\-~.!\/]+/`
+   - Now: `/[0-9`'!.\/]+/`
+   - Prevents glyph modifiers from being caught by generic pattern
+
+**Example Parse Tree**:
+
+```gabc
+name: Test;
+%%
+(e|viS1|f|puG)
+```
+
+```
+(source_file
+  (headers ...)
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))                    # 'e'
+          alternate: (nabc_snippet
+            (nabc_neume)                # 'vi'
+            (nabc_glyph_modifier))      # 'S1' (single token)
+          alternate: (gabc_snippet
+            (pitch))                    # 'f'
+          alternate: (nabc_snippet
+            (nabc_neume)                # 'pu'
+            (nabc_glyph_modifier)))))))  # 'G'
+```
+
+**Testing**:
+
+Created `test/corpus/nabc_glyph_modifiers.txt` with 7 test cases:
+
+1. Simple modifier (`viS`)
+2. All types (`viS`, `puG`, `taM`, `vi-`, `pu>`, `ta~`)
+3. With numeric suffixes (`viS1`, `puG2`, etc.)
+4. Maximum suffix (`viS9`, `puG9`)
+5. St. Gall neumes (`stS`, `stG1`, `st-2`)
+6. Laon neumes (`ocM`, `ocG3`, `un~4`)
+7. Compound neumes (`grS2`, `cl-3`, `peG4`)
+
+**Results**: 7/7 tests passing ✓
+
+Example test:
+
+```
+==================
+NABC glyph modifiers - simple
+==================
+
+name: Test;
+%%
+(e|viS)
+
+---
+
+(source_file
+  (headers ...)
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet (pitch))
+          alternate: (nabc_snippet
+            (nabc_neume)
+            (nabc_glyph_modifier)))))))
+```
+
+**Comparison with Vim Syntax**:
+
+| Aspect | Vim Syntax | Tree-sitter |
+|--------|------------|-------------|
+| **Modifier capture** | Two patterns (`nabcGlyphModifier`, `nabcGlyphModifierNumber`) | Single rule (`nabc_glyph_modifier`) |
+| **Suffix handling** | Lookbehind: `/\([SGM\->~]\)\@<=[1-9]/` | Integrated: `seq(..., optional(/[1-9]/))` |
+| **AST nodes** | N/A (flat highlighting) | One node per modifier+suffix |
+| **Pattern type** | Character class `/[SGM\->~]/` | Explicit choice `choice('S', 'G', ...)` |
+
+Tree-sitter's approach creates a single, semantically meaningful AST node where Vim uses two separate patterns for highlighting.
+
+---
+
 ## Parser Rules Reference
 
 ### Core Rules
@@ -475,13 +613,34 @@ nabc_neume: $ => token(choice(
 
 `token()` ensures atomic matching—parser doesn't split codes.
 
+#### `nabc_glyph_modifier`
+```javascript
+nabc_glyph_modifier: $ => token(seq(
+  choice('S', 'G', 'M', '-', '>', '~'),
+  optional(/[1-9]/)
+))
+```
+**Glyph modifiers for neumes**. 6 modifier types with optional numeric suffix (1-9).
+
+Modifiers:
+- `S`: modification of the mark
+- `G`: modification of the grouping (neumatic break)
+- `M`: melodic modification
+- `-`: addition of episema
+- `>`: augmentive liquescence
+- `~`: diminutive liquescence
+
+`token(seq(...))` wraps modifier+suffix into single AST node.
+
 #### `nabc_modifier`
 ```javascript
-nabc_modifier: $ => /[0-9`'\-~.!\/]+/
+nabc_modifier: $ => /[0-9`'!.\/]+/
 ```
-**Neume modifiers**. Modifiers that follow neume codes.
+**Other neume modifiers**. Generic modifiers that follow neume codes.
 
-Examples: `-` (separator), `.` (dot), `~` (liquescent)
+Note: Characters `\-~` removed in favor of specific `nabc_glyph_modifier` rule.
+
+Examples: `` ` `` (backtick), `'` (apostrophe), `!` (exclamation)
 
 ---
 
@@ -513,6 +672,7 @@ Run with: `tree-sitter test`
 | `alternation.txt` | GABC/NABC alternation | 3 |
 | `pitches.txt` | Pitch notation | 4 |
 | `nabc_neumes.txt` | NABC neume codes | 3 |
+| `nabc_glyph_modifiers.txt` | NABC glyph modifiers | 7 |
 
 ### Example-Based Testing
 
@@ -521,6 +681,7 @@ Located in `examples/*.gabc`, real-world files:
 - `kyrie.gabc`: Kyrie XVII (Graduale Romanum)
 - `alternation.gabc`: Alternation patterns
 - `nabc_test.gabc`: NABC neume test cases
+- `nabc_glyph_modifiers.gabc`: NABC glyph modifier examples
 
 Parse with: `tree-sitter parse examples/kyrie.gabc`
 
@@ -561,6 +722,7 @@ Opens web UI for:
 | GABC modifiers | ✅ | ✅ | v, s, ~, etc. |
 | Bars | ✅ | ✅ | ::, :, ;, etc. |
 | NABC neumes | ✅ | ✅ | vi, pu, ta, etc. |
+| NABC glyph modifiers | ✅ | ✅ | S, G, M, -, >, ~ (1-9) |
 | **GABC/NABC alternation** | ⚠️ Partial | 🚧 Pending | Vim: first=GABC, rest=NABC<br>Tree-sitter: Will have perfect alternation |
 
 ### Migration Path
@@ -697,6 +859,6 @@ See [gregorio.nvim](https://github.com/AISCGre-BR/gregorio.nvim) for dual-mode c
 
 ---
 
-**Document Version**: 1.0  
-**Last Updated**: October 16, 2024  
+**Document Version**: 1.1  
+**Last Updated**: October 16, 2025  
 **Maintained by**: AISCGre-BR/tree-sitter-gregorio
