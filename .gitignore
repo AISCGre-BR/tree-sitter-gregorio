@@ -1,0 +1,28 @@
+# Ignore generated files
+src/
+node_modules/
+build/
+*.node
+
+# Parser artifacts
+parser.c
+*.so
+*.dylib
+*.dll
+
+# Test outputs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# npm
+package-lock.json

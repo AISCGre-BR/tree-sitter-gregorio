@@ -1,0 +1,116 @@
+==================
+Simple pitches
+==================
+
+name: Test;
+%%
+(abcdefghijklmnp)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      (field_name)
+      (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch)
+            (pitch)
+            (pitch)
+            (pitch)
+            (pitch)
+            (pitch)
+            (pitch)
+            (pitch)
+            (pitch)
+            (pitch)
+            (pitch)
+            (pitch)
+            (pitch)
+            (pitch)
+            (pitch)))))))
+
+==================
+Uppercase pitches with inclinatum
+==================
+
+name: Test;
+%%
+(A0B1C2DEF)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      (field_name)
+      (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch)
+            (pitch)
+            (pitch)
+            (pitch)
+            (pitch)
+            (pitch)))))))
+
+==================
+Oriscus variants
+==================
+
+name: Test;
+%%
+(o0o1OoO1)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      (field_name)
+      (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch)
+            (pitch)
+            (pitch)
+            (pitch)
+            (pitch)))))))
+
+==================
+Initio debilis
+==================
+
+name: Test;
+%%
+(-f-g-h)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      (field_name)
+      (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch)
+            (pitch)
+            (pitch)))))))

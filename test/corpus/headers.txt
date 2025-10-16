@@ -1,0 +1,56 @@
+==================
+Simple header fields
+==================
+
+name: Kyrie XVII;
+mode: 6;
+%%
+
+---
+
+(source_file
+  (headers
+    (header_field
+      (field_name)
+      (field_value))
+    (header_field
+      (field_name)
+      (field_value)))
+  (section_separator))
+
+==================
+Header with comment
+==================
+
+name: Test;
+% This is a comment
+mode: 1;
+%%
+
+---
+
+(source_file
+  (headers
+    (header_field
+      (field_name)
+      (field_value))
+    (comment)
+    (header_field
+      (field_name)
+      (field_value)))
+  (section_separator))
+
+==================
+Empty header value
+==================
+
+commentary:;
+%%
+
+---
+
+(source_file
+  (headers
+    (header_field
+      (field_name)))
+  (section_separator))

@@ -1,0 +1,48 @@
+{
+  "name": "tree-sitter-gregorio",
+  "version": "0.1.0",
+  "description": "Tree-sitter grammar for GABC/NABC (Gregorian Chant notation)",
+  "main": "bindings/node",
+  "types": "bindings/node",
+  "keywords": [
+    "tree-sitter",
+    "parser",
+    "gabc",
+    "nabc",
+    "gregorian-chant",
+    "liturgical-music",
+    "gregorio"
+  ],
+  "author": "AISCGre-BR",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AISCGre-BR/tree-sitter-gregorio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AISCGre-BR/tree-sitter-gregorio/issues"
+  },
+  "homepage": "https://github.com/AISCGre-BR/tree-sitter-gregorio#readme",
+  "dependencies": {
+    "nan": "^2.17.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.20.8"
+  },
+  "scripts": {
+    "test": "tree-sitter test",
+    "parse": "tree-sitter parse",
+    "generate": "tree-sitter generate",
+    "build": "tree-sitter generate && node-gyp build",
+    "playground": "tree-sitter playground"
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.gabc",
+      "file-types": [
+        "gabc"
+      ],
+      "injection-regex": "gabc"
+    }
+  ]
+}

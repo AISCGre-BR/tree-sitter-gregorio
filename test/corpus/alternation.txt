@@ -1,0 +1,116 @@
+==================
+GABC/NABC alternation - simple
+==================
+
+name: Test;
+%%
+(e|nabc|fgFE|nabc2|h)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      (field_name)
+      (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))
+          (nabc_snippet
+            (nabc_neume))
+          alternate: (gabc_snippet
+            (pitch)
+            (pitch)
+            (pitch)
+            (pitch))
+          (nabc_snippet
+            (nabc_neume)
+            (nabc_modifier))
+          alternate: (gabc_snippet
+            (pitch)))))))
+
+==================
+GABC/NABC alternation - complex
+==================
+
+name: Test;
+%%
+Te(e|````vi-lse4|fgFE|pehhsu2)xt
+
+---
+
+(source_file
+  (headers
+    (header_field
+      (field_name)
+      (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (lyric_text
+        (text_content))
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))
+          (nabc_snippet)
+          alternate: (gabc_snippet
+            (pitch)
+            (pitch)
+            (pitch)
+            (pitch))
+          (nabc_snippet)))
+      (lyric_text
+        (text_content)))))
+
+==================
+Multiple alternations in score
+==================
+
+name: Test;
+%%
+Ky(f|nabc1)ri(g|nabc2)e(h|nabc3)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      (field_name)
+      (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (lyric_text
+        (text_content))
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))
+          (nabc_snippet
+            (nabc_neume)
+            (nabc_modifier)))))
+    (syllable
+      (lyric_text
+        (text_content))
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))
+          (nabc_snippet
+            (nabc_neume)
+            (nabc_modifier)))))
+    (syllable
+      (lyric_text
+        (text_content))
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))
+          (nabc_snippet
+            (nabc_neume)
+            (nabc_modifier)))))))
