@@ -1,0 +1,199 @@
+==================
+NABC glyph modifiers - simple
+==================
+
+name: Test;
+%%
+(e|viS)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_neume)
+            (nabc_glyph_modifier)))))))
+
+==================
+NABC glyph modifiers - all types
+==================
+
+name: Test;
+%%
+(e|viS|f|puG|g|taM|a|vi-|b|pu>|c|ta~)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet (pitch))
+          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
+          alternate: (gabc_snippet (pitch))
+          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
+          alternate: (gabc_snippet (pitch))
+          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
+          alternate: (gabc_snippet (pitch))
+          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
+          alternate: (gabc_snippet (pitch))
+          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
+          alternate: (gabc_snippet (pitch))
+          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier)))))))
+
+==================
+NABC glyph modifiers - with numeric suffixes
+==================
+
+name: Test;
+%%
+(e|viS1|f|puG2|g|taM3|a|vi-4|b|pu>5|c|ta~6)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet (pitch))
+          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
+          alternate: (gabc_snippet (pitch))
+          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
+          alternate: (gabc_snippet (pitch))
+          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
+          alternate: (gabc_snippet (pitch))
+          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
+          alternate: (gabc_snippet (pitch))
+          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
+          alternate: (gabc_snippet (pitch))
+          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier)))))))
+
+==================
+NABC glyph modifiers - maximum suffix
+==================
+
+name: Test;
+%%
+(e|viS9|f|puG9|g|taM9)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet (pitch))
+          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
+          alternate: (gabc_snippet (pitch))
+          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
+          alternate: (gabc_snippet (pitch))
+          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier)))))))
+
+==================
+NABC glyph modifiers - St. Gall neumes
+==================
+
+name: Test;
+%%
+(e|stS|f|stG1|g|st-2)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet (pitch))
+          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
+          alternate: (gabc_snippet (pitch))
+          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
+          alternate: (gabc_snippet (pitch))
+          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier)))))))
+
+==================
+NABC glyph modifiers - Laon neumes
+==================
+
+name: Test;
+%%
+(e|ocM|f|ocG3|g|un~4)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet (pitch))
+          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
+          alternate: (gabc_snippet (pitch))
+          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
+          alternate: (gabc_snippet (pitch))
+          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier)))))))
+
+==================
+NABC glyph modifiers - compound neumes
+==================
+
+name: Test;
+%%
+(e|grS2|f|cl-3|g|peG4)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet (pitch))
+          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
+          alternate: (gabc_snippet (pitch))
+          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
+          alternate: (gabc_snippet (pitch))
+          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier)))))))

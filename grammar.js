@@ -201,6 +201,7 @@ module.exports = grammar({
     nabc_snippet: $ => repeat1(
       choice(
         $.nabc_neume,
+        $.nabc_glyph_modifier,
         $.nabc_modifier
       )
     ),
@@ -245,7 +246,20 @@ module.exports = grammar({
       'un'   // uncinus (Laon)
     )),
     
-    nabc_modifier: $ => /[0-9`'\-~.!\/]+/,  // Modifiers that can follow neumes
+    // NABC Glyph Modifiers: follow neume codes (St. Gall and Laon)
+    // S = modification of the mark
+    // G = modification of the grouping (neumatic break)
+    // M = melodic modification
+    // - = addition of episema
+    // > = augmentive liquescence
+    // ~ = diminutive liquescence
+    // Each can optionally take a numeric suffix 1-9
+    nabc_glyph_modifier: $ => token(seq(
+      choice('S', 'G', 'M', '-', '>', '~'),
+      optional(/[1-9]/)
+    )),
+    
+    nabc_modifier: $ => /[0-9`'!.\/]+/,  // Other modifiers that can follow neumes
 
     // =========================================================================
     // GABC ELEMENTS
