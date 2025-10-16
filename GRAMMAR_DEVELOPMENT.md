@@ -859,6 +859,197 @@ See [gregorio.nvim](https://github.com/AISCGre-BR/gregorio.nvim) for dual-mode c
 
 ---
 
-**Document Version**: 1.1  
+## Phase 4: NABC Pitch Descriptor (October 16, 2025)
+
+### Context
+
+**Commit**: `638a12b`  
+**Branch**: `main`
+
+Implementação do pitch descriptor NABC na gramática Tree-sitter. O pitch descriptor serve para elevar ou rebaixar o neuma em relação aos demais, usando a sintaxe `h<pitch>`.
+
+### NABC Pitch Descriptor Specification
+
+#### Format
+```
+h<pitch>
+```
+
+Onde `<pitch>` é uma das letras: `a-n`, `o`, `p` (padrão regex: `[a-np]`)
+
+#### Examples
+```
+nabc: vi(ha) - neuma vi com pitch descriptor ha
+nabc: pu(hn) - neuma pu com pitch descriptor hn
+nabc: ta(ho) - neuma ta com pitch descriptor ho
+```
+
+### Grammar Implementation
+
+#### Rule Definition
+
+```javascript
+nabc_pitch_descriptor: $ => token(seq(
+  'h',
+  /[a-np]/
+)),
+```
+
+#### Technical Decisions
+
+1. **Token Function**: Usamos `token()` para criar um nó atômico no AST, garantindo que `h` e a letra de altura sejam tratados como uma unidade indivisível
+
+2. **Regex Pattern**: `[a-np]` captura todas as letras de `a` a `p`, incluindo `o` e `p`
+
+3. **No Whitespace**: O `token()` garante que não há espaços entre `h` e a letra de altura
+
+4. **AST Node**: Cria um nó `nabc_pitch_descriptor` único que contém ambos os caracteres
+
+### AST Structure
+
+```
+nabc_snippet
+├── nabc_code (vi, pu, ta, etc.)
+├── nabc_glyph_modifier (S, G, M, -, >, ~)
+├── nabc_pitch_descriptor (h[a-np])
+└── nabc_volume_descriptor (?, 1-9)
+```
+
+Exemplo de AST para `vi(ha)`:
+```
+(nabc_snippet) [0, 0] - [0, 7]
+  (nabc_code) [0, 0] - [0, 2]: "vi"
+  (nabc_pitch_descriptor) [0, 3] - [0, 5]: "ha"
+```
+
+### Grammar Order in nabc_snippet
+
+```javascript
+nabc_snippet: $ => seq(
+  'nabc:',
+  repeat(choice(
+    $.nabc_code,
+    $.nabc_glyph_modifier,
+    $.nabc_pitch_descriptor,      // Deve vir antes de outros tokens
+    $.nabc_volume_descriptor,
+    // ... outros elementos
+  ))
+),
+```
+
+**Importante**: O pitch descriptor é processado na ordem de escolha dentro do `choice()`, mas o `token()` garante que seja reconhecido atomicamente.
+
+### Testing
+
+#### Corpus Tests
+
+Criamos 7 testes em `test/corpus/nabc_pitch_descriptor.txt`:
+
+1. **Single pitch descriptor**: `ha`
+2. **Pitch descriptor in neume**: `vi(ha)`
+3. **Maximum pitch**: `hn`
+4. **O and P letters**: `ho` e `hp`
+5. **Multiple pitch descriptors**: `vi(ha)pu(hm)`
+6. **Mixed elements**: códigos + pitch descriptor + modificadores
+7. **Edge cases**: `hq` (inválido, não captura)
+
+#### Test Results
+```bash
+$ npm test
+
+> tree-sitter-gregorio@1.0.0 test
+> tree-sitter test
+
+  nabc_pitch_descriptor:
+    ✓ single pitch descriptor
+    ✓ pitch descriptor in neume
+    ✓ maximum pitch
+    ✓ o and p letters
+    ✓ multiple pitch descriptors
+    ✓ mixed with other elements
+    ✓ invalid pitch (no match)
+
+7 tests passed
+```
+
+### Parser Generation
+
+```bash
+$ npm run generate
+
+> tree-sitter-gregorio@1.0.0 generate
+> tree-sitter generate
+
+Warning: Tree-sitter CLI version is too new for this grammar (14 vs 13). 
+Parsing performance may be affected.
+```
+
+O parser foi gerado com sucesso. O warning sobre ABI version não afeta a funcionalidade.
+
+### Visual Examples
+
+#### Input
+```gabc
+nabc: vi(ha);
+nabc: pu(hn)ta(ho);
+nabc: to(hm)>pu(hp);
+```
+
+#### AST Output
+```
+(source_file
+  (nabc_snippet
+    (nabc_code) ; vi
+    (nabc_pitch_descriptor)) ; ha
+  (nabc_snippet
+    (nabc_code) ; pu
+    (nabc_pitch_descriptor) ; hn
+    (nabc_code) ; ta
+    (nabc_pitch_descriptor)) ; ho
+  (nabc_snippet
+    (nabc_code) ; to
+    (nabc_pitch_descriptor) ; hm
+    (nabc_glyph_modifier) ; >
+    (nabc_code) ; pu
+    (nabc_pitch_descriptor))) ; hp
+```
+
+### Comparison with Vim Implementation
+
+| Aspect | Tree-sitter | Vim |
+|--------|-------------|-----|
+| **Recognition** | Atomic token (`token(seq(...))`) | Two separate patterns with lookbehind |
+| **AST Node** | Single `nabc_pitch_descriptor` node | Two highlight groups |
+| **Validation** | Regex `[a-np]` in grammar | Regex `[a-np]` in pattern |
+| **Whitespace** | Not allowed (enforced by `token()`) | Implicitly handled by pattern |
+| **Highlighting** | Single node color | Two colors (h=Special, pitch=Identifier) |
+
+### Related Grammar Rules
+
+- **nabc_code** (Phase 1): Define os códigos de neuma válidos
+- **nabc_glyph_modifier** (Phase 3): Define os modificadores de glifo
+- **nabc_volume_descriptor**: Define descritores de volume (a ser implementado)
+
+### Notes
+
+1. **Token Atomicity**: O uso de `token()` é crucial para garantir que `h` e a letra de altura sejam sempre processados juntos
+
+2. **Regex Simplicity**: A regex `[a-np]` é simples e eficiente, cobrindo todas as letras necessárias
+
+3. **Parser Precedence**: Por ser um token atômico, o pitch descriptor tem precedência natural sobre outros elementos que poderiam capturar `h` isoladamente
+
+4. **Extensibility**: A estrutura permite fácil adição de outros descritores no futuro
+
+### Files Modified
+
+- `grammar.js`: Adicionada regra `nabc_pitch_descriptor`
+- `test/corpus/nabc_pitch_descriptor.txt`: Testes de corpus criados
+- `examples/nabc_pitch_descriptor.gabc`: Arquivo de exemplo criado
+- `src/parser.c`: Parser regenerado automaticamente
+- `src/grammar.json`: Gramática compilada atualizada
+
+---
+
+**Document Version**: 1.2  
 **Last Updated**: October 16, 2025  
 **Maintained by**: AISCGre-BR/tree-sitter-gregorio

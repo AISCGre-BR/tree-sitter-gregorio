@@ -1,0 +1,384 @@
+==================
+Basic Glyph Descriptor - Simple Neume
+==================
+
+name: test;
+%%
+Te(c|vi);
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (lyric_text
+        (text_content))
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume))))))
+    (syllable
+      (lyric_text
+        (text_content)))))
+
+==================
+Basic Glyph Descriptor - With Modifier
+==================
+
+name: test;
+%%
+De(d|viS);
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (lyric_text
+        (text_content))
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier))))))
+    (syllable
+      (lyric_text
+        (text_content)))))
+
+==================
+Basic Glyph Descriptor - With Numbered Modifier
+==================
+
+name: test;
+%%
+um(e|viS2);
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (lyric_text
+        (text_content))
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier))))))
+    (syllable
+      (lyric_text
+        (text_content)))))
+
+==================
+Basic Glyph Descriptor - With Pitch Descriptor
+==================
+
+name: test;
+%%
+lau(f|viha);
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (lyric_text
+        (text_content))
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_pitch_descriptor))))))
+    (syllable
+      (lyric_text
+        (text_content)))))
+
+==================
+Basic Glyph Descriptor - Complete (modifier + pitch)
+==================
+
+name: test;
+%%
+da(g|viS2ha);
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (lyric_text
+        (text_content))
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier)
+              (nabc_pitch_descriptor))))))
+    (syllable
+      (lyric_text
+        (text_content)))))
+
+==================
+Complex Glyph Descriptor - Two Basic Descriptors
+==================
+
+name: test;
+%%
+Glo(c|vi!pu);
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (lyric_text
+        (text_content))
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_basic_glyph_descriptor
+                (nabc_neume))
+              (nabc_basic_glyph_descriptor
+                (nabc_neume)))))))
+    (syllable
+      (lyric_text
+        (text_content)))))
+
+==================
+Complex Glyph Descriptor - Three Basic Descriptors
+==================
+
+name: test;
+%%
+ri(d|vi!pu!ta);
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (lyric_text
+        (text_content))
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_basic_glyph_descriptor
+                (nabc_neume))
+              (nabc_basic_glyph_descriptor
+                (nabc_neume))
+              (nabc_basic_glyph_descriptor
+                (nabc_neume)))))))
+    (syllable
+      (lyric_text
+        (text_content)))))
+
+==================
+Complex Glyph Descriptor - With Modifiers
+==================
+
+name: test;
+%%
+a(e|viS!puG);
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (lyric_text
+        (text_content))
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_basic_glyph_descriptor
+                (nabc_neume)
+                (nabc_glyph_modifier))
+              (nabc_basic_glyph_descriptor
+                (nabc_neume)
+                (nabc_glyph_modifier)))))))
+    (syllable
+      (lyric_text
+        (text_content)))))
+
+==================
+Complex Glyph Descriptor - With Pitch Descriptors
+==================
+
+name: test;
+%%
+tu(f|viha!puhm);
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (lyric_text
+        (text_content))
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_basic_glyph_descriptor
+                (nabc_neume)
+                (nabc_pitch_descriptor))
+              (nabc_basic_glyph_descriptor
+                (nabc_neume)
+                (nabc_pitch_descriptor)))))))
+    (syllable
+      (lyric_text
+        (text_content)))))
+
+==================
+Complex Glyph Descriptor - Complete (all elements)
+==================
+
+name: test;
+%%
+a(g|viS2ha!puG3hm);
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (lyric_text
+        (text_content))
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_basic_glyph_descriptor
+                (nabc_neume)
+                (nabc_glyph_modifier)
+                (nabc_pitch_descriptor))
+              (nabc_basic_glyph_descriptor
+                (nabc_neume)
+                (nabc_glyph_modifier)
+                (nabc_pitch_descriptor)))))))
+    (syllable
+      (lyric_text
+        (text_content)))))
+
+==================
+Mixed Basic and Complex Descriptors
+==================
+
+name: test;
+%%
+Do(h|vi pu!ta viS2ha!puG3hm);
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (lyric_text
+        (text_content))
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume))
+            (nabc_complex_glyph_descriptor
+              (nabc_basic_glyph_descriptor
+                (nabc_neume))
+              (nabc_basic_glyph_descriptor
+                (nabc_neume)))
+            (nabc_complex_glyph_descriptor
+              (nabc_basic_glyph_descriptor
+                (nabc_neume)
+                (nabc_glyph_modifier)
+                (nabc_pitch_descriptor))
+              (nabc_basic_glyph_descriptor
+                (nabc_neume)
+                (nabc_glyph_modifier)
+                (nabc_pitch_descriptor)))))))
+    (syllable
+      (lyric_text
+        (text_content)))))

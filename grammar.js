@@ -200,11 +200,42 @@ module.exports = grammar({
     
     nabc_snippet: $ => repeat1(
       choice(
-        $.nabc_neume,
-        $.nabc_glyph_modifier,
-        $.nabc_pitch_descriptor,
+        $.nabc_complex_glyph_descriptor,
+        $.nabc_basic_glyph_descriptor,
         $.nabc_modifier
       )
+    ),
+
+    // =========================================================================
+    // NABC GLYPH DESCRIPTORS: Structured grouping of neume elements
+    // =========================================================================
+    
+    // BASIC GLYPH DESCRIPTOR: neume + optional(glyph_modifier) + optional(pitch_descriptor)
+    // This is the fundamental unit of NABC notation
+    // Examples:
+    //   vi       - simple neume (virga)
+    //   viS      - neume with modifier
+    //   viha     - neume with pitch descriptor
+    //   viS2ha   - neume with modifier and pitch descriptor
+    nabc_basic_glyph_descriptor: $ => seq(
+      $.nabc_neume,
+      optional($.nabc_glyph_modifier),
+      optional($.nabc_pitch_descriptor)
+    ),
+    
+    // COMPLEX GLYPH DESCRIPTOR: 2+ basic glyph descriptors concatenated with '!'
+    // Examples:
+    //   vi!pu       - two basic descriptors
+    //   vi!pu!ta    - three basic descriptors
+    //   viS!puG     - with modifiers
+    //   viha!puhm   - with pitch descriptors
+    //   viS2ha!puG3hm - complete complex descriptor
+    nabc_complex_glyph_descriptor: $ => seq(
+      $.nabc_basic_glyph_descriptor,
+      repeat1(seq(
+        '!',
+        $.nabc_basic_glyph_descriptor
+      ))
     ),
 
     // NABC Neume Codes (2-letter identifiers)
