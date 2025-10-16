@@ -1050,6 +1050,323 @@ nabc: to(hm)>pu(hp);
 
 ---
 
-**Document Version**: 1.2  
+## Phase 5: NABC Glyph Descriptors (October 16, 2025)
+
+### Context
+
+**Commit**: `9d40bc5`  
+**Branch**: `main`
+
+Implementação de estruturas container na gramática Tree-sitter para agrupar elementos NABC: **basic glyph descriptor** e **complex glyph descriptor**. Estas estruturas fornecem hierarquia adequada no AST, permitindo análise estrutural e futuras adições sintáticas.
+
+### NABC Glyph Descriptors Specification
+
+#### Basic Glyph Descriptor
+
+Unidade fundamental da notação NABC na gramática:
+```javascript
+seq(nabc_neume, optional(nabc_glyph_modifier), optional(nabc_pitch_descriptor))
+```
+
+**Exemplos**:
+- `vi` - neuma simples
+- `viS` - neuma com modificador
+- `viha` - neuma com pitch descriptor
+- `viS2ha` - neuma com modificador e pitch descriptor
+
+#### Complex Glyph Descriptor
+
+Combinação de 2+ basic glyph descriptors com delimitador `!`:
+```javascript
+seq(basic_glyph_descriptor, repeat1(seq('!', basic_glyph_descriptor)))
+```
+
+**Exemplos**:
+- `vi!pu` - dois descriptors
+- `vi!pu!ta` - três descriptors
+- `viS!puG` - com modificadores
+- `viha!puhm` - com pitch descriptors
+- `viS2ha!puG3hm` - descriptor complexo completo
+
+### Grammar Implementation
+
+#### Basic Glyph Descriptor Rule
+
+```javascript
+nabc_basic_glyph_descriptor: $ => seq(
+  $.nabc_neume,
+  optional($.nabc_glyph_modifier),
+  optional($.nabc_pitch_descriptor)
+),
+```
+
+**Technical Decisions**:
+
+1. **Sequential Structure**: `seq()` garante ordem específica: neume → modifier → pitch
+2. **Optional Components**: `optional()` permite neumas simples ou com qualquer combinação de modificadores
+3. **AST Node**: Cria um nó `nabc_basic_glyph_descriptor` que agrupa os três elementos
+4. **Semantic Unit**: Representa a menor unidade semântica completa da notação NABC
+
+#### Complex Glyph Descriptor Rule
+
+```javascript
+nabc_complex_glyph_descriptor: $ => seq(
+  $.nabc_basic_glyph_descriptor,
+  repeat1(seq(
+    '!',
+    $.nabc_basic_glyph_descriptor
+  ))
+),
+```
+
+**Technical Decisions**:
+
+1. **Delimiter Token**: `'!'` é reconhecido como token literal no AST
+2. **Repetition**: `repeat1()` exige pelo menos um delimitador+descriptor (mínimo 2 descriptors)
+3. **Nested Structure**: Cada descriptor complexo contém 2+ basic descriptors
+4. **AST Hierarchy**: Mantém estrutura clara: complex → basic → elementos
+
+#### Updated nabc_snippet Rule
+
+```javascript
+nabc_snippet: $ => repeat1(
+  choice(
+    $.nabc_complex_glyph_descriptor,
+    $.nabc_basic_glyph_descriptor,
+    $.nabc_modifier
+  )
+),
+```
+
+**Important**: A ordem é crucial:
+1. **complex_glyph_descriptor** primeiro (mais específico)
+2. **basic_glyph_descriptor** segundo (padrão geral)
+3. **nabc_modifier** por último (outros modificadores)
+
+### AST Structure
+
+#### Basic Glyph Descriptor AST
+
+```
+nabc_snippet
+└── nabc_basic_glyph_descriptor
+    ├── nabc_neume
+    ├── optional(nabc_glyph_modifier)
+    └── optional(nabc_pitch_descriptor)
+```
+
+Exemplo para `viS2ha`:
+```
+(nabc_snippet)
+  (nabc_basic_glyph_descriptor)
+    (nabc_neume): "vi"
+    (nabc_glyph_modifier): "S2"
+    (nabc_pitch_descriptor): "ha"
+```
+
+#### Complex Glyph Descriptor AST
+
+```
+nabc_snippet
+└── nabc_complex_glyph_descriptor
+    ├── nabc_basic_glyph_descriptor #1
+    │   ├── nabc_neume
+    │   ├── optional(nabc_glyph_modifier)
+    │   └── optional(nabc_pitch_descriptor)
+    ├── '!' (delimiter)
+    ├── nabc_basic_glyph_descriptor #2
+    │   ├── nabc_neume
+    │   ├── optional(nabc_glyph_modifier)
+    │   └── optional(nabc_pitch_descriptor)
+    └── ...
+```
+
+Exemplo para `vi!pu`:
+```
+(nabc_snippet)
+  (nabc_complex_glyph_descriptor)
+    (nabc_basic_glyph_descriptor)
+      (nabc_neume): "vi"
+    (nabc_basic_glyph_descriptor)
+      (nabc_neume): "pu"
+```
+
+### Testing
+
+#### Corpus Tests
+
+Criamos 11 testes em `test/corpus/nabc_glyph_descriptors.txt`:
+
+**Basic Glyph Descriptor Tests**:
+1. Simple Neume: `Te(c|vi)`
+2. With Modifier: `De(d|viS)`
+3. With Numbered Modifier: `um(e|viS2)`
+4. With Pitch Descriptor: `lau(f|viha)`
+5. Complete (modifier + pitch): `da(g|viS2ha)`
+
+**Complex Glyph Descriptor Tests**:
+6. Two Basic Descriptors: `Glo(c|vi!pu)`
+7. Three Basic Descriptors: `ri(d|vi!pu!ta)`
+8. With Modifiers: `a(e|viS!puG)`
+9. With Pitch Descriptors: `tu(f|viha!puhm)`
+10. Complete (all elements): `a(g|viS2ha!puG3hm)`
+11. Mixed Basic and Complex: `Do(h|vi pu!ta viS2ha!puG3hm)`
+
+#### Test Results
+```bash
+$ npm test
+
+  nabc_glyph_descriptors:
+    ✓ Basic Glyph Descriptor - Simple Neume
+    ✓ Basic Glyph Descriptor - With Modifier
+    ✓ Basic Glyph Descriptor - With Numbered Modifier
+    ✓ Basic Glyph Descriptor - With Pitch Descriptor
+    ✓ Basic Glyph Descriptor - Complete (modifier + pitch)
+    ✓ Complex Glyph Descriptor - Two Basic Descriptors
+    ✓ Complex Glyph Descriptor - Three Basic Descriptors
+    ✓ Complex Glyph Descriptor - With Modifiers
+    ✓ Complex Glyph Descriptor - With Pitch Descriptors
+    ✓ Complex Glyph Descriptor - Complete (all elements)
+    ✓ Mixed Basic and Complex Descriptors
+
+11 tests passed
+```
+
+### Visual Examples
+
+#### Input
+```gabc
+name: test;
+%%
+Te(c|vi);
+De(d|viS);
+lau(f|viha);
+Glo(c|vi!pu);
+a(g|viS2ha!puG3hm);
+```
+
+#### AST Output
+```
+(source_file
+  (headers ...)
+  (section_separator)
+  (score
+    (syllable
+      (lyric_text (text_content): "Te")
+      (notation
+        (snippet_list
+          first: (gabc_snippet (pitch): "c")
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume): "vi")))))
+    (syllable
+      (lyric_text (text_content): "De")
+      (notation
+        (snippet_list
+          first: (gabc_snippet (pitch): "d")
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume): "vi"
+              (nabc_glyph_modifier): "S")))))
+    (syllable
+      (lyric_text (text_content): "lau")
+      (notation
+        (snippet_list
+          first: (gabc_snippet (pitch): "f")
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume): "vi"
+              (nabc_pitch_descriptor): "ha")))))
+    (syllable
+      (lyric_text (text_content): "Glo")
+      (notation
+        (snippet_list
+          first: (gabc_snippet (pitch): "c")
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_basic_glyph_descriptor
+                (nabc_neume): "vi")
+              (nabc_basic_glyph_descriptor
+                (nabc_neume): "pu"))))))
+    (syllable
+      (lyric_text (text_content): "a")
+      (notation
+        (snippet_list
+          first: (gabc_snippet (pitch): "g")
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_basic_glyph_descriptor
+                (nabc_neume): "vi"
+                (nabc_glyph_modifier): "S2"
+                (nabc_pitch_descriptor): "ha")
+              (nabc_basic_glyph_descriptor
+                (nabc_neume): "pu"
+                (nabc_glyph_modifier): "G3"
+                (nabc_pitch_descriptor): "hm"))))))))
+```
+
+### Comparison with Vim Implementation
+
+| Aspect | Tree-sitter | Vim |
+|--------|-------------|-----|
+| **Basic Descriptor** | AST node (`nabc_basic_glyph_descriptor`) | Transparent region (pattern match) |
+| **Complex Descriptor** | AST node (`nabc_complex_glyph_descriptor`) | Implicit (delimiter pattern) |
+| **Delimiter** | Literal token in AST | Pattern match with Delimiter highlight |
+| **Hierarchy** | Explicit parent-child in AST | Containment via `contains` |
+| **Validation** | Grammar enforces structure | Pattern-based matching |
+| **Querying** | Tree queries on AST nodes | Pattern-based search |
+| **Benefits** | Structural analysis, tree traversal | Visual highlighting |
+
+### Design Rationale
+
+#### Why Separate Rules for Basic and Complex?
+
+1. **Clarity**: Regras distintas tornam a gramática mais legível
+2. **AST Hierarchy**: Nós separados facilitam análise estrutural
+3. **Tree Queries**: Permite consultas específicas para cada tipo
+4. **Extensibility**: Fácil adicionar comportamentos diferentes para cada tipo
+
+#### Why Complex Before Basic in Choice?
+
+Tree-sitter tenta alternativas na ordem fornecida. Se `basic_glyph_descriptor` viesse primeiro, `vi!pu` seria reconhecido como:
+- `basic_glyph_descriptor` (vi)
+- `nabc_modifier` (! - incorreto)
+- `basic_glyph_descriptor` (pu)
+
+Com `complex_glyph_descriptor` primeiro, reconhece corretamente como um único descriptor complexo.
+
+#### Why Use seq() Instead of token()?
+
+- **Flexibility**: Permite whitespace entre elementos (se necessário no futuro)
+- **AST Structure**: Cria nós separados para cada componente
+- **Querying**: Facilita consultas a componentes individuais
+- **Extensibility**: Mais fácil adicionar elementos opcionais
+
+### Related Grammar Rules
+
+- **nabc_neume** (Phase 2): Códigos de neuma base
+- **nabc_glyph_modifier** (Phase 3): Modificadores de glifo
+- **nabc_pitch_descriptor** (Phase 4): Descritores de altura
+- **nabc_snippet**: Container de alto nível
+
+### Notes
+
+1. **Order Matters**: A ordem no `choice()` é crucial para parsing correto
+2. **AST Benefits**: Estrutura hierárquica facilita ferramentas de análise
+3. **Token vs Seq**: Usar `seq()` para composições, `token()` para átomos
+4. **Extensibility**: Estrutura prepara para volume descriptors e outros elementos
+5. **Delimiter Visibility**: `!` aparece explicitamente no AST como token literal
+
+### Files Modified
+
+- `grammar.js`: Adicionadas regras `nabc_basic_glyph_descriptor` e `nabc_complex_glyph_descriptor`
+- `test/corpus/nabc_glyph_descriptors.txt`: 11 testes de corpus criados
+- `examples/nabc_glyph_descriptors.gabc`: Arquivo de exemplo criado
+- `src/parser.c`: Parser regenerado automaticamente
+- `src/grammar.json`: Gramática compilada atualizada
+
+---
+
+**Document Version**: 1.3  
 **Last Updated**: October 16, 2025  
 **Maintained by**: AISCGre-BR/tree-sitter-gregorio
