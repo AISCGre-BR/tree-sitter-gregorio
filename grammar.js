@@ -269,7 +269,7 @@ module.exports = grammar({
       'pi',  // pressus minor
       'vs',  // virga strata
       'or',  // oriscus
-      'sa',  // scandicus
+      'sa',  // salicus
       'ql',  // quilisma (3 loops)
       'qi',  // quilisma (2 loops)
       'pt',  // pes stratus
