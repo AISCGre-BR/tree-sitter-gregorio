@@ -1,0 +1,220 @@
+==================
+NABC pitch descriptor - simple
+==================
+
+name: Test;
+%%
+(e|viha)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_neume)
+            (nabc_pitch_descriptor)))))))
+
+==================
+NABC pitch descriptor - after modifier
+==================
+
+name: Test;
+%%
+(e|viShd|f|puG2he)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet (pitch))
+          alternate: (nabc_snippet
+            (nabc_neume)
+            (nabc_glyph_modifier)
+            (nabc_pitch_descriptor))
+          alternate: (gabc_snippet (pitch))
+          alternate: (nabc_snippet
+            (nabc_neume)
+            (nabc_glyph_modifier)
+            (nabc_pitch_descriptor)))))))
+
+==================
+NABC pitch descriptor - all pitches
+==================
+
+name: Test;
+%%
+(e|viha|f|puhb|g|tahc|a|vihd|b|puhe|c|tahf)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet (pitch))
+          alternate: (nabc_snippet (nabc_neume) (nabc_pitch_descriptor))
+          alternate: (gabc_snippet (pitch))
+          alternate: (nabc_snippet (nabc_neume) (nabc_pitch_descriptor))
+          alternate: (gabc_snippet (pitch))
+          alternate: (nabc_snippet (nabc_neume) (nabc_pitch_descriptor))
+          alternate: (gabc_snippet (pitch))
+          alternate: (nabc_snippet (nabc_neume) (nabc_pitch_descriptor))
+          alternate: (gabc_snippet (pitch))
+          alternate: (nabc_snippet (nabc_neume) (nabc_pitch_descriptor))
+          alternate: (gabc_snippet (pitch))
+          alternate: (nabc_snippet (nabc_neume) (nabc_pitch_descriptor)))))))
+
+==================
+NABC pitch descriptor - compound neumes
+==================
+
+name: Test;
+%%
+(e|grShb|f|cl-hc|g|peG2hd)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet (pitch))
+          alternate: (nabc_snippet
+            (nabc_neume)
+            (nabc_glyph_modifier)
+            (nabc_pitch_descriptor))
+          alternate: (gabc_snippet (pitch))
+          alternate: (nabc_snippet
+            (nabc_neume)
+            (nabc_glyph_modifier)
+            (nabc_pitch_descriptor))
+          alternate: (gabc_snippet (pitch))
+          alternate: (nabc_snippet
+            (nabc_neume)
+            (nabc_glyph_modifier)
+            (nabc_pitch_descriptor)))))))
+
+==================
+NABC pitch descriptor - St. Gall neumes
+==================
+
+name: Test;
+%%
+(e|stShf|f|sthg)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet (pitch))
+          alternate: (nabc_snippet
+            (nabc_neume)
+            (nabc_glyph_modifier)
+            (nabc_pitch_descriptor))
+          alternate: (gabc_snippet (pitch))
+          alternate: (nabc_snippet
+            (nabc_neume)
+            (nabc_pitch_descriptor)))))))
+
+==================
+NABC pitch descriptor - Laon neumes
+==================
+
+name: Test;
+%%
+(e|ochh|f|unhi)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet (pitch))
+          alternate: (nabc_snippet
+            (nabc_neume)
+            (nabc_pitch_descriptor))
+          alternate: (gabc_snippet (pitch))
+          alternate: (nabc_snippet
+            (nabc_neume)
+            (nabc_pitch_descriptor)))))))
+
+==================
+NABC pitch descriptor - complex combinations
+==================
+
+name: Test;
+%%
+(e|viS9hj|f|puG8hk|g|ta-7hl)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet (pitch))
+          alternate: (nabc_snippet
+            (nabc_neume)
+            (nabc_glyph_modifier)
+            (nabc_pitch_descriptor))
+          alternate: (gabc_snippet (pitch))
+          alternate: (nabc_snippet
+            (nabc_neume)
+            (nabc_glyph_modifier)
+            (nabc_pitch_descriptor))
+          alternate: (gabc_snippet (pitch))
+          alternate: (nabc_snippet
+            (nabc_neume)
+            (nabc_glyph_modifier)
+            (nabc_pitch_descriptor)))))))

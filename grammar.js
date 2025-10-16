@@ -202,6 +202,7 @@ module.exports = grammar({
       choice(
         $.nabc_neume,
         $.nabc_glyph_modifier,
+        $.nabc_pitch_descriptor,
         $.nabc_modifier
       )
     ),
@@ -257,6 +258,15 @@ module.exports = grammar({
     nabc_glyph_modifier: $ => token(seq(
       choice('S', 'G', 'M', '-', '>', '~'),
       optional(/[1-9]/)
+    )),
+    
+    // NABC Pitch Descriptor: elevates or lowers neume relative to others
+    // Follows immediately after glyph modifier (if present) or neume code
+    // Format: 'h' followed by pitch letter [a-np]
+    // Example: viha (virga at pitch a), puShb (punctum with S modifier at pitch b)
+    nabc_pitch_descriptor: $ => token(seq(
+      'h',
+      /[a-np]/
     )),
     
     nabc_modifier: $ => /[0-9`'!.\/]+/,  // Other modifiers that can follow neumes
