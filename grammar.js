@@ -23,6 +23,11 @@ module.exports = grammar({
     /\s/,  // Whitespace
   ],
 
+  conflicts: $ => [
+    [$.syllable],
+    [$.lyric_text]
+  ],
+
   rules: {
     // =========================================================================
     // TOP-LEVEL STRUCTURE
@@ -60,7 +65,7 @@ module.exports = grammar({
     // SECTION SEPARATOR
     // =========================================================================
     
-    section_separator: $ => /^%%$/,
+    section_separator: $ => '%%',
 
     // =========================================================================
     // SCORE SECTION (Musical Content)
@@ -78,9 +83,9 @@ module.exports = grammar({
     // SYLLABLE (Lyric Text + Notation)
     // =========================================================================
     
-    syllable: $ => seq(
-      optional($.lyric_text),
-      optional($.notation)
+    syllable: $ => choice(
+      seq($.lyric_text, optional($.notation)),
+      $.notation
     ),
 
     lyric_text: $ => repeat1(
@@ -324,12 +329,9 @@ module.exports = grammar({
     // COMMENTS
     // =========================================================================
     
-    comment: $ => choice(
-      // Line comments
-      /^%%[^\n]*/,
-      /^%[^\n]*/,
-      // Inline comments
-      /[^%]%[^\n]*/
-    ),
+    comment: $ => token(seq(
+      '%',
+      /.*/
+    )),
   }
 });
