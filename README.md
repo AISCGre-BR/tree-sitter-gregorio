@@ -17,7 +17,14 @@ Tree-sitter grammar for GABC/NABC (Gregorian Chant notation) used by the [Gregor
 
 Traditional regex-based syntax highlighting (Vim, VS Code TextMate) cannot handle **stateful alternation** in GABC patterns like `(gabc1|nabc1|gabc2|nabc2|...)` where odd positions are GABC and even positions are NABC. Tree-sitter provides a full parser with state management, enabling accurate parsing of complex patterns.
 
-See [Research: Vim Syntax Limitations](docs/VIM_SYNTAX_LIMITATIONS.md) for detailed analysis.
+See [GRAMMAR_DEVELOPMENT.md](GRAMMAR_DEVELOPMENT.md) for complete implementation details.
+
+## Documentation
+
+- **[GRAMMAR_DEVELOPMENT.md](GRAMMAR_DEVELOPMENT.md)** - Complete grammar development guide with implementation history
+- **[TREE_SITTER_ROADMAP.md](../gregorio.nvim/TREE_SITTER_ROADMAP.md)** - Feature roadmap and design decisions (in gregorio.nvim repo)
+
+For Vim syntax implementation, see [gregorio.nvim](https://github.com/AISCGre-BR/gregorio.nvim).
 
 ## Installation
 
