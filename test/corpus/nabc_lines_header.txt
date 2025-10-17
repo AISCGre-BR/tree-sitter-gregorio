@@ -1,0 +1,155 @@
+==================
+NABC Lines - Header Absent (All GABC)
+==================
+
+name: Test;
+%%
+(abcdefg)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          single: (gabc_snippet
+            (pitch)
+            (pitch)
+            (pitch)
+            (pitch)
+            (pitch)
+            (pitch)
+            (pitch)))))))
+
+==================
+NABC Lines - Zero Value (All GABC)
+==================
+
+nabc-lines: 0;
+name: Test;
+%%
+(abc|def|ghi)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (nabc_lines_field)
+      value: (nabc_lines_value))
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch)
+            (pitch)
+            (pitch))
+          alternate: (gabc_snippet
+            (pitch)
+            (pitch)
+            (pitch))
+          alternate: (gabc_snippet
+            (pitch)
+            (pitch)
+            (pitch)))))))
+
+==================
+NABC Lines - Standard Alternation
+==================
+
+nabc-lines: 1;
+name: Test;
+%%
+(abc|vi|def|pu)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (nabc_lines_field)
+      value: (nabc_lines_value))
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch)
+            (pitch)
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)))
+          alternate: (gabc_snippet
+            (pitch)
+            (pitch)
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume))))))))
+
+==================
+NABC Lines - Multiple NABC Lines  
+==================
+
+nabc-lines: 3;
+name: Test;
+%%
+(abc|vi|pu|ta|def|gr|cl|pe)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (nabc_lines_field)
+      value: (nabc_lines_value))
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch)
+            (pitch)
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)))
+          alternate: (gabc_snippet
+            (pitch)
+            (pitch)
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume))))))))

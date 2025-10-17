@@ -1663,6 +1663,395 @@ gabc_error: $ => prec(-2, choice(
 
 ---
 
-**Document Version**: 1.4  
+## Phase 7: NABC-Lines Header Support and Parser Limitations
+
+**Date**: October 17, 2025  
+**Scope**: Attempted implementation of semantic alternation based on `nabc-lines` header  
+**Result**: Partial implementation with comprehensive limitation analysis
+
+### Problem Statement
+
+The GABC specification includes a `nabc-lines` header that should control alternation behavior in musical notation:
+
+```gabc
+nabc-lines: 3;
+%%
+Text(gabc1|nabc1|nabc2|nabc3|gabc2|nabc4|nabc5|nabc6|...)
+```
+
+**Expected Behavior by Header Value**:
+- `nabc-lines: 0` or absent → All GABC: `(gabc1|gabc2|gabc3|...)`
+- `nabc-lines: 1` → Standard alternation: `(gabc1|nabc1|gabc2|nabc2|...)`  
+- `nabc-lines: N` → N NABC per GABC: `(gabc1|nabc1|nabc2|...|nabcN|gabc2|...)`
+
+### Implementation Strategy
+
+#### Grammar Rule Extensions
+
+**Header Field Specialization**:
+```javascript
+header_field: $ => choice(
+  // Special handling for nabc-lines header
+  seq(
+    field('name', alias('nabc-lines', $.nabc_lines_field)),
+    ':',  
+    field('value', $.nabc_lines_value),
+    ';'
+  ),
+  
+  // Generic header field for all other headers
+  seq(
+    field('name', $.field_name),
+    ':',
+    field('value', optional($.field_value)), 
+    ';'
+  )
+),
+
+nabc_lines_field: $ => 'nabc-lines',
+nabc_lines_value: $ => /[0-9]+/,
+```
+
+**Snippet List Flexibility**:
+```javascript
+snippet_list: $ => choice(
+  // Simple case: single GABC snippet (no alternation)
+  field('single', $.gabc_snippet),
+  
+  // Complex case: alternating snippets  
+  seq(
+    field('first', $.gabc_snippet),  // First is always GABC
+    repeat1(
+      seq(
+        '|',
+        field('alternate', $.snippet_content)  // Can be GABC or NABC
+      )
+    )
+  )
+),
+
+snippet_content: $ => choice(
+  $.gabc_snippet,
+  $.nabc_snippet
+),
+```
+
+#### AST Structure Benefits
+
+**Enhanced Header Access**:
+```javascript
+// Query nabc-lines header value from AST
+const nabcLinesHeader = tree.rootNode
+  .descendantsOfType('header_field')
+  .find(field => field.namedChild(0).text === 'nabc-lines');
+
+const nabcLinesValue = nabcLinesHeader 
+  ? parseInt(nabcLinesHeader.namedChild(1).text)
+  : 0; // Default behavior
+```
+
+**Structural Analysis**:
+```javascript
+// Analyze snippet alternation patterns
+const notationBlocks = tree.rootNode.descendantsOfType('notation');
+notationBlocks.forEach(notation => {
+  const snippetList = notation.child(1); // Inside parentheses
+  const alternates = snippetList.namedChildren.slice(1); // Skip 'first'
+  
+  // Can analyze pattern but cannot enforce based on header
+  validateAlternationPattern(alternates, nabcLinesValue);
+});
+```
+
+### Fundamental Parser Limitations
+
+#### Tree-sitter Architecture Constraints
+
+**Context-Free Grammar Limitation**:
+Tree-sitter is fundamentally a context-free parser generator. Key limitations:
+
+1. **Static Grammar Rules**: Rules are fixed at compilation time, cannot change based on parsed content
+2. **No Cross-Reference**: Cannot reference semantic values from one part of document in another
+3. **Syntactic Focus**: Designed for syntax structure, not semantic validation
+4. **No Backtracking**: Cannot revisit parsing decisions based on later semantic information
+
+**What's Impossible**:
+```javascript
+// This CANNOT be implemented in Tree-sitter grammar
+snippet_list: $ => {
+  // Cannot access header values during parsing
+  const nabcLines = getHeaderValue('nabc-lines'); // ❌ Not possible
+  
+  if (nabcLines === 0) {
+    return repeat(seq('|', $.gabc_snippet)); // ❌ Dynamic rules not supported
+  } else if (nabcLines === 1) {
+    return alternatingPattern($.gabc_snippet, $.nabc_snippet); // ❌ Not possible
+  }
+  // Dynamic grammar generation not supported
+}
+```
+
+#### Parser Generator Theory
+
+**Why Semantic Alternation is Hard**:
+
+1. **Phase Separation**: Lexing/parsing happens before semantic analysis
+2. **Grammar Compilation**: Rules must be known before any input is processed  
+3. **LR Parsing**: Tree-sitter's GLR algorithm doesn't support semantic predicates
+4. **Memory Model**: Parser state cannot include arbitrary semantic information
+
+**Comparison with Other Tools**:
+
+| Tool Type | Semantic Predicates | Dynamic Rules | Cross-Reference |
+|-----------|-------------------|---------------|-----------------|
+| **Tree-sitter** | ❌ | ❌ | ❌ |
+| **ANTLR** | ✅ (limited) | ❌ | ✅ (actions) |
+| **Yacc/Bison** | ✅ (actions) | ❌ | ✅ (symbol table) |
+| **PEG** | ✅ (predicates) | ❌ | ✅ (semantic actions) |
+| **Hand-written** | ✅ | ✅ | ✅ |
+
+### What Was Successfully Implemented
+
+#### Header Recognition and Parsing
+
+**AST Structure for nabc-lines**:
+```
+(header_field
+  name: (nabc_lines_field)    # "nabc-lines" 
+  value: (nabc_lines_value))  # "3"
+```
+
+**Benefits**:
+- External tools can easily extract nabc-lines values
+- Clear structural representation in AST
+- Type-safe access to header information
+- Integration with existing header processing
+
+#### Flexible Snippet Structure
+
+**Enhanced Snippet Parsing**:
+```
+(snippet_list
+  first: (gabc_snippet ...)     # First snippet (GABC)
+  alternate: (nabc_snippet ...) # Subsequent snippets
+  alternate: (gabc_snippet ...) # Can be either type
+  alternate: (nabc_snippet ...))
+```
+
+**Advantages**:
+- Parser correctly identifies snippet types based on content
+- AST preserves alternation structure for analysis
+- External validation can check patterns post-parsing
+- Framework ready for semantic layer
+
+### Testing and Validation
+
+#### Test Coverage
+
+**Header Parsing Tests**:
+```javascript
+// Test: nabc-lines header recognition
+"nabc-lines: 3;" → (header_field (nabc_lines_field) (nabc_lines_value))
+
+// Test: Integration with other headers  
+"name: Test;\nnabc-lines: 1;" → Multiple header fields with special handling
+```
+
+**Snippet Structure Tests**:
+```javascript
+// Test: Various alternation patterns parsed correctly
+"(abc|vi|def)" → All snippets recognized regardless of semantic meaning
+"(fg|pu|ta|gr)" → Content-based type detection works
+```
+
+#### Limitation Documentation
+
+**Clear Test Expectations**:
+Tests demonstrate what works (structural parsing) and what doesn't (semantic enforcement). This helps users understand parser capabilities and limitations.
+
+### Alternative Solutions and Workarounds
+
+#### Language Server Protocol (LSP) Approach
+
+**Semantic Layer Implementation**:
+```javascript
+class GABCLanguageServer {
+  analyzeDocument(document) {
+    const ast = this.parseDocument(document);
+    const headers = this.extractHeaders(ast);
+    const notations = this.extractNotations(ast);
+    
+    return this.validateAlternationPatterns(notations, headers);
+  }
+  
+  validateAlternationPatterns(notations, headers) {
+    const nabcLines = headers['nabc-lines'] || 0;
+    
+    return notations.map(notation => {
+      const snippets = this.analyzeSnippets(notation);
+      return this.checkAlternationPattern(snippets, nabcLines);
+    });
+  }
+}
+```
+
+#### External Validation Tools
+
+**Post-Processing Approach**:
+```javascript
+function validateGABCFile(filePath) {
+  const content = fs.readFileSync(filePath, 'utf8');
+  const ast = parser.parse(content);
+  
+  const validator = new GABCValidator(ast);
+  const issues = validator.checkAlternationPatterns();
+  
+  return {
+    valid: issues.length === 0,
+    issues: issues,
+    suggestions: validator.generateSuggestions()
+  };
+}
+```
+
+#### Preprocessor Solutions
+
+**Template Expansion**:
+```javascript
+function expandNABCLines(gabcContent) {
+  const { headers, score } = parseGABC(gabcContent);
+  const nabcLines = parseInt(headers['nabc-lines'] || '0');
+  
+  if (nabcLines === 0) {
+    return convertAllToGABC(score);
+  } else {
+    return expandAlternationPattern(score, nabcLines);
+  }
+}
+```
+
+### Practical Implications
+
+#### For GABC Authors
+
+**Current Capabilities**:
+- ✅ Header syntax validation and highlighting
+- ✅ Basic snippet structure recognition  
+- ✅ Content-based GABC/NABC type detection
+- ✅ AST access for external tool integration
+
+**Limitations**:
+- ❌ No automatic alternation pattern validation
+- ❌ No enforcement of nabc-lines semantics
+- ❌ No real-time feedback on alternation correctness
+
+**Recommended Workflow**:
+1. Use Tree-sitter for structural analysis and basic validation
+2. Implement semantic validation in external tools or LSP
+3. Rely on Gregorio compiler for final validation
+4. Use AST queries for custom analysis needs
+
+#### For Tool Developers
+
+**What Tree-sitter Provides**:
+- Complete structural information in AST format
+- Efficient parsing with error recovery  
+- Easy integration with editors and IDEs
+- Foundation for building semantic analysis tools
+
+**What Requires Additional Implementation**:
+- Semantic validation of alternation patterns
+- Cross-reference between headers and notation
+- Dynamic behavior based on header values
+- Complex validation rules beyond syntax
+
+### Future Enhancement Strategies
+
+#### Language Server Development
+
+**Full Semantic Analysis**:
+- Implement LSP server using Tree-sitter as foundation
+- Add semantic layer for header/notation cross-reference
+- Provide real-time validation and diagnostics
+- Support for complex GABC validation rules
+
+#### Editor Integration
+
+**Advanced Features**:
+- Semantic highlighting based on alternation context
+- Auto-completion that respects nabc-lines values  
+- Real-time validation with semantic understanding
+- Integration with Gregorio compiler for full validation
+
+#### Compiler Integration
+
+**Enhanced Toolchain**:
+- Tree-sitter parser as front-end for Gregorio compiler
+- Structured error reporting with AST location information
+- IDE integration for compile-time feedback
+- Build system integration for validation workflows
+
+### Technical Lessons Learned
+
+#### Parser Design Insights
+
+**Separation of Concerns**:
+- **Syntax Parsing**: Tree-sitter excels at structural recognition
+- **Semantic Analysis**: Requires separate layer or tool
+- **Validation**: Best implemented as post-processing step
+- **Editor Features**: Combine syntax and semantic information
+
+**Architecture Recommendations**:
+1. **Use Tree-sitter for syntax** - fast, reliable, well-integrated
+2. **Build semantic layer separately** - flexibility and power
+3. **Design for composability** - modular tools work better
+4. **Document limitations clearly** - user expectations matter
+
+#### Grammar Design Patterns
+
+**Effective Strategies**:
+- Recognize special structures (like nabc-lines) explicitly
+- Provide flexible content patterns for type detection
+- Design AST for easy semantic analysis integration
+- Prepare grammar for external tool consumption
+
+### Documentation Impact
+
+#### User Education
+
+**Clear Capability Communication**:
+- What works: Structural parsing, header recognition, type detection
+- What doesn't work: Semantic enforcement, dynamic alternation
+- Why it doesn't work: Fundamental parser architecture limitations
+- What alternatives exist: LSP, external tools, post-processing
+
+#### Developer Guidance
+
+**Integration Patterns**:
+- How to use Tree-sitter AST for semantic analysis
+- How to build validation tools on top of parser
+- How to integrate with editor features effectively
+- How to combine with other GABC tools
+
+### Files Modified
+
+- `grammar.js`: Added nabc-lines header specialization and flexible snippet structure
+- `test/corpus/nabc_lines_header.txt`: Comprehensive test corpus for header functionality
+- Enhanced documentation with limitation analysis and alternative solutions
+
+### Conclusion
+
+This phase demonstrates the power and limitations of syntax-based parsing for GABC processing. While Tree-sitter cannot implement full semantic alternation based on header values, it provides:
+
+1. **Solid Foundation**: Complete structural parsing with header recognition
+2. **Clear Limitations**: Well-documented boundaries of syntax parsing
+3. **Integration Path**: Framework for building semantic analysis tools
+4. **User Guidance**: Clear documentation of capabilities and alternatives
+
+The implementation successfully showcases both what's possible with current parser technology and what requires more advanced semantic analysis approaches.
+
+---
+
+**Document Version**: 1.5  
 **Last Updated**: October 17, 2025  
 **Maintained by**: AISCGre-BR/tree-sitter-gregorio

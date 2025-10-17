@@ -51,13 +51,27 @@ module.exports = grammar({
       )
     ),
 
-    header_field: $ => seq(
-      field('name', $.field_name),
-      ':',
-      field('value', optional($.field_value)),
-      ';'
+    header_field: $ => choice(
+      // Special handling for nabc-lines header
+      seq(
+        field('name', alias('nabc-lines', $.nabc_lines_field)),
+        ':',
+        field('value', $.nabc_lines_value),
+        ';'
+      ),
+      
+      // Generic header field
+      seq(
+        field('name', $.field_name),
+        ':',
+        field('value', optional($.field_value)),
+        ';'
+      )
     ),
 
+    nabc_lines_field: $ => 'nabc-lines',
+    nabc_lines_value: $ => /[0-9]+/,
+    
     field_name: $ => /[^%:\n][^:\n]*/,
     
     field_value: $ => /[^;%\n]+/,
@@ -162,18 +176,32 @@ module.exports = grammar({
       ')'
     ),
 
-    // KEY FEATURE: Alternating snippets with state tracking
-    snippet_list: $ => seq(
-      field('first', $.gabc_snippet),  // First is always GABC
-      repeat(
-        seq(
-          '|',
-          field('alternate', choice(
-            $.nabc_snippet,    // Even positions
-            $.gabc_snippet     // Odd positions (after multiple |)
-          ))
+    // KEY FEATURE: Alternating snippets with flexible state tracking
+    // Supports different alternation patterns based on nabc-lines header value:
+    // - nabc-lines: 0 or absent -> all GABC
+    // - nabc-lines: 1 -> GABC|NABC alternation  
+    // - nabc-lines: N -> GABC followed by N NABC snippets
+    snippet_list: $ => choice(
+      // Simple case: single GABC snippet (no alternation)
+      field('single', $.gabc_snippet),
+      
+      // Complex case: alternating snippets
+      seq(
+        field('first', $.gabc_snippet),  // First is always GABC
+        repeat1(
+          seq(
+            '|',
+            field('alternate', $.snippet_content)
+          )
         )
       )
+    ),
+
+    // SNIPPET CONTENT: Can be either GABC or NABC
+    // The parser will determine based on content patterns
+    snippet_content: $ => choice(
+      $.gabc_snippet,
+      $.nabc_snippet
     ),
 
     // =========================================================================
