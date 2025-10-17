@@ -1,0 +1,249 @@
+==================
+NABC Subpunctis Descriptor - Basic
+==================
+
+name: Test;
+%%
+(f|su1)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_subprepunctis_descriptor)))))))
+
+==================
+NABC Prepunctis Descriptor - Basic
+==================
+
+name: Test;
+%%
+(g|pp2)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_subprepunctis_descriptor)))))))
+
+==================
+NABC Subpunctis Descriptor - With Modifier
+==================
+
+name: Test;
+%%
+(a|suS3)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_subprepunctis_descriptor)))))))
+
+==================
+NABC Prepunctis Descriptor - With Modifier
+==================
+
+name: Test;
+%%
+(b|ppG1)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_subprepunctis_descriptor)))))))
+
+==================
+NABC Significant Letter - St. Gall Basic
+==================
+
+name: Test;
+%%
+(c|lsa1)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_significant_letter)))))))
+
+==================
+NABC Significant Letter - St. Gall Complex
+==================
+
+name: Test;
+%%
+(d|lsaug3)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_significant_letter)))))))
+
+==================
+NABC Significant Letter - Laon Basic
+==================
+
+name: Test;
+%%
+(e|lsep2)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_significant_letter)))))))
+
+==================
+NABC Significant Letter - Laon Complex
+==================
+
+name: Test;
+%%
+(f|lsqual1)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_significant_letter)))))))
+
+==================
+NABC Tironian Letter - Basic
+==================
+
+name: Test;
+%%
+(g|ltet1)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_tironian_letter)))))))
+
+==================
+NABC Tironian Letter - Complex
+==================
+
+name: Test;
+%%
+(a|ltcon3)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_tironian_letter)))))))

@@ -202,6 +202,9 @@ module.exports = grammar({
       choice(
         $.nabc_complex_glyph_descriptor,
         $.nabc_basic_glyph_descriptor,
+        $.nabc_subprepunctis_descriptor,
+        $.nabc_significant_letter,
+        $.nabc_tironian_letter,
         $.nabc_modifier
       )
     ),
@@ -301,6 +304,58 @@ module.exports = grammar({
     )),
     
     nabc_modifier: $ => /[0-9`'!.\/]+/,  // Other modifiers that can follow neumes
+
+    // =========================================================================
+    // NABC ANNOTATION DESCRIPTORS: Advanced paleographic annotations
+    // =========================================================================
+    
+    // SUBPUNCTIS/PREPUNCTIS DESCRIPTOR
+    // Indicates dots positioned relative to neumes in manuscript sources
+    // Format: (su|pp) + optional(modifier) + number
+    // Examples: su1, su21, pp1, pp31, suS2, ppG3
+    nabc_subprepunctis_descriptor: $ => token(seq(
+      choice('su', 'pp'),
+      optional(seq(
+        choice('S', 'G', 'M', '-', '>', '~'),
+        optional(/[1-9]/)
+      )),
+      /[1-9]/
+    )),
+    
+    // SIGNIFICANT LETTERS: St. Gall and Laon paleographic annotations
+    // St. Gall tradition (48 shorthands) + Laon tradition (25 shorthands)
+    // Format: 'ls' + shorthand + number
+    // Examples: lsa1, lscl3, lsaug2, lsben5, etc.
+    nabc_significant_letter: $ => token(seq(
+      'ls',
+      choice(
+        // St. Gall tradition shorthands (48 total)
+        'a', 'al', 'alt', 'aug', 'b', 'ben', 'c', 'cel', 'cl', 'cu', 'e', 'eq',
+        'f', 'fr', 'g', 'i', 'inf', 'j', 'l', 'le', 'len', 'lev', 'm', 'med',
+        'mo', 'n', 'p', 'pr', 'r', 's', 'sc', 'sta', 'sup', 't', 'tar', 'te',
+        'ten', 'ter', 'tol', 'u', 'v', 'vel', 'ver', 'vir', 'vol', 'x', 'y', 'z',
+        
+        // Laon tradition shorthands (25 total)  
+        'ep', 'grav', 'ius', 'lig', 'org', 'qual', 'quil', 'ros', 'rot', 'sal',
+        'sim', 'str', 'sub', 'sur', 'tra', 'trem', 'tri', 'vib', 'voc', 'ace',
+        'amp', 'arg', 'bre', 'cur', 'pen'
+      ),
+      /[1-9]/
+    )),
+    
+    // TIRONIAN LETTERS: Laon tradition specialized annotations  
+    // Medieval shorthand system used in Laon manuscripts
+    // Format: 'lt' + shorthand + number
+    // Examples: ltet1, ltcon2, ltper3, etc.
+    nabc_tironian_letter: $ => token(seq(
+      'lt',
+      choice(
+        // Laon Tironian shorthands (15 total)
+        'et', 'con', 'per', 'pro', 'que', 'est', 'aut', 'sed', 'non', 'cum',
+        'uel', 'dum', 'sur', 'ter', 'uer'
+      ),
+      /[1-9]/
+    )),
 
     // =========================================================================
     // GABC ELEMENTS
