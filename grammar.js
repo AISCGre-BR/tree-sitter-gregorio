@@ -395,10 +395,10 @@ module.exports = grammar({
     accidental: $ => seq(
       /[a-np]/,  // Pitch position
       choice(
+        '##',   // Double sharp (must be first)
         'x',    // Flat
         '#',    // Sharp
         'y',    // Natural
-        '##',   // Double sharp
         'Y'     // Soft natural
       ),
       optional('?')  // Cautionary
@@ -412,15 +412,15 @@ module.exports = grammar({
       'vv',   // bivirga
       'ss',   // distropha
       
-      // Simple modifiers
-      /[qwWvVs~<>=rR.]/,
-      
-      // Special modifiers with numbers
+      // Special modifiers with numbers (before simple)
       /r[0-8]/,
       
       // Episema and ictus with optional suffixes
       /_[0-5]?/,
-      /'[01]?/
+      /'[01]?/,
+      
+      // Simple modifiers (expanded to include all VimScript modifiers)
+      /[qwWvVs~<>=rR.]/
     ),
 
     // BARS (Divisio marks)

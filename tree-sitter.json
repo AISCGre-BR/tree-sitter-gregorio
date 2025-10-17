@@ -1,0 +1,13 @@
+{
+  "grammars": [
+    {
+      "name": "gregorio",
+      "path": ".",
+      "scope": "source.gabc",
+      "file-types": ["gabc"],
+      "highlights": [
+        "queries/highlights.scm"
+      ]
+    }
+  ]
+}
