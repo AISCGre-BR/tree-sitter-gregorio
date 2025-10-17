@@ -1367,6 +1367,302 @@ Com `complex_glyph_descriptor` primeiro, reconhece corretamente como um único d
 
 ---
 
-**Document Version**: 1.3  
-**Last Updated**: October 16, 2025  
+## Phase 6: Error Detection and Validation
+
+**Date**: October 17, 2025  
+**Scope**: Syntax error detection for invalid characters in GABC and NABC contexts  
+**Motivation**: Provide debugging assistance and validation through AST error nodes
+
+### Problem Statement
+
+While the Tree-sitter parser correctly handles valid GABC and NABC elements, invalid characters that don't match any defined grammar rules cause parsing errors or are silently ignored. This creates issues for:
+
+1. **Development Tools**: IDEs and editors can't provide meaningful error feedback
+2. **User Experience**: No clear indication when syntax is incorrect
+3. **Debugging**: Difficult to identify problematic sections in large files
+4. **Validation**: No programmatic way to detect syntax errors
+
+### Implementation Strategy
+
+#### Grammar Rules Addition
+
+**Error Handling Integration**:
+```javascript
+gabc_snippet: $ => repeat1(
+  choice(
+    $.pitch,
+    $.accidental,
+    $.modifier,
+    // ... all valid GABC elements
+    $.gabc_error  // Fallback for invalid characters
+  )
+),
+
+nabc_snippet: $ => repeat1(
+  choice(
+    $.nabc_spaced_glyph_descriptor,
+    $.nabc_complex_glyph_descriptor,
+    // ... all valid NABC elements  
+    $.nabc_error  // Fallback for invalid characters
+  )
+),
+```
+
+**Error Rule Definitions**:
+```javascript
+// GABC Error: Catches invalid characters in GABC snippets
+gabc_error: $ => prec(-2, /[$%&\\]+/),
+
+// NABC Error: Catches invalid characters in NABC snippets  
+nabc_error: $ => prec(-2, /[$%&\\]+/),
+```
+
+#### Conflict Resolution
+
+**Grammar Conflicts Declaration**:
+```javascript
+conflicts: $ => [
+  [$.syllable],      // Original syllable ambiguity
+  [$.lyric_text],    // Original text vs tag ambiguity  
+  [$.gabc_error, $.nabc_error]  // Error handling ambiguity
+],
+```
+
+**Why Conflicts Are Necessary**:
+Tree-sitter's GLR parser can encounter ambiguity when the same character sequence could be interpreted as either a `gabc_error` or `nabc_error`. Declaring this conflict explicitly allows the parser to use lookahead and context to resolve the ambiguity.
+
+### Design Decisions
+
+#### Precedence Strategy
+
+**Low Precedence for Errors** (`prec(-2)`):
+- Ensures valid grammar rules are always preferred over error rules
+- Error rules only match when no valid pattern applies
+- Maintains parsing performance by checking errors last
+
+#### Character Set Selection
+
+**Conservative Approach** (`[$%&\\]+`):
+- Targets only characters that are definitively invalid in GABC/NABC
+- Avoids false positives on valid but uncommonly used characters
+- Allows future expansion without breaking existing functionality
+
+**Why Not Broader Patterns**:
+- Patterns like `/[^\s|)]+/` caught too many valid elements
+- Negative character classes are harder to maintain and debug
+- Specific character sets provide clearer error semantics
+
+#### AST Integration
+
+**Error Nodes in AST**:
+```
+(gabc_snippet
+  (pitch)
+  (gabc_error)  // Invalid characters as explicit AST node
+  (pitch))
+```
+
+**Benefits**:
+- Error locations precisely tracked in AST
+- Tools can query for error nodes specifically
+- Error recovery allows parsing to continue
+- Clear separation between valid and invalid elements
+
+### Testing Framework
+
+#### Test Corpus Structure
+
+**Basic Error Detection**:
+```
+==================
+GABC Error Detection
+==================
+
+name: Test;
+%%
+(f$invalid&chars%)
+
+---
+
+(source_file
+  (headers ...)
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch)
+            (gabc_error)))))))
+```
+
+#### Test Coverage Areas
+
+**GABC Error Cases**:
+1. Single invalid character in GABC context
+2. Multiple consecutive invalid characters
+3. Mixed valid/invalid sequences
+4. Error characters in different positions
+
+**NABC Error Cases**:
+1. Invalid characters between valid neume codes
+2. Invalid characters in complex glyph descriptors  
+3. Multiple error sequences in single snippet
+4. Mixed alternation with errors
+
+**Validation Cases**:
+1. Valid GABC should parse without errors
+2. Valid NABC should parse without errors
+3. Error nodes should not appear in valid syntax
+
+### Performance Characteristics
+
+#### Parsing Performance
+
+**Benchmark Results**:
+- Error detection adds minimal parsing overhead
+- Error recovery allows continued parsing despite invalid syntax
+- No significant memory increase from error tracking
+
+**Why Performance Remains Good**:
+1. **Precedence Optimization**: Valid patterns checked before error patterns
+2. **Specific Patterns**: Simple character class matching is fast
+3. **Error Recovery**: Parser doesn't backtrack on errors
+
+#### Memory Usage
+
+**AST Node Overhead**:
+- Error nodes are lightweight (just character positions)
+- No additional metadata stored beyond standard AST structure
+- Memory usage scales linearly with number of actual errors
+
+### Integration with Vim Syntax
+
+#### Parallel Implementation
+
+**Shared Character Set**:
+Both Tree-sitter and VimScript implementations target identical invalid characters (`$%&\`) ensuring:
+- Consistent error detection across platforms
+- Same test files work for both implementations
+- Unified user experience regardless of editor
+
+**Implementation Differences**:
+
+| Aspect | Tree-sitter | VimScript |
+|--------|-------------|-----------|
+| **Detection Method** | Grammar rules with precedence | Regex patterns with containment |
+| **Error Representation** | AST nodes (`gabc_error`, `nabc_error`) | Syntax highlighting (Error group) |
+| **Context Handling** | Grammar-enforced snippet context | `containedin=` directive |
+| **Recovery** | Automatic continuation | Visual highlighting only |
+| **Tool Integration** | Full AST access for analysis | Visual feedback only |
+
+### Practical Applications
+
+#### Editor Integration
+
+**Language Server Protocol (LSP)**:
+```javascript
+// Query error nodes from AST
+const errorNodes = tree.rootNode.descendantsOfType(['gabc_error', 'nabc_error']);
+const diagnostics = errorNodes.map(node => ({
+  range: nodeToRange(node),
+  message: `Invalid character in ${node.type.replace('_error', '')} context`,
+  severity: DiagnosticSeverity.Error
+}));
+```
+
+**Syntax Checking**:
+```javascript
+function validateGABC(source) {
+  const tree = parser.parse(source);
+  const errors = tree.rootNode.descendantsOfType(['gabc_error', 'nabc_error']);
+  return {
+    isValid: errors.length === 0,
+    errors: errors.map(formatError)
+  };
+}
+```
+
+#### Development Workflow
+
+**Automated Validation**:
+- CI/CD pipelines can check for syntax errors
+- Build tools can validate GABC files before processing
+- Documentation generation can flag problematic examples
+
+### Future Enhancements
+
+#### Extended Error Types
+
+**Potential Error Categories**:
+1. **Invalid Character Sequences**: Current implementation  
+2. **Structural Errors**: Missing delimiters, unmatched parentheses
+3. **Semantic Errors**: Invalid pitch sequences, incorrect neume combinations
+4. **Context Errors**: GABC elements in NABC context and vice versa
+
+#### Enhanced Diagnostics
+
+**Error Message Enrichment**:
+```javascript
+gabc_error: $ => prec(-2, choice(
+  alias(/[$]+/, $.currency_error),     // "Currency symbol not allowed"
+  alias(/[%]+/, $.percent_error),      // "Percent symbol reserved for comments"
+  alias(/[&]+/, $.ampersand_error),    // "Ampersand not valid in notation"
+  alias(/[\\]+/, $.backslash_error)    // "Backslash syntax not supported"
+)),
+```
+
+#### Tool Integration
+
+**Advanced Editor Features**:
+- Quick fixes for common error patterns
+- Auto-completion that avoids invalid characters
+- Real-time validation with error squiggles
+- Error reporting with suggested corrections
+
+### Cross-Platform Consistency
+
+#### Shared Test Suite
+
+**Common Test Files**:
+- `test_error_detection.gabc`: Shared between both projects
+- Identical error scenarios tested in both implementations
+- Consistent expected behaviors documented
+
+#### Synchronized Updates
+
+**Maintenance Strategy**:
+- Error character sets updated simultaneously
+- Test cases shared and validated across platforms
+- Documentation maintained in parallel
+
+### Technical Notes
+
+#### Parser Generator Details
+
+**Tree-sitter Specific Considerations**:
+1. **GLR Parsing**: Conflicts must be explicitly declared
+2. **Precedence Rules**: Negative precedence ensures fallback behavior
+3. **Error Recovery**: Parsing continues despite errors
+4. **AST Completeness**: All input represented in AST including errors
+
+#### Grammar Evolution
+
+**Future-Proofing**:
+- Error rules designed to be easily extended
+- Character sets can be expanded without breaking changes  
+- Framework supports more sophisticated error detection
+- Integration points prepared for advanced validation
+
+### Files Modified
+
+- `grammar.js`: Added `gabc_error` and `nabc_error` rules with conflict resolution
+- `test/corpus/error_detection.txt`: Comprehensive test corpus for error scenarios
+- `test_error_detection.gabc`: Shared test file with intentional syntax errors
+- `tree-sitter.json`: Updated metadata for configuration compliance
+
+---
+
+**Document Version**: 1.4  
+**Last Updated**: October 17, 2025  
 **Maintained by**: AISCGre-BR/tree-sitter-gregorio

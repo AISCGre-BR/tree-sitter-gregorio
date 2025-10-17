@@ -1,0 +1,11 @@
+name: Error Test File;
+book: Testing invalid syntax detection;
+%%
+(fg) Valid GABC notation here
+(f@invalid&chars%) Invalid characters in GABC  
+(fg|vi!pu) Valid alternation
+(fg|invalid$chars#here) Invalid characters in NABC
+(fg|vi!pu|another%) Mixed valid/invalid
+Normal text without notation should be fine.
+(a-zA-Z0-9) Mixed valid and invalid in GABC
+(fg|123xyz) Invalid NABC sequence

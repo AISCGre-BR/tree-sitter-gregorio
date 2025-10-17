@@ -1,0 +1,148 @@
+==================
+GABC Error Detection
+==================
+
+name: Test;
+%%
+(f$invalid&chars%)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch)
+            (gabc_error)))))))
+
+==================
+NABC Error Detection
+==================
+
+name: Test;
+%%
+(fg|vi$invalid&chars%pu)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch)
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume))
+            (nabc_error)
+            (nabc_basic_glyph_descriptor
+              (nabc_neume))))))))
+
+==================
+Multiple Error Characters
+==================
+
+name: Test;
+%%
+(abc$%&\\def)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch)
+            (pitch)
+            (pitch)
+            (gabc_error)
+            (pitch)
+            (pitch)
+            (pitch)))))))
+
+==================
+NABC with Multiple Errors
+==================
+
+name: Test;
+%%
+(fg|vi$pu&ta%gr)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch)
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume))
+            (nabc_error)
+            (nabc_basic_glyph_descriptor
+              (nabc_neume))
+            (nabc_error)
+            (nabc_basic_glyph_descriptor
+              (nabc_neume))
+            (nabc_error)
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)))))))
+
+==================
+Valid GABC Should Pass
+==================
+
+name: Test;
+%%
+(abcdefgh)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch)
+            (pitch)
+            (pitch)
+            (pitch)
+            (pitch)
+            (pitch)
+            (pitch)
+            (pitch)))))))

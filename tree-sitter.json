@@ -9,5 +9,9 @@
         "queries/highlights.scm"
       ]
     }
-  ]
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "description": "Tree-sitter grammar for GABC/NABC notation"
+  }
 }

@@ -25,7 +25,8 @@ module.exports = grammar({
 
   conflicts: $ => [
     [$.syllable],
-    [$.lyric_text]
+    [$.lyric_text],
+    [$.gabc_error, $.nabc_error]  // Error handling ambiguity
   ],
 
   rules: {
@@ -190,7 +191,8 @@ module.exports = grammar({
         $.fusion,
         $.spacing,
         $.attribute,
-        $.macro
+        $.macro,
+        $.gabc_error  // Fallback for invalid characters
       )
     ),
 
@@ -206,7 +208,8 @@ module.exports = grammar({
         $.nabc_subprepunctis_descriptor,
         $.nabc_significant_letter,
         $.nabc_tironian_letter,
-        $.nabc_modifier
+        $.nabc_modifier,
+        $.nabc_error  // Fallback for invalid characters
       )
     ),
 
@@ -501,5 +504,17 @@ module.exports = grammar({
       '%',
       /.*/
     )),
+
+    // =========================================================================
+    // ERROR HANDLING
+    // =========================================================================
+    
+    // GABC Error: Catches invalid characters in GABC snippets
+    // Specifically targets characters that are never valid in GABC context
+    gabc_error: $ => prec(-2, /[$%&\\]+/),
+
+    // NABC Error: Catches invalid characters in NABC snippets  
+    // Specifically targets characters that are never valid in NABC context
+    nabc_error: $ => prec(-2, /[$%&\\]+/),
   }
 });
