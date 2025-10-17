@@ -11,8 +11,8 @@ name: Test;
 (source_file
   (headers
     (header_field
-      (field_name)
-      (field_value)))
+      name: (field_name)
+      value: (field_value)))
   (section_separator)
   (score
     (syllable
@@ -20,8 +20,9 @@ name: Test;
         (snippet_list
           first: (gabc_snippet
             (pitch))
-          (nabc_snippet
-            (nabc_neume)))))))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume))))))))
 
 ==================
 NABC neumes with modifiers
@@ -36,8 +37,8 @@ name: Test;
 (source_file
   (headers
     (header_field
-      (field_name)
-      (field_value)))
+      name: (field_name)
+      value: (field_value)))
   (section_separator)
   (score
     (syllable
@@ -45,16 +46,20 @@ name: Test;
         (snippet_list
           first: (gabc_snippet
             (pitch))
-          (nabc_snippet
-            (nabc_neume)
-            (nabc_modifier)
-            (nabc_neume))
-          (gabc_snippet
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier))
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)))
+          alternate: (gabc_snippet
             (pitch))
-          (nabc_snippet
-            (nabc_neume)
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume))
             (nabc_modifier)
-            (nabc_neume)))))))
+            (nabc_basic_glyph_descriptor
+              (nabc_neume))))))))
 
 ==================
 Laon-specific neumes
@@ -69,8 +74,8 @@ name: Test;
 (source_file
   (headers
     (header_field
-      (field_name)
-      (field_value)))
+      name: (field_name)
+      value: (field_value)))
   (section_separator)
   (score
     (syllable
@@ -78,9 +83,11 @@ name: Test;
         (snippet_list
           first: (gabc_snippet
             (pitch))
-          (nabc_snippet
-            (nabc_neume))
-          (gabc_snippet
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)))
+          alternate: (gabc_snippet
             (pitch))
-          (nabc_snippet
-            (nabc_neume)))))))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume))))))))

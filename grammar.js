@@ -200,6 +200,7 @@ module.exports = grammar({
     
     nabc_snippet: $ => repeat1(
       choice(
+        $.nabc_spaced_glyph_descriptor,
         $.nabc_complex_glyph_descriptor,
         $.nabc_basic_glyph_descriptor,
         $.nabc_subprepunctis_descriptor,
@@ -240,6 +241,18 @@ module.exports = grammar({
         $.nabc_basic_glyph_descriptor
       ))
     ),
+
+    // SPACED GLYPH DESCRIPTOR: horizontal spacing + glyph descriptor
+    // Combines horizontal spacing adjustment with basic or complex glyph descriptors
+    // Examples: //vi, /pu, ``vi!pu, `ta
+    // Uses higher precedence to prefer NABC interpretation over GABC
+    nabc_spaced_glyph_descriptor: $ => prec(3, seq(
+      $.nabc_horizontal_spacing,
+      choice(
+        $.nabc_complex_glyph_descriptor,
+        $.nabc_basic_glyph_descriptor
+      )
+    )),
 
     // NABC Neume Codes (2-letter identifiers)
     // Unified list from St. Gall and Laon codifications
@@ -356,6 +369,13 @@ module.exports = grammar({
       ),
       /[1-9]/
     )),
+
+    // HORIZONTAL SPACING ADJUSTMENT DESCRIPTOR
+    // Controls positioning before neume groups in NABC notation
+    // Format: sequences of / and ` characters that precede neume codes
+    // Examples: //, /, ``, `, /////, `````
+    // Uses higher precedence to avoid conflicts with GABC spacing
+    nabc_horizontal_spacing: $ => token(prec(10, /[\/`]+/)),
 
     // =========================================================================
     // GABC ELEMENTS

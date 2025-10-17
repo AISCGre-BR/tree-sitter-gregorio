@@ -247,3 +247,59 @@ name: Test;
             (pitch))
           alternate: (nabc_snippet
             (nabc_tironian_letter)))))))
+
+==================
+NABC Horizontal Spacing - Basic Right
+==================
+
+name: Test;
+%%
+(f|//vi)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_spaced_glyph_descriptor
+              (nabc_horizontal_spacing)
+              (nabc_basic_glyph_descriptor
+                (nabc_neume)))))))))
+
+==================
+NABC Horizontal Spacing - Basic Left
+==================
+
+name: Test;
+%%
+(g|``pu)
+
+---
+
+(source_file
+  (headers
+    (header_field
+      name: (field_name)
+      value: (field_value)))
+  (section_separator)
+  (score
+    (syllable
+      (notation
+        (snippet_list
+          first: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_spaced_glyph_descriptor
+              (nabc_horizontal_spacing)
+              (nabc_basic_glyph_descriptor
+                (nabc_neume)))))))))

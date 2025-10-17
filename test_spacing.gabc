@@ -1,0 +1,17 @@
+name: Test Horizontal Spacing;
+%%
+
+% Test basic horizontal spacing  
+Test (f|//vi) word (g|/pu) test.
+
+% Test left spacing
+Another (a|``ta) test (b|`gr) line.
+
+% Test multiple spacing
+Multiple (c|/////pe) and (d|`````sc) spacing.
+
+% Test with complex glyphs
+Complex (e|//vi!pu) and (f|``ta!gr) glyphs.
+
+% Test mixed with other NABC elements
+Mixed (g|//su1) and (h|``lsa2) elements.

@@ -11,8 +11,8 @@ name: Test;
 (source_file
   (headers
     (header_field
-      (field_name)
-      (field_value)))
+      name: (field_name)
+      value: (field_value)))
   (section_separator)
   (score
     (syllable
@@ -20,16 +20,21 @@ name: Test;
         (snippet_list
           first: (gabc_snippet
             (pitch))
-          (nabc_snippet
-            (nabc_neume))
           alternate: (gabc_snippet
             (pitch)
             (pitch)
             (pitch)
             (pitch))
-          (nabc_snippet
-            (nabc_neume)
-            (nabc_modifier))
+          alternate: (gabc_snippet
+            (pitch)
+            (pitch)
+            (pitch)
+            (pitch))
+          alternate: (gabc_snippet
+            (pitch)
+            (pitch)
+            (pitch)
+            (pitch))
           alternate: (gabc_snippet
             (pitch)))))))
 
@@ -46,8 +51,8 @@ Te(e|````vi-lse4|fgFE|pehhsu2)xt
 (source_file
   (headers
     (header_field
-      (field_name)
-      (field_value)))
+      name: (field_name)
+      value: (field_value)))
   (section_separator)
   (score
     (syllable
@@ -57,13 +62,24 @@ Te(e|````vi-lse4|fgFE|pehhsu2)xt
         (snippet_list
           first: (gabc_snippet
             (pitch))
-          (nabc_snippet)
+          alternate: (nabc_snippet
+            (nabc_spaced_glyph_descriptor
+              (nabc_horizontal_spacing)
+              (nabc_basic_glyph_descriptor
+                (nabc_neume)
+                (nabc_glyph_modifier)))
+            (nabc_significant_letter))
           alternate: (gabc_snippet
             (pitch)
             (pitch)
             (pitch)
             (pitch))
-          (nabc_snippet)))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_pitch_descriptor))
+            (nabc_subprepunctis_descriptor)))))
+    (syllable
       (lyric_text
         (text_content)))))
 

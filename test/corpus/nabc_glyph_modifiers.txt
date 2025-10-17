@@ -21,8 +21,9 @@ name: Test;
           first: (gabc_snippet
             (pitch))
           alternate: (nabc_snippet
-            (nabc_neume)
-            (nabc_glyph_modifier)))))))
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier))))))))
 
 ==================
 NABC glyph modifiers - all types
@@ -44,18 +45,42 @@ name: Test;
     (syllable
       (notation
         (snippet_list
-          first: (gabc_snippet (pitch))
-          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
-          alternate: (gabc_snippet (pitch))
-          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
-          alternate: (gabc_snippet (pitch))
-          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
-          alternate: (gabc_snippet (pitch))
-          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
-          alternate: (gabc_snippet (pitch))
-          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
-          alternate: (gabc_snippet (pitch))
-          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier)))))))
+          first: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier)))
+          alternate: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier)))
+          alternate: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier)))
+          alternate: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier)))
+          alternate: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier)))
+          alternate: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier))))))))
 
 ==================
 NABC glyph modifiers - with numeric suffixes
@@ -77,18 +102,42 @@ name: Test;
     (syllable
       (notation
         (snippet_list
-          first: (gabc_snippet (pitch))
-          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
-          alternate: (gabc_snippet (pitch))
-          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
-          alternate: (gabc_snippet (pitch))
-          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
-          alternate: (gabc_snippet (pitch))
-          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
-          alternate: (gabc_snippet (pitch))
-          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
-          alternate: (gabc_snippet (pitch))
-          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier)))))))
+          first: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier)))
+          alternate: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier)))
+          alternate: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier)))
+          alternate: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier)))
+          alternate: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier)))
+          alternate: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier))))))))
 
 ==================
 NABC glyph modifiers - maximum suffix
@@ -110,12 +159,24 @@ name: Test;
     (syllable
       (notation
         (snippet_list
-          first: (gabc_snippet (pitch))
-          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
-          alternate: (gabc_snippet (pitch))
-          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
-          alternate: (gabc_snippet (pitch))
-          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier)))))))
+          first: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier)))
+          alternate: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier)))
+          alternate: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier))))))))
 
 ==================
 NABC glyph modifiers - St. Gall neumes
@@ -137,12 +198,24 @@ name: Test;
     (syllable
       (notation
         (snippet_list
-          first: (gabc_snippet (pitch))
-          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
-          alternate: (gabc_snippet (pitch))
-          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
-          alternate: (gabc_snippet (pitch))
-          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier)))))))
+          first: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier)))
+          alternate: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier)))
+          alternate: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier))))))))
 
 ==================
 NABC glyph modifiers - Laon neumes
@@ -164,12 +237,24 @@ name: Test;
     (syllable
       (notation
         (snippet_list
-          first: (gabc_snippet (pitch))
-          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
-          alternate: (gabc_snippet (pitch))
-          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
-          alternate: (gabc_snippet (pitch))
-          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier)))))))
+          first: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier)))
+          alternate: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier)))
+          alternate: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier))))))))
 
 ==================
 NABC glyph modifiers - compound neumes
@@ -191,9 +276,21 @@ name: Test;
     (syllable
       (notation
         (snippet_list
-          first: (gabc_snippet (pitch))
-          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
-          alternate: (gabc_snippet (pitch))
-          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier))
-          alternate: (gabc_snippet (pitch))
-          alternate: (nabc_snippet (nabc_neume) (nabc_glyph_modifier)))))))
+          first: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier)))
+          alternate: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier)))
+          alternate: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier))))))))

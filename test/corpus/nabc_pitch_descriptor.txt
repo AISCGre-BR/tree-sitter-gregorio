@@ -21,8 +21,9 @@ name: Test;
           first: (gabc_snippet
             (pitch))
           alternate: (nabc_snippet
-            (nabc_neume)
-            (nabc_pitch_descriptor)))))))
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_pitch_descriptor))))))))
 
 ==================
 NABC pitch descriptor - after modifier
@@ -44,16 +45,20 @@ name: Test;
     (syllable
       (notation
         (snippet_list
-          first: (gabc_snippet (pitch))
+          first: (gabc_snippet
+            (pitch))
           alternate: (nabc_snippet
-            (nabc_neume)
-            (nabc_glyph_modifier)
-            (nabc_pitch_descriptor))
-          alternate: (gabc_snippet (pitch))
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier)
+              (nabc_pitch_descriptor)))
+          alternate: (gabc_snippet
+            (pitch))
           alternate: (nabc_snippet
-            (nabc_neume)
-            (nabc_glyph_modifier)
-            (nabc_pitch_descriptor)))))))
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier)
+              (nabc_pitch_descriptor))))))))
 
 ==================
 NABC pitch descriptor - all pitches
@@ -75,18 +80,42 @@ name: Test;
     (syllable
       (notation
         (snippet_list
-          first: (gabc_snippet (pitch))
-          alternate: (nabc_snippet (nabc_neume) (nabc_pitch_descriptor))
-          alternate: (gabc_snippet (pitch))
-          alternate: (nabc_snippet (nabc_neume) (nabc_pitch_descriptor))
-          alternate: (gabc_snippet (pitch))
-          alternate: (nabc_snippet (nabc_neume) (nabc_pitch_descriptor))
-          alternate: (gabc_snippet (pitch))
-          alternate: (nabc_snippet (nabc_neume) (nabc_pitch_descriptor))
-          alternate: (gabc_snippet (pitch))
-          alternate: (nabc_snippet (nabc_neume) (nabc_pitch_descriptor))
-          alternate: (gabc_snippet (pitch))
-          alternate: (nabc_snippet (nabc_neume) (nabc_pitch_descriptor)))))))
+          first: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_pitch_descriptor)))
+          alternate: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_pitch_descriptor)))
+          alternate: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_pitch_descriptor)))
+          alternate: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_pitch_descriptor)))
+          alternate: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_pitch_descriptor)))
+          alternate: (gabc_snippet
+            (pitch))
+          alternate: (nabc_snippet
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_pitch_descriptor))))))))
 
 ==================
 NABC pitch descriptor - compound neumes
@@ -108,21 +137,27 @@ name: Test;
     (syllable
       (notation
         (snippet_list
-          first: (gabc_snippet (pitch))
+          first: (gabc_snippet
+            (pitch))
           alternate: (nabc_snippet
-            (nabc_neume)
-            (nabc_glyph_modifier)
-            (nabc_pitch_descriptor))
-          alternate: (gabc_snippet (pitch))
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier)
+              (nabc_pitch_descriptor)))
+          alternate: (gabc_snippet
+            (pitch))
           alternate: (nabc_snippet
-            (nabc_neume)
-            (nabc_glyph_modifier)
-            (nabc_pitch_descriptor))
-          alternate: (gabc_snippet (pitch))
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier)
+              (nabc_pitch_descriptor)))
+          alternate: (gabc_snippet
+            (pitch))
           alternate: (nabc_snippet
-            (nabc_neume)
-            (nabc_glyph_modifier)
-            (nabc_pitch_descriptor)))))))
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier)
+              (nabc_pitch_descriptor))))))))
 
 ==================
 NABC pitch descriptor - St. Gall neumes
@@ -144,15 +179,19 @@ name: Test;
     (syllable
       (notation
         (snippet_list
-          first: (gabc_snippet (pitch))
+          first: (gabc_snippet
+            (pitch))
           alternate: (nabc_snippet
-            (nabc_neume)
-            (nabc_glyph_modifier)
-            (nabc_pitch_descriptor))
-          alternate: (gabc_snippet (pitch))
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier)
+              (nabc_pitch_descriptor)))
+          alternate: (gabc_snippet
+            (pitch))
           alternate: (nabc_snippet
-            (nabc_neume)
-            (nabc_pitch_descriptor)))))))
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_pitch_descriptor))))))))
 
 ==================
 NABC pitch descriptor - Laon neumes
@@ -174,14 +213,18 @@ name: Test;
     (syllable
       (notation
         (snippet_list
-          first: (gabc_snippet (pitch))
+          first: (gabc_snippet
+            (pitch))
           alternate: (nabc_snippet
-            (nabc_neume)
-            (nabc_pitch_descriptor))
-          alternate: (gabc_snippet (pitch))
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_pitch_descriptor)))
+          alternate: (gabc_snippet
+            (pitch))
           alternate: (nabc_snippet
-            (nabc_neume)
-            (nabc_pitch_descriptor)))))))
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_pitch_descriptor))))))))
 
 ==================
 NABC pitch descriptor - complex combinations
@@ -203,18 +246,24 @@ name: Test;
     (syllable
       (notation
         (snippet_list
-          first: (gabc_snippet (pitch))
+          first: (gabc_snippet
+            (pitch))
           alternate: (nabc_snippet
-            (nabc_neume)
-            (nabc_glyph_modifier)
-            (nabc_pitch_descriptor))
-          alternate: (gabc_snippet (pitch))
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier)
+              (nabc_pitch_descriptor)))
+          alternate: (gabc_snippet
+            (pitch))
           alternate: (nabc_snippet
-            (nabc_neume)
-            (nabc_glyph_modifier)
-            (nabc_pitch_descriptor))
-          alternate: (gabc_snippet (pitch))
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier)
+              (nabc_pitch_descriptor)))
+          alternate: (gabc_snippet
+            (pitch))
           alternate: (nabc_snippet
-            (nabc_neume)
-            (nabc_glyph_modifier)
-            (nabc_pitch_descriptor)))))))
+            (nabc_basic_glyph_descriptor
+              (nabc_neume)
+              (nabc_glyph_modifier)
+              (nabc_pitch_descriptor))))))))

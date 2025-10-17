@@ -11,8 +11,8 @@ name: Test;
 (source_file
   (headers
     (header_field
-      (field_name)
-      (field_value)))
+      name: (field_name)
+      value: (field_value)))
   (section_separator)
   (score
     (syllable
@@ -48,8 +48,8 @@ name: Test;
 (source_file
   (headers
     (header_field
-      (field_name)
-      (field_value)))
+      name: (field_name)
+      value: (field_value)))
   (section_separator)
   (score
     (syllable
@@ -76,8 +76,8 @@ name: Test;
 (source_file
   (headers
     (header_field
-      (field_name)
-      (field_value)))
+      name: (field_name)
+      value: (field_value)))
   (section_separator)
   (score
     (syllable
@@ -103,8 +103,8 @@ name: Test;
 (source_file
   (headers
     (header_field
-      (field_name)
-      (field_value)))
+      name: (field_name)
+      value: (field_value)))
   (section_separator)
   (score
     (syllable
