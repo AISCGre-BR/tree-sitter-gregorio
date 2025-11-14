@@ -1,0 +1,6 @@
+name: Pipe without nabc;
+mode: 1;
+
+%%
+
+(f|vi) Test(g) (;)
