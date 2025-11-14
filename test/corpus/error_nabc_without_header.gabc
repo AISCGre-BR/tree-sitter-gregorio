@@ -1,0 +1,7 @@
+name: Test;
+mode: 1;
+
+%%
+
+(f|vi) NABC without nabc-lines header(g) (;)
+

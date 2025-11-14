@@ -1,0 +1,7 @@
+name: Elision test;
+mode: 1;
+
+%%
+
+(f) Test<e>elision</e>(g) (h) More(i) text(j) (;)
+

@@ -1,0 +1,8 @@
+name: Test;
+mode: 1;
+nabc-lines: 1;
+
+%%
+
+(f|invalid) Invalid NABC glyph(g|vi) (;)
+

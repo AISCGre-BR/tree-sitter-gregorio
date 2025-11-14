@@ -1,0 +1,15 @@
+node_modules/
+build/
+*.log
+*.o
+*.so
+*.dylib
+*.dll
+*.a
+.DS_Store
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+

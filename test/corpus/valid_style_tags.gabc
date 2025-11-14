@@ -1,0 +1,12 @@
+name: Style tags;
+mode: 1;
+
+%%
+
+(f) <b>Bold</b>(g) (,) 
+(h) <i>Italic</i>(i) (,) 
+(j) <c>Colored</c>(k) (,) 
+(l) <sc>Small</sc>(m) (,) 
+(n) <tt>Typewriter</tt>(o) (,) 
+(p) <ul>Underlined</ul>(q) (;)
+

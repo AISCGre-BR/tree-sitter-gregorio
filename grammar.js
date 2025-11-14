@@ -1,0 +1,470 @@
+module.exports = grammar({
+  name: 'gregorio',
+
+  extras: $ => [
+    /\s/,
+    $.comment
+  ],
+
+  conflicts: $ => [
+    [$.note_sequence, $.note],
+    [$.gabc_snippet, $.nabc_snippet],
+    // When a syllable contains text followed by a '(', there is an
+    // ambiguity whether that '(' belongs to the current syllable's
+    // `note_group` or starts the next syllable (which may be a
+    // `note_group`-only syllable). Declare this as an allowed conflict
+    // so the parser generator can handle it.
+    [$.syllable, $.note_group],
+    // Allow ambiguity involving `syllable` (when text is followed by '(')
+    // so the generator can resolve the parse during conflict resolution.
+    [$.syllable],
+    // `syllable_text` is a sequence that includes nested `syllable_text`
+    // through style tags (e.g. `<b>...</b>`). This can create
+    // associativity ambiguities for the repetition; declare it as a
+    // conflict so the generator can handle it.
+    [$.syllable_text],
+    // `bar` may be followed by `bar_modifiers` which can include ';'.
+    // This can create ambiguities in some bracketed constructs; allow
+    // the generator to resolve them by declaring a conflict for `bar`.
+    [$.bar],
+    // Repetition within `bar_modifiers` can produce associativity
+    // ambiguities; declare a conflict entry so the generator can
+    // resolve them deterministically.
+    [$.bar_modifiers],
+    // `note_shape` and `cavum` both accept the token 'r' which can
+    // produce an ambiguity (e.g. pitch + 'r' followed by ':' in some
+    // bracketed constructs). Declare a conflict so the generator can
+    // handle this overlap.
+    [$.note_shape, $.cavum],
+    // `complex_glyph_descriptor` can contain optional trailing
+    // `subpunctis_prepunctis_sequence` and `significant_letter_sequence`
+    // which makes its repetition associative; add a conflict so the
+    // generator can accept both interpretations.
+    [$.complex_glyph_descriptor],
+    // Repetition/associativity within `subpunctis_prepunctis_sequence`.
+    [$.subpunctis_prepunctis_sequence],
+    // Repetition/associativity within `significant_letter_sequence`.
+    [$.significant_letter_sequence],
+    // Overlap between `bar` tokens and `horizontal_spacing_adjustment`
+    // (which uses '/' and '``', '`') can create ambiguity when both
+    // appear after a `gabc_snippet` separated by '|'. Declare a
+    // conflict so the generator can resolve it.
+    [$.bar, $.horizontal_spacing_adjustment],
+    // `spacing` and `horizontal_spacing_adjustment` both use '/' and
+    // related tokens; declare a conflict to allow the generator to
+    // disambiguate their usage in sequences.
+    [$.spacing, $.horizontal_spacing_adjustment],
+    // `st_gall_ls_shorthand` and `laon_ls_shorthand` can overlap in
+    // token sequences; declare a conflict so the generator accepts
+    // either interpretation when ambiguity arises.
+    [$.st_gall_ls_shorthand, $.laon_ls_shorthand]
+  ],
+
+  rules: {
+    // Root rule: a GABC file consists of a header section and a notation section
+    source_file: $ => seq(
+      optional($.header_section),
+      optional($.separator),
+      optional($.notation_section)
+    ),
+
+    // Separator between header and notation sections
+    separator: $ => '%%',
+
+    // Header section: contains metadata
+    header_section: $ => repeat1($.header),
+
+    // Header: name: value;
+    header: $ => seq(
+      $.header_name,
+      ':',
+      $.header_value,
+      ';'
+    ),
+
+    header_name: $ => /[a-zA-Z0-9][a-zA-Z0-9-]*/,
+
+    header_value: $ => choice(
+      $.multiline_header_value,
+      $.single_line_header_value
+    ),
+
+    single_line_header_value: $ => /[^;%]*/,
+
+    // Multiline header: omit semicolon, end with ;;
+    multiline_header_value: $ => seq(
+      /[^;%]*/,
+      ';;'
+    ),
+
+    // Notation section: contains the score
+    notation_section: $ => repeat1($.syllable),
+
+    // Syllable: must contain at least syllable text or a note group (or both)
+    // Previously this allowed both parts to be optional, which made the
+    // rule match the empty string. Tree-sitter does not allow that.
+    syllable: $ => choice(
+      // text followed optionally by notes
+      seq($.syllable_text, optional($.note_group)),
+      // notes without text
+      $.note_group
+    ),
+
+    // Syllable text: text outside parentheses
+    syllable_text: $ => repeat1(choice(
+      $.text_content,
+      $.style_tag,
+      $.syllable_control,
+      $.special_tag,
+      $.translation_text,
+      $.lyric_centering,
+      $.escape_sequence
+    )),
+
+    text_content: $ => /[^${}\[\]<>%]+/,
+
+    // Style tags: <b>, <i>, <c>, <sc>, <tt>, <ul>
+    style_tag: $ => choice(
+      seq('<b>', optional($.syllable_text), '</b>'),
+      seq('<c>', optional($.syllable_text), '</c>'),
+      seq('<i>', optional($.syllable_text), '</i>'),
+      seq('<sc>', optional($.syllable_text), '</sc>'),
+      seq('<tt>', optional($.syllable_text), '</tt>'),
+      seq('<ul>', optional($.syllable_text), '</ul>')
+    ),
+
+    // Syllable controls
+    syllable_control: $ => choice(
+      '<clear>',
+      '<clear/>',
+      seq('<e>', optional($.syllable_text), '</e>'),
+      seq('<eu>', optional($.syllable_text), '</eu>'),
+      seq('<nlba>', optional($.syllable_text), '</nlba>'),
+      choice(
+        '<pr>',
+        '<pr/>',
+        seq('<pr:', /[01]/, '>')
+      )
+    ),
+
+    // Special tags
+    special_tag: $ => choice(
+      seq('<alt>', optional($.syllable_text), '</alt>'),
+      seq('<sp>', optional($.syllable_text), '</sp>'),
+      seq('<v>', optional($.syllable_text), '</v>')
+    ),
+
+    // Translation text: [text]
+    translation_text: $ => seq(
+      '[',
+      /[^\]]*/,
+      ']'
+    ),
+
+    // Lyric centering: {text}
+    lyric_centering: $ => seq(
+      '{',
+      /[^}]*/,
+      '}'
+    ),
+
+    // Escape sequence: $ followed by character
+    escape_sequence: $ => seq('$', /./),
+
+    // Note group: (notes) - can contain GABC and/or NABC snippets
+    note_group: $ => seq(
+      '(',
+      optional($.note_sequence),
+      ')'
+    ),
+
+    // Note sequence: GABC snippets and/or NABC snippets separated by |
+    note_sequence: $ => seq(
+      $.gabc_snippet,
+      repeat(seq('|', choice($.gabc_snippet, $.nabc_snippet)))
+    ),
+
+    // GABC snippet: notes and other GABC elements
+    gabc_snippet: $ => repeat1(choice(
+      $.note,
+      $.clef,
+      $.bar,
+      $.line_break,
+      $.custos,
+      $.spacing,
+      $.shape_hint,
+      $.choral_sign,
+      $.brace,
+      $.ledger_line,
+      $.slur,
+      $.episema_adjustment,
+      $.above_lines_text,
+      $.verbatim_tex,
+      $.macro,
+      $.custom_ledger_line
+    )),
+
+    // Note: pitch with optional modifiers
+    note: $ => seq(
+      $.pitch,
+      optional($.note_modifiers)
+    ),
+
+    pitch: $ => /[a-npA-NP]/,
+
+    note_modifiers: $ => repeat1(choice(
+      $.note_shape,
+      $.alteration,
+      $.liquescent,
+      $.punctum_mora,
+      $.ictus,
+      $.horizontal_episema,
+      $.accent,
+      $.musica_ficta,
+      $.oriscus_orientation,
+      $.neume_fusion,
+      $.cavum
+    )),
+
+    note_shape: $ => choice('o', 'w', 'v', 'V', 's', 'r', 'R', 'q', 'W', 'O', 'ss', 'sss', 'vv', 'vvv'),
+
+    alteration: $ => choice('x', '#', 'y', 'X', '##', 'Y', seq(choice('x', '#', 'y'), '?')),
+
+    liquescent: $ => choice('~', '<', '>'),
+
+    punctum_mora: $ => choice('.', '..', '.0', '.1'),
+
+    ictus: $ => choice("'", "'0", "'1"),
+
+    horizontal_episema: $ => seq('_', optional($.episema_position)),
+
+    episema_position: $ => /[0-5]+/,
+
+    accent: $ => /r[1-6]/,
+
+    musica_ficta: $ => /r[7-8]/,
+
+    oriscus_orientation: $ => /[oO][01]/,
+
+    neume_fusion: $ => choice('@', seq('@[', $.note_sequence, ']')),
+
+    cavum: $ => choice('r', 'r0'),
+
+    // Clef: c or f, optional b, line number
+    clef: $ => seq(
+      /[cf]/,
+      optional('b'),
+      $.line_number
+    ),
+
+    line_number: $ => /[1-8]/,
+
+    // Bar: various bar types
+    bar: $ => seq(
+      choice('`', '^', ',', ';', ':', '::'),
+      optional($.bar_modifiers)
+    ),
+
+    bar_modifiers: $ => repeat1(choice("'", '_', seq(';', /[1-8]/))),
+
+    // Line break
+    line_break: $ => choice('z', 'z+', 'z-', 'Z', 'Z+', 'Z-'),
+
+    // Custos
+    custos: $ => choice('z0', seq($.pitch, '+'), '[nocustos]'),
+
+    // Spacing
+    spacing: $ => choice(
+      '/0',
+      '/!',
+      '/',
+      '//',
+      seq('/[', /-?[0-9.]+/, ']'),
+      '!'
+    ),
+
+    // Shape hint
+    shape_hint: $ => seq('[shape:', /[a-z]+/, ']'),
+
+    // Choral sign
+    choral_sign: $ => choice(
+      seq('[cs:', /[^]]*/, ']'),
+      seq('[cn:', $.nabc_snippet, ']')
+    ),
+
+    // Brace
+    brace: $ => choice(
+      seq('[', $.brace_type, ':', /[01]/, ';', /[^]]+/, ']'),
+      seq('[', $.brace_type, ':', /[01]/, '{]'),
+      seq('[', $.brace_type, ':', /[01]/, '}]')
+    ),
+
+    brace_type: $ => choice('ob', 'ub', 'ocb', 'ocba'),
+
+    // Ledger line
+    ledger_line: $ => seq('[ll:', /[01]/, ']'),
+
+    // Custom ledger line
+    custom_ledger_line: $ => choice(
+      seq('[oll:', /[^;]+/, ';', /[^]]+/, ']'),
+      seq('[oll:', /[^}]+/, '{]'),
+      seq('[oll:]}]'),
+      seq('[ull:', /[^;]+/, ';', /[^]]+/, ']'),
+      seq('[ull:', /[^}]+/, '{]'),
+      seq('[ull:]}]')
+    ),
+
+    // Slur
+    slur: $ => choice(
+      seq('[oslur:', /[0-2]/, ';', /[^,]+/, ',', /[^]]+/, ']'),
+      seq('[oslur:', /[0-2]/, '{]'),
+      seq('[oslur:', /[0-2]/, '}]'),
+      seq('[uslur:', /[0-2]/, ';', /[^,]+/, ',', /[^]]+/, ']'),
+      seq('[uslur:', /[0-2]/, '{]'),
+      seq('[uslur:', /[0-2]/, '}]')
+    ),
+
+    // Episema adjustment
+    episema_adjustment: $ => choice(
+      seq('[oh:', optional($.episema_position_spec), optional($.episema_nudge), ']'),
+      seq('[uh:', optional($.episema_position_spec), optional($.episema_nudge), ']'),
+      seq('[oh:', optional($.episema_position_spec), '{]'),
+      seq('[oh]}]'),
+      seq('[uh:', optional($.episema_position_spec), '{]'),
+      seq('[uh]}]')
+    ),
+
+    episema_position_spec: $ => choice('m', 'l', 'h', 'ol', 'oh', 'ul', 'uh'),
+
+    episema_nudge: $ => seq(/[+-]/, /[0-9.]+/, /[a-z]+/),
+
+    // Above lines text
+    above_lines_text: $ => seq('[alt:', /[^]]*/, ']'),
+
+    // Verbatim TeX
+    verbatim_tex: $ => choice(
+      seq('[nv:', /[^]]*/, ']'),
+      seq('[gv:', /[^]]*/, ']'),
+      seq('[ev:', /[^]]*/, ']')
+    ),
+
+    // Macro
+    macro: $ => choice(
+      seq('[nm', /[0-9]/, ']'),
+      seq('[gm', /[0-9]/, ']'),
+      seq('[em', /[0-9]/, ']'),
+      seq('[altm', /[0-9]/, ']')
+    ),
+
+    // NABC snippet: sequence of complex neume descriptors
+    nabc_snippet: $ => repeat1($.complex_neume_descriptor),
+
+    // Complex neume descriptor
+    complex_neume_descriptor: $ => seq(
+      optional($.horizontal_spacing_adjustment),
+      $.complex_glyph_descriptor,
+      optional($.subpunctis_prepunctis_sequence),
+      optional($.significant_letter_sequence)
+    ),
+
+    // Horizontal spacing adjustment
+    horizontal_spacing_adjustment: $ => repeat1(choice('//', '/', '``', '`')),
+
+    // Complex glyph descriptor
+    complex_glyph_descriptor: $ => seq(
+      $.glyph_descriptor,
+      repeat(seq('!', $.glyph_descriptor)),
+      optional($.subpunctis_prepunctis_sequence),
+      optional($.significant_letter_sequence)
+    ),
+
+    // Glyph descriptor
+    glyph_descriptor: $ => seq(
+      $.basic_glyph_descriptor,
+      optional($.glyph_modifiers),
+      optional($.pitch_descriptor)
+    ),
+
+    // Basic glyph descriptor (St. Gall or Laon)
+    basic_glyph_descriptor: $ => choice(
+      'vi', 'pu', 'ta', 'gr', 'cl', 'pe', 'po', 'to', 'ci', 'sc',
+      'pf', 'sf', 'tr', 'st', 'ds', 'ts', 'tg', 'bv', 'tv', 'pr',
+      'pi', 'vs', 'or', 'sa', 'pq', 'ql', 'qi', 'pt', 'ni', 'un', 'oc'
+    ),
+
+    // Glyph modifiers
+    glyph_modifiers: $ => seq(
+      repeat1(choice('S', 'G', 'M', '-', '>', '~')),
+      optional(/[1-9]/)
+    ),
+
+    // Pitch descriptor: h followed by pitch letter
+    pitch_descriptor: $ => seq('h', /[a-np]/),
+
+    // Subpunctis and prepunctis sequence
+    subpunctis_prepunctis_sequence: $ => repeat1($.subpunctis_prepunctis_descriptor),
+
+    // Subpunctis or prepunctis descriptor
+    subpunctis_prepunctis_descriptor: $ => seq(
+      choice('su', 'pp'),
+      optional($.subpunctis_modifier),
+      /[1-9]/
+    ),
+
+    // Subpunctis modifier (St. Gall: t, u, v, w, x, y; Laon: n, q, z, x)
+    subpunctis_modifier: $ => /[tuvwxynqz]/,
+
+    // Significant letter sequence
+    significant_letter_sequence: $ => repeat1($.significant_letter_descriptor),
+
+    // Significant letter descriptor
+    significant_letter_descriptor: $ => choice(
+      $.st_gall_significant_letter,
+      $.laon_significant_letter,
+      $.tironian_note
+    ),
+
+    // St. Gall significant letter
+    st_gall_significant_letter: $ => seq(
+      'ls',
+      $.st_gall_ls_shorthand,
+      /[1-9]/
+    ),
+
+    st_gall_ls_shorthand: $ => choice(
+      'al', 'am', 'b', 'c', 'cm', 'co', 'cw', 'd', 'e', 'eq', 'ew',
+      'fid', 'fr', 'g', 'i', 'im', 'iv', 'k', 'l', 'lb', 'lc', 'len',
+      'lm', 'lp', 'lt', 'm', 'moll', 'p', 'par', 'pfec', 'pm', 'sb',
+      'sc', 'simil', 'simul', 'sm', 'st', 'sta', 'tb', 'tm', 'tw', 'v',
+      'vol', 'x'
+    ),
+
+    // Laon significant letter
+    laon_significant_letter: $ => seq(
+      'ls',
+      $.laon_ls_shorthand,
+      /[1-9]/
+    ),
+
+    laon_ls_shorthand: $ => choice(
+      'a', 'c', 'eq', 'eq-', 'equ', 'f', 'h', 'hn', 'hp', 'l', 'n',
+      'nl', 'nt', 'm', 'md', 's', 'simp', 'simpl', 'sp', 'st', 't', 'th'
+    ),
+
+    // Tironian note (Laon only)
+    tironian_note: $ => seq(
+      'lt',
+      $.tironian_shorthand,
+      /[1-9]/
+    ),
+
+    tironian_shorthand: $ => choice(
+      'i', 'do', 'dr', 'dx', 'ps', 'qm', 'sb', 'se', 'sj', 'sl', 'sn',
+      'sp', 'sr', 'st', 'us'
+    ),
+
+    // Comment: % until end of line
+    comment: $ => seq('%', /.*/)
+  }
+});
+
