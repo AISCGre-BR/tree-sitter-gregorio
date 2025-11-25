@@ -16,15 +16,15 @@ module.exports = grammar({
     // `note_group` or starts the next syllable (which may be a
     // `note_group`-only syllable). Declare this as an allowed conflict
     // so the parser generator can handle it.
-    [$.syllable, $.note_group],
-    // Allow ambiguity involving `syllable` (when text is followed by '(')
+    [$.notation_item, $.note_group],
+    // Allow ambiguity involving `notation_item` (when text is followed by '(')
     // so the generator can resolve the parse during conflict resolution.
-    [$.syllable],
-    // `lyric_text` is a sequence that includes nested `lyric_text`
+    [$.notation_item],
+    // `syllable` (formerly lyric_text) is a sequence that includes nested `syllable` nested `syllable`
     // through style tags (e.g. `<b>...</b>`). This can create
     // associativity ambiguities for the repetition; declare it as a
     // conflict so the generator can handle it.
-    [$.lyric_text],
+    [$.syllable],
     // `gabc_bar` may be followed by `bar_modifiers` which can include ';'.
     // This can create ambiguities in some bracketed constructs; allow
     // the generator to resolve them by declaring a conflict for `gabc_bar`.
@@ -104,79 +104,85 @@ module.exports = grammar({
       ';;'
     ),
 
-    // Notation section: contains the score as syllables
-    notation_section: $ => repeat1($.syllable),
+    // Notation section: sequence of notation items
+    notation_section: $ => repeat1($.notation_item),
 
-    // Syllable: must contain at least syllable text or a note group (or both)
-    // Previously this allowed both parts to be optional, which made the
-    // rule match the empty string. Tree-sitter does not allow that.
-    syllable: $ => choice(
-      // text followed optionally by notes
-      seq($.lyric_text, optional($.note_group)),
-      // notes without text
+    // Notation item: must contain optional syllable text and mandatory note group.
+    notation_item: $ => seq(
+      optional($.syllable),
       $.note_group
     ),
 
-    // Lyric text: text outside parentheses
-    lyric_text: $ => repeat1(choice(
-      $.text_content,
-      $.style_tag,
-      $.syllable_control,
-      $.special_tag,
-      $.translation_text,
-      $.lyric_centering,
-      $.escape_sequence
-    )),
-
-    text_content: $ => /[^\s${}\\[\\]<>%():;]+/,
-
-    // Style tags: <b>, <i>, <c>, <sc>, <tt>, <ul>
-    style_tag: $ => choice(
-      seq('<b>', optional($.lyric_text), '</b>'),
-      seq('<c>', optional($.lyric_text), '</c>'),
-      seq('<i>', optional($.lyric_text), '</i>'),
-      seq('<sc>', optional($.lyric_text), '</sc>'),
-      seq('<tt>', optional($.lyric_text), '</tt>'),
-      seq('<ul>', optional($.lyric_text), '</ul>')
-    ),
-
-    // Syllable controls
-    syllable_control: $ => choice(
-      '<clear>',
-      '<clear/>',
-      seq('<e>', optional($.lyric_text), '</e>'),
-      seq('<eu>', optional($.lyric_text), '</eu>'),
-      seq('<nlba>', optional($.lyric_text), '</nlba>'),
+    // Syllable: text outside parentheses
+    syllable: $ => repeat1(
       choice(
-        '<pr>',
-        '<pr/>',
-        seq('<pr:', /[01]/, '>')
+        $.syllable_text,
+        $.syllable_style_bold,
+        $.syllable_style_colored,
+        $.syllable_style_italic,
+        $.syllable_style_small_caps,
+        $.syllable_style_teletype,
+        $.syllable_style_underline,
+        $.syllable_control_clear,
+        $.syllable_control_elision,
+        $.syllable_control_euouae,
+        $.syllable_control_no_line_break,
+        $.syllable_control_protrusion,
+        $.syllable_other_above_lines_text,
+        $.syllable_other_special_character,
+        $.syllable_other_verbatim,
+        $.syllable_translation,
+        $.syllable_centering,
+        $.syllable_escape_sequence
       )
     ),
 
-    // Special tags
-    special_tag: $ => choice(
-      seq('<alt>', optional($.lyric_text), '</alt>'),
-      seq('<sp>', optional($.lyric_text), '</sp>'),
-      seq('<v>', optional($.lyric_text), '</v>')
+    syllable_text: $ => /[^\s${}\\[\\]<>%():;]+/,
+
+    // Syllable style tags
+    syllable_style_bold: $ => seq('<b>', optional($.syllable), '</b>'),
+    syllable_style_colored: $ => seq('<c>', optional($.syllable), '</c>'),
+    syllable_style_italic: $ => seq('<i>', optional($.syllable), '</i>'),
+    syllable_style_small_caps: $ => seq('<sc>', optional($.syllable), '</sc>'),
+    syllable_style_teletype: $ => seq('<tt>', optional($.syllable), '</tt>'),
+    syllable_style_underline: $ => seq('<ul>', optional($.syllable), '</ul>'),
+
+    // Syllable controls
+    syllable_control_clear: _ => choice('<clear>', '<clear/>'),
+    syllable_control_elision: $ => seq('<e>', optional($.syllable), '</e>'),
+    syllable_control_euouae: $ => seq('<eu>', optional($.syllable), '</eu>'),
+    syllable_control_no_line_break: $ => seq('<nlba>', optional($.syllable), '</nlba>'),
+    syllable_control_protrusion: _ => choice(
+      '<pr>',
+      '<pr/>',
+      seq('<pr:', /[01]/, '>')
     ),
 
+    // Other tags
+    syllable_other_above_lines_text: $ => seq('<alt>', optional($.syllable), '</alt>'),
+    syllable_other_special_character: $ => seq('<sp>', optional($.syllable), '</sp>'),
+    syllable_other_verbatim: $ => seq('<v>', optional($.syllable), '</v>'),
+
     // Translation text: [text]
-    translation_text: $ => seq(
+    syllable_translation: $ => seq(
       '[',
-      /[^\]]*/,
+      optional($.syllable_translation_text),
       ']'
     ),
 
+    syllable_translation_text: _ => /[^\]]*/,
+
     // Lyric centering: {text}
-    lyric_centering: $ => seq(
+    syllable_centering: $ => seq(
       '{',
-      /[^}]*/,
+      optional($.syllable_centering_text),
       '}'
     ),
 
+    syllable_centering_text: _ => /[^}]*/,
+
     // Escape sequence: $ followed by character
-    escape_sequence: $ => seq('$', /./),
+    syllable_escape_sequence: _ => seq('$', /./),
 
     // Note group: (notes) - can contain GABC and/or NABC snippets
     note_group: $ => seq(

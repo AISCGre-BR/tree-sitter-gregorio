@@ -1,0 +1,111 @@
+=============
+Style tags
+=============
+
+name: Style tags test;
+
+%%
+
+<b>Al</b>(c)<i>le</i>(d)<sc>lu</sc>(e)<tt>ia</tt>,(f)
+
+<c>Al</c>(c)<ul>le</ul>(d)<sc>lu</sc>(e)<tt>ia</tt>,(f)
+
+(::)
+
+---
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (syllable
+        (syllable_style_bold
+          (syllable
+            (syllable_text))))
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (note
+              (pitch))))))
+    (notation_item
+      (syllable
+        (syllable_style_italic
+          (syllable
+            (syllable_text))))
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (note
+              (pitch))))))
+    (notation_item
+      (syllable
+        (syllable_style_small_caps
+          (syllable
+            (syllable_text))))
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (note
+              (pitch))))))
+    (notation_item
+      (syllable
+        (syllable_style_teletype
+          (syllable
+            (syllable_text)))
+        (syllable_text))
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (note
+              (pitch))))))
+    (notation_item
+      (syllable
+        (syllable_style_colored
+          (syllable
+            (syllable_text))))
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (note
+              (pitch))))))
+    (notation_item
+      (syllable
+        (syllable_style_underline
+          (syllable
+            (syllable_text))))
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (note
+              (pitch))))))
+    (notation_item
+      (syllable
+        (syllable_style_small_caps
+          (syllable
+            (syllable_text))))
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (note
+              (pitch))))))
+    (notation_item
+      (syllable
+        (syllable_style_teletype
+          (syllable
+            (syllable_text)))
+        (syllable_text))
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (note
+              (pitch))))))
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_bar)))))))
