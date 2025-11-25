@@ -38,28 +38,28 @@ module.exports = grammar({
     // bracketed constructs). Declare a conflict so the generator can
     // handle this overlap.
     [$.note_shape, $.cavum],
-    // `complex_glyph_descriptor` can contain optional trailing
-    // `subpunctis_prepunctis_sequence` and `significant_letter_sequence`
+    // `nabc_complex_glyph_descriptor` can contain optional trailing
+    // `nabc_subpunctis_prepunctis_sequence` and `nabc_significant_letter_sequence`
     // which makes its repetition associative; add a conflict so the
     // generator can accept both interpretations.
-    [$.complex_glyph_descriptor],
-    // Repetition/associativity within `subpunctis_prepunctis_sequence`.
-    [$.subpunctis_prepunctis_sequence],
-    // Repetition/associativity within `significant_letter_sequence`.
-    [$.significant_letter_sequence],
-    // Overlap between `bar` tokens and `horizontal_spacing_adjustment`
+    [$.nabc_complex_glyph_descriptor],
+    // Repetition/associativity within `nabc_subpunctis_prepunctis_sequence`.
+    [$.nabc_subpunctis_prepunctis_sequence],
+    // Repetition/associativity within `nabc_significant_letter_sequence`.
+    [$.nabc_significant_letter_sequence],
+    // Overlap between `bar` tokens and `nabc_horizontal_spacing_adjustment`
     // (which uses '/' and '``', '`') can create ambiguity when both
     // appear after a `gabc_snippet` separated by '|'. Declare a
     // conflict so the generator can resolve it.
-    [$.gabc_bar, $.horizontal_spacing_adjustment],
-    // `spacing` and `horizontal_spacing_adjustment` both use '/' and
+    [$.gabc_bar, $.nabc_horizontal_spacing_adjustment],
+    // `spacing` and `nabc_horizontal_spacing_adjustment` both use '/' and
     // related tokens; declare a conflict to allow the generator to
     // disambiguate their usage in sequences.
-    [$.spacing, $.horizontal_spacing_adjustment],
-    // `st_gall_ls_shorthand` and `laon_ls_shorthand` can overlap in
+    [$.spacing, $.nabc_horizontal_spacing_adjustment],
+    // `nabc_st_gall_ls_shorthand` and `nabc_laon_ls_shorthand` can overlap in
     // token sequences; declare a conflict so the generator accepts
     // either interpretation when ambiguity arises.
-    [$.st_gall_ls_shorthand, $.laon_ls_shorthand]
+    [$.nabc_st_gall_ls_shorthand, $.nabc_laon_ls_shorthand]
   ],
 
   rules: {
@@ -364,81 +364,81 @@ module.exports = grammar({
     ),
 
     // NABC snippet: sequence of complex neume descriptors
-    nabc_snippet: $ => repeat1($.complex_neume_descriptor),
+    nabc_snippet: $ => repeat1($.nabc_complex_neume_descriptor),
 
     // Complex neume descriptor
-    complex_neume_descriptor: $ => seq(
-      optional($.horizontal_spacing_adjustment),
-      $.complex_glyph_descriptor,
-      optional($.subpunctis_prepunctis_sequence),
-      optional($.significant_letter_sequence)
+    nabc_complex_neume_descriptor: $ => seq(
+      optional($.nabc_horizontal_spacing_adjustment),
+      $.nabc_complex_glyph_descriptor,
+      optional($.nabc_subpunctis_prepunctis_sequence),
+      optional($.nabc_significant_letter_sequence)
     ),
 
     // Horizontal spacing adjustment
-    horizontal_spacing_adjustment: $ => repeat1(choice('//', '/', '``', '`')),
+    nabc_horizontal_spacing_adjustment: $ => repeat1(choice('//', '/', '``', '`')),
 
     // Complex glyph descriptor
-    complex_glyph_descriptor: $ => seq(
-      $.glyph_descriptor,
-      repeat(seq('!', $.glyph_descriptor)),
-      optional($.subpunctis_prepunctis_sequence),
-      optional($.significant_letter_sequence)
+    nabc_complex_glyph_descriptor: $ => seq(
+      $.nabc_glyph_descriptor,
+      repeat(seq('!', $.nabc_glyph_descriptor)),
+      optional($.nabc_subpunctis_prepunctis_sequence),
+      optional($.nabc_significant_letter_sequence)
     ),
 
     // Glyph descriptor
-    glyph_descriptor: $ => seq(
-      $.basic_glyph_descriptor,
-      optional($.glyph_modifiers),
-      optional($.pitch_descriptor)
+    nabc_glyph_descriptor: $ => seq(
+      $.nabc_neume_code,
+      optional($.nabc_glyph_modifiers),
+      optional($.nabc_pitch_descriptor)
     ),
 
-    // Basic glyph descriptor (St. Gall or Laon)
-    basic_glyph_descriptor: $ => choice(
+    // NABC neume code (St. Gall or Laon)
+    nabc_neume_code: $ => choice(
       'vi', 'pu', 'ta', 'gr', 'cl', 'pe', 'po', 'to', 'ci', 'sc',
       'pf', 'sf', 'tr', 'st', 'ds', 'ts', 'tg', 'bv', 'tv', 'pr',
       'pi', 'vs', 'or', 'sa', 'pq', 'ql', 'qi', 'pt', 'ni', 'un', 'oc'
     ),
 
     // Glyph modifiers
-    glyph_modifiers: $ => seq(
+    nabc_glyph_modifiers: $ => seq(
       repeat1(choice('S', 'G', 'M', '-', '>', '~')),
       optional(/[1-9]/)
     ),
 
     // Pitch descriptor: h followed by pitch letter
-    pitch_descriptor: $ => seq('h', /[a-np]/),
+    nabc_pitch_descriptor: $ => seq('h', /[a-np]/),
 
     // Subpunctis and prepunctis sequence
-    subpunctis_prepunctis_sequence: $ => repeat1($.subpunctis_prepunctis_descriptor),
+    nabc_subpunctis_prepunctis_sequence: $ => repeat1($.nabc_subpunctis_prepunctis_descriptor),
 
     // Subpunctis or prepunctis descriptor
-    subpunctis_prepunctis_descriptor: $ => seq(
+    nabc_subpunctis_prepunctis_descriptor: $ => seq(
       choice('su', 'pp'),
-      optional($.subpunctis_modifier),
+      optional($.nabc_subpunctis_modifier),
       /[1-9]/
     ),
 
     // Subpunctis modifier (St. Gall: t, u, v, w, x, y; Laon: n, q, z, x)
-    subpunctis_modifier: $ => /[tuvwxynqz]/,
+    nabc_subpunctis_modifier: $ => /[tuvwxynqz]/,
 
     // Significant letter sequence
-    significant_letter_sequence: $ => repeat1($.significant_letter_descriptor),
+    nabc_significant_letter_sequence: $ => repeat1($.nabc_significant_letter_descriptor),
 
     // Significant letter descriptor
-    significant_letter_descriptor: $ => choice(
-      $.st_gall_significant_letter,
-      $.laon_significant_letter,
-      $.tironian_note
+    nabc_significant_letter_descriptor: $ => choice(
+      $.nabc_st_gall_significant_letter,
+      $.nabc_laon_significant_letter,
+      $.nabc_tironian_note
     ),
 
     // St. Gall significant letter
-    st_gall_significant_letter: $ => seq(
+    nabc_st_gall_significant_letter: $ => seq(
       'ls',
-      $.st_gall_ls_shorthand,
+      $.nabc_st_gall_ls_shorthand,
       /[1-9]/
     ),
 
-    st_gall_ls_shorthand: $ => choice(
+    nabc_st_gall_ls_shorthand: $ => choice(
       'al', 'am', 'b', 'c', 'cm', 'co', 'cw', 'd', 'e', 'eq', 'ew',
       'fid', 'fr', 'g', 'i', 'im', 'iv', 'k', 'l', 'lb', 'lc', 'len',
       'lm', 'lp', 'lt', 'm', 'moll', 'p', 'par', 'pfec', 'pm', 'sb',
@@ -447,25 +447,25 @@ module.exports = grammar({
     ),
 
     // Laon significant letter
-    laon_significant_letter: $ => seq(
+    nabc_laon_significant_letter: $ => seq(
       'ls',
-      $.laon_ls_shorthand,
+      $.nabc_laon_ls_shorthand,
       /[1-9]/
     ),
 
-    laon_ls_shorthand: $ => choice(
+    nabc_laon_ls_shorthand: $ => choice(
       'a', 'c', 'eq', 'eq-', 'equ', 'f', 'h', 'hn', 'hp', 'l', 'n',
       'nl', 'nt', 'm', 'md', 's', 'simp', 'simpl', 'sp', 'st', 't', 'th'
     ),
 
     // Tironian note (Laon only)
-    tironian_note: $ => seq(
+    nabc_tironian_note: $ => seq(
       'lt',
-      $.tironian_shorthand,
+      $.nabc_tironian_shorthand,
       /[1-9]/
     ),
 
-    tironian_shorthand: $ => choice(
+    nabc_tironian_shorthand: $ => choice(
       'i', 'do', 'dr', 'dx', 'ps', 'qm', 'sb', 'se', 'sj', 'sl', 'sn',
       'sp', 'sr', 'st', 'us'
     ),

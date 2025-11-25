@@ -1,0 +1,106 @@
+===================
+Basic lyrics + NABC
+===================
+
+name: Basic lyrics + NABC;
+nabc-lines: 1;
+
+%%
+
+(c3)
+
+Ad(f|ta) te,(h|vi) Dó(hi|pe)mi(i|vi)ne.(i|vi)
+
+(::)
+
+---
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value)))
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value))))
+  (section_separator)
+  (notation_section
+    (syllable
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_clef)))))
+    (syllable
+      (lyric_text
+        (text_content))
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (note
+              (pitch)))
+          (nabc_snippet
+            (nabc_complex_neume_descriptor
+              (nabc_complex_glyph_descriptor
+                (nabc_glyph_descriptor
+                  (nabc_neume_code))))))))
+    (syllable
+      (lyric_text
+        (text_content))
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (note
+              (pitch)))
+          (nabc_snippet
+            (nabc_complex_neume_descriptor
+              (nabc_complex_glyph_descriptor
+                (nabc_glyph_descriptor
+                  (nabc_neume_code))))))))
+    (syllable
+      (lyric_text
+        (text_content))
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (note
+              (pitch))
+            (note
+              (pitch)))
+          (nabc_snippet
+            (nabc_complex_neume_descriptor
+              (nabc_complex_glyph_descriptor
+                (nabc_glyph_descriptor
+                  (nabc_neume_code))))))))
+    (syllable
+      (lyric_text
+        (text_content))
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (note
+              (pitch)))
+          (nabc_snippet
+            (nabc_complex_neume_descriptor
+              (nabc_complex_glyph_descriptor
+                (nabc_glyph_descriptor
+                  (nabc_neume_code))))))))
+    (syllable
+      (lyric_text
+        (text_content))
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (note
+              (pitch)))
+          (nabc_snippet
+            (nabc_complex_neume_descriptor
+              (nabc_complex_glyph_descriptor
+                (nabc_glyph_descriptor
+                  (nabc_neume_code))))))))
+    (syllable
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_bar)))))))
