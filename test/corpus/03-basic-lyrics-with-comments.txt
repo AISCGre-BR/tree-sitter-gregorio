@@ -1,14 +1,17 @@
-============
-Basic lyrics
-============
+============================
+Basic lyrics (with comments)
+============================
 
-name: Basic lyrics;
+name: Basic lyrics (with comments);
+% This is a comment
 
 %%
 
-(c4) Al()le()lú()ia,()
+(c4) Al()le()lú()ia,() % A comment
 
-al()le()lú()ia,()     al()le()lú()ia.()
+al()le()lú()ia,()
+% Another comment
+al()le()lú()ia.()
 
 (::)
 
@@ -20,6 +23,7 @@ al()le()lú()ia,()     al()le()lú()ia.()
       name: (header_name)
       value: (header_value
         (single_line_header_value))))
+  (comment)
   (section_separator)
   (notation_section
     (syllable
@@ -43,9 +47,11 @@ al()le()lú()ia,()     al()le()lú()ia.()
       (lyric_text
         (text_content))
       (note_group))
+    (comment)
     (syllable
       (lyric_text
-        (text_content))
+        (text_content)))
+    (syllable
       (note_group))
     (syllable
       (lyric_text
@@ -59,9 +65,11 @@ al()le()lú()ia,()     al()le()lú()ia.()
       (lyric_text
         (text_content))
       (note_group))
+    (comment)
     (syllable
       (lyric_text
-        (text_content))
+        (text_content)))
+    (syllable
       (note_group))
     (syllable
       (lyric_text
