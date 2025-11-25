@@ -1,0 +1,53 @@
+=========================
+Translation and centering
+=========================
+
+name: Other text tags test;
+
+%%
+
+Q{ui}(f)a(f) text[texto](g)$@end(h)
+
+---
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (syllable_text)
+      (syllable_centering
+        (syllable_centering_text))
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (note
+              (pitch))))))
+    (notation_item
+      (syllable_text)
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (note
+              (pitch))))))
+    (notation_item
+      (syllable_text)
+      (syllable_translation
+        (syllable_translation_text))
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (note
+              (pitch))))))
+    (notation_item
+      (syllable_escape_sequence)
+      (syllable_text)
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (note
+              (pitch))))))))
