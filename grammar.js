@@ -139,29 +139,168 @@ module.exports = grammar({
 
     syllable_text: $ => /[^\s${}\\<>%():;\[\]]+/,
 
-    // Syllable style tags
-    syllable_style_bold: $ => seq('<b>', optional($._syllable), '</b>'),
-    syllable_style_colored: $ => seq('<c>', optional($._syllable), '</c>'),
-    syllable_style_italic: $ => seq('<i>', optional($._syllable), '</i>'),
-    syllable_style_small_caps: $ => seq('<sc>', optional($._syllable), '</sc>'),
-    syllable_style_teletype: $ => seq('<tt>', optional($._syllable), '</tt>'),
-    syllable_style_underline: $ => seq('<ul>', optional($._syllable), '</ul>'),
+    // Tag components (reusable)
+    tag_opening_bracket: _ => '<',
+    tag_closing_bracket: _ => '>',
+    closing_tag_opening_bracket: _ => '</',
 
-    // Syllable controls
-    syllable_control_clear: _ => choice('<clear>', '<clear/>'),
-    syllable_control_elision: $ => seq('<e>', optional($._syllable), '</e>'),
-    syllable_control_euouae: $ => seq('<eu>', optional($._syllable), '</eu>'),
-    syllable_control_no_line_break: $ => seq('<nlba>', optional($._syllable), '</nlba>'),
-    syllable_control_protrusion: _ => choice(
-      '<pr>',
-      '<pr/>',
-      seq('<pr:', /[01]/, '>')
+    // Tag names
+    tag_bold_name: _ => 'b',
+    tag_colored_name: _ => 'c',
+    tag_italic_name: _ => 'i',
+    tag_small_caps_name: _ => 'sc',
+    tag_teletype_name: _ => 'tt',
+    tag_underline_name: _ => 'ul',
+    tag_elision_name: _ => 'e',
+    tag_euouae_name: _ => 'eu',
+    tag_no_line_break_name: _ => 'nlba',
+    tag_above_lines_text_name: _ => 'alt',
+    tag_special_character_name: _ => 'sp',
+    tag_verbatim_name: _ => 'v',
+    tag_clear_name: _ => 'clear',
+    tag_protrusion_name: _ => 'pr',
+
+    // Self-closing tag components
+    self_closing_tag_slash: _ => '/',
+
+    // Syllable style tags
+    syllable_style_bold: $ => seq(
+      $.tag_opening_bracket,
+      $.tag_bold_name,
+      $.tag_closing_bracket,
+      optional($._syllable),
+      $.closing_tag_opening_bracket,
+      $.tag_bold_name,
+      $.tag_closing_bracket
+    ),
+    syllable_style_colored: $ => seq(
+      $.tag_opening_bracket,
+      $.tag_colored_name,
+      $.tag_closing_bracket,
+      optional($._syllable),
+      $.closing_tag_opening_bracket,
+      $.tag_colored_name,
+      $.tag_closing_bracket
+    ),
+    syllable_style_italic: $ => seq(
+      $.tag_opening_bracket,
+      $.tag_italic_name,
+      $.tag_closing_bracket,
+      optional($._syllable),
+      $.closing_tag_opening_bracket,
+      $.tag_italic_name,
+      $.tag_closing_bracket
+    ),
+    syllable_style_small_caps: $ => seq(
+      $.tag_opening_bracket,
+      $.tag_small_caps_name,
+      $.tag_closing_bracket,
+      optional($._syllable),
+      $.closing_tag_opening_bracket,
+      $.tag_small_caps_name,
+      $.tag_closing_bracket
+    ),
+    syllable_style_teletype: $ => seq(
+      $.tag_opening_bracket,
+      $.tag_teletype_name,
+      $.tag_closing_bracket,
+      optional($._syllable),
+      $.closing_tag_opening_bracket,
+      $.tag_teletype_name,
+      $.tag_closing_bracket
+    ),
+    syllable_style_underline: $ => seq(
+      $.tag_opening_bracket,
+      $.tag_underline_name,
+      $.tag_closing_bracket,
+      optional($._syllable),
+      $.closing_tag_opening_bracket,
+      $.tag_underline_name,
+      $.tag_closing_bracket
     ),
 
+    // Syllable controls
+    syllable_control_clear: $ => seq(
+      $.tag_opening_bracket,
+      $.tag_clear_name,
+      optional($.self_closing_tag_slash),
+      $.tag_closing_bracket
+    ),
+
+    syllable_control_elision: $ => seq(
+      $.tag_opening_bracket,
+      $.tag_elision_name,
+      $.tag_closing_bracket,
+      optional($._syllable),
+      $.closing_tag_opening_bracket,
+      $.tag_elision_name,
+      $.tag_closing_bracket
+    ),
+
+    syllable_control_euouae: $ => seq(
+      $.tag_opening_bracket,
+      $.tag_euouae_name,
+      $.tag_closing_bracket,
+      optional($._syllable),
+      $.closing_tag_opening_bracket,
+      $.tag_euouae_name,
+      $.tag_closing_bracket
+    ),
+
+    syllable_control_no_line_break: $ => seq(
+      $.tag_opening_bracket,
+      $.tag_no_line_break_name,
+      $.tag_closing_bracket,
+      optional($._syllable),
+      $.closing_tag_opening_bracket,
+      $.tag_no_line_break_name,
+      $.tag_closing_bracket
+    ),
+
+    syllable_control_protrusion: $ => seq(
+      $.tag_opening_bracket,
+      $.tag_protrusion_name,
+      optional(
+        seq(
+          $.syllable_control_protrusion_delimiter,
+          $.syllable_control_protrusion_value
+        )
+      ),
+      optional($.self_closing_tag_slash),
+      $.tag_closing_bracket
+    ),
+
+    syllable_control_protrusion_delimiter: _ => ':',
+    syllable_control_protrusion_value: _ => /[0-9]*\.?[0-9]+/,
+
     // Other tags
-    syllable_other_above_lines_text: $ => seq('<alt>', optional($._syllable), '</alt>'),
-    syllable_other_special_character: $ => seq('<sp>', optional($._syllable), '</sp>'),
-    syllable_other_verbatim: $ => seq('<v>', optional($._syllable), '</v>'),
+    syllable_other_above_lines_text: $ => seq(
+      $.tag_opening_bracket,
+      $.tag_above_lines_text_name,
+      $.tag_closing_bracket,
+      optional($._syllable),
+      $.closing_tag_opening_bracket,
+      $.tag_above_lines_text_name,
+      $.tag_closing_bracket
+    ),
+    syllable_other_special_character: $ => seq(
+      $.tag_opening_bracket,
+      $.tag_special_character_name,
+      $.tag_closing_bracket,
+      optional($._syllable),
+      $.closing_tag_opening_bracket,
+      $.tag_special_character_name,
+      $.tag_closing_bracket
+    ),
+    syllable_other_verbatim: $ => seq(
+      $.tag_opening_bracket,
+      $.tag_verbatim_name,
+      $.tag_closing_bracket,
+      optional($._syllable),
+      $.closing_tag_opening_bracket,
+      $.tag_verbatim_name,
+      $.tag_closing_bracket
+    ),
 
     // Translation text: [text]
     syllable_translation: $ => seq(

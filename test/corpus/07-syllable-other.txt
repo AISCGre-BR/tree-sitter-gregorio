@@ -20,7 +20,13 @@ name: Syllable other test;
   (notation_section
     (notation_item
       (syllable_other_above_lines_text
-        (syllable_text))
+        (tag_opening_bracket)
+        (tag_above_lines_text_name)
+        (tag_closing_bracket)
+        (syllable_text)
+        (closing_tag_opening_bracket)
+        (tag_above_lines_text_name)
+        (tag_closing_bracket))
       (note_group
         (snippet_list
           single: (gabc_snippet
@@ -28,7 +34,13 @@ name: Syllable other test;
               (pitch))))))
     (notation_item
       (syllable_other_special_character
-        (syllable_text))
+        (tag_opening_bracket)
+        (tag_special_character_name)
+        (tag_closing_bracket)
+        (syllable_text)
+        (closing_tag_opening_bracket)
+        (tag_special_character_name)
+        (tag_closing_bracket))
       (note_group
         (snippet_list
           single: (gabc_snippet
@@ -36,7 +48,13 @@ name: Syllable other test;
               (pitch))))))
     (notation_item
       (syllable_other_verbatim
-        (syllable_text))
+        (tag_opening_bracket)
+        (tag_verbatim_name)
+        (tag_closing_bracket)
+        (syllable_text)
+        (closing_tag_opening_bracket)
+        (tag_verbatim_name)
+        (tag_closing_bracket))
       (note_group
         (snippet_list
           single: (gabc_snippet
