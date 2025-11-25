@@ -1,0 +1,51 @@
+======================
+Syllable other tags
+======================
+
+name: Syllable other test;
+
+%%
+
+<alt>A</alt>(f)<sp>S</sp>(g)<v>V</v>(h)text(i)
+
+---
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (syllable_other_above_lines_text
+        (syllable_text))
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (note
+              (pitch))))))
+    (notation_item
+      (syllable_other_special_character
+        (syllable_text))
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (note
+              (pitch))))))
+    (notation_item
+      (syllable_other_verbatim
+        (syllable_text))
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (note
+              (pitch))))))
+    (notation_item
+      (syllable_text)
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (note
+              (pitch))))))))
