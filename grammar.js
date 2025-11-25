@@ -7,8 +7,10 @@ module.exports = grammar({
   ],
 
   conflicts: $ => [
-    [$.note_sequence, $.note],
+    [$.snippet_list, $.note],
     [$.gabc_snippet, $.nabc_snippet],
+    // Clef (c4, f3) vs note (c, f) - prioritize clef when followed by digit
+    [$.gabc_clef, $.note],
     // When a syllable contains text followed by a '(', there is an
     // ambiguity whether that '(' belongs to the current syllable's
     // `note_group` or starts the next syllable (which may be a
@@ -18,15 +20,15 @@ module.exports = grammar({
     // Allow ambiguity involving `syllable` (when text is followed by '(')
     // so the generator can resolve the parse during conflict resolution.
     [$.syllable],
-    // `syllable_text` is a sequence that includes nested `syllable_text`
+    // `lyric_text` is a sequence that includes nested `lyric_text`
     // through style tags (e.g. `<b>...</b>`). This can create
     // associativity ambiguities for the repetition; declare it as a
     // conflict so the generator can handle it.
-    [$.syllable_text],
-    // `bar` may be followed by `bar_modifiers` which can include ';'.
+    [$.lyric_text],
+    // `gabc_bar` may be followed by `bar_modifiers` which can include ';'.
     // This can create ambiguities in some bracketed constructs; allow
-    // the generator to resolve them by declaring a conflict for `bar`.
-    [$.bar],
+    // the generator to resolve them by declaring a conflict for `gabc_bar`.
+    [$.gabc_bar],
     // Repetition within `bar_modifiers` can produce associativity
     // ambiguities; declare a conflict entry so the generator can
     // resolve them deterministically.
@@ -49,7 +51,7 @@ module.exports = grammar({
     // (which uses '/' and '``', '`') can create ambiguity when both
     // appear after a `gabc_snippet` separated by '|'. Declare a
     // conflict so the generator can resolve it.
-    [$.bar, $.horizontal_spacing_adjustment],
+    [$.gabc_bar, $.horizontal_spacing_adjustment],
     // `spacing` and `horizontal_spacing_adjustment` both use '/' and
     // related tokens; declare a conflict to allow the generator to
     // disambiguate their usage in sequences.
@@ -62,23 +64,28 @@ module.exports = grammar({
 
   rules: {
     // Root rule: a GABC file consists of a header section and a notation section
-    source_file: $ => seq(
-      optional($.header_section),
-      optional($.separator),
-      optional($.notation_section)
+    source_file: $ => choice(
+      // Full structure with header
+      seq(
+        $.header_section,
+        $.section_separator,
+        optional($.notation_section)
+      ),
+      // Just notation (no header)
+      $.notation_section
     ),
 
     // Separator between header and notation sections
-    separator: $ => '%%',
+    section_separator: $ => '%%',
 
     // Header section: contains metadata
     header_section: $ => repeat1($.header),
 
     // Header: name: value;
     header: $ => seq(
-      $.header_name,
+      field('name', $.header_name),
       ':',
-      $.header_value,
+      field('value', $.header_value),
       ';'
     ),
 
@@ -97,7 +104,7 @@ module.exports = grammar({
       ';;'
     ),
 
-    // Notation section: contains the score
+    // Notation section: contains the score as syllables
     notation_section: $ => repeat1($.syllable),
 
     // Syllable: must contain at least syllable text or a note group (or both)
@@ -105,13 +112,13 @@ module.exports = grammar({
     // rule match the empty string. Tree-sitter does not allow that.
     syllable: $ => choice(
       // text followed optionally by notes
-      seq($.syllable_text, optional($.note_group)),
+      seq($.lyric_text, optional($.note_group)),
       // notes without text
       $.note_group
     ),
 
-    // Syllable text: text outside parentheses
-    syllable_text: $ => repeat1(choice(
+    // Lyric text: text outside parentheses
+    lyric_text: $ => repeat1(choice(
       $.text_content,
       $.style_tag,
       $.syllable_control,
@@ -121,25 +128,25 @@ module.exports = grammar({
       $.escape_sequence
     )),
 
-    text_content: $ => /[^${}\[\]<>%]+/,
+    text_content: $ => /[^\s${}\\[\\]<>%():;]+/,
 
     // Style tags: <b>, <i>, <c>, <sc>, <tt>, <ul>
     style_tag: $ => choice(
-      seq('<b>', optional($.syllable_text), '</b>'),
-      seq('<c>', optional($.syllable_text), '</c>'),
-      seq('<i>', optional($.syllable_text), '</i>'),
-      seq('<sc>', optional($.syllable_text), '</sc>'),
-      seq('<tt>', optional($.syllable_text), '</tt>'),
-      seq('<ul>', optional($.syllable_text), '</ul>')
+      seq('<b>', optional($.lyric_text), '</b>'),
+      seq('<c>', optional($.lyric_text), '</c>'),
+      seq('<i>', optional($.lyric_text), '</i>'),
+      seq('<sc>', optional($.lyric_text), '</sc>'),
+      seq('<tt>', optional($.lyric_text), '</tt>'),
+      seq('<ul>', optional($.lyric_text), '</ul>')
     ),
 
     // Syllable controls
     syllable_control: $ => choice(
       '<clear>',
       '<clear/>',
-      seq('<e>', optional($.syllable_text), '</e>'),
-      seq('<eu>', optional($.syllable_text), '</eu>'),
-      seq('<nlba>', optional($.syllable_text), '</nlba>'),
+      seq('<e>', optional($.lyric_text), '</e>'),
+      seq('<eu>', optional($.lyric_text), '</eu>'),
+      seq('<nlba>', optional($.lyric_text), '</nlba>'),
       choice(
         '<pr>',
         '<pr/>',
@@ -149,9 +156,9 @@ module.exports = grammar({
 
     // Special tags
     special_tag: $ => choice(
-      seq('<alt>', optional($.syllable_text), '</alt>'),
-      seq('<sp>', optional($.syllable_text), '</sp>'),
-      seq('<v>', optional($.syllable_text), '</v>')
+      seq('<alt>', optional($.lyric_text), '</alt>'),
+      seq('<sp>', optional($.lyric_text), '</sp>'),
+      seq('<v>', optional($.lyric_text), '</v>')
     ),
 
     // Translation text: [text]
@@ -174,21 +181,21 @@ module.exports = grammar({
     // Note group: (notes) - can contain GABC and/or NABC snippets
     note_group: $ => seq(
       '(',
-      optional($.note_sequence),
+      optional($.snippet_list),
       ')'
     ),
 
-    // Note sequence: GABC snippets and/or NABC snippets separated by |
-    note_sequence: $ => seq(
-      $.gabc_snippet,
+    // Snippet list: GABC snippets and/or NABC snippets separated by |
+    snippet_list: $ => seq(
+      field('single', $.gabc_snippet),
       repeat(seq('|', choice($.gabc_snippet, $.nabc_snippet)))
     ),
 
     // GABC snippet: notes and other GABC elements
     gabc_snippet: $ => repeat1(choice(
+      $.gabc_clef,
       $.note,
-      $.clef,
-      $.bar,
+      $.gabc_bar,
       $.line_break,
       $.custos,
       $.spacing,
@@ -246,21 +253,21 @@ module.exports = grammar({
 
     oriscus_orientation: $ => /[oO][01]/,
 
-    neume_fusion: $ => choice('@', seq('@[', $.note_sequence, ']')),
+    neume_fusion: $ => choice('@', seq('@[', $.snippet_list, ']')),
 
     cavum: $ => choice('r', 'r0'),
 
-    // Clef: c or f, optional b, line number
-    clef: $ => seq(
+    // Clef: c or f, optional b, line number (higher precedence than note)
+    gabc_clef: $ => prec(1, token(seq(
       /[cf]/,
       optional('b'),
-      $.line_number
-    ),
+      /[1-8]/
+    ))),
 
     line_number: $ => /[1-8]/,
 
     // Bar: various bar types
-    bar: $ => seq(
+    gabc_bar: $ => seq(
       choice('`', '^', ',', ';', ':', '::'),
       optional($.bar_modifiers)
     ),

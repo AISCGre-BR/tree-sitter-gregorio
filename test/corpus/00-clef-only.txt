@@ -1,0 +1,30 @@
+==========
+Clef only
+==========
+
+name: Clef only;
+
+%%
+
+(c4) (::)
+
+---
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value))))
+  (section_separator)
+  (notation_section
+    (syllable
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_clef)))))
+    (syllable
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_bar)))))))

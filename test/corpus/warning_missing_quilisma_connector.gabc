@@ -1,8 +1,0 @@
-name: Missing quilisma connector;
-mode: 1;
-mabc-lines: 1;
-
-%%
-
-(fgwh) Problematic example (should be (f!gwh)) (;)
-(efgwh) Another problematic example (should be (ef!gwh)) (;)
