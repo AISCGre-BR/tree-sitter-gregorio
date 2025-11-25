@@ -1,12 +1,12 @@
-==========
-Clef only
-==========
+============
+Line breaks
+============
 
-name: Clef only;
+name: Line breaks test;
 
 %%
 
-(c4) (::)
+(czd)
 
 ---
 
@@ -23,9 +23,8 @@ name: Clef only;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_clef)))))
-    (notation_item
-      (note_group
-        (snippet_list
-          single: (gabc_snippet
-            (gabc_bar)))))))
+            (note
+              (pitch))
+            (line_break)
+            (note
+              (pitch))))))))

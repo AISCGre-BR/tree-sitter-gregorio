@@ -22,7 +22,8 @@ al()le()lú()ia.()
     (header
       name: (header_name)
       value: (header_value
-        (single_line_header_value))))
+        (single_line_header_value)
+        (single_line_header_terminator))))
   (comment)
   (section_separator)
   (notation_section

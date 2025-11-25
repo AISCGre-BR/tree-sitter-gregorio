@@ -1,12 +1,12 @@
-=========================
-Translation and centering
-=========================
+======
+Bars
+======
 
-name: Other text tags test;
+name: Bars test;
 
 %%
 
-Q{ui}(f)a(f) text[texto](g)$@end(h)
+(c)(,)(f)(::)(g)(:)(h)(`)
 
 ---
 
@@ -20,35 +20,46 @@ Q{ui}(f)a(f) text[texto](g)$@end(h)
   (section_separator)
   (notation_section
     (notation_item
-      (syllable_text)
-      (syllable_centering
-        (syllable_centering_text))
       (note_group
         (snippet_list
           single: (gabc_snippet
             (note
               (pitch))))))
     (notation_item
-      (syllable_text)
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_bar)))))
+    (notation_item
       (note_group
         (snippet_list
           single: (gabc_snippet
             (note
               (pitch))))))
     (notation_item
-      (syllable_text)
-      (syllable_translation
-        (syllable_translation_text))
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_bar)))))
+    (notation_item
       (note_group
         (snippet_list
           single: (gabc_snippet
             (note
               (pitch))))))
     (notation_item
-      (syllable_escape_sequence)
-      (syllable_text)
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_bar)))))
+    (notation_item
       (note_group
         (snippet_list
           single: (gabc_snippet
             (note
-              (pitch))))))))
+              (pitch))))))
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_bar)))))))

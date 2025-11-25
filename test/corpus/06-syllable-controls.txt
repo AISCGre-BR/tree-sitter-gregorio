@@ -15,7 +15,8 @@ name: Syllable controls test;
     (header
       name: (header_name)
       value: (header_value
-        (single_line_header_value))))
+        (single_line_header_value)
+        (single_line_header_terminator))))
   (section_separator)
   (notation_section
     (notation_item

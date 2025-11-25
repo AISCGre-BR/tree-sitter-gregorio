@@ -1,12 +1,12 @@
-==========
-Clef only
-==========
+======
+Custos
+======
 
-name: Clef only;
+name: Custos test;
 
 %%
 
-(c4) (::)
+(cz0d)
 
 ---
 
@@ -23,9 +23,8 @@ name: Clef only;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_clef)))))
-    (notation_item
-      (note_group
-        (snippet_list
-          single: (gabc_snippet
-            (gabc_bar)))))))
+            (note
+              (pitch))
+            (custos)
+            (note
+              (pitch))))))))

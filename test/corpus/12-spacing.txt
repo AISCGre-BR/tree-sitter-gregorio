@@ -1,12 +1,12 @@
-==========
-Clef only
-==========
+=======
+Spacing
+=======
 
-name: Clef only;
+name: Spacing test;
 
 %%
 
-(c4) (::)
+(c/d//e)
 
 ---
 
@@ -23,9 +23,11 @@ name: Clef only;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_clef)))))
-    (notation_item
-      (note_group
-        (snippet_list
-          single: (gabc_snippet
-            (gabc_bar)))))))
+            (note
+              (pitch))
+            (spacing)
+            (note
+              (pitch))
+            (spacing)
+            (note
+              (pitch))))))))
