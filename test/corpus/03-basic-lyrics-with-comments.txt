@@ -26,64 +26,62 @@ al()le()lú()ia.()
   (comment)
   (section_separator)
   (notation_section
-    (syllable
+    (notation_item
       (note_group
         (snippet_list
           single: (gabc_snippet
             (gabc_clef)))))
-    (syllable
-      (lyric_text
-        (text_content))
+    (notation_item
+      (syllable
+        (syllable_text))
       (note_group))
-    (syllable
-      (lyric_text
-        (text_content))
+    (notation_item
+      (syllable
+        (syllable_text))
       (note_group))
-    (syllable
-      (lyric_text
-        (text_content))
+    (notation_item
+      (syllable
+        (syllable_text))
       (note_group))
-    (syllable
-      (lyric_text
-        (text_content))
-      (note_group))
-    (comment)
-    (syllable
-      (lyric_text
-        (text_content)))
-    (syllable
-      (note_group))
-    (syllable
-      (lyric_text
-        (text_content))
-      (note_group))
-    (syllable
-      (lyric_text
-        (text_content))
-      (note_group))
-    (syllable
-      (lyric_text
-        (text_content))
+    (notation_item
+      (syllable
+        (syllable_text))
       (note_group))
     (comment)
-    (syllable
-      (lyric_text
-        (text_content)))
-    (syllable
+    (notation_item
+      (syllable
+        (syllable_text))
       (note_group))
-    (syllable
-      (lyric_text
-        (text_content))
+    (notation_item
+      (syllable
+        (syllable_text))
       (note_group))
-    (syllable
-      (lyric_text
-        (text_content))
+    (notation_item
+      (syllable
+        (syllable_text))
       (note_group))
-    (syllable
-      (lyric_text
-        (text_content))
+    (notation_item
+      (syllable
+        (syllable_text))
       (note_group))
-    (syllable
+    (comment)
+    (notation_item
+      (syllable
+        (syllable_text))
+      (note_group))
+    (notation_item
+      (syllable
+        (syllable_text))
+      (note_group))
+    (notation_item
+      (syllable
+        (syllable_text))
+      (note_group))
+    (notation_item
+      (syllable
+        (syllable_text))
+      (note_group))
+    (notation_item
       (note_group
         (snippet_list
           single: (gabc_snippet

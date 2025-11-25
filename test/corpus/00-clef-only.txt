@@ -18,12 +18,12 @@ name: Clef only;
         (single_line_header_value))))
   (section_separator)
   (notation_section
-    (syllable
+    (notation_item
       (note_group
         (snippet_list
           single: (gabc_snippet
             (gabc_clef)))))
-    (syllable
+    (notation_item
       (note_group
         (snippet_list
           single: (gabc_snippet
