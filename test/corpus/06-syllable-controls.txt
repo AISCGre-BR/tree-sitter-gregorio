@@ -20,16 +20,32 @@ name: Syllable controls test;
   (notation_section
     (notation_item
       (syllable_control_elision
-        (syllable_text))
+        (tag_opening_bracket)
+        (tag_elision_name)
+        (tag_closing_bracket)
+        (syllable_text)
+        (closing_tag_opening_bracket)
+        (tag_elision_name)
+        (tag_closing_bracket))
       (note_group
         (snippet_list
           single: (gabc_snippet
             (note
               (pitch))))))
     (notation_item
-      (syllable_control_clear)
+      (syllable_control_clear
+        (tag_opening_bracket)
+        (tag_clear_name)
+        (self_closing_tag_slash)
+        (tag_closing_bracket))
       (syllable_control_euouae
-        (syllable_text))
+        (tag_opening_bracket)
+        (tag_euouae_name)
+        (tag_closing_bracket)
+        (syllable_text)
+        (closing_tag_opening_bracket)
+        (tag_euouae_name)
+        (tag_closing_bracket))
       (note_group
         (snippet_list
           single: (gabc_snippet
@@ -37,14 +53,23 @@ name: Syllable controls test;
               (pitch))))))
     (notation_item
       (syllable_control_no_line_break
-        (syllable_text))
+        (tag_opening_bracket)
+        (tag_no_line_break_name)
+        (tag_closing_bracket)
+        (syllable_text)
+        (closing_tag_opening_bracket)
+        (tag_no_line_break_name)
+        (tag_closing_bracket))
       (note_group
         (snippet_list
           single: (gabc_snippet
             (note
               (pitch))))))
     (notation_item
-      (syllable_control_protrusion)
+      (syllable_control_protrusion
+        (tag_opening_bracket)
+        (tag_protrusion_name)
+        (tag_closing_bracket))
       (syllable_text)
       (note_group
         (snippet_list

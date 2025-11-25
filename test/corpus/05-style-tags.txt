@@ -24,7 +24,13 @@ name: Style tags test;
   (notation_section
     (notation_item
       (syllable_style_bold
-        (syllable_text))
+        (tag_opening_bracket)
+        (tag_bold_name)
+        (tag_closing_bracket)
+        (syllable_text)
+        (closing_tag_opening_bracket)
+        (tag_bold_name)
+        (tag_closing_bracket))
       (note_group
         (snippet_list
           single: (gabc_snippet
@@ -32,7 +38,13 @@ name: Style tags test;
               (pitch))))))
     (notation_item
       (syllable_style_italic
-        (syllable_text))
+        (tag_opening_bracket)
+        (tag_italic_name)
+        (tag_closing_bracket)
+        (syllable_text)
+        (closing_tag_opening_bracket)
+        (tag_italic_name)
+        (tag_closing_bracket))
       (note_group
         (snippet_list
           single: (gabc_snippet
@@ -40,7 +52,13 @@ name: Style tags test;
               (pitch))))))
     (notation_item
       (syllable_style_small_caps
-        (syllable_text))
+        (tag_opening_bracket)
+        (tag_small_caps_name)
+        (tag_closing_bracket)
+        (syllable_text)
+        (closing_tag_opening_bracket)
+        (tag_small_caps_name)
+        (tag_closing_bracket))
       (note_group
         (snippet_list
           single: (gabc_snippet
@@ -48,7 +66,13 @@ name: Style tags test;
               (pitch))))))
     (notation_item
       (syllable_style_teletype
-        (syllable_text))
+        (tag_opening_bracket)
+        (tag_teletype_name)
+        (tag_closing_bracket)
+        (syllable_text)
+        (closing_tag_opening_bracket)
+        (tag_teletype_name)
+        (tag_closing_bracket))
       (syllable_text)
       (note_group
         (snippet_list
@@ -57,7 +81,13 @@ name: Style tags test;
               (pitch))))))
     (notation_item
       (syllable_style_colored
-        (syllable_text))
+        (tag_opening_bracket)
+        (tag_colored_name)
+        (tag_closing_bracket)
+        (syllable_text)
+        (closing_tag_opening_bracket)
+        (tag_colored_name)
+        (tag_closing_bracket))
       (note_group
         (snippet_list
           single: (gabc_snippet
@@ -65,7 +95,13 @@ name: Style tags test;
               (pitch))))))
     (notation_item
       (syllable_style_underline
-        (syllable_text))
+        (tag_opening_bracket)
+        (tag_underline_name)
+        (tag_closing_bracket)
+        (syllable_text)
+        (closing_tag_opening_bracket)
+        (tag_underline_name)
+        (tag_closing_bracket))
       (note_group
         (snippet_list
           single: (gabc_snippet
@@ -73,7 +109,13 @@ name: Style tags test;
               (pitch))))))
     (notation_item
       (syllable_style_small_caps
-        (syllable_text))
+        (tag_opening_bracket)
+        (tag_small_caps_name)
+        (tag_closing_bracket)
+        (syllable_text)
+        (closing_tag_opening_bracket)
+        (tag_small_caps_name)
+        (tag_closing_bracket))
       (note_group
         (snippet_list
           single: (gabc_snippet
@@ -81,7 +123,13 @@ name: Style tags test;
               (pitch))))))
     (notation_item
       (syllable_style_teletype
-        (syllable_text))
+        (tag_opening_bracket)
+        (tag_teletype_name)
+        (tag_closing_bracket)
+        (syllable_text)
+        (closing_tag_opening_bracket)
+        (tag_teletype_name)
+        (tag_closing_bracket))
       (syllable_text)
       (note_group
         (snippet_list
