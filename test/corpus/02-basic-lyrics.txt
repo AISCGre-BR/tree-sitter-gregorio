@@ -1,0 +1,82 @@
+============
+Basic lyrics
+============
+
+name: Basic lyrics;
+
+%%
+
+(c4) Al()le()lú()ia,()
+
+al()le()lú()ia,()     al()le()lú()ia.()
+
+(::)
+
+---
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value))))
+  (section_separator)
+  (notation_section
+    (syllable
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_clef)))))
+    (syllable
+      (lyric_text
+        (text_content))
+      (note_group))
+    (syllable
+      (lyric_text
+        (text_content))
+      (note_group))
+    (syllable
+      (lyric_text
+        (text_content))
+      (note_group))
+    (syllable
+      (lyric_text
+        (text_content))
+      (note_group))
+    (syllable
+      (lyric_text
+        (text_content))
+      (note_group))
+    (syllable
+      (lyric_text
+        (text_content))
+      (note_group))
+    (syllable
+      (lyric_text
+        (text_content))
+      (note_group))
+    (syllable
+      (lyric_text
+        (text_content))
+      (note_group))
+    (syllable
+      (lyric_text
+        (text_content))
+      (note_group))
+    (syllable
+      (lyric_text
+        (text_content))
+      (note_group))
+    (syllable
+      (lyric_text
+        (text_content))
+      (note_group))
+    (syllable
+      (lyric_text
+        (text_content))
+      (note_group))
+    (syllable
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_bar)))))))
