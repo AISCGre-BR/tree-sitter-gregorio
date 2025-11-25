@@ -137,7 +137,7 @@ module.exports = grammar({
       )
     ),
 
-    syllable_text: $ => /[^\s${}\\[\\]<>%():;]+/,
+    syllable_text: $ => /[^\s${}\\<>%():;\[\]]+/,
 
     // Syllable style tags
     syllable_style_bold: $ => seq('<b>', optional($._syllable), '</b>'),
