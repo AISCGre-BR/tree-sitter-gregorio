@@ -20,11 +20,13 @@ Ad(f|ta) te,(h|vi) Dó(hi|pe)mi(i|vi)ne.(i|vi)
     (header
       name: (header_name)
       value: (header_value
-        (single_line_header_value)))
+        (single_line_header_value)
+        (single_line_header_terminator)))
     (header
       name: (header_name)
       value: (header_value
-        (single_line_header_value))))
+        (single_line_header_value)
+        (single_line_header_terminator))))
   (section_separator)
   (notation_section
     (notation_item

@@ -85,24 +85,34 @@ module.exports = grammar({
     header: $ => seq(
       field('name', $.header_name),
       ':',
-      field('value', $.header_value),
-      ';'
+      field('value', $.header_value)
     ),
 
-    header_name: $ => /[a-zA-Z0-9][a-zA-Z0-9-]*/,
+    header_name: _ => /[a-zA-Z0-9][a-zA-Z0-9-]*/,
 
     header_value: $ => choice(
+      $._multiline_header_value_terminated,
+      $._single_line_header_value_terminated
+    ),
+
+    _single_line_header_value_terminated: $ => seq(
+      $.single_line_header_value,
+      $.single_line_header_terminator
+    ),
+
+    single_line_header_value: _ => /[^;%]*/,
+
+    single_line_header_terminator: _ => ';',
+
+    // Multiline header: end with ;;
+    _multiline_header_value_terminated: $ => seq(
       $.multiline_header_value,
-      $.single_line_header_value
+      $.multiline_header_terminator
     ),
 
-    single_line_header_value: $ => /[^;%]*/,
+    multiline_header_value: _ => /[^;%]*/,
 
-    // Multiline header: omit semicolon, end with ;;
-    multiline_header_value: $ => seq(
-      /[^;%]*/,
-      ';;'
-    ),
+    multiline_header_terminator: _ => ';;',
 
     // Notation section: sequence of notation items
     notation_section: $ => repeat1($.notation_item),
