@@ -28,52 +28,40 @@ al()le()lú()ia,()     al()le()lú()ia.()
           single: (gabc_snippet
             (gabc_clef)))))
     (notation_item
-      (syllable
-        (syllable_text))
+      (syllable_text)
       (note_group))
     (notation_item
-      (syllable
-        (syllable_text))
+      (syllable_text)
       (note_group))
     (notation_item
-      (syllable
-        (syllable_text))
+      (syllable_text)
       (note_group))
     (notation_item
-      (syllable
-        (syllable_text))
+      (syllable_text)
       (note_group))
     (notation_item
-      (syllable
-        (syllable_text))
+      (syllable_text)
       (note_group))
     (notation_item
-      (syllable
-        (syllable_text))
+      (syllable_text)
       (note_group))
     (notation_item
-      (syllable
-        (syllable_text))
+      (syllable_text)
       (note_group))
     (notation_item
-      (syllable
-        (syllable_text))
+      (syllable_text)
       (note_group))
     (notation_item
-      (syllable
-        (syllable_text))
+      (syllable_text)
       (note_group))
     (notation_item
-      (syllable
-        (syllable_text))
+      (syllable_text)
       (note_group))
     (notation_item
-      (syllable
-        (syllable_text))
+      (syllable_text)
       (note_group))
     (notation_item
-      (syllable
-        (syllable_text))
+      (syllable_text)
       (note_group))
     (notation_item
       (note_group

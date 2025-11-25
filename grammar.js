@@ -20,11 +20,11 @@ module.exports = grammar({
     // Allow ambiguity involving `notation_item` (when text is followed by '(')
     // so the generator can resolve the parse during conflict resolution.
     [$.notation_item],
-    // `syllable` (formerly lyric_text) is a sequence that includes nested `syllable` nested `syllable`
+    // `_syllable` (formerly lyric_text) is a sequence that includes nested `_syllable`
     // through style tags (e.g. `<b>...</b>`). This can create
     // associativity ambiguities for the repetition; declare it as a
     // conflict so the generator can handle it.
-    [$.syllable],
+    [$._syllable],
     // `gabc_bar` may be followed by `bar_modifiers` which can include ';'.
     // This can create ambiguities in some bracketed constructs; allow
     // the generator to resolve them by declaring a conflict for `gabc_bar`.
@@ -109,12 +109,12 @@ module.exports = grammar({
 
     // Notation item: must contain optional syllable text and mandatory note group.
     notation_item: $ => seq(
-      optional($.syllable),
+      optional($._syllable),
       $.note_group
     ),
 
     // Syllable: text outside parentheses
-    syllable: $ => repeat1(
+    _syllable: $ => repeat1(
       choice(
         $.syllable_text,
         $.syllable_style_bold,
@@ -140,18 +140,18 @@ module.exports = grammar({
     syllable_text: $ => /[^\s${}\\[\\]<>%():;]+/,
 
     // Syllable style tags
-    syllable_style_bold: $ => seq('<b>', optional($.syllable), '</b>'),
-    syllable_style_colored: $ => seq('<c>', optional($.syllable), '</c>'),
-    syllable_style_italic: $ => seq('<i>', optional($.syllable), '</i>'),
-    syllable_style_small_caps: $ => seq('<sc>', optional($.syllable), '</sc>'),
-    syllable_style_teletype: $ => seq('<tt>', optional($.syllable), '</tt>'),
-    syllable_style_underline: $ => seq('<ul>', optional($.syllable), '</ul>'),
+    syllable_style_bold: $ => seq('<b>', optional($._syllable), '</b>'),
+    syllable_style_colored: $ => seq('<c>', optional($._syllable), '</c>'),
+    syllable_style_italic: $ => seq('<i>', optional($._syllable), '</i>'),
+    syllable_style_small_caps: $ => seq('<sc>', optional($._syllable), '</sc>'),
+    syllable_style_teletype: $ => seq('<tt>', optional($._syllable), '</tt>'),
+    syllable_style_underline: $ => seq('<ul>', optional($._syllable), '</ul>'),
 
     // Syllable controls
     syllable_control_clear: _ => choice('<clear>', '<clear/>'),
-    syllable_control_elision: $ => seq('<e>', optional($.syllable), '</e>'),
-    syllable_control_euouae: $ => seq('<eu>', optional($.syllable), '</eu>'),
-    syllable_control_no_line_break: $ => seq('<nlba>', optional($.syllable), '</nlba>'),
+    syllable_control_elision: $ => seq('<e>', optional($._syllable), '</e>'),
+    syllable_control_euouae: $ => seq('<eu>', optional($._syllable), '</eu>'),
+    syllable_control_no_line_break: $ => seq('<nlba>', optional($._syllable), '</nlba>'),
     syllable_control_protrusion: _ => choice(
       '<pr>',
       '<pr/>',
@@ -159,9 +159,9 @@ module.exports = grammar({
     ),
 
     // Other tags
-    syllable_other_above_lines_text: $ => seq('<alt>', optional($.syllable), '</alt>'),
-    syllable_other_special_character: $ => seq('<sp>', optional($.syllable), '</sp>'),
-    syllable_other_verbatim: $ => seq('<v>', optional($.syllable), '</v>'),
+    syllable_other_above_lines_text: $ => seq('<alt>', optional($._syllable), '</alt>'),
+    syllable_other_special_character: $ => seq('<sp>', optional($._syllable), '</sp>'),
+    syllable_other_verbatim: $ => seq('<v>', optional($._syllable), '</v>'),
 
     // Translation text: [text]
     syllable_translation: $ => seq(

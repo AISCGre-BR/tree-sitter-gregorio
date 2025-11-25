@@ -33,8 +33,7 @@ Ad(f|ta) te,(h|vi) Dó(hi|pe)mi(i|vi)ne.(i|vi)
           single: (gabc_snippet
             (gabc_clef)))))
     (notation_item
-      (syllable
-        (syllable_text))
+      (syllable_text)
       (note_group
         (snippet_list
           single: (gabc_snippet
@@ -46,8 +45,7 @@ Ad(f|ta) te,(h|vi) Dó(hi|pe)mi(i|vi)ne.(i|vi)
                 (nabc_glyph_descriptor
                   (nabc_neume_code))))))))
     (notation_item
-      (syllable
-        (syllable_text))
+      (syllable_text)
       (note_group
         (snippet_list
           single: (gabc_snippet
@@ -59,8 +57,7 @@ Ad(f|ta) te,(h|vi) Dó(hi|pe)mi(i|vi)ne.(i|vi)
                 (nabc_glyph_descriptor
                   (nabc_neume_code))))))))
     (notation_item
-      (syllable
-        (syllable_text))
+      (syllable_text)
       (note_group
         (snippet_list
           single: (gabc_snippet
@@ -74,8 +71,7 @@ Ad(f|ta) te,(h|vi) Dó(hi|pe)mi(i|vi)ne.(i|vi)
                 (nabc_glyph_descriptor
                   (nabc_neume_code))))))))
     (notation_item
-      (syllable
-        (syllable_text))
+      (syllable_text)
       (note_group
         (snippet_list
           single: (gabc_snippet
@@ -87,8 +83,7 @@ Ad(f|ta) te,(h|vi) Dó(hi|pe)mi(i|vi)ne.(i|vi)
                 (nabc_glyph_descriptor
                   (nabc_neume_code))))))))
     (notation_item
-      (syllable
-        (syllable_text))
+      (syllable_text)
       (note_group
         (snippet_list
           single: (gabc_snippet
