@@ -6,7 +6,7 @@ name: Syllable controls test;
 
 %%
 
-<e>E</e>(f)<clear/><eu>u</eu>(g)<nlba>o</nlba>(h)<pr>ae(i)
+<e>E</e>(f)<clear/><eu>u</eu>(g)<nlba>o</nlba>(h)<pr>ae(i)<pr:.3/>(j)
 
 ---
 
@@ -71,6 +71,19 @@ name: Syllable controls test;
         (tag_protrusion_name)
         (tag_closing_bracket))
       (syllable_text)
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (note
+              (pitch))))))
+    (notation_item
+      (syllable_control_protrusion
+        (tag_opening_bracket)
+        (tag_protrusion_name)
+        (syllable_control_protrusion_delimiter)
+        (syllable_control_protrusion_value)
+        (self_closing_tag_slash)
+        (tag_closing_bracket))
       (note_group
         (snippet_list
           single: (gabc_snippet
