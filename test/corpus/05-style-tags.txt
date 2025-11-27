@@ -1,6 +1,6 @@
-=============
+================================================================================
 Style tags
-=============
+================================================================================
 
 name: Style tags test;
 
@@ -12,126 +12,143 @@ name: Style tags test;
 
 (::)
 
----
+--------------------------------------------------------------------------------
 
 (source_file
   (header_section
     (header
       name: (header_name)
       value: (header_value
-        (single_line_header_value)
-        (single_line_header_terminator))))
+        (single_line_header_value_terminated
+          (single_line_header_value)
+          (single_line_header_terminator)))))
   (section_separator)
   (notation_section
     (notation_item
-      (syllable_style_bold
-        (tag_opening_bracket)
-        (tag_bold_name)
-        (tag_closing_bracket)
-        (syllable_text)
-        (closing_tag_opening_bracket)
-        (tag_bold_name)
-        (tag_closing_bracket))
+      (syllable
+        (syllable_style_bold
+          (tag_opening_bracket)
+          (tag_bold_name)
+          (tag_closing_bracket)
+          (syllable
+            (syllable_text))
+          (closing_tag_opening_bracket)
+          (tag_bold_name)
+          (tag_closing_bracket)))
       (note_group
         (snippet_list
           single: (gabc_snippet
             (note
               (pitch))))))
     (notation_item
-      (syllable_style_italic
-        (tag_opening_bracket)
-        (tag_italic_name)
-        (tag_closing_bracket)
-        (syllable_text)
-        (closing_tag_opening_bracket)
-        (tag_italic_name)
-        (tag_closing_bracket))
+      (syllable
+        (syllable_style_italic
+          (tag_opening_bracket)
+          (tag_italic_name)
+          (tag_closing_bracket)
+          (syllable
+            (syllable_text))
+          (closing_tag_opening_bracket)
+          (tag_italic_name)
+          (tag_closing_bracket)))
       (note_group
         (snippet_list
           single: (gabc_snippet
             (note
               (pitch))))))
     (notation_item
-      (syllable_style_small_caps
-        (tag_opening_bracket)
-        (tag_small_caps_name)
-        (tag_closing_bracket)
-        (syllable_text)
-        (closing_tag_opening_bracket)
-        (tag_small_caps_name)
-        (tag_closing_bracket))
+      (syllable
+        (syllable_style_small_caps
+          (tag_opening_bracket)
+          (tag_small_caps_name)
+          (tag_closing_bracket)
+          (syllable
+            (syllable_text))
+          (closing_tag_opening_bracket)
+          (tag_small_caps_name)
+          (tag_closing_bracket)))
       (note_group
         (snippet_list
           single: (gabc_snippet
             (note
               (pitch))))))
     (notation_item
-      (syllable_style_teletype
-        (tag_opening_bracket)
-        (tag_teletype_name)
-        (tag_closing_bracket)
-        (syllable_text)
-        (closing_tag_opening_bracket)
-        (tag_teletype_name)
-        (tag_closing_bracket))
-      (syllable_text)
+      (syllable
+        (syllable_style_teletype
+          (tag_opening_bracket)
+          (tag_teletype_name)
+          (tag_closing_bracket)
+          (syllable
+            (syllable_text))
+          (closing_tag_opening_bracket)
+          (tag_teletype_name)
+          (tag_closing_bracket))
+        (syllable_text))
       (note_group
         (snippet_list
           single: (gabc_snippet
             (note
               (pitch))))))
     (notation_item
-      (syllable_style_colored
-        (tag_opening_bracket)
-        (tag_colored_name)
-        (tag_closing_bracket)
-        (syllable_text)
-        (closing_tag_opening_bracket)
-        (tag_colored_name)
-        (tag_closing_bracket))
+      (syllable
+        (syllable_style_colored
+          (tag_opening_bracket)
+          (tag_colored_name)
+          (tag_closing_bracket)
+          (syllable
+            (syllable_text))
+          (closing_tag_opening_bracket)
+          (tag_colored_name)
+          (tag_closing_bracket)))
       (note_group
         (snippet_list
           single: (gabc_snippet
             (note
               (pitch))))))
     (notation_item
-      (syllable_style_underline
-        (tag_opening_bracket)
-        (tag_underline_name)
-        (tag_closing_bracket)
-        (syllable_text)
-        (closing_tag_opening_bracket)
-        (tag_underline_name)
-        (tag_closing_bracket))
+      (syllable
+        (syllable_style_underline
+          (tag_opening_bracket)
+          (tag_underline_name)
+          (tag_closing_bracket)
+          (syllable
+            (syllable_text))
+          (closing_tag_opening_bracket)
+          (tag_underline_name)
+          (tag_closing_bracket)))
       (note_group
         (snippet_list
           single: (gabc_snippet
             (note
               (pitch))))))
     (notation_item
-      (syllable_style_small_caps
-        (tag_opening_bracket)
-        (tag_small_caps_name)
-        (tag_closing_bracket)
-        (syllable_text)
-        (closing_tag_opening_bracket)
-        (tag_small_caps_name)
-        (tag_closing_bracket))
+      (syllable
+        (syllable_style_small_caps
+          (tag_opening_bracket)
+          (tag_small_caps_name)
+          (tag_closing_bracket)
+          (syllable
+            (syllable_text))
+          (closing_tag_opening_bracket)
+          (tag_small_caps_name)
+          (tag_closing_bracket)))
       (note_group
         (snippet_list
           single: (gabc_snippet
             (note
               (pitch))))))
     (notation_item
-      (syllable_style_teletype
-        (tag_opening_bracket)
-        (tag_teletype_name)
-        (tag_closing_bracket)
-        (syllable_text)
-        (closing_tag_opening_bracket)
-        (tag_teletype_name)
-        (tag_closing_bracket))
-      (syllable_text)
+      (syllable
+        (syllable_style_teletype
+          (tag_opening_bracket)
+          (tag_teletype_name)
+          (tag_closing_bracket)
+          (syllable
+            (syllable_text))
+          (closing_tag_opening_bracket)
+          (tag_teletype_name)
+          (tag_closing_bracket))
+        (syllable_text))
       (note_group
         (snippet_list
           single: (gabc_snippet

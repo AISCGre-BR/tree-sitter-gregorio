@@ -20,11 +20,11 @@ module.exports = grammar({
     // Allow ambiguity involving `notation_item` (when text is followed by '(')
     // so the generator can resolve the parse during conflict resolution.
     [$.notation_item],
-    // `_syllable` (formerly lyric_text) is a sequence that includes nested `_syllable`
+    // `syllable` (formerly lyric_text) is a sequence that includes nested `syllable`
     // through style tags (e.g. `<b>...</b>`). This can create
     // associativity ambiguities for the repetition; declare it as a
     // conflict so the generator can handle it.
-    [$._syllable],
+    [$.syllable],
     // `gabc_bar` may be followed by `bar_modifiers` which can include ';'.
     // This can create ambiguities in some bracketed constructs; allow
     // the generator to resolve them by declaring a conflict for `gabc_bar`.
@@ -91,11 +91,11 @@ module.exports = grammar({
     header_name: _ => /[a-zA-Z0-9][a-zA-Z0-9-]*/,
 
     header_value: $ => choice(
-      $._multiline_header_value_terminated,
-      $._single_line_header_value_terminated
+      $.multiline_header_value_terminated,
+      $.single_line_header_value_terminated
     ),
 
-    _single_line_header_value_terminated: $ => seq(
+    single_line_header_value_terminated: $ => seq(
       $.single_line_header_value,
       $.single_line_header_terminator
     ),
@@ -105,7 +105,7 @@ module.exports = grammar({
     single_line_header_terminator: _ => ';',
 
     // Multiline header: end with ;;
-    _multiline_header_value_terminated: $ => seq(
+    multiline_header_value_terminated: $ => seq(
       $.multiline_header_value,
       $.multiline_header_terminator
     ),
@@ -119,12 +119,12 @@ module.exports = grammar({
 
     // Notation item: must contain optional syllable text and mandatory note group.
     notation_item: $ => seq(
-      optional($._syllable),
+      optional($.syllable),
       $.note_group
     ),
 
     // Syllable: text outside parentheses
-    _syllable: $ => repeat1(
+    syllable: $ => repeat1(
       choice(
         $.syllable_text,
         $.syllable_style_bold,
@@ -178,7 +178,7 @@ module.exports = grammar({
       $.tag_opening_bracket,
       $.tag_bold_name,
       $.tag_closing_bracket,
-      optional($._syllable),
+      optional($.syllable),
       $.closing_tag_opening_bracket,
       $.tag_bold_name,
       $.tag_closing_bracket
@@ -187,7 +187,7 @@ module.exports = grammar({
       $.tag_opening_bracket,
       $.tag_colored_name,
       $.tag_closing_bracket,
-      optional($._syllable),
+      optional($.syllable),
       $.closing_tag_opening_bracket,
       $.tag_colored_name,
       $.tag_closing_bracket
@@ -196,7 +196,7 @@ module.exports = grammar({
       $.tag_opening_bracket,
       $.tag_italic_name,
       $.tag_closing_bracket,
-      optional($._syllable),
+      optional($.syllable),
       $.closing_tag_opening_bracket,
       $.tag_italic_name,
       $.tag_closing_bracket
@@ -205,7 +205,7 @@ module.exports = grammar({
       $.tag_opening_bracket,
       $.tag_small_caps_name,
       $.tag_closing_bracket,
-      optional($._syllable),
+      optional($.syllable),
       $.closing_tag_opening_bracket,
       $.tag_small_caps_name,
       $.tag_closing_bracket
@@ -214,7 +214,7 @@ module.exports = grammar({
       $.tag_opening_bracket,
       $.tag_teletype_name,
       $.tag_closing_bracket,
-      optional($._syllable),
+      optional($.syllable),
       $.closing_tag_opening_bracket,
       $.tag_teletype_name,
       $.tag_closing_bracket
@@ -223,7 +223,7 @@ module.exports = grammar({
       $.tag_opening_bracket,
       $.tag_underline_name,
       $.tag_closing_bracket,
-      optional($._syllable),
+      optional($.syllable),
       $.closing_tag_opening_bracket,
       $.tag_underline_name,
       $.tag_closing_bracket
@@ -241,7 +241,7 @@ module.exports = grammar({
       $.tag_opening_bracket,
       $.tag_elision_name,
       $.tag_closing_bracket,
-      optional($._syllable),
+      optional($.syllable),
       $.closing_tag_opening_bracket,
       $.tag_elision_name,
       $.tag_closing_bracket
@@ -251,7 +251,7 @@ module.exports = grammar({
       $.tag_opening_bracket,
       $.tag_euouae_name,
       $.tag_closing_bracket,
-      optional($._syllable),
+      optional($.syllable),
       $.closing_tag_opening_bracket,
       $.tag_euouae_name,
       $.tag_closing_bracket
@@ -261,7 +261,7 @@ module.exports = grammar({
       $.tag_opening_bracket,
       $.tag_no_line_break_name,
       $.tag_closing_bracket,
-      optional($._syllable),
+      optional($.syllable),
       $.closing_tag_opening_bracket,
       $.tag_no_line_break_name,
       $.tag_closing_bracket
@@ -288,7 +288,7 @@ module.exports = grammar({
       $.tag_opening_bracket,
       $.tag_above_lines_text_name,
       $.tag_closing_bracket,
-      optional($._syllable),
+      optional($.syllable),
       $.closing_tag_opening_bracket,
       $.tag_above_lines_text_name,
       $.tag_closing_bracket
@@ -297,7 +297,7 @@ module.exports = grammar({
       $.tag_opening_bracket,
       $.tag_special_character_name,
       $.tag_closing_bracket,
-      optional($._syllable),
+      optional($.syllable),
       $.closing_tag_opening_bracket,
       $.tag_special_character_name,
       $.tag_closing_bracket
@@ -306,7 +306,7 @@ module.exports = grammar({
       $.tag_opening_bracket,
       $.tag_verbatim_name,
       $.tag_closing_bracket,
-      optional($._syllable),
+      optional($.syllable),
       $.closing_tag_opening_bracket,
       $.tag_verbatim_name,
       $.tag_closing_bracket
