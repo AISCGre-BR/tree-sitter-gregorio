@@ -46,10 +46,10 @@ Ad(f|ta) te,(h|vi) Dó(hi|pe)mi(i|vi)ne.(i|vi)
       (note_group
         (note_group_opening_paren)
         (snippet_list
-          single: (gabc_snippet
+          first: (gabc_snippet
             (gabc_neume_punctum_quadratum
               (pitch)))
-          alternate: (gabc_nabc_separator)
+          (gabc_nabc_separator)
           alternate: (nabc_snippet
             (nabc_complex_neume_descriptor
               (nabc_complex_glyph_descriptor
@@ -62,10 +62,10 @@ Ad(f|ta) te,(h|vi) Dó(hi|pe)mi(i|vi)ne.(i|vi)
       (note_group
         (note_group_opening_paren)
         (snippet_list
-          single: (gabc_snippet
+          first: (gabc_snippet
             (gabc_neume_punctum_quadratum
               (pitch)))
-          alternate: (gabc_nabc_separator)
+          (gabc_nabc_separator)
           alternate: (nabc_snippet
             (nabc_complex_neume_descriptor
               (nabc_complex_glyph_descriptor
@@ -78,12 +78,12 @@ Ad(f|ta) te,(h|vi) Dó(hi|pe)mi(i|vi)ne.(i|vi)
       (note_group
         (note_group_opening_paren)
         (snippet_list
-          single: (gabc_snippet
+          first: (gabc_snippet
             (gabc_neume_punctum_quadratum
               (pitch))
             (gabc_neume_punctum_quadratum
               (pitch)))
-          alternate: (gabc_nabc_separator)
+          (gabc_nabc_separator)
           alternate: (nabc_snippet
             (nabc_complex_neume_descriptor
               (nabc_complex_glyph_descriptor
@@ -96,10 +96,10 @@ Ad(f|ta) te,(h|vi) Dó(hi|pe)mi(i|vi)ne.(i|vi)
       (note_group
         (note_group_opening_paren)
         (snippet_list
-          single: (gabc_snippet
+          first: (gabc_snippet
             (gabc_neume_punctum_quadratum
               (pitch)))
-          alternate: (gabc_nabc_separator)
+          (gabc_nabc_separator)
           alternate: (nabc_snippet
             (nabc_complex_neume_descriptor
               (nabc_complex_glyph_descriptor
@@ -112,10 +112,10 @@ Ad(f|ta) te,(h|vi) Dó(hi|pe)mi(i|vi)ne.(i|vi)
       (note_group
         (note_group_opening_paren)
         (snippet_list
-          single: (gabc_snippet
+          first: (gabc_snippet
             (gabc_neume_punctum_quadratum
               (pitch)))
-          alternate: (gabc_nabc_separator)
+          (gabc_nabc_separator)
           alternate: (nabc_snippet
             (nabc_complex_neume_descriptor
               (nabc_complex_glyph_descriptor

@@ -317,17 +317,27 @@ module.exports = grammar({
     note_group_closing_paren: _ => ')',
 
     // Snippet list: GABC snippets and/or NABC snippets separated by |
-    snippet_list: $ => seq(
+    snippet_list: $ => choice(
+      // Simple case: single GABC snippet (no alternation)
       field('single', $.gabc_snippet),
-      field('alternate', repeat(
-        seq(
-          $.gabc_nabc_separator,
-          choice($.gabc_snippet, $.nabc_snippet)
+
+      // Complex case: alternating snippets
+      seq(
+        field('first', $.gabc_snippet),
+        repeat1(
+          seq(
+            $.gabc_nabc_separator,
+            field('alternate', $._alternating_snippet)
+          )
         )
-      ))
+      )
     ),
 
     gabc_nabc_separator: _ => '|',
+
+    // Alternating snippet: either GABC or NABC
+    // The parser will determine based on content patterns
+    _alternating_snippet: $ => choice($.gabc_snippet, $.nabc_snippet),
 
     // GABC snippet: notes and other GABC elements
     gabc_snippet: $ => repeat1(
