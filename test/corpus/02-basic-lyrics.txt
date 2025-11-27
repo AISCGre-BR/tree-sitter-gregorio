@@ -1,6 +1,6 @@
-============
+================================================================================
 Basic lyrics
-============
+================================================================================
 
 name: Basic lyrics;
 
@@ -12,15 +12,16 @@ al()le()lú()ia,()     al()le()lú()ia.()
 
 (::)
 
----
+--------------------------------------------------------------------------------
 
 (source_file
   (header_section
     (header
       name: (header_name)
       value: (header_value
-        (single_line_header_value)
-        (single_line_header_terminator))))
+        (single_line_header_value_terminated
+          (single_line_header_value)
+          (single_line_header_terminator)))))
   (section_separator)
   (notation_section
     (notation_item
@@ -29,40 +30,52 @@ al()le()lú()ia,()     al()le()lú()ia.()
           single: (gabc_snippet
             (gabc_clef)))))
     (notation_item
-      (syllable_text)
+      (syllable
+        (syllable_text))
       (note_group))
     (notation_item
-      (syllable_text)
+      (syllable
+        (syllable_text))
       (note_group))
     (notation_item
-      (syllable_text)
+      (syllable
+        (syllable_text))
       (note_group))
     (notation_item
-      (syllable_text)
+      (syllable
+        (syllable_text))
       (note_group))
     (notation_item
-      (syllable_text)
+      (syllable
+        (syllable_text))
       (note_group))
     (notation_item
-      (syllable_text)
+      (syllable
+        (syllable_text))
       (note_group))
     (notation_item
-      (syllable_text)
+      (syllable
+        (syllable_text))
       (note_group))
     (notation_item
-      (syllable_text)
+      (syllable
+        (syllable_text))
       (note_group))
     (notation_item
-      (syllable_text)
+      (syllable
+        (syllable_text))
       (note_group))
     (notation_item
-      (syllable_text)
+      (syllable
+        (syllable_text))
       (note_group))
     (notation_item
-      (syllable_text)
+      (syllable
+        (syllable_text))
       (note_group))
     (notation_item
-      (syllable_text)
+      (syllable
+        (syllable_text))
       (note_group))
     (notation_item
       (note_group

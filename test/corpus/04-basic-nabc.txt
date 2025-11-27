@@ -1,6 +1,6 @@
-===================
+================================================================================
 Basic lyrics + NABC
-===================
+================================================================================
 
 name: Basic lyrics + NABC;
 nabc-lines: 1;
@@ -13,20 +13,22 @@ Ad(f|ta) te,(h|vi) Dó(hi|pe)mi(i|vi)ne.(i|vi)
 
 (::)
 
----
+--------------------------------------------------------------------------------
 
 (source_file
   (header_section
     (header
       name: (header_name)
       value: (header_value
-        (single_line_header_value)
-        (single_line_header_terminator)))
+        (single_line_header_value_terminated
+          (single_line_header_value)
+          (single_line_header_terminator))))
     (header
       name: (header_name)
       value: (header_value
-        (single_line_header_value)
-        (single_line_header_terminator))))
+        (single_line_header_value_terminated
+          (single_line_header_value)
+          (single_line_header_terminator)))))
   (section_separator)
   (notation_section
     (notation_item
@@ -35,7 +37,8 @@ Ad(f|ta) te,(h|vi) Dó(hi|pe)mi(i|vi)ne.(i|vi)
           single: (gabc_snippet
             (gabc_clef)))))
     (notation_item
-      (syllable_text)
+      (syllable
+        (syllable_text))
       (note_group
         (snippet_list
           single: (gabc_snippet
@@ -47,7 +50,8 @@ Ad(f|ta) te,(h|vi) Dó(hi|pe)mi(i|vi)ne.(i|vi)
                 (nabc_glyph_descriptor
                   (nabc_neume_code))))))))
     (notation_item
-      (syllable_text)
+      (syllable
+        (syllable_text))
       (note_group
         (snippet_list
           single: (gabc_snippet
@@ -59,7 +63,8 @@ Ad(f|ta) te,(h|vi) Dó(hi|pe)mi(i|vi)ne.(i|vi)
                 (nabc_glyph_descriptor
                   (nabc_neume_code))))))))
     (notation_item
-      (syllable_text)
+      (syllable
+        (syllable_text))
       (note_group
         (snippet_list
           single: (gabc_snippet
@@ -73,7 +78,8 @@ Ad(f|ta) te,(h|vi) Dó(hi|pe)mi(i|vi)ne.(i|vi)
                 (nabc_glyph_descriptor
                   (nabc_neume_code))))))))
     (notation_item
-      (syllable_text)
+      (syllable
+        (syllable_text))
       (note_group
         (snippet_list
           single: (gabc_snippet
@@ -85,7 +91,8 @@ Ad(f|ta) te,(h|vi) Dó(hi|pe)mi(i|vi)ne.(i|vi)
                 (nabc_glyph_descriptor
                   (nabc_neume_code))))))))
     (notation_item
-      (syllable_text)
+      (syllable
+        (syllable_text))
       (note_group
         (snippet_list
           single: (gabc_snippet
