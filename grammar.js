@@ -6,61 +6,7 @@ module.exports = grammar({
     $.comment
   ],
 
-  conflicts: $ => [
-    [$.snippet_list, $.note],
-    [$.gabc_snippet, $.nabc_snippet],
-    // Clef (c4, f3) vs note (c, f) - prioritize clef when followed by digit
-    [$.gabc_clef, $.note],
-    // When a syllable contains text followed by a '(', there is an
-    // ambiguity whether that '(' belongs to the current syllable's
-    // `note_group` or starts the next syllable (which may be a
-    // `note_group`-only syllable). Declare this as an allowed conflict
-    // so the parser generator can handle it.
-    [$.notation_item, $.note_group],
-    // Allow ambiguity involving `notation_item` (when text is followed by '(')
-    // so the generator can resolve the parse during conflict resolution.
-    [$.notation_item],
-    // `syllable` (formerly lyric_text) is a sequence that includes nested `syllable`
-    // through style tags (e.g. `<b>...</b>`). This can create
-    // associativity ambiguities for the repetition; declare it as a
-    // conflict so the generator can handle it.
-    [$.syllable],
-    // `gabc_bar` may be followed by `bar_modifiers` which can include ';'.
-    // This can create ambiguities in some bracketed constructs; allow
-    // the generator to resolve them by declaring a conflict for `gabc_bar`.
-    [$.gabc_bar],
-    // Repetition within `bar_modifiers` can produce associativity
-    // ambiguities; declare a conflict entry so the generator can
-    // resolve them deterministically.
-    [$.bar_modifiers],
-    // `note_shape` and `cavum` both accept the token 'r' which can
-    // produce an ambiguity (e.g. pitch + 'r' followed by ':' in some
-    // bracketed constructs). Declare a conflict so the generator can
-    // handle this overlap.
-    [$.note_shape, $.cavum],
-    // `nabc_complex_glyph_descriptor` can contain optional trailing
-    // `nabc_subpunctis_prepunctis_sequence` and `nabc_significant_letter_sequence`
-    // which makes its repetition associative; add a conflict so the
-    // generator can accept both interpretations.
-    [$.nabc_complex_glyph_descriptor],
-    // Repetition/associativity within `nabc_subpunctis_prepunctis_sequence`.
-    [$.nabc_subpunctis_prepunctis_sequence],
-    // Repetition/associativity within `nabc_significant_letter_sequence`.
-    [$.nabc_significant_letter_sequence],
-    // Overlap between `bar` tokens and `nabc_horizontal_spacing_adjustment`
-    // (which uses '/' and '``', '`') can create ambiguity when both
-    // appear after a `gabc_snippet` separated by '|'. Declare a
-    // conflict so the generator can resolve it.
-    [$.gabc_bar, $.nabc_horizontal_spacing_adjustment],
-    // `spacing` and `nabc_horizontal_spacing_adjustment` both use '/' and
-    // related tokens; declare a conflict to allow the generator to
-    // disambiguate their usage in sequences.
-    [$.spacing, $.nabc_horizontal_spacing_adjustment],
-    // `nabc_st_gall_ls_shorthand` and `nabc_laon_ls_shorthand` can overlap in
-    // token sequences; declare a conflict so the generator accepts
-    // either interpretation when ambiguity arises.
-    [$.nabc_st_gall_ls_shorthand, $.nabc_laon_ls_shorthand]
-  ],
+  conflicts: $ => [],
 
   rules: {
     // Root rule: a GABC file consists of a header section and a notation section
@@ -84,9 +30,10 @@ module.exports = grammar({
     // Header: name: value;
     header: $ => seq(
       field('name', $.header_name),
-      ':',
+      $.header_field_separator,
       field('value', $.header_value)
     ),
+    header_field_separator: _ => ':',
 
     header_name: _ => /[a-zA-Z0-9][a-zA-Z0-9-]*/,
 
@@ -314,209 +261,447 @@ module.exports = grammar({
 
     // Translation text: [text]
     syllable_translation: $ => seq(
-      '[',
+      $.syllable_translation_opening_bracket,
       optional($.syllable_translation_text),
-      ']'
+      $.syllable_translation_closing_bracket
     ),
 
     syllable_translation_text: _ => /[^\]]*/,
+    syllable_translation_opening_bracket: _ => '[',
+    syllable_translation_closing_bracket: _ => ']',
 
     // Lyric centering: {text}
     syllable_centering: $ => seq(
-      '{',
+      $.open_curly_brace,
       optional($.syllable_centering_text),
-      '}'
+      $.close_curly_brace
     ),
 
     syllable_centering_text: _ => /[^}]*/,
+    open_curly_brace: _ => '{',
+    close_curly_brace: _ => '}',
 
     // Escape sequence: $ followed by character
     syllable_escape_sequence: _ => seq('$', /./),
 
     // Note group: (notes) - can contain GABC and/or NABC snippets
     note_group: $ => seq(
-      '(',
+      $.note_group_opening_paren,
       optional($.snippet_list),
-      ')'
+      $.note_group_closing_paren
     ),
+
+    note_group_opening_paren: _ => '(',
+    note_group_closing_paren: _ => ')',
 
     // Snippet list: GABC snippets and/or NABC snippets separated by |
     snippet_list: $ => seq(
       field('single', $.gabc_snippet),
-      repeat(seq('|', choice($.gabc_snippet, $.nabc_snippet)))
+      field('alternate', repeat(
+        seq(
+          $.gabc_nabc_separator,
+          choice($.gabc_snippet, $.nabc_snippet)
+        )
+      ))
     ),
+
+    gabc_nabc_separator: _ => '|',
 
     // GABC snippet: notes and other GABC elements
-    gabc_snippet: $ => repeat1(choice(
-      $.gabc_clef,
-      $.note,
-      $.gabc_bar,
-      $.line_break,
-      $.custos,
-      $.spacing,
-      $.shape_hint,
-      $.choral_sign,
-      $.brace,
-      $.ledger_line,
-      $.slur,
-      $.episema_adjustment,
-      $.above_lines_text,
-      $.verbatim_tex,
-      $.macro,
-      $.custom_ledger_line
-    )),
-
-    // Note: pitch with optional modifiers
-    note: $ => seq(
-      $.pitch,
-      optional($.note_modifiers)
+    gabc_snippet: $ => repeat1(
+      choice(
+        $._gabc_neume,
+        $._gabc_alteration,
+        $._gabc_complex_neume,
+        $._gabc_neume_fusion,
+        $._gabc_spacing,
+        $._gabc_symbol,
+        $._gabc_bar,
+        // 6.4.12 Clefs
+        $.gabc_clef,
+        // 6.4.13 Custos
+        $._gabc_custos,
+        $._gabc_line_break,
+        // GABC Attributes
+        $.gabc_attribute,
+        $._gabc_macro
+      )
     ),
 
-    pitch: $ => /[a-npA-NP]/,
+    pitch: _ => /[a-np]/,
+    pitch_upper: _ => /[A-NP]/,
 
-    note_modifiers: $ => repeat1(choice(
-      $.note_shape,
-      $.alteration,
-      $.liquescent,
-      $.punctum_mora,
-      $.ictus,
-      $.horizontal_episema,
-      $.accent,
-      $.musica_ficta,
-      $.oriscus_orientation,
-      $.neume_fusion,
-      $.cavum
-    )),
+    // 6.4.2 One-Note Neumes
+    _gabc_neume: $ => choice(
+      $.gabc_neume_punctum_quadratum,
+      $.gabc_neume_punctum_inclinatum,
+      $.gabc_neume_oriscus,
+      $.gabc_neume_oriscus_scapus,
+      $.gabc_neume_quilisma,
+      $.gabc_neume_virga,
+      $.gabc_neume_virga_reversa,
+      $.gabc_neume_bivirga,
+      $.gabc_neume_trivirga,
+      $.gabc_neume_stropha,
+      $.gabc_neume_distropha,
+      $.gabc_neume_tristropha,
+      $.gabc_neume_punctum_cavum,
+      $.gabc_neume_punctum_quadratum_surrounded,
+      $.gabc_neume_punctum_cavum_surrounded,
+      $.gabc_neume_liquescent_deminutus,
+      $.gabc_neume_liquescent_augmented,
+      $.gabc_neume_liquescent_diminished,
+      $.gabc_neume_linea,
+    ),
 
-    note_shape: $ => choice('o', 'w', 'v', 'V', 's', 'r', 'R', 'q', 'W', 'O', 'ss', 'sss', 'vv', 'vvv'),
+    gabc_neume_punctum_quadratum: $ => $.pitch,
 
-    alteration: $ => choice('x', '#', 'y', 'X', '##', 'Y', seq(choice('x', '#', 'y'), '?')),
+    gabc_neume_punctum_inclinatum: $ => seq(
+      $.pitch_upper,
+      optional($._gabc_neume_punctum_inclinatum_leaning)
+    ),
+    _gabc_neume_punctum_inclinatum_leaning: $ => choice(
+      $.gabc_neume_punctum_inclinatum_left_leaning,
+      $.gabc_neume_punctum_inclinatum_right_leaning,
+      $.gabc_neume_punctum_inclinatum_no_leaning,
+    ),
+    gabc_neume_punctum_inclinatum_left_leaning: _ => '0',
+    gabc_neume_punctum_inclinatum_right_leaning: _ => '1',
+    gabc_neume_punctum_inclinatum_no_leaning: _ => '2',
 
-    liquescent: $ => choice('~', '<', '>'),
+    gabc_neume_oriscus: $ => seq(
+      $.pitch,
+      'o',
+      optional($._gabc_neume_oriscus_direction)
+    ),
 
-    punctum_mora: $ => choice('.', '..', '.0', '.1'),
+    gabc_neume_oriscus_scapus: $ => seq(
+      $.pitch,
+      'O',
+      optional($._gabc_neume_oriscus_direction)
+    ),
 
-    ictus: $ => choice("'", "'0", "'1"),
+    _gabc_neume_oriscus_direction: $ => choice(
+      $.gabc_neume_oriscus_downwards_pointing,
+      $.gabc_neume_oriscus_upwards_pointing,
+    ),
 
-    horizontal_episema: $ => seq('_', optional($.episema_position)),
+    gabc_neume_oriscus_downwards_pointing: _ => '0',
+    gabc_neume_oriscus_upwards_pointing: _ => '1',
 
-    episema_position: $ => /[0-5]+/,
+    gabc_neume_quilisma: $ => seq($.pitch, 'w'),
+    gabc_neume_virga: $ => seq($.pitch, 'v'),
+    gabc_neume_virga_reversa: $ => seq($.pitch, 'V'),
+    gabc_neume_bivirga: $ => seq($.pitch, 'vv'),
+    gabc_neume_trivirga: $ => seq($.pitch, 'vvv'),
+    gabc_neume_stropha: $ => seq($.pitch, 's'),
+    gabc_neume_distropha: $ => seq($.pitch, 'ss'),
+    gabc_neume_tristropha: $ => seq($.pitch, 'sss'),
+    gabc_neume_punctum_cavum: $ => seq($.pitch, 'r'),
+    gabc_neume_punctum_quadratum_surrounded: $ => seq($.pitch, 'R'),
+    gabc_neume_punctum_cavum_surrounded: $ => seq($.pitch, 'r0'),
+    // Liquescents
+    gabc_neume_liquescent_deminutus: $ => seq($.pitch, '~'),
+    gabc_neume_liquescent_augmented: $ => seq($.pitch, '<'),
+    gabc_neume_liquescent_diminished: $ => seq($.pitch, '>'),
+    // Other
+    gabc_neume_linea: $ => seq($.pitch, '='),
 
-    accent: $ => /r[1-6]/,
+    // 6.4.3 Alterations
+    _gabc_alteration: $ => choice(
+      $.gabc_alteration_sharp,
+      $.gabc_alteration_flat,
+      $.gabc_alteration_natural,
+      $.gabc_alteration_sharp_parenthesized,
+      $.gabc_alteration_flat_parenthesized,
+      $.gabc_alteration_natural_parenthesized,
+      $.gabc_alteration_sharp_soft,
+      $.gabc_alteration_flat_soft,
+      $.gabc_alteration_natural_soft,
+    ),
+    gabc_alteration_sharp: $ => seq($.pitch, '#'),
+    gabc_alteration_flat: $ => seq($.pitch, 'x'),
+    gabc_alteration_natural: $ => seq($.pitch, 'y'),
+    gabc_alteration_sharp_parenthesized: $ => seq($.pitch, '#?'),
+    gabc_alteration_flat_parenthesized: $ => seq($.pitch, 'x?'),
+    gabc_alteration_natural_parenthesized: $ => seq($.pitch, 'y?'),
+    gabc_alteration_sharp_soft: $ => seq($.pitch, '##'),
+    gabc_alteration_flat_soft: $ => seq($.pitch, 'X'),
+    gabc_alteration_natural_soft: $ => seq($.pitch, 'Y'),
 
-    musica_ficta: $ => /r[7-8]/,
+    // 6.4.5 Complex Neumes
+    _gabc_complex_neume: $ => choice(
+      $.gabc_complex_neume_initio_debilis,
+      $.gabc_complex_neume_quadratum,
+      $.gabc_complex_neume_quilisma_quadratum,
+    ),
 
-    oriscus_orientation: $ => /[oO][01]/,
+    gabc_complex_neume_initio_debilis: $ => seq('-', $.pitch),
+    gabc_complex_neume_quadratum: $ => seq($.pitch, 'q'),
+    gabc_complex_neume_quilisma_quadratum: $ => seq($.pitch, 'W'),
 
-    neume_fusion: $ => choice('@', seq('@[', $.snippet_list, ']')),
+    // 6.4.6 Neume Fusion
+    _gabc_neume_fusion: $ => choice(
+      $.gabc_neume_fusion_delimiter,
+      $.gabc_neume_fusion_group
+    ),
 
-    cavum: $ => choice('r', 'r0'),
+    gabc_neume_fusion_delimiter: _ => '@',
 
-    // Clef: c or f, optional b, line number (higher precedence than note)
-    gabc_clef: $ => prec(1, token(seq(
+    gabc_neume_fusion_group: $ => seq(
+      $.gabc_neume_fusion_opening_bracket,
+      $.gabc_snippet,
+      $.gabc_neume_fusion_closing_bracket
+    ),
+
+    gabc_neume_fusion_opening_bracket: _ => '@[',
+    gabc_neume_fusion_closing_bracket: _ => ']',
+
+    // 6.4.7 Neume Spacing
+    _gabc_spacing: $ => choice(
+      $.gabc_spacing_half_space_same_neume,
+      $.gabc_spacing_small_space_same_neume,
+      $.gabc_spacing_small_neume_separation,
+      $.gabc_spacing_medium_neume_separation,
+      $.gabc_spacing_large_neume_separation,
+      $.gabc_spacing_zero_space
+    ),
+
+    gabc_spacing_half_space_same_neume: _ => '/0',
+    gabc_spacing_small_space_same_neume: _ => '/!',
+    gabc_spacing_small_neume_separation: _ => '/',
+    gabc_spacing_medium_neume_separation: _ => '//',
+    gabc_spacing_zero_space: _ => '!',
+
+    gabc_spacing_large_neume_separation: $ => seq(
+      $.gabc_spacing_large_neume_separation_opening_bracket,
+      $.gabc_spacing_large_neume_separation_factor,
+      $.gabc_spacing_large_neume_separation_closing_bracket
+    ),
+
+    gabc_spacing_large_neume_separation_opening_bracket: _ => '/[',
+    gabc_spacing_large_neume_separation_factor: _ => /-?[0-9.]+/,
+    gabc_spacing_large_neume_separation_closing_bracket: _ => ']',
+
+    // GABC attributes
+    gabc_attribute: $ => seq(
+      $.gabc_attribute_opening_bracket,
+      field('name', /[a-zA-Z0-9-]+/),
+      $.gabc_attribute_separator,
+      field('value', /[^]]*/),
+      $.gabc_attribute_closing_bracket
+    ),
+
+    gabc_attribute_opening_bracket: _ => '[',
+    gabc_attribute_separator: _ => ':',
+    gabc_attribute_closing_bracket: _ => ']',
+
+    // 6.4.8 Shape Hints
+    // (gabc_attribute name: "shape")
+
+    // 6.4.9 Additional symbols
+    _gabc_symbol: $ => repeat1(
+      choice(
+        $.gabc_symbol_punctum_mora,
+        $.gabc_symbol_ictus,
+        $.gabc_symbol_episema,
+        $.gabc_symbol_accent_above_staff,
+        $.gabc_symbol_accent_grave_above_staff,
+        $.gabc_symbol_circle_above_staff,
+        $.gabc_symbol_lower_semicircle_above_staff,
+        $.gabc_symbol_upper_semicircle_above_staff,
+        $.gabc_symbol_musica_ficta_flat,
+        $.gabc_symbol_musica_ficta_natural,
+        $.gabc_symbol_musica_ficta_sharp
+      )
+    ),
+
+    // 6.4.10 Rhythmic Signs
+
+    // Punctum mora
+    gabc_symbol_punctum_mora: _ => choice('.', '..'),
+
+    // Ictus
+    gabc_symbol_ictus: $ => seq(
+      "'",
+      optional($._gabc_symbol_ictus_modifier)
+    ),
+
+    _gabc_symbol_ictus_modifier: $ => choice(
+      $.gabc_symbol_ictus_modifier_force_below,
+      $.gabc_symbol_ictus_modifier_force_above
+    ),
+
+    gabc_symbol_ictus_modifier_force_below: _ => "0",
+    gabc_symbol_ictus_modifier_force_above: _ => "1",
+
+    // Episema
+    gabc_symbol_episema: $ => seq(
+      '_',
+      repeat($._gabc_symbol_episema_modifier)
+    ),
+
+    _gabc_symbol_episema_modifier: $ => choice(
+      $.gabc_symbol_episema_modifier_force_below,
+      $.gabc_symbol_episema_modifier_force_above,
+      $.gabc_symbol_episema_modifier_no_bridging,
+      $.gabc_symbol_episema_modifier_small_left,
+      $.gabc_symbol_episema_modifier_small_center,
+      $.gabc_symbol_episema_modifier_small_right
+    ),
+
+    gabc_symbol_episema_modifier_force_below: _ => '0',
+    gabc_symbol_episema_modifier_force_above: _ => '1',
+    gabc_symbol_episema_modifier_no_bridging: _ => '2',
+    gabc_symbol_episema_modifier_small_left: _ => '3',
+    gabc_symbol_episema_modifier_small_center: _ => '4',
+    gabc_symbol_episema_modifier_small_right: _ => '5',
+
+    // Accents above staff
+    gabc_symbol_accent_above_staff: _ => 'r1',
+    gabc_symbol_accent_grave_above_staff: _ => 'r2',
+    gabc_symbol_circle_above_staff: _ => 'r3',
+    gabc_symbol_lower_semicircle_above_staff: _ => 'r4',
+    gabc_symbol_upper_semicircle_above_staff: _ => 'r5',
+
+    // Musica ficta
+    gabc_symbol_musica_ficta_flat: _ => 'r6',
+    gabc_symbol_musica_ficta_natural: _ => 'r7',
+    gabc_symbol_musica_ficta_sharp: _ => 'r8',
+
+    // 6.4.11 Separation Bars
+    _gabc_bar: $ => seq(
+      choice(
+        $.gabc_bar_virgula,
+        $.gabc_bar_virgula_ledger_line_above,
+        $.gabc_bar_divisio_minimis,
+        $.gabc_bar_divisio_minimis_ledger_line_above,
+        $.gabc_bar_divisio_minima,
+        $.gabc_bar_divisio_minima_ledger_line_above,
+        $.gabc_bar_divisio_minor,
+        $.gabc_bar_divisio_maior,
+        $.gabc_bar_divisio_maior_dotted,
+        $.gabc_bar_divisio_finalis,
+        $.gabc_bar_dominican
+      ),
+      optional($._gabc_bar_modifier)
+    ),
+
+    gabc_bar_virgula: _ => '`',
+    gabc_bar_virgula_ledger_line_above: _ => '`0',
+    gabc_bar_divisio_minimis: _ => '^',
+    gabc_bar_divisio_minimis_ledger_line_above: _ => '^0',
+    gabc_bar_divisio_minima: _ => ',',
+    gabc_bar_divisio_minima_ledger_line_above: _ => ',0',
+    gabc_bar_divisio_minor: _ => ';',
+    gabc_bar_divisio_maior: _ => ':',
+    gabc_bar_divisio_maior_dotted: _ => ':?',
+    gabc_bar_divisio_finalis: _ => '::',
+    gabc_bar_dominican: $ => seq(';', $.gabc_bar_dominican_position),
+    gabc_bar_dominican_position: _ => /[1-8]/,
+
+    _gabc_bar_modifier: $ => choice(
+      $.gabc_bar_modifier_episema,
+      $.gabc_bar_modifier_brace,
+    ),
+
+    gabc_bar_modifier_episema: _ => "'",
+    gabc_bar_modifier_brace: _ => '_',
+
+    // 6.4.12 Clefs
+    gabc_clef: _ => prec(1, token(seq(
       /[cf]/,
       optional('b'),
-      /[1-8]/
+      /[1-4]/
     ))),
+    // TODO: implement clef composition e.g. (c2@c4)
 
-    line_number: $ => /[1-8]/,
-
-    // Bar: various bar types
-    gabc_bar: $ => seq(
-      choice('`', '^', ',', ';', ':', '::'),
-      optional($.bar_modifiers)
+    // 6.4.13 Custos
+    _gabc_custos: $ => choice(
+      $.gabc_custos_automatic,
+      $.gabc_custos_manual,
+      $.gabc_custos_disable
     ),
 
-    bar_modifiers: $ => repeat1(choice("'", '_', seq(';', /[1-8]/))),
+    gabc_custos_automatic: _ => 'z0',
+    gabc_custos_manual: $ => seq($.pitch, '+'),
+    gabc_custos_disable: _ => '[nocustos]',
 
-    // Line break
-    line_break: $ => choice('z', 'z+', 'z-', 'Z', 'Z+', 'Z-'),
-
-    // Custos
-    custos: $ => choice('z0', seq($.pitch, '+'), '[nocustos]'),
-
-    // Spacing
-    spacing: $ => choice(
-      '/0',
-      '/!',
-      '/',
-      '//',
-      seq('/[', /-?[0-9.]+/, ']'),
-      '!'
+    // 6.4.14 Line break
+    _gabc_line_break: $ => seq(
+      choice(
+        $.gabc_line_break_justified,
+        $.gabc_line_break_ragged,
+      ),
+      optional($._gabc_line_break_modifier)
     ),
 
-    // Shape hint
-    shape_hint: $ => seq('[shape:', /[a-z]+/, ']'),
+    gabc_line_break_justified: _ => 'z',
+    gabc_line_break_ragged: _ => 'Z',
 
-    // Choral sign
-    choral_sign: $ => choice(
-      seq('[cs:', /[^]]*/, ']'),
-      seq('[cn:', $.nabc_snippet, ']')
+    _gabc_line_break_modifier: $ => choice(
+      $.gabc_line_break_modifier_force_custos,
+      $.gabc_line_break_modifier_disable_custos
     ),
 
-    // Brace
-    brace: $ => choice(
-      seq('[', $.brace_type, ':', /[01]/, ';', /[^]]+/, ']'),
-      seq('[', $.brace_type, ':', /[01]/, '{]'),
-      seq('[', $.brace_type, ':', /[01]/, '}]')
+    gabc_line_break_modifier_force_custos: _ => '+',
+    gabc_line_break_modifier_disable_custos: _ => '-',
+
+    // 6.4.15 Choral Signs
+    // (gabc_attribute name: "cs")
+    // (gabc_attribute name: "cn")
+
+    // 6.4.16 Braces
+    // (gabc_attribute name: "ob")
+    // (gabc_attribute name: "ub")
+    // (gabc_attribute name: "ocb")
+    // (gabc_attribute name: "ocba")
+
+    // 6.4.17 Stem length for the bottom lines
+    // (gabc_attribute name: "ll")
+
+    // 6.4.18 Custom Ledger Lines
+    // (gabc_attribute name: "oll")
+    // (gabc_attribute name: "ull")
+
+    // 6.4.19 Simple Slurs
+    // (gabc_attribute name: "oslur")
+    // (gabc_attribute name: "uslur")
+
+    // 6.4.21 Horizontal Episema Tuning
+    // (gabc_attribute name: "oh")
+    // (gabc_attribute name: "uh")
+
+    // 6.4.22 Above LinesTextWithin Notes
+    // (gabc_attribute name: "alt")
+
+    // 6.4.23 Verbatim TeX
+    // (gabc_attribute name: "nv")
+    // (gabc_attribute name: "gv")
+    // (gabc_attribute name: "ev")
+
+    // 6.4.24 Macros
+    _gabc_macro: $ => seq(
+      $.gabc_macro_opening_bracket,
+      seq(
+        choice(
+          $.gabc_macro_note_level,
+          $.gabc_macro_glyph_level,
+          $.gabc_macro_element_level,
+          $.gabc_macro_element_level_alt
+        ),
+        /[0-9]/
+      ),
+      $.gabc_macro_closing_bracket
     ),
 
-    brace_type: $ => choice('ob', 'ub', 'ocb', 'ocba'),
+    gabc_macro_opening_bracket: _ => '[',
+    gabc_macro_closing_bracket: _ => ']',
+    gabc_macro_note_level: _ => 'nm',
+    gabc_macro_glyph_level: _ => 'gm',
+    gabc_macro_element_level: _ => 'em',
+    gabc_macro_element_level_alt: _ => 'altm',
 
-    // Ledger line
-    ledger_line: $ => seq('[ll:', /[01]/, ']'),
-
-    // Custom ledger line
-    custom_ledger_line: $ => choice(
-      seq('[oll:', /[^;]+/, ';', /[^]]+/, ']'),
-      seq('[oll:', /[^}]+/, '{]'),
-      seq('[oll:]}]'),
-      seq('[ull:', /[^;]+/, ';', /[^]]+/, ']'),
-      seq('[ull:', /[^}]+/, '{]'),
-      seq('[ull:]}]')
-    ),
-
-    // Slur
-    slur: $ => choice(
-      seq('[oslur:', /[0-2]/, ';', /[^,]+/, ',', /[^]]+/, ']'),
-      seq('[oslur:', /[0-2]/, '{]'),
-      seq('[oslur:', /[0-2]/, '}]'),
-      seq('[uslur:', /[0-2]/, ';', /[^,]+/, ',', /[^]]+/, ']'),
-      seq('[uslur:', /[0-2]/, '{]'),
-      seq('[uslur:', /[0-2]/, '}]')
-    ),
-
-    // Episema adjustment
-    episema_adjustment: $ => choice(
-      seq('[oh:', optional($.episema_position_spec), optional($.episema_nudge), ']'),
-      seq('[uh:', optional($.episema_position_spec), optional($.episema_nudge), ']'),
-      seq('[oh:', optional($.episema_position_spec), '{]'),
-      seq('[oh]}]'),
-      seq('[uh:', optional($.episema_position_spec), '{]'),
-      seq('[uh]}]')
-    ),
-
-    episema_position_spec: $ => choice('m', 'l', 'h', 'ol', 'oh', 'ul', 'uh'),
-
-    episema_nudge: $ => seq(/[+-]/, /[0-9.]+/, /[a-z]+/),
-
-    // Above lines text
-    above_lines_text: $ => seq('[alt:', /[^]]*/, ']'),
-
-    // Verbatim TeX
-    verbatim_tex: $ => choice(
-      seq('[nv:', /[^]]*/, ']'),
-      seq('[gv:', /[^]]*/, ']'),
-      seq('[ev:', /[^]]*/, ']')
-    ),
-
-    // Macro
-    macro: $ => choice(
-      seq('[nm', /[0-9]/, ']'),
-      seq('[gm', /[0-9]/, ']'),
-      seq('[em', /[0-9]/, ']'),
-      seq('[altm', /[0-9]/, ']')
-    ),
 
     // NABC snippet: sequence of complex neume descriptors
     nabc_snippet: $ => repeat1($.nabc_complex_neume_descriptor),
