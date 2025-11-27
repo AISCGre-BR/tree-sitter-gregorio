@@ -63,8 +63,7 @@ name: Syllable other test;
           (tag_opening_bracket)
           (tag_verbatim_name)
           (tag_closing_bracket)
-          (syllable
-            (syllable_text))
+          (syllable_verbatim_text)
           (closing_tag_opening_bracket)
           (tag_verbatim_name)
           (tag_closing_bracket)))

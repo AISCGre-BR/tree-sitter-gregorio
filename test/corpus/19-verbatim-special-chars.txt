@@ -1,0 +1,172 @@
+================================================================================
+Verbatim tag with parentheses
+================================================================================
+
+name: Verbatim special chars;
+%%
+
+<v>(</v>(f)<v>)</v>(g)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      (header_field_separator)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)
+          (single_line_header_terminator)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (syllable
+        (syllable_other_verbatim
+          (tag_opening_bracket)
+          (tag_verbatim_name)
+          (tag_closing_bracket)
+          (syllable_verbatim_text)
+          (closing_tag_opening_bracket)
+          (tag_verbatim_name)
+          (tag_closing_bracket)))
+      (note_group
+        (note_group_opening_paren)
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))
+    (notation_item
+      (syllable
+        (syllable_other_verbatim
+          (tag_opening_bracket)
+          (tag_verbatim_name)
+          (tag_closing_bracket)
+          (syllable_verbatim_text)
+          (closing_tag_opening_bracket)
+          (tag_verbatim_name)
+          (tag_closing_bracket)))
+      (note_group
+        (note_group_opening_paren)
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))))
+
+================================================================================
+Verbatim tag with brackets
+================================================================================
+
+name: Verbatim brackets;
+%%
+
+<v>[</v>(f)<v>]</v>(g)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      (header_field_separator)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)
+          (single_line_header_terminator)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (syllable
+        (syllable_other_verbatim
+          (tag_opening_bracket)
+          (tag_verbatim_name)
+          (tag_closing_bracket)
+          (syllable_verbatim_text)
+          (closing_tag_opening_bracket)
+          (tag_verbatim_name)
+          (tag_closing_bracket)))
+      (note_group
+        (note_group_opening_paren)
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))
+    (notation_item
+      (syllable
+        (syllable_other_verbatim
+          (tag_opening_bracket)
+          (tag_verbatim_name)
+          (tag_closing_bracket)
+          (syllable_verbatim_text)
+          (closing_tag_opening_bracket)
+          (tag_verbatim_name)
+          (tag_closing_bracket)))
+      (note_group
+        (note_group_opening_paren)
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))))
+
+================================================================================
+Verbatim tag with multiple special characters
+================================================================================
+
+name: Verbatim mixed;
+%%
+
+text<v>()[];</v>(f)more<v>{}</v>(g)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      (header_field_separator)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)
+          (single_line_header_terminator)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (syllable
+        (syllable_text)
+        (syllable_other_verbatim
+          (tag_opening_bracket)
+          (tag_verbatim_name)
+          (tag_closing_bracket)
+          (syllable_verbatim_text)
+          (closing_tag_opening_bracket)
+          (tag_verbatim_name)
+          (tag_closing_bracket)))
+      (note_group
+        (note_group_opening_paren)
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))
+    (notation_item
+      (syllable
+        (syllable_text)
+        (syllable_other_verbatim
+          (tag_opening_bracket)
+          (tag_verbatim_name)
+          (tag_closing_bracket)
+          (syllable_verbatim_text)
+          (closing_tag_opening_bracket)
+          (tag_verbatim_name)
+          (tag_closing_bracket)))
+      (note_group
+        (note_group_opening_paren)
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))))
