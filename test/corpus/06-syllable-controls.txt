@@ -14,6 +14,7 @@ name: Syllable controls test;
   (header_section
     (header
       name: (header_name)
+      (header_field_separator)
       value: (header_value
         (single_line_header_value_terminated
           (single_line_header_value)
@@ -32,10 +33,12 @@ name: Syllable controls test;
           (tag_elision_name)
           (tag_closing_bracket)))
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
-              (pitch))))))
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_control_clear
@@ -53,10 +56,12 @@ name: Syllable controls test;
           (tag_euouae_name)
           (tag_closing_bracket)))
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
-              (pitch))))))
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_control_no_line_break
@@ -69,10 +74,12 @@ name: Syllable controls test;
           (tag_no_line_break_name)
           (tag_closing_bracket)))
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
-              (pitch))))))
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_control_protrusion
@@ -81,10 +88,12 @@ name: Syllable controls test;
           (tag_closing_bracket))
         (syllable_text))
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
-              (pitch))))))
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_control_protrusion
@@ -95,7 +104,9 @@ name: Syllable controls test;
           (self_closing_tag_slash)
           (tag_closing_bracket)))
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
-              (pitch))))))))
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))))

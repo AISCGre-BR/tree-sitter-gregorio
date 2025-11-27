@@ -15,6 +15,7 @@ Second line;;
   (header_section
     (header
       name: (header_name)
+      (header_field_separator)
       value: (header_value
         (multiline_header_value_terminated
           (multiline_header_value)
@@ -23,7 +24,9 @@ Second line;;
   (notation_section
     (notation_item
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
-              (pitch))))))))
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))))

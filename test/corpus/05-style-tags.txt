@@ -18,6 +18,7 @@ name: Style tags test;
   (header_section
     (header
       name: (header_name)
+      (header_field_separator)
       value: (header_value
         (single_line_header_value_terminated
           (single_line_header_value)
@@ -36,10 +37,12 @@ name: Style tags test;
           (tag_bold_name)
           (tag_closing_bracket)))
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
-              (pitch))))))
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_style_italic
@@ -52,10 +55,12 @@ name: Style tags test;
           (tag_italic_name)
           (tag_closing_bracket)))
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
-              (pitch))))))
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_style_small_caps
@@ -68,10 +73,12 @@ name: Style tags test;
           (tag_small_caps_name)
           (tag_closing_bracket)))
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
-              (pitch))))))
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_style_teletype
@@ -85,10 +92,12 @@ name: Style tags test;
           (tag_closing_bracket))
         (syllable_text))
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
-              (pitch))))))
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_style_colored
@@ -101,10 +110,12 @@ name: Style tags test;
           (tag_colored_name)
           (tag_closing_bracket)))
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
-              (pitch))))))
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_style_underline
@@ -117,10 +128,12 @@ name: Style tags test;
           (tag_underline_name)
           (tag_closing_bracket)))
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
-              (pitch))))))
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_style_small_caps
@@ -133,10 +146,12 @@ name: Style tags test;
           (tag_small_caps_name)
           (tag_closing_bracket)))
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
-              (pitch))))))
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_style_teletype
@@ -150,12 +165,16 @@ name: Style tags test;
           (tag_closing_bracket))
         (syllable_text))
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
-              (pitch))))))
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))
     (notation_item
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (gabc_bar)))))))
+            (gabc_bar_divisio_finalis)))
+        (note_group_closing_paren)))))

@@ -12,6 +12,7 @@ name: Nested tags;
   (header_section
     (header
       name: (header_name)
+      (header_field_separator)
       value: (header_value
         (single_line_header_value_terminated
           (single_line_header_value)
@@ -20,9 +21,11 @@ name: Nested tags;
   (notation_section
     (notation_item
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (gabc_clef)))))
+            (gabc_clef)))
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_style_colored
@@ -45,56 +48,70 @@ name: Nested tags;
           (tag_closing_bracket))
         (syllable_text))
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
-              (pitch))))))
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_text))
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
-              (pitch))))))
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_text))
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
-              (pitch))))))
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_text))
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
+            (gabc_neume_punctum_quadratum
               (pitch))
-            (note
-              (pitch))))))
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_text))
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
+            (gabc_neume_punctum_quadratum
               (pitch))
-            (note
-              (pitch))))))
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_text))
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
-              (pitch))))))
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))
     (notation_item
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (gabc_bar)))))))
+            (gabc_bar_divisio_finalis)))
+        (note_group_closing_paren)))))

@@ -19,12 +19,14 @@ Ad(f|ta) te,(h|vi) Dó(hi|pe)mi(i|vi)ne.(i|vi)
   (header_section
     (header
       name: (header_name)
+      (header_field_separator)
       value: (header_value
         (single_line_header_value_terminated
           (single_line_header_value)
           (single_line_header_terminator))))
     (header
       name: (header_name)
+      (header_field_separator)
       value: (header_value
         (single_line_header_value_terminated
           (single_line_header_value)
@@ -33,78 +35,97 @@ Ad(f|ta) te,(h|vi) Dó(hi|pe)mi(i|vi)ne.(i|vi)
   (notation_section
     (notation_item
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (gabc_clef)))))
+            (gabc_clef)))
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_text))
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
+            (gabc_neume_punctum_quadratum
               (pitch)))
-          (nabc_snippet
+          alternate: (gabc_nabc_separator)
+          alternate: (nabc_snippet
             (nabc_complex_neume_descriptor
               (nabc_complex_glyph_descriptor
                 (nabc_glyph_descriptor
-                  (nabc_neume_code))))))))
+                  (nabc_neume_code))))))
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_text))
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
+            (gabc_neume_punctum_quadratum
               (pitch)))
-          (nabc_snippet
+          alternate: (gabc_nabc_separator)
+          alternate: (nabc_snippet
             (nabc_complex_neume_descriptor
               (nabc_complex_glyph_descriptor
                 (nabc_glyph_descriptor
-                  (nabc_neume_code))))))))
+                  (nabc_neume_code))))))
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_text))
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
+            (gabc_neume_punctum_quadratum
               (pitch))
-            (note
+            (gabc_neume_punctum_quadratum
               (pitch)))
-          (nabc_snippet
+          alternate: (gabc_nabc_separator)
+          alternate: (nabc_snippet
             (nabc_complex_neume_descriptor
               (nabc_complex_glyph_descriptor
                 (nabc_glyph_descriptor
-                  (nabc_neume_code))))))))
+                  (nabc_neume_code))))))
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_text))
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
+            (gabc_neume_punctum_quadratum
               (pitch)))
-          (nabc_snippet
+          alternate: (gabc_nabc_separator)
+          alternate: (nabc_snippet
             (nabc_complex_neume_descriptor
               (nabc_complex_glyph_descriptor
                 (nabc_glyph_descriptor
-                  (nabc_neume_code))))))))
+                  (nabc_neume_code))))))
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_text))
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
+            (gabc_neume_punctum_quadratum
               (pitch)))
-          (nabc_snippet
+          alternate: (gabc_nabc_separator)
+          alternate: (nabc_snippet
             (nabc_complex_neume_descriptor
               (nabc_complex_glyph_descriptor
                 (nabc_glyph_descriptor
-                  (nabc_neume_code))))))))
+                  (nabc_neume_code))))))
+        (note_group_closing_paren)))
     (notation_item
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (gabc_bar)))))))
+            (gabc_bar_divisio_finalis)))
+        (note_group_closing_paren)))))

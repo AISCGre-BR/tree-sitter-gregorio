@@ -6,7 +6,27 @@ module.exports = grammar({
     $.comment
   ],
 
-  conflicts: $ => [],
+  conflicts: $ => [
+    // `_gabc_bar` may be followed by `_gabc_bar_modifier` which can create ambiguities
+    [$._gabc_bar],
+    // `_gabc_line_break` may be followed by `_gabc_line_break_modifier` which can create ambiguities
+    [$._gabc_line_break],
+    // `gabc_snippet` can have repetition ambiguities with symbols
+    [$.gabc_snippet],
+    // Spacing and NABC horizontal spacing can conflict with '/' characters
+    [$.gabc_spacing_small_neume_separation, $.nabc_horizontal_spacing_adjustment],
+    [$.gabc_spacing_medium_neume_separation, $.nabc_horizontal_spacing_adjustment],
+    // Bar virgula and NABC horizontal spacing can conflict with '`' characters
+    [$.gabc_bar_virgula, $.nabc_horizontal_spacing_adjustment],
+    // NABC complex glyph descriptor can have ambiguities with subpunctis/prepunctis sequences
+    [$.nabc_complex_glyph_descriptor],
+    // NABC subpunctis/prepunctis sequence can have repetition ambiguities
+    [$.nabc_subpunctis_prepunctis_sequence],
+    // NABC significant letter sequence can have repetition ambiguities
+    [$.nabc_significant_letter_sequence],
+    // St. Gall and Laon significant letter shorthands can overlap
+    [$.nabc_st_gall_ls_shorthand, $.nabc_laon_ls_shorthand],
+  ],
 
   rules: {
     // Root rule: a GABC file consists of a header section and a notation section

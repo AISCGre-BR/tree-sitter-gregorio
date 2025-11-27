@@ -14,6 +14,7 @@ name: Liquescent test;
   (header_section
     (header
       name: (header_name)
+      (header_field_separator)
       value: (header_value
         (single_line_header_value_terminated
           (single_line_header_value)
@@ -22,19 +23,15 @@ name: Liquescent test;
   (notation_section
     (notation_item
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
-              (pitch)
-              (note_modifiers
-                (liquescent)))
-            (note
-              (pitch)
-              (note_modifiers
-                (liquescent)))
-            (note
-              (pitch)
-              (note_modifiers
-                (liquescent)))
-            (note
-              (pitch))))))))
+            (gabc_neume_liquescent_deminutus
+              (pitch))
+            (gabc_neume_liquescent_augmented
+              (pitch))
+            (gabc_neume_liquescent_diminished
+              (pitch))
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))))

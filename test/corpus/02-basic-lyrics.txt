@@ -18,6 +18,7 @@ al()le()lú()ia,()     al()le()lú()ia.()
   (header_section
     (header
       name: (header_name)
+      (header_field_separator)
       value: (header_value
         (single_line_header_value_terminated
           (single_line_header_value)
@@ -26,59 +27,87 @@ al()le()lú()ia,()     al()le()lú()ia.()
   (notation_section
     (notation_item
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (gabc_clef)))))
+            (gabc_clef)))
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_text))
-      (note_group))
+      (note_group
+        (note_group_opening_paren)
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_text))
-      (note_group))
+      (note_group
+        (note_group_opening_paren)
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_text))
-      (note_group))
+      (note_group
+        (note_group_opening_paren)
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_text))
-      (note_group))
+      (note_group
+        (note_group_opening_paren)
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_text))
-      (note_group))
+      (note_group
+        (note_group_opening_paren)
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_text))
-      (note_group))
+      (note_group
+        (note_group_opening_paren)
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_text))
-      (note_group))
+      (note_group
+        (note_group_opening_paren)
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_text))
-      (note_group))
+      (note_group
+        (note_group_opening_paren)
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_text))
-      (note_group))
+      (note_group
+        (note_group_opening_paren)
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_text))
-      (note_group))
+      (note_group
+        (note_group_opening_paren)
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_text))
-      (note_group))
+      (note_group
+        (note_group_opening_paren)
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_text))
-      (note_group))
+      (note_group
+        (note_group_opening_paren)
+        (note_group_closing_paren)))
     (notation_item
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (gabc_bar)))))))
+            (gabc_bar_divisio_finalis)))
+        (note_group_closing_paren)))))
