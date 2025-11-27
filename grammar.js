@@ -273,11 +273,13 @@ module.exports = grammar({
       $.tag_opening_bracket,
       $.tag_verbatim_name,
       $.tag_closing_bracket,
-      optional($.syllable),
+      optional($.syllable_verbatim_text),
       $.closing_tag_opening_bracket,
       $.tag_verbatim_name,
       $.tag_closing_bracket
     ),
+
+    syllable_verbatim_text: _ => /[^<]+/,
 
     // Translation text: [text]
     syllable_translation: $ => seq(
