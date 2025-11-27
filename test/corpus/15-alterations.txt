@@ -14,6 +14,7 @@ name: Alterations test;
   (header_section
     (header
       name: (header_name)
+      (header_field_separator)
       value: (header_value
         (single_line_header_value_terminated
           (single_line_header_value)
@@ -22,19 +23,15 @@ name: Alterations test;
   (notation_section
     (notation_item
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
-              (pitch)
-              (note_modifiers
-                (alteration)))
-            (note
-              (pitch)
-              (note_modifiers
-                (alteration)))
-            (note
-              (pitch)
-              (note_modifiers
-                (alteration)))
-            (note
-              (pitch))))))))
+            (gabc_alteration_flat
+              (pitch))
+            (gabc_alteration_natural
+              (pitch))
+            (gabc_alteration_sharp
+              (pitch))
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))))

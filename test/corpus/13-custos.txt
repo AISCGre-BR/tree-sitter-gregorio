@@ -14,6 +14,7 @@ name: Custos test;
   (header_section
     (header
       name: (header_name)
+      (header_field_separator)
       value: (header_value
         (single_line_header_value_terminated
           (single_line_header_value)
@@ -22,10 +23,12 @@ name: Custos test;
   (notation_section
     (notation_item
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
+            (gabc_neume_punctum_quadratum
               (pitch))
-            (custos)
-            (note
-              (pitch))))))))
+            (gabc_custos_automatic)
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))))

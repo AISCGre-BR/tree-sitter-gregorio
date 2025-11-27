@@ -14,6 +14,7 @@ name: Syllable other test;
   (header_section
     (header
       name: (header_name)
+      (header_field_separator)
       value: (header_value
         (single_line_header_value_terminated
           (single_line_header_value)
@@ -32,10 +33,12 @@ name: Syllable other test;
           (tag_above_lines_text_name)
           (tag_closing_bracket)))
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
-              (pitch))))))
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_other_special_character
@@ -48,10 +51,12 @@ name: Syllable other test;
           (tag_special_character_name)
           (tag_closing_bracket)))
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
-              (pitch))))))
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_other_verbatim
@@ -64,15 +69,19 @@ name: Syllable other test;
           (tag_verbatim_name)
           (tag_closing_bracket)))
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
-              (pitch))))))
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_text))
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
-              (pitch))))))))
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))))

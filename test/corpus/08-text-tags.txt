@@ -14,6 +14,7 @@ Q{ui}(f)a(f) text[texto](g)$@end(h)
   (header_section
     (header
       name: (header_name)
+      (header_field_separator)
       value: (header_value
         (single_line_header_value_terminated
           (single_line_header_value)
@@ -24,36 +25,48 @@ Q{ui}(f)a(f) text[texto](g)$@end(h)
       (syllable
         (syllable_text)
         (syllable_centering
-          (syllable_centering_text)))
+          (open_curly_brace)
+          (syllable_centering_text)
+          (close_curly_brace)))
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
-              (pitch))))))
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_text))
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
-              (pitch))))))
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_text)
         (syllable_translation
-          (syllable_translation_text)))
+          (syllable_translation_opening_bracket)
+          (syllable_translation_text)
+          (syllable_translation_closing_bracket)))
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
-              (pitch))))))
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))
     (notation_item
       (syllable
         (syllable_escape_sequence)
         (syllable_text))
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
-              (pitch))))))))
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))))

@@ -14,6 +14,7 @@ name: Note modifiers test;
   (header_section
     (header
       name: (header_name)
+      (header_field_separator)
       value: (header_value
         (single_line_header_value_terminated
           (single_line_header_value)
@@ -22,17 +23,15 @@ name: Note modifiers test;
   (notation_section
     (notation_item
       (note_group
+        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
-            (note
-              (pitch)
-              (note_modifiers
-                (note_shape)
-                (ictus)
-                (ictus)))
-            (note
-              (pitch)
-              (note_modifiers
-                (note_shape)))
-            (note
-              (pitch))))))))
+            (gabc_neume_oriscus
+              (pitch))
+            (gabc_symbol_ictus)
+            (gabc_symbol_ictus)
+            (gabc_neume_punctum_cavum
+              (pitch))
+            (gabc_neume_punctum_quadratum
+              (pitch))))
+        (note_group_closing_paren)))))
