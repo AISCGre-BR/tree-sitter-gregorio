@@ -32,11 +32,11 @@ module.exports = grammar({
     // Root rule: a GABC file consists of a header section and a notation section
     source_file: $ => choice(
       // Full structure with header
-      seq(
+      prec(1, seq(
         $.header_section,
         $.section_separator,
         optional($.notation_section)
-      ),
+      )),
       // Just notation (no header)
       $.notation_section
     ),
@@ -48,14 +48,16 @@ module.exports = grammar({
     header_section: $ => repeat1($.header),
 
     // Header: name: value;
-    header: $ => seq(
+    header: $ => prec(2, seq(
       field('name', $.header_name),
       $.header_field_separator,
       field('value', $.header_value)
-    ),
-    header_field_separator: _ => ':',
+    )),
 
-    header_name: _ => /[a-zA-Z0-9][a-zA-Z0-9-]*/,
+    // Token to ensure "name:" is recognized atomically before syllable_text can match
+    header_name: _ => token(prec(10, /[a-zA-Z0-9][a-zA-Z0-9-]*/)),
+    
+    header_field_separator: _ => token.immediate(':'),
 
     header_value: $ => choice(
       $.multiline_header_value_terminated,
@@ -114,7 +116,7 @@ module.exports = grammar({
       )
     ),
 
-    syllable_text: $ => /[^\s${}\\<>%():;\[\]]+/,
+    syllable_text: $ => /[^\s${}\\<>%()\[\]]+/,
 
     // Tag components (reusable)
     tag_opening_bracket: _ => '<',
