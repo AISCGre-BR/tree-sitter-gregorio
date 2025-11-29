@@ -1,6 +1,6 @@
-================================================================================
+=================================================================================
 Verbatim tag with parentheses
-================================================================================
+=================================================================================
 
 name: Verbatim special chars;
 %%
@@ -13,51 +13,33 @@ name: Verbatim special chars;
   (header_section
     (header
       name: (header_name)
-      (header_field_separator)
       value: (header_value
         (single_line_header_value_terminated
-          (single_line_header_value)
-          (single_line_header_terminator)))))
+          (single_line_header_value)))))
   (section_separator)
   (notation_section
     (notation_item
       (syllable
         (syllable_other_verbatim
-          (tag_opening_bracket)
-          (tag_verbatim_name)
-          (tag_closing_bracket)
-          (syllable_verbatim_text)
-          (closing_tag_opening_bracket)
-          (tag_verbatim_name)
-          (tag_closing_bracket)))
+          (syllable_verbatim_text)))
       (note_group
-        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
             (gabc_neume_punctum_quadratum
-              (pitch))))
-        (note_group_closing_paren)))
+              (pitch))))))
     (notation_item
       (syllable
         (syllable_other_verbatim
-          (tag_opening_bracket)
-          (tag_verbatim_name)
-          (tag_closing_bracket)
-          (syllable_verbatim_text)
-          (closing_tag_opening_bracket)
-          (tag_verbatim_name)
-          (tag_closing_bracket)))
+          (syllable_verbatim_text)))
       (note_group
-        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
             (gabc_neume_punctum_quadratum
-              (pitch))))
-        (note_group_closing_paren)))))
+              (pitch))))))))
 
-================================================================================
+=================================================================================
 Verbatim tag with brackets
-================================================================================
+=================================================================================
 
 name: Verbatim brackets;
 %%
@@ -70,51 +52,33 @@ name: Verbatim brackets;
   (header_section
     (header
       name: (header_name)
-      (header_field_separator)
       value: (header_value
         (single_line_header_value_terminated
-          (single_line_header_value)
-          (single_line_header_terminator)))))
+          (single_line_header_value)))))
   (section_separator)
   (notation_section
     (notation_item
       (syllable
         (syllable_other_verbatim
-          (tag_opening_bracket)
-          (tag_verbatim_name)
-          (tag_closing_bracket)
-          (syllable_verbatim_text)
-          (closing_tag_opening_bracket)
-          (tag_verbatim_name)
-          (tag_closing_bracket)))
+          (syllable_verbatim_text)))
       (note_group
-        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
             (gabc_neume_punctum_quadratum
-              (pitch))))
-        (note_group_closing_paren)))
+              (pitch))))))
     (notation_item
       (syllable
         (syllable_other_verbatim
-          (tag_opening_bracket)
-          (tag_verbatim_name)
-          (tag_closing_bracket)
-          (syllable_verbatim_text)
-          (closing_tag_opening_bracket)
-          (tag_verbatim_name)
-          (tag_closing_bracket)))
+          (syllable_verbatim_text)))
       (note_group
-        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
             (gabc_neume_punctum_quadratum
-              (pitch))))
-        (note_group_closing_paren)))))
+              (pitch))))))))
 
-================================================================================
+=================================================================================
 Verbatim tag with multiple special characters
-================================================================================
+=================================================================================
 
 name: Verbatim mixed;
 %%
@@ -127,46 +91,28 @@ text<v>()[];</v>(f)more<v>{}</v>(g)
   (header_section
     (header
       name: (header_name)
-      (header_field_separator)
       value: (header_value
         (single_line_header_value_terminated
-          (single_line_header_value)
-          (single_line_header_terminator)))))
+          (single_line_header_value)))))
   (section_separator)
   (notation_section
     (notation_item
       (syllable
         (syllable_text)
         (syllable_other_verbatim
-          (tag_opening_bracket)
-          (tag_verbatim_name)
-          (tag_closing_bracket)
-          (syllable_verbatim_text)
-          (closing_tag_opening_bracket)
-          (tag_verbatim_name)
-          (tag_closing_bracket)))
+          (syllable_verbatim_text)))
       (note_group
-        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
             (gabc_neume_punctum_quadratum
-              (pitch))))
-        (note_group_closing_paren)))
+              (pitch))))))
     (notation_item
       (syllable
         (syllable_text)
         (syllable_other_verbatim
-          (tag_opening_bracket)
-          (tag_verbatim_name)
-          (tag_closing_bracket)
-          (syllable_verbatim_text)
-          (closing_tag_opening_bracket)
-          (tag_verbatim_name)
-          (tag_closing_bracket)))
+          (syllable_verbatim_text)))
       (note_group
-        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
             (gabc_neume_punctum_quadratum
-              (pitch))))
-        (note_group_closing_paren)))))
+              (pitch))))))))
