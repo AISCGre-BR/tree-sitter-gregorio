@@ -1,6 +1,6 @@
-================================================================================
+=================================================================================
 Bars
-================================================================================
+=================================================================================
 
 name: Bars test;
 
@@ -14,70 +14,48 @@ name: Bars test;
   (header_section
     (header
       name: (header_name)
-      (header_field_separator)
       value: (header_value
         (single_line_header_value_terminated
-          (single_line_header_value)
-          (single_line_header_terminator)))))
+          (single_line_header_value)))))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
-        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
             (gabc_neume_punctum_quadratum
-              (pitch))))
-        (note_group_closing_paren)))
+              (pitch))))))
     (notation_item
       (note_group
-        (note_group_opening_paren)
         (snippet_list
-          single: (gabc_snippet
-            (gabc_bar_divisio_minima)))
-        (note_group_closing_paren)))
+          single: (gabc_snippet))))
     (notation_item
       (note_group
-        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
             (gabc_neume_punctum_quadratum
-              (pitch))))
-        (note_group_closing_paren)))
+              (pitch))))))
     (notation_item
       (note_group
-        (note_group_opening_paren)
         (snippet_list
-          single: (gabc_snippet
-            (gabc_bar_divisio_finalis)))
-        (note_group_closing_paren)))
+          single: (gabc_snippet))))
     (notation_item
       (note_group
-        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
             (gabc_neume_punctum_quadratum
-              (pitch))))
-        (note_group_closing_paren)))
+              (pitch))))))
     (notation_item
       (note_group
-        (note_group_opening_paren)
         (snippet_list
-          single: (gabc_snippet
-            (gabc_bar_divisio_maior)))
-        (note_group_closing_paren)))
+          single: (gabc_snippet))))
     (notation_item
       (note_group
-        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
             (gabc_neume_punctum_quadratum
-              (pitch))))
-        (note_group_closing_paren)))
+              (pitch))))))
     (notation_item
       (note_group
-        (note_group_opening_paren)
         (snippet_list
-          single: (gabc_snippet
-            (gabc_bar_virgula)))
-        (note_group_closing_paren)))))
+          single: (gabc_snippet))))))

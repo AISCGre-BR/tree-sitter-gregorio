@@ -1,6 +1,6 @@
-================================================================================
+=================================================================================
 Shape attribute
-================================================================================
+=================================================================================
 
 name: Shape;
 %%
@@ -12,18 +12,15 @@ Test(gh[shape:stroke]i)
   (header_section
     (header
       name: (header_name)
-      (header_field_separator)
       value: (header_value
         (single_line_header_value_terminated
-          (single_line_header_value)
-          (single_line_header_terminator)))))
+          (single_line_header_value)))))
   (section_separator)
   (notation_section
     (notation_item
       (syllable
         (syllable_text))
       (note_group
-        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
             (gabc_neume_punctum_quadratum
@@ -32,12 +29,11 @@ Test(gh[shape:stroke]i)
               (pitch))
             (gabc_attribute_shape)
             (gabc_neume_punctum_quadratum
-              (pitch))))
-        (note_group_closing_paren)))))
+              (pitch))))))))
 
-================================================================================
+=================================================================================
 Choral sign attributes
-================================================================================
+=================================================================================
 
 name: Choral signs;
 %%
@@ -49,18 +45,15 @@ Test(d[cs:vi]e[cn:pu])
   (header_section
     (header
       name: (header_name)
-      (header_field_separator)
       value: (header_value
         (single_line_header_value_terminated
-          (single_line_header_value)
-          (single_line_header_terminator)))))
+          (single_line_header_value)))))
   (section_separator)
   (notation_section
     (notation_item
       (syllable
         (syllable_text))
       (note_group
-        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
             (gabc_neume_punctum_quadratum
@@ -68,12 +61,11 @@ Test(d[cs:vi]e[cn:pu])
             (gabc_attribute_choral_sign)
             (gabc_neume_punctum_quadratum
               (pitch))
-            (gabc_attribute_nabc_choral_sign)))
-        (note_group_closing_paren)))))
+            (gabc_attribute_nabc_choral_sign)))))))
 
-================================================================================
+=================================================================================
 Brace attributes
-================================================================================
+=================================================================================
 
 name: Braces;
 %%
@@ -85,18 +77,15 @@ Test(d[ob:0;2mm]e[ub:1{]f[ub:1}])
   (header_section
     (header
       name: (header_name)
-      (header_field_separator)
       value: (header_value
         (single_line_header_value_terminated
-          (single_line_header_value)
-          (single_line_header_terminator)))))
+          (single_line_header_value)))))
   (section_separator)
   (notation_section
     (notation_item
       (syllable
         (syllable_text))
       (note_group
-        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
             (gabc_neume_punctum_quadratum
@@ -107,12 +96,11 @@ Test(d[ob:0;2mm]e[ub:1{]f[ub:1}])
             (gabc_attribute_brace_under)
             (gabc_neume_punctum_quadratum
               (pitch))
-            (gabc_attribute_brace_under)))
-        (note_group_closing_paren)))))
+            (gabc_attribute_brace_under)))))))
 
-================================================================================
+=================================================================================
 Stem length and ledger lines
-================================================================================
+=================================================================================
 
 name: Stem and ledger;
 %%
@@ -124,18 +112,15 @@ Test(c[ll:0]d[oll:0;2mm]e[ull:1{0])
   (header_section
     (header
       name: (header_name)
-      (header_field_separator)
       value: (header_value
         (single_line_header_value_terminated
-          (single_line_header_value)
-          (single_line_header_terminator)))))
+          (single_line_header_value)))))
   (section_separator)
   (notation_section
     (notation_item
       (syllable
         (syllable_text))
       (note_group
-        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
             (gabc_neume_punctum_quadratum
@@ -146,12 +131,11 @@ Test(c[ll:0]d[oll:0;2mm]e[ull:1{0])
             (gabc_attribute_ledger_line_over)
             (gabc_neume_punctum_quadratum
               (pitch))
-            (gabc_attribute_ledger_line_under)))
-        (note_group_closing_paren)))))
+            (gabc_attribute_ledger_line_under)))))))
 
-================================================================================
+=================================================================================
 Slur attributes
-================================================================================
+=================================================================================
 
 name: Slurs;
 %%
@@ -163,18 +147,15 @@ Test(d[oslur:0{]e[oslur:0}]f[uslur:1;2mm,1mm])
   (header_section
     (header
       name: (header_name)
-      (header_field_separator)
       value: (header_value
         (single_line_header_value_terminated
-          (single_line_header_value)
-          (single_line_header_terminator)))))
+          (single_line_header_value)))))
   (section_separator)
   (notation_section
     (notation_item
       (syllable
         (syllable_text))
       (note_group
-        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
             (gabc_neume_punctum_quadratum
@@ -185,12 +166,11 @@ Test(d[oslur:0{]e[oslur:0}]f[uslur:1;2mm,1mm])
             (gabc_attribute_slur_over)
             (gabc_neume_punctum_quadratum
               (pitch))
-            (gabc_attribute_slur_under)))
-        (note_group_closing_paren)))))
+            (gabc_attribute_slur_under)))))))
 
-================================================================================
+=================================================================================
 Horizontal episema attributes
-================================================================================
+=================================================================================
 
 name: Episema;
 %%
@@ -202,18 +182,15 @@ Test(d_[oh:m+1pt]e_[uh{]f_[uh}])
   (header_section
     (header
       name: (header_name)
-      (header_field_separator)
       value: (header_value
         (single_line_header_value_terminated
-          (single_line_header_value)
-          (single_line_header_terminator)))))
+          (single_line_header_value)))))
   (section_separator)
   (notation_section
     (notation_item
       (syllable
         (syllable_text))
       (note_group
-        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
             (gabc_neume_punctum_quadratum
@@ -227,12 +204,11 @@ Test(d_[oh:m+1pt]e_[uh{]f_[uh}])
             (gabc_neume_punctum_quadratum
               (pitch))
             (gabc_symbol_episema)
-            (gabc_attribute_horizontal_episema_under)))
-        (note_group_closing_paren)))))
+            (gabc_attribute_horizontal_episema_under)))))))
 
-================================================================================
+=================================================================================
 Above lines text and verbatim TeX
-================================================================================
+=================================================================================
 
 name: Alt and verbatim;
 %%
@@ -244,18 +220,15 @@ Test(d[alt:*]e[nv:\test]f[gv:\code]g[ev:\elem])
   (header_section
     (header
       name: (header_name)
-      (header_field_separator)
       value: (header_value
         (single_line_header_value_terminated
-          (single_line_header_value)
-          (single_line_header_terminator)))))
+          (single_line_header_value)))))
   (section_separator)
   (notation_section
     (notation_item
       (syllable
         (syllable_text))
       (note_group
-        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
             (gabc_neume_punctum_quadratum
@@ -269,5 +242,4 @@ Test(d[alt:*]e[nv:\test]f[gv:\code]g[ev:\elem])
             (gabc_attribute_verbatim_glyph)
             (gabc_neume_punctum_quadratum
               (pitch))
-            (gabc_attribute_verbatim_element)))
-        (note_group_closing_paren)))))
+            (gabc_attribute_verbatim_element)))))))

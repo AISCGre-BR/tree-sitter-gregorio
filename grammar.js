@@ -16,8 +16,8 @@ module.exports = grammar({
     // Spacing and NABC horizontal spacing can conflict with '/' characters
     [$.gabc_spacing_small_neume_separation, $.nabc_horizontal_spacing_adjustment],
     [$.gabc_spacing_medium_neume_separation, $.nabc_horizontal_spacing_adjustment],
-    // Bar virgula and NABC horizontal spacing can conflict with '`' characters
-    [$.gabc_bar_virgula, $.nabc_horizontal_spacing_adjustment],
+    // Bar (including virgula '`') and NABC horizontal spacing can conflict
+    [$._gabc_bar, $.nabc_horizontal_spacing_adjustment],
     // NABC complex glyph descriptor can have ambiguities with subpunctis/prepunctis sequences
     [$.nabc_complex_glyph_descriptor],
     // NABC subpunctis/prepunctis sequence can have repetition ambiguities
@@ -50,14 +50,12 @@ module.exports = grammar({
     // Header: name: value;
     header: $ => prec(2, seq(
       field('name', $.header_name),
-      $.header_field_separator,
+      token.immediate(':'),
       field('value', $.header_value)
     )),
 
     // Token to ensure "name:" is recognized atomically before syllable_text can match
     header_name: _ => token(prec(10, /[a-zA-Z0-9][a-zA-Z0-9-]*/)),
-    
-    header_field_separator: _ => token.immediate(':'),
 
     header_value: $ => choice(
       $.multiline_header_value_terminated,
@@ -66,22 +64,18 @@ module.exports = grammar({
 
     single_line_header_value_terminated: $ => seq(
       $.single_line_header_value,
-      $.single_line_header_terminator
+      ';'
     ),
 
     single_line_header_value: _ => /[^;%]*/,
 
-    single_line_header_terminator: _ => ';',
-
     // Multiline header: end with ;;
     multiline_header_value_terminated: $ => seq(
       $.multiline_header_value,
-      $.multiline_header_terminator
+      ';;'
     ),
 
     multiline_header_value: _ => /[^;%]*/,
-
-    multiline_header_terminator: _ => ';;',
 
     // Notation section: sequence of notation items
     notation_section: $ => repeat1($.notation_item),
@@ -118,205 +112,172 @@ module.exports = grammar({
 
     syllable_text: $ => /[^\s${}\\<>%()\[\]]+/,
 
-    // Tag components (reusable)
-    tag_opening_bracket: _ => '<',
-    tag_closing_bracket: _ => '>',
-    closing_tag_opening_bracket: _ => '</',
-
-    // Tag names
-    tag_bold_name: _ => 'b',
-    tag_colored_name: _ => 'c',
-    tag_italic_name: _ => 'i',
-    tag_small_caps_name: _ => 'sc',
-    tag_teletype_name: _ => 'tt',
-    tag_underline_name: _ => 'ul',
-    tag_elision_name: _ => 'e',
-    tag_euouae_name: _ => 'eu',
-    tag_no_line_break_name: _ => 'nlba',
-    tag_above_lines_text_name: _ => 'alt',
-    tag_special_character_name: _ => 'sp',
-    tag_verbatim_name: _ => 'v',
-    tag_clear_name: _ => 'clear',
-    tag_protrusion_name: _ => 'pr',
-
-    // Self-closing tag components
-    self_closing_tag_slash: _ => '/',
-
     // Syllable style tags
     syllable_style_bold: $ => seq(
-      $.tag_opening_bracket,
-      $.tag_bold_name,
-      $.tag_closing_bracket,
+      '<',
+      'b',
+      '>',
       optional($.syllable),
-      $.closing_tag_opening_bracket,
-      $.tag_bold_name,
-      $.tag_closing_bracket
+      '</',
+      'b',
+      '>'
     ),
     syllable_style_colored: $ => seq(
-      $.tag_opening_bracket,
-      $.tag_colored_name,
-      $.tag_closing_bracket,
+      '<',
+      'c',
+      '>',
       optional($.syllable),
-      $.closing_tag_opening_bracket,
-      $.tag_colored_name,
-      $.tag_closing_bracket
+      '</',
+      'c',
+      '>'
     ),
     syllable_style_italic: $ => seq(
-      $.tag_opening_bracket,
-      $.tag_italic_name,
-      $.tag_closing_bracket,
+      '<',
+      'i',
+      '>',
       optional($.syllable),
-      $.closing_tag_opening_bracket,
-      $.tag_italic_name,
-      $.tag_closing_bracket
+      '</',
+      'i',
+      '>'
     ),
     syllable_style_small_caps: $ => seq(
-      $.tag_opening_bracket,
-      $.tag_small_caps_name,
-      $.tag_closing_bracket,
+      '<',
+      'sc',
+      '>',
       optional($.syllable),
-      $.closing_tag_opening_bracket,
-      $.tag_small_caps_name,
-      $.tag_closing_bracket
+      '</',
+      'sc',
+      '>'
     ),
     syllable_style_teletype: $ => seq(
-      $.tag_opening_bracket,
-      $.tag_teletype_name,
-      $.tag_closing_bracket,
+      '<',
+      'tt',
+      '>',
       optional($.syllable),
-      $.closing_tag_opening_bracket,
-      $.tag_teletype_name,
-      $.tag_closing_bracket
+      '</',
+      'tt',
+      '>'
     ),
     syllable_style_underline: $ => seq(
-      $.tag_opening_bracket,
-      $.tag_underline_name,
-      $.tag_closing_bracket,
+      '<',
+      'ul',
+      '>',
       optional($.syllable),
-      $.closing_tag_opening_bracket,
-      $.tag_underline_name,
-      $.tag_closing_bracket
+      '</',
+      'ul',
+      '>'
     ),
 
     // Syllable controls
     syllable_control_clear: $ => seq(
-      $.tag_opening_bracket,
-      $.tag_clear_name,
-      optional($.self_closing_tag_slash),
-      $.tag_closing_bracket
+      '<',
+      'clear',
+      optional('/'),
+      '>'
     ),
 
     syllable_control_elision: $ => seq(
-      $.tag_opening_bracket,
-      $.tag_elision_name,
-      $.tag_closing_bracket,
+      '<',
+      'e',
+      '>',
       optional($.syllable),
-      $.closing_tag_opening_bracket,
-      $.tag_elision_name,
-      $.tag_closing_bracket
+      '</',
+      'e',
+      '>'
     ),
 
     syllable_control_euouae: $ => seq(
-      $.tag_opening_bracket,
-      $.tag_euouae_name,
-      $.tag_closing_bracket,
+      '<',
+      'eu',
+      '>',
       optional($.syllable),
-      $.closing_tag_opening_bracket,
-      $.tag_euouae_name,
-      $.tag_closing_bracket
+      '</',
+      'eu',
+      '>'
     ),
 
     syllable_control_no_line_break: $ => seq(
-      $.tag_opening_bracket,
-      $.tag_no_line_break_name,
-      $.tag_closing_bracket,
+      '<',
+      'nlba',
+      '>',
       optional($.syllable),
-      $.closing_tag_opening_bracket,
-      $.tag_no_line_break_name,
-      $.tag_closing_bracket
+      '</',
+      'nlba',
+      '>'
     ),
 
     syllable_control_protrusion: $ => seq(
-      $.tag_opening_bracket,
-      $.tag_protrusion_name,
+      '<',
+      'pr',
       optional(
         seq(
-          $.syllable_control_protrusion_delimiter,
+          ':',
           $.syllable_control_protrusion_value
         )
       ),
-      optional($.self_closing_tag_slash),
-      $.tag_closing_bracket
+      optional('/'),
+      '>'
     ),
-
-    syllable_control_protrusion_delimiter: _ => ':',
     syllable_control_protrusion_value: _ => /[0-9]*\.?[0-9]+/,
 
     // Other tags
     syllable_other_above_lines_text: $ => seq(
-      $.tag_opening_bracket,
-      $.tag_above_lines_text_name,
-      $.tag_closing_bracket,
+      '<',
+      'alt',
+      '>',
       optional($.syllable),
-      $.closing_tag_opening_bracket,
-      $.tag_above_lines_text_name,
-      $.tag_closing_bracket
+      '</',
+      'alt',
+      '>'
     ),
     syllable_other_special_character: $ => seq(
-      $.tag_opening_bracket,
-      $.tag_special_character_name,
-      $.tag_closing_bracket,
+      '<',
+      'sp',
+      '>',
       optional($.syllable),
-      $.closing_tag_opening_bracket,
-      $.tag_special_character_name,
-      $.tag_closing_bracket
+      '</',
+      'sp',
+      '>'
     ),
     syllable_other_verbatim: $ => seq(
-      $.tag_opening_bracket,
-      $.tag_verbatim_name,
-      $.tag_closing_bracket,
+      '<',
+      'v',
+      '>',
       optional($.syllable_verbatim_text),
-      $.closing_tag_opening_bracket,
-      $.tag_verbatim_name,
-      $.tag_closing_bracket
+      '</',
+      'v',
+      '>'
     ),
 
     syllable_verbatim_text: _ => /[^<]+/,
 
     // Translation text: [text]
     syllable_translation: $ => seq(
-      $.syllable_translation_opening_bracket,
+      '[',
       optional($.syllable_translation_text),
-      $.syllable_translation_closing_bracket
+      ']'
     ),
 
     syllable_translation_text: _ => /[^\]]*/,
-    syllable_translation_opening_bracket: _ => '[',
-    syllable_translation_closing_bracket: _ => ']',
 
     // Lyric centering: {text}
     syllable_centering: $ => seq(
-      $.open_curly_brace,
+      '{',
       optional($.syllable_centering_text),
-      $.close_curly_brace
+      '}'
     ),
 
     syllable_centering_text: _ => /[^}]*/,
-    open_curly_brace: _ => '{',
-    close_curly_brace: _ => '}',
 
     // Escape sequence: $ followed by character
     syllable_escape_sequence: _ => seq('$', /./),
 
     // Note group: (notes) - can contain GABC and/or NABC snippets
     note_group: $ => seq(
-      $.note_group_opening_paren,
+      '(',
       optional($.snippet_list),
-      $.note_group_closing_paren
+      ')'
     ),
-
-    note_group_opening_paren: _ => '(',
-    note_group_closing_paren: _ => ')',
 
     // Snippet list: GABC snippets and/or NABC snippets separated by |
     snippet_list: $ => choice(
@@ -328,14 +289,12 @@ module.exports = grammar({
         field('first', $.gabc_snippet),
         repeat1(
           seq(
-            $.gabc_nabc_separator,
+            '|',
             field('alternate', $._alternating_snippet)
           )
         )
       )
     ),
-
-    gabc_nabc_separator: _ => '|',
 
     // Alternating snippet: either GABC or NABC
     // The parser will determine based on content patterns
@@ -483,13 +442,10 @@ module.exports = grammar({
     gabc_neume_fusion_delimiter: _ => '@',
 
     gabc_neume_fusion_group: $ => seq(
-      $.gabc_neume_fusion_opening_bracket,
+      '@[',
       $.gabc_snippet,
-      $.gabc_neume_fusion_closing_bracket
+      ']'
     ),
-
-    gabc_neume_fusion_opening_bracket: _ => '@[',
-    gabc_neume_fusion_closing_bracket: _ => ']',
 
     // 6.4.7 Neume Spacing
     _gabc_spacing: $ => choice(
@@ -508,14 +464,12 @@ module.exports = grammar({
     gabc_spacing_zero_space: _ => '!',
 
     gabc_spacing_large_neume_separation: $ => seq(
-      $.gabc_spacing_large_neume_separation_opening_bracket,
+      '/[',
       $.gabc_spacing_large_neume_separation_factor,
-      $.gabc_spacing_large_neume_separation_closing_bracket
+      ']'
     ),
 
-    gabc_spacing_large_neume_separation_opening_bracket: _ => '/[',
     gabc_spacing_large_neume_separation_factor: _ => /-?[0-9.]+/,
-    gabc_spacing_large_neume_separation_closing_bracket: _ => ']',
 
     // GABC attributes - specific implementations
     _gabc_attribute: $ => choice(
@@ -577,13 +531,7 @@ module.exports = grammar({
       optional($._gabc_symbol_ictus_modifier)
     ),
 
-    _gabc_symbol_ictus_modifier: $ => choice(
-      $.gabc_symbol_ictus_modifier_force_below,
-      $.gabc_symbol_ictus_modifier_force_above
-    ),
-
-    gabc_symbol_ictus_modifier_force_below: _ => "0",
-    gabc_symbol_ictus_modifier_force_above: _ => "1",
+    _gabc_symbol_ictus_modifier: _ => choice('0', '1'),
 
     // Episema
     gabc_symbol_episema: $ => seq(
@@ -591,30 +539,16 @@ module.exports = grammar({
       repeat($._gabc_symbol_episema_modifier)
     ),
 
-    _gabc_symbol_episema_modifier: $ => choice(
-      $.gabc_symbol_episema_modifier_force_below,
-      $.gabc_symbol_episema_modifier_force_above,
-      $.gabc_symbol_episema_modifier_no_bridging,
-      $.gabc_symbol_episema_modifier_small_left,
-      $.gabc_symbol_episema_modifier_small_center,
-      $.gabc_symbol_episema_modifier_small_right
-    ),
+    _gabc_symbol_episema_modifier: _ => choice('0', '1', '2', '3', '4', '5'),
 
-    gabc_symbol_episema_modifier_force_below: _ => '0',
-    gabc_symbol_episema_modifier_force_above: _ => '1',
-    gabc_symbol_episema_modifier_no_bridging: _ => '2',
-    gabc_symbol_episema_modifier_small_left: _ => '3',
-    gabc_symbol_episema_modifier_small_center: _ => '4',
-    gabc_symbol_episema_modifier_small_right: _ => '5',
-
-    // Accents above staff
+    // Accents above staff: r1-r5
     gabc_symbol_accent_above_staff: _ => 'r1',
     gabc_symbol_accent_grave_above_staff: _ => 'r2',
     gabc_symbol_circle_above_staff: _ => 'r3',
     gabc_symbol_lower_semicircle_above_staff: _ => 'r4',
     gabc_symbol_upper_semicircle_above_staff: _ => 'r5',
 
-    // Musica ficta
+    // Musica ficta: r6-r8
     gabc_symbol_musica_ficta_flat: _ => 'r6',
     gabc_symbol_musica_ficta_natural: _ => 'r7',
     gabc_symbol_musica_ficta_sharp: _ => 'r8',
@@ -622,41 +556,24 @@ module.exports = grammar({
     // 6.4.11 Separation Bars
     _gabc_bar: $ => seq(
       choice(
-        $.gabc_bar_virgula,
-        $.gabc_bar_virgula_ledger_line_above,
-        $.gabc_bar_divisio_minimis,
-        $.gabc_bar_divisio_minimis_ledger_line_above,
-        $.gabc_bar_divisio_minima,
-        $.gabc_bar_divisio_minima_ledger_line_above,
-        $.gabc_bar_divisio_minor,
-        $.gabc_bar_divisio_maior,
-        $.gabc_bar_divisio_maior_dotted,
-        $.gabc_bar_divisio_finalis,
-        $.gabc_bar_dominican
+        '`',
+        '`0',
+        '^',
+        '^0',
+        ',',
+        ',0',
+        ';',
+        ':',
+        ':?',
+        '::',
+        seq(';', $.gabc_bar_dominican_position)
       ),
       optional($._gabc_bar_modifier)
     ),
 
-    gabc_bar_virgula: _ => '`',
-    gabc_bar_virgula_ledger_line_above: _ => '`0',
-    gabc_bar_divisio_minimis: _ => '^',
-    gabc_bar_divisio_minimis_ledger_line_above: _ => '^0',
-    gabc_bar_divisio_minima: _ => ',',
-    gabc_bar_divisio_minima_ledger_line_above: _ => ',0',
-    gabc_bar_divisio_minor: _ => ';',
-    gabc_bar_divisio_maior: _ => ':',
-    gabc_bar_divisio_maior_dotted: _ => ':?',
-    gabc_bar_divisio_finalis: _ => '::',
-    gabc_bar_dominican: $ => seq(';', $.gabc_bar_dominican_position),
     gabc_bar_dominican_position: _ => /[1-8]/,
 
-    _gabc_bar_modifier: $ => choice(
-      $.gabc_bar_modifier_episema,
-      $.gabc_bar_modifier_brace,
-    ),
-
-    gabc_bar_modifier_episema: _ => "'",
-    gabc_bar_modifier_brace: _ => '_',
+    _gabc_bar_modifier: _ => choice("'", '_'),
 
     // 6.4.12 Clefs
     gabc_clef: _ => prec(1, token(seq(
@@ -668,34 +585,16 @@ module.exports = grammar({
 
     // 6.4.13 Custos
     _gabc_custos: $ => choice(
-      $.gabc_custos_automatic,
-      $.gabc_custos_manual,
-      $.gabc_custos_disable
+      'z0',
+      seq($.pitch, '+'),
+      '[nocustos]'
     ),
-
-    gabc_custos_automatic: _ => 'z0',
-    gabc_custos_manual: $ => seq($.pitch, '+'),
-    gabc_custos_disable: _ => '[nocustos]',
 
     // 6.4.14 Line break
     _gabc_line_break: $ => seq(
-      choice(
-        $.gabc_line_break_justified,
-        $.gabc_line_break_ragged,
-      ),
-      optional($._gabc_line_break_modifier)
+      choice('z', 'Z'),
+      optional(choice('+', '-'))
     ),
-
-    gabc_line_break_justified: _ => 'z',
-    gabc_line_break_ragged: _ => 'Z',
-
-    _gabc_line_break_modifier: $ => choice(
-      $.gabc_line_break_modifier_force_custos,
-      $.gabc_line_break_modifier_disable_custos
-    ),
-
-    gabc_line_break_modifier_force_custos: _ => '+',
-    gabc_line_break_modifier_disable_custos: _ => '-',
 
     // 6.4.15 Choral Signs
     // [cs:text]
@@ -914,26 +813,18 @@ module.exports = grammar({
 
     // 6.4.24 Macros
     _gabc_macro: $ => seq(
-      $.gabc_macro_opening_bracket,
+      '[',
       seq(
         choice(
-          $.gabc_macro_note_level,
-          $.gabc_macro_glyph_level,
-          $.gabc_macro_element_level,
-          $.gabc_macro_element_level_alt
+          'nm', // Note Level
+          'gm', // Glyph Level
+          'em', // Element Level
+          'altm' // Element Level (alt syntax)
         ),
         /[0-9]/
       ),
-      $.gabc_macro_closing_bracket
+      ']'
     ),
-
-    gabc_macro_opening_bracket: _ => '[',
-    gabc_macro_closing_bracket: _ => ']',
-    gabc_macro_note_level: _ => 'nm',
-    gabc_macro_glyph_level: _ => 'gm',
-    gabc_macro_element_level: _ => 'em',
-    gabc_macro_element_level_alt: _ => 'altm',
-
 
     // NABC snippet: sequence of complex neume descriptors
     nabc_snippet: $ => repeat1($.nabc_complex_neume_descriptor),

@@ -1,6 +1,6 @@
-================================================================================
+=================================================================================
 Translation and centering
-================================================================================
+=================================================================================
 
 name: Other text tags test;
 
@@ -14,59 +14,45 @@ Q{ui}(f)a(f) text[texto](g)$@end(h)
   (header_section
     (header
       name: (header_name)
-      (header_field_separator)
       value: (header_value
         (single_line_header_value_terminated
-          (single_line_header_value)
-          (single_line_header_terminator)))))
+          (single_line_header_value)))))
   (section_separator)
   (notation_section
     (notation_item
       (syllable
         (syllable_text)
         (syllable_centering
-          (open_curly_brace)
-          (syllable_centering_text)
-          (close_curly_brace)))
+          (syllable_centering_text)))
       (note_group
-        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
             (gabc_neume_punctum_quadratum
-              (pitch))))
-        (note_group_closing_paren)))
+              (pitch))))))
     (notation_item
       (syllable
         (syllable_text))
       (note_group
-        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
             (gabc_neume_punctum_quadratum
-              (pitch))))
-        (note_group_closing_paren)))
+              (pitch))))))
     (notation_item
       (syllable
         (syllable_text)
         (syllable_translation
-          (syllable_translation_opening_bracket)
-          (syllable_translation_text)
-          (syllable_translation_closing_bracket)))
+          (syllable_translation_text)))
       (note_group
-        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
             (gabc_neume_punctum_quadratum
-              (pitch))))
-        (note_group_closing_paren)))
+              (pitch))))))
     (notation_item
       (syllable
         (syllable_escape_sequence)
         (syllable_text))
       (note_group
-        (note_group_opening_paren)
         (snippet_list
           single: (gabc_snippet
             (gabc_neume_punctum_quadratum
-              (pitch))))
-        (note_group_closing_paren)))))
+              (pitch))))))))
