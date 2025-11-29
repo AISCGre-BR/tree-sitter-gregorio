@@ -1,6 +1,6 @@
-=================================================================================
+================================================================================
 Shape attribute
-=================================================================================
+================================================================================
 
 name: Shape;
 %%
@@ -23,17 +23,17 @@ Test(gh[shape:stroke]i)
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))
-            (gabc_neume_punctum_quadratum
-              (pitch))
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_neume
+              pitch: (pitch))
             (gabc_attribute_shape)
-            (gabc_neume_punctum_quadratum
-              (pitch))))))))
+            (gabc_neume
+              pitch: (pitch))))))))
 
-=================================================================================
+================================================================================
 Choral sign attributes
-=================================================================================
+================================================================================
 
 name: Choral signs;
 %%
@@ -56,16 +56,16 @@ Test(d[cs:vi]e[cn:pu])
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))
+            (gabc_neume
+              pitch: (pitch))
             (gabc_attribute_choral_sign)
-            (gabc_neume_punctum_quadratum
-              (pitch))
+            (gabc_neume
+              pitch: (pitch))
             (gabc_attribute_nabc_choral_sign)))))))
 
-=================================================================================
+================================================================================
 Brace attributes
-=================================================================================
+================================================================================
 
 name: Braces;
 %%
@@ -88,19 +88,19 @@ Test(d[ob:0;2mm]e[ub:1{]f[ub:1}])
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))
+            (gabc_neume
+              pitch: (pitch))
             (gabc_attribute_brace_over)
-            (gabc_neume_punctum_quadratum
-              (pitch))
+            (gabc_neume
+              pitch: (pitch))
             (gabc_attribute_brace_under)
-            (gabc_neume_punctum_quadratum
-              (pitch))
+            (gabc_neume
+              pitch: (pitch))
             (gabc_attribute_brace_under)))))))
 
-=================================================================================
+================================================================================
 Stem length and ledger lines
-=================================================================================
+================================================================================
 
 name: Stem and ledger;
 %%
@@ -123,19 +123,19 @@ Test(c[ll:0]d[oll:0;2mm]e[ull:1{0])
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))
+            (gabc_neume
+              pitch: (pitch))
             (gabc_attribute_stem_length)
-            (gabc_neume_punctum_quadratum
-              (pitch))
+            (gabc_neume
+              pitch: (pitch))
             (gabc_attribute_ledger_line_over)
-            (gabc_neume_punctum_quadratum
-              (pitch))
+            (gabc_neume
+              pitch: (pitch))
             (gabc_attribute_ledger_line_under)))))))
 
-=================================================================================
+================================================================================
 Slur attributes
-=================================================================================
+================================================================================
 
 name: Slurs;
 %%
@@ -158,19 +158,19 @@ Test(d[oslur:0{]e[oslur:0}]f[uslur:1;2mm,1mm])
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))
+            (gabc_neume
+              pitch: (pitch))
             (gabc_attribute_slur_over)
-            (gabc_neume_punctum_quadratum
-              (pitch))
+            (gabc_neume
+              pitch: (pitch))
             (gabc_attribute_slur_over)
-            (gabc_neume_punctum_quadratum
-              (pitch))
+            (gabc_neume
+              pitch: (pitch))
             (gabc_attribute_slur_under)))))))
 
-=================================================================================
+================================================================================
 Horizontal episema attributes
-=================================================================================
+================================================================================
 
 name: Episema;
 %%
@@ -193,22 +193,22 @@ Test(d_[oh:m+1pt]e_[uh{]f_[uh}])
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))
+            (gabc_neume
+              pitch: (pitch))
             (gabc_symbol_episema)
             (gabc_attribute_horizontal_episema_over)
-            (gabc_neume_punctum_quadratum
-              (pitch))
+            (gabc_neume
+              pitch: (pitch))
             (gabc_symbol_episema)
             (gabc_attribute_horizontal_episema_under)
-            (gabc_neume_punctum_quadratum
-              (pitch))
+            (gabc_neume
+              pitch: (pitch))
             (gabc_symbol_episema)
             (gabc_attribute_horizontal_episema_under)))))))
 
-=================================================================================
+================================================================================
 Above lines text and verbatim TeX
-=================================================================================
+================================================================================
 
 name: Alt and verbatim;
 %%
@@ -231,15 +231,15 @@ Test(d[alt:*]e[nv:\test]f[gv:\code]g[ev:\elem])
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))
+            (gabc_neume
+              pitch: (pitch))
             (gabc_attribute_above_lines_text)
-            (gabc_neume_punctum_quadratum
-              (pitch))
+            (gabc_neume
+              pitch: (pitch))
             (gabc_attribute_verbatim_note)
-            (gabc_neume_punctum_quadratum
-              (pitch))
+            (gabc_neume
+              pitch: (pitch))
             (gabc_attribute_verbatim_glyph)
-            (gabc_neume_punctum_quadratum
-              (pitch))
+            (gabc_neume
+              pitch: (pitch))
             (gabc_attribute_verbatim_element)))))))

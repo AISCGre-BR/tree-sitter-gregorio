@@ -303,7 +303,7 @@ module.exports = grammar({
     // GABC snippet: notes and other GABC elements
     gabc_snippet: $ => repeat1(
       choice(
-        $._gabc_neume,
+        $.gabc_neume,
         $._gabc_alteration,
         $._gabc_complex_neume,
         $._gabc_neume_fusion,
@@ -324,81 +324,70 @@ module.exports = grammar({
     pitch: _ => /[a-np]/,
     pitch_upper: _ => /[A-NP]/,
 
-    // 6.4.2 One-Note Neumes
-    _gabc_neume: $ => choice(
-      $.gabc_neume_punctum_quadratum,
-      $.gabc_neume_punctum_inclinatum,
-      $.gabc_neume_oriscus,
-      $.gabc_neume_oriscus_scapus,
-      $.gabc_neume_quilisma,
-      $.gabc_neume_virga,
-      $.gabc_neume_virga_reversa,
-      $.gabc_neume_bivirga,
-      $.gabc_neume_trivirga,
-      $.gabc_neume_stropha,
-      $.gabc_neume_distropha,
-      $.gabc_neume_tristropha,
-      $.gabc_neume_punctum_cavum,
-      $.gabc_neume_punctum_quadratum_surrounded,
-      $.gabc_neume_punctum_cavum_surrounded,
-      $.gabc_neume_liquescent_deminutus,
-      $.gabc_neume_liquescent_augmented,
-      $.gabc_neume_liquescent_diminished,
-      $.gabc_neume_linea,
+    // 6.4.2 One-Note Neumes - Unified implementation
+    gabc_neume: $ => choice(
+      // Punctum inclinatum: upper pitch + optional leaning modifier
+      seq(
+        field('pitch', $.pitch_upper),
+        optional(
+          field(
+            'leaning',
+            choice(
+              '0', // left-leaning (descending)
+              '1', // right-leaning (ascending)
+              '2'  // non-leaning (unison)
+            )
+          )
+        )
+      ),
+      // All other neume shapes: pitch + shape modifier(s)
+      seq(
+        field('pitch', $.pitch),
+        field(
+          'shape',
+          alias(
+            token.immediate(
+              choice(
+                'o',   // oriscus
+                'O',   // oriscus scapus
+                'w',   // quilisma
+                'v',   // virga
+                'V',   // virga reversa
+                'vv',  // bivirga
+                'vvv', // trivirga
+                's',   // stropha
+                'ss',  // distropha
+                'sss', // tristropha
+                'r',   // punctum cavum
+                'R',   // punctum quadratum surrounded by lines
+                'r0',  // punctum cavum surrounded by lines
+                '~',   // liquescent deminutus
+                '<',   // liquescent augmented
+                '>',   // liquescent diminished
+                '=',   // linea
+                seq(
+                  'o', // oriscus
+                  choice(
+                    '0', // downwards-pointing
+                    '1' // upwards-pointing
+                  )
+                ),
+                seq(
+                  'O', // oruscos scapus
+                  choice(
+                    '0', // downwards-pointing
+                    '1' // upwards-pointing
+                  )
+                )
+              )
+            ),
+            $.neume_shape
+          )
+        )
+      ),
+      // Punctum quadratum: just pitch (must come last to avoid consuming other patterns)
+      field('pitch', $.pitch)
     ),
-
-    gabc_neume_punctum_quadratum: $ => $.pitch,
-
-    gabc_neume_punctum_inclinatum: $ => seq(
-      $.pitch_upper,
-      optional($._gabc_neume_punctum_inclinatum_leaning)
-    ),
-    _gabc_neume_punctum_inclinatum_leaning: $ => choice(
-      $.gabc_neume_punctum_inclinatum_left_leaning,
-      $.gabc_neume_punctum_inclinatum_right_leaning,
-      $.gabc_neume_punctum_inclinatum_no_leaning,
-    ),
-    gabc_neume_punctum_inclinatum_left_leaning: _ => '0',
-    gabc_neume_punctum_inclinatum_right_leaning: _ => '1',
-    gabc_neume_punctum_inclinatum_no_leaning: _ => '2',
-
-    gabc_neume_oriscus: $ => seq(
-      $.pitch,
-      'o',
-      optional($._gabc_neume_oriscus_direction)
-    ),
-
-    gabc_neume_oriscus_scapus: $ => seq(
-      $.pitch,
-      'O',
-      optional($._gabc_neume_oriscus_direction)
-    ),
-
-    _gabc_neume_oriscus_direction: $ => choice(
-      $.gabc_neume_oriscus_downwards_pointing,
-      $.gabc_neume_oriscus_upwards_pointing,
-    ),
-
-    gabc_neume_oriscus_downwards_pointing: _ => '0',
-    gabc_neume_oriscus_upwards_pointing: _ => '1',
-
-    gabc_neume_quilisma: $ => seq($.pitch, 'w'),
-    gabc_neume_virga: $ => seq($.pitch, 'v'),
-    gabc_neume_virga_reversa: $ => seq($.pitch, 'V'),
-    gabc_neume_bivirga: $ => seq($.pitch, 'vv'),
-    gabc_neume_trivirga: $ => seq($.pitch, 'vvv'),
-    gabc_neume_stropha: $ => seq($.pitch, 's'),
-    gabc_neume_distropha: $ => seq($.pitch, 'ss'),
-    gabc_neume_tristropha: $ => seq($.pitch, 'sss'),
-    gabc_neume_punctum_cavum: $ => seq($.pitch, 'r'),
-    gabc_neume_punctum_quadratum_surrounded: $ => seq($.pitch, 'R'),
-    gabc_neume_punctum_cavum_surrounded: $ => seq($.pitch, 'r0'),
-    // Liquescents
-    gabc_neume_liquescent_deminutus: $ => seq($.pitch, '~'),
-    gabc_neume_liquescent_augmented: $ => seq($.pitch, '<'),
-    gabc_neume_liquescent_diminished: $ => seq($.pitch, '>'),
-    // Other
-    gabc_neume_linea: $ => seq($.pitch, '='),
 
     // 6.4.3 Alterations
     _gabc_alteration: $ => choice(

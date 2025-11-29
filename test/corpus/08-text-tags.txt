@@ -1,6 +1,6 @@
-=================================================================================
+================================================================================
 Translation and centering
-=================================================================================
+================================================================================
 
 name: Other text tags test;
 
@@ -27,16 +27,16 @@ Q{ui}(f)a(f) text[texto](g)$@end(h)
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))
+            (gabc_neume
+              pitch: (pitch))))))
     (notation_item
       (syllable
         (syllable_text))
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))
+            (gabc_neume
+              pitch: (pitch))))))
     (notation_item
       (syllable
         (syllable_text)
@@ -45,8 +45,8 @@ Q{ui}(f)a(f) text[texto](g)$@end(h)
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))
+            (gabc_neume
+              pitch: (pitch))))))
     (notation_item
       (syllable
         (syllable_escape_sequence)
@@ -54,5 +54,5 @@ Q{ui}(f)a(f) text[texto](g)$@end(h)
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))))
+            (gabc_neume
+              pitch: (pitch))))))))

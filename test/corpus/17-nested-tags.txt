@@ -1,6 +1,6 @@
-=================================================================================
+================================================================================
 Nested tags
-=================================================================================
+================================================================================
 
 name: Nested tags;
 %%
@@ -34,52 +34,52 @@ name: Nested tags;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))
+            (gabc_neume
+              pitch: (pitch))))))
     (notation_item
       (syllable
         (syllable_text))
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))
+            (gabc_neume
+              pitch: (pitch))))))
     (notation_item
       (syllable
         (syllable_text))
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))
+            (gabc_neume
+              pitch: (pitch))))))
     (notation_item
       (syllable
         (syllable_text))
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))
-            (gabc_neume_punctum_quadratum
-              (pitch))))))
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_neume
+              pitch: (pitch))))))
     (notation_item
       (syllable
         (syllable_text))
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))
-            (gabc_neume_punctum_quadratum
-              (pitch))))))
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_neume
+              pitch: (pitch))))))
     (notation_item
       (syllable
         (syllable_text))
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))
+            (gabc_neume
+              pitch: (pitch))))))
     (notation_item
       (note_group
         (snippet_list

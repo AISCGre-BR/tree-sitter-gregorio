@@ -1,6 +1,6 @@
-=================================================================================
+================================================================================
 Spacing
-=================================================================================
+================================================================================
 
 name: Spacing test;
 
@@ -23,11 +23,11 @@ name: Spacing test;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))
+            (gabc_neume
+              pitch: (pitch))
             (gabc_spacing_small_neume_separation)
-            (gabc_neume_punctum_quadratum
-              (pitch))
+            (gabc_neume
+              pitch: (pitch))
             (gabc_spacing_medium_neume_separation)
-            (gabc_neume_punctum_quadratum
-              (pitch))))))))
+            (gabc_neume
+              pitch: (pitch))))))))

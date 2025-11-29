@@ -1,0 +1,566 @@
+================================================================================
+Punctum quadratum (simple pitch)
+================================================================================
+
+name: Punctum quadratum;
+
+%%
+
+(abcdefghijklmn)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_neume
+              pitch: (pitch))))))))
+
+================================================================================
+Punctum inclinatum (upper case pitch)
+================================================================================
+
+name: Punctum inclinatum;
+
+%%
+
+(ABCDEFG)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_upper))
+            (gabc_neume
+              pitch: (pitch_upper))
+            (gabc_neume
+              pitch: (pitch_upper))
+            (gabc_neume
+              pitch: (pitch_upper))
+            (gabc_neume
+              pitch: (pitch_upper))
+            (gabc_neume
+              pitch: (pitch_upper))
+            (gabc_neume
+              pitch: (pitch_upper))))))))
+
+================================================================================
+Punctum inclinatum with leaning modifiers
+================================================================================
+
+name: Inclinatum leaning;
+
+%%
+
+(G0H1I2)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_upper))
+            (gabc_neume
+              pitch: (pitch_upper))
+            (gabc_neume
+              pitch: (pitch_upper))))))))
+
+================================================================================
+Oriscus
+================================================================================
+
+name: Oriscus;
+
+%%
+
+(gohojo0ko1)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))))))))
+
+================================================================================
+Oriscus scapus
+================================================================================
+
+name: Oriscus scapus;
+
+%%
+
+(gOhOjO0kO1)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))))))))
+
+================================================================================
+Quilisma
+================================================================================
+
+name: Quilisma;
+
+%%
+
+(gwiwkw)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))))))))
+
+================================================================================
+Virga
+================================================================================
+
+name: Virga;
+
+%%
+
+(gviv)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))))))))
+
+================================================================================
+Virga reversa
+================================================================================
+
+name: Virga reversa;
+
+%%
+
+(gViV)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))))))))
+
+================================================================================
+Bivirga and Trivirga
+================================================================================
+
+name: Bivirga trivirga;
+
+%%
+
+(gvvhvvv)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))))))))
+
+================================================================================
+Stropha, Distropha, Tristropha
+================================================================================
+
+name: Strophae;
+
+%%
+
+(gsihssjsss)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))))))))
+
+================================================================================
+Punctum cavum and variants
+================================================================================
+
+name: Cavum;
+
+%%
+
+(grhrRir0)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch
+                (MISSING "pitch_token1"))
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))))))))
+
+================================================================================
+Liquescent neumes
+================================================================================
+
+name: Liquescent;
+
+%%
+
+(g~h<i>)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))))))))
+
+================================================================================
+Linea
+================================================================================
+
+name: Linea;
+
+%%
+
+(g=h=)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))))))))
+
+================================================================================
+Mixed neume types
+================================================================================
+
+name: Mixed neumes;
+
+%%
+
+(gabcGHIgohOgwgvgVgvvgvvvgsgssgsssgrgRgr0g~g<g>g=)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_neume
+              pitch: (pitch_upper))
+            (gabc_neume
+              pitch: (pitch_upper))
+            (gabc_neume
+              pitch: (pitch_upper))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))))))))

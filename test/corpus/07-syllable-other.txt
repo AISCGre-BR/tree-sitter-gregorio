@@ -1,6 +1,6 @@
-=================================================================================
+================================================================================
 Syllable other tags
-=================================================================================
+================================================================================
 
 name: Syllable other test;
 
@@ -27,8 +27,8 @@ name: Syllable other test;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))
+            (gabc_neume
+              pitch: (pitch))))))
     (notation_item
       (syllable
         (syllable_other_special_character
@@ -37,8 +37,8 @@ name: Syllable other test;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))
+            (gabc_neume
+              pitch: (pitch))))))
     (notation_item
       (syllable
         (syllable_other_verbatim
@@ -46,13 +46,13 @@ name: Syllable other test;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))
+            (gabc_neume
+              pitch: (pitch))))))
     (notation_item
       (syllable
         (syllable_text))
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))))
+            (gabc_neume
+              pitch: (pitch))))))))

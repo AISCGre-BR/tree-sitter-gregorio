@@ -1,6 +1,6 @@
-=================================================================================
+================================================================================
 Verbatim tag with parentheses
-=================================================================================
+================================================================================
 
 name: Verbatim special chars;
 %%
@@ -25,8 +25,8 @@ name: Verbatim special chars;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))
+            (gabc_neume
+              pitch: (pitch))))))
     (notation_item
       (syllable
         (syllable_other_verbatim
@@ -34,12 +34,12 @@ name: Verbatim special chars;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))))
+            (gabc_neume
+              pitch: (pitch))))))))
 
-=================================================================================
+================================================================================
 Verbatim tag with brackets
-=================================================================================
+================================================================================
 
 name: Verbatim brackets;
 %%
@@ -64,8 +64,8 @@ name: Verbatim brackets;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))
+            (gabc_neume
+              pitch: (pitch))))))
     (notation_item
       (syllable
         (syllable_other_verbatim
@@ -73,12 +73,12 @@ name: Verbatim brackets;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))))
+            (gabc_neume
+              pitch: (pitch))))))))
 
-=================================================================================
+================================================================================
 Verbatim tag with multiple special characters
-=================================================================================
+================================================================================
 
 name: Verbatim mixed;
 %%
@@ -104,8 +104,8 @@ text<v>()[];</v>(f)more<v>{}</v>(g)
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))
+            (gabc_neume
+              pitch: (pitch))))))
     (notation_item
       (syllable
         (syllable_text)
@@ -114,5 +114,5 @@ text<v>()[];</v>(f)more<v>{}</v>(g)
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))))
+            (gabc_neume
+              pitch: (pitch))))))))

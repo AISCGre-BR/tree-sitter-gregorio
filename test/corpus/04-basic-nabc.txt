@@ -1,6 +1,6 @@
-=================================================================================
+================================================================================
 Basic lyrics + NABC
-=================================================================================
+================================================================================
 
 name: Basic lyrics + NABC;
 nabc-lines: 1;
@@ -40,8 +40,8 @@ Ad(f|ta) te,(h|vi) Dó(hi|pe)mi(i|vi)ne.(i|vi)
       (note_group
         (snippet_list
           first: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch)))
+            (gabc_neume
+              pitch: (pitch)))
           alternate: (nabc_snippet
             (nabc_complex_neume_descriptor
               (nabc_complex_glyph_descriptor
@@ -53,8 +53,8 @@ Ad(f|ta) te,(h|vi) Dó(hi|pe)mi(i|vi)ne.(i|vi)
       (note_group
         (snippet_list
           first: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch)))
+            (gabc_neume
+              pitch: (pitch)))
           alternate: (nabc_snippet
             (nabc_complex_neume_descriptor
               (nabc_complex_glyph_descriptor
@@ -66,10 +66,10 @@ Ad(f|ta) te,(h|vi) Dó(hi|pe)mi(i|vi)ne.(i|vi)
       (note_group
         (snippet_list
           first: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))
-            (gabc_neume_punctum_quadratum
-              (pitch)))
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_neume
+              pitch: (pitch)))
           alternate: (nabc_snippet
             (nabc_complex_neume_descriptor
               (nabc_complex_glyph_descriptor
@@ -81,8 +81,8 @@ Ad(f|ta) te,(h|vi) Dó(hi|pe)mi(i|vi)ne.(i|vi)
       (note_group
         (snippet_list
           first: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch)))
+            (gabc_neume
+              pitch: (pitch)))
           alternate: (nabc_snippet
             (nabc_complex_neume_descriptor
               (nabc_complex_glyph_descriptor
@@ -94,8 +94,8 @@ Ad(f|ta) te,(h|vi) Dó(hi|pe)mi(i|vi)ne.(i|vi)
       (note_group
         (snippet_list
           first: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch)))
+            (gabc_neume
+              pitch: (pitch)))
           alternate: (nabc_snippet
             (nabc_complex_neume_descriptor
               (nabc_complex_glyph_descriptor
