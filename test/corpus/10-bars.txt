@@ -1,6 +1,6 @@
-=================================================================================
+================================================================================
 Bars
-=================================================================================
+================================================================================
 
 name: Bars test;
 
@@ -23,8 +23,8 @@ name: Bars test;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))
+            (gabc_neume
+              pitch: (pitch))))))
     (notation_item
       (note_group
         (snippet_list
@@ -33,8 +33,8 @@ name: Bars test;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))
+            (gabc_neume
+              pitch: (pitch))))))
     (notation_item
       (note_group
         (snippet_list
@@ -43,8 +43,8 @@ name: Bars test;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))
+            (gabc_neume
+              pitch: (pitch))))))
     (notation_item
       (note_group
         (snippet_list
@@ -53,8 +53,8 @@ name: Bars test;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))
+            (gabc_neume
+              pitch: (pitch))))))
     (notation_item
       (note_group
         (snippet_list

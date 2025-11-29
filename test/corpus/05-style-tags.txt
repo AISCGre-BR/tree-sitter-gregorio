@@ -1,6 +1,6 @@
-=================================================================================
+================================================================================
 Style tags
-=================================================================================
+================================================================================
 
 name: Style tags test;
 
@@ -31,8 +31,8 @@ name: Style tags test;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))
+            (gabc_neume
+              pitch: (pitch))))))
     (notation_item
       (syllable
         (syllable_style_italic
@@ -41,8 +41,8 @@ name: Style tags test;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))
+            (gabc_neume
+              pitch: (pitch))))))
     (notation_item
       (syllable
         (syllable_style_small_caps
@@ -51,8 +51,8 @@ name: Style tags test;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))
+            (gabc_neume
+              pitch: (pitch))))))
     (notation_item
       (syllable
         (syllable_style_teletype
@@ -62,8 +62,8 @@ name: Style tags test;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))
+            (gabc_neume
+              pitch: (pitch))))))
     (notation_item
       (syllable
         (syllable_style_colored
@@ -72,8 +72,8 @@ name: Style tags test;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))
+            (gabc_neume
+              pitch: (pitch))))))
     (notation_item
       (syllable
         (syllable_style_underline
@@ -82,8 +82,8 @@ name: Style tags test;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))
+            (gabc_neume
+              pitch: (pitch))))))
     (notation_item
       (syllable
         (syllable_style_small_caps
@@ -92,8 +92,8 @@ name: Style tags test;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))
+            (gabc_neume
+              pitch: (pitch))))))
     (notation_item
       (syllable
         (syllable_style_teletype
@@ -103,8 +103,8 @@ name: Style tags test;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))
+            (gabc_neume
+              pitch: (pitch))))))
     (notation_item
       (note_group
         (snippet_list

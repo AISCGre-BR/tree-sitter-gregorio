@@ -1,6 +1,6 @@
-=================================================================================
+================================================================================
 Note modifiers
-=================================================================================
+================================================================================
 
 name: Note modifiers test;
 
@@ -23,11 +23,13 @@ name: Note modifiers test;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_oriscus
-              (pitch))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
             (gabc_symbol_ictus)
             (gabc_symbol_ictus)
-            (gabc_neume_punctum_cavum
-              (pitch))
-            (gabc_neume_punctum_quadratum
-              (pitch))))))))
+            (gabc_neume
+              pitch: (pitch)
+              shape: (neume_shape))
+            (gabc_neume
+              pitch: (pitch))))))))

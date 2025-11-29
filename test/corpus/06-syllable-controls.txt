@@ -1,6 +1,6 @@
-=================================================================================
+================================================================================
 Syllable controls
-=================================================================================
+================================================================================
 
 name: Syllable controls test;
 
@@ -27,8 +27,8 @@ name: Syllable controls test;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))
+            (gabc_neume
+              pitch: (pitch))))))
     (notation_item
       (syllable
         (syllable_control_clear)
@@ -38,8 +38,8 @@ name: Syllable controls test;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))
+            (gabc_neume
+              pitch: (pitch))))))
     (notation_item
       (syllable
         (syllable_control_no_line_break
@@ -48,8 +48,8 @@ name: Syllable controls test;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))
+            (gabc_neume
+              pitch: (pitch))))))
     (notation_item
       (syllable
         (syllable_control_protrusion)
@@ -57,8 +57,8 @@ name: Syllable controls test;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))
+            (gabc_neume
+              pitch: (pitch))))))
     (notation_item
       (syllable
         (syllable_control_protrusion
@@ -66,5 +66,5 @@ name: Syllable controls test;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_neume_punctum_quadratum
-              (pitch))))))))
+            (gabc_neume
+              pitch: (pitch))))))))
