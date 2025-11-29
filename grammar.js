@@ -357,7 +357,7 @@ module.exports = grammar({
         $._gabc_custos,
         $._gabc_line_break,
         // GABC Attributes
-        $.gabc_attribute,
+        $._gabc_attribute,
         $._gabc_macro
       )
     ),
@@ -517,21 +517,37 @@ module.exports = grammar({
     gabc_spacing_large_neume_separation_factor: _ => /-?[0-9.]+/,
     gabc_spacing_large_neume_separation_closing_bracket: _ => ']',
 
-    // GABC attributes
-    gabc_attribute: $ => seq(
-      $.gabc_attribute_opening_bracket,
-      field('name', /[a-zA-Z0-9-]+/),
-      $.gabc_attribute_separator,
-      field('value', /[^]]*/),
-      $.gabc_attribute_closing_bracket
+    // GABC attributes - specific implementations
+    _gabc_attribute: $ => choice(
+      $.gabc_attribute_shape,
+      $.gabc_attribute_choral_sign,
+      $.gabc_attribute_nabc_choral_sign,
+      $.gabc_attribute_brace_over,
+      $.gabc_attribute_brace_under,
+      $.gabc_attribute_curly_brace_over,
+      $.gabc_attribute_curly_brace_over_accent,
+      $.gabc_attribute_stem_length,
+      $.gabc_attribute_ledger_line_over,
+      $.gabc_attribute_ledger_line_under,
+      $.gabc_attribute_slur_over,
+      $.gabc_attribute_slur_under,
+      $.gabc_attribute_horizontal_episema_over,
+      $.gabc_attribute_horizontal_episema_under,
+      $.gabc_attribute_above_lines_text,
+      $.gabc_attribute_verbatim_note,
+      $.gabc_attribute_verbatim_glyph,
+      $.gabc_attribute_verbatim_element,
     ),
 
-    gabc_attribute_opening_bracket: _ => '[',
-    gabc_attribute_separator: _ => ':',
-    gabc_attribute_closing_bracket: _ => ']',
-
     // 6.4.8 Shape Hints
-    // (gabc_attribute name: "shape")
+    // [shape:hint]
+    gabc_attribute_shape: _ => seq(
+      '[',
+      'shape',
+      ':',
+      field('hint', choice('stroke')),
+      ']'
+    ),
 
     // 6.4.9 Additional symbols
     _gabc_symbol: $ => repeat1(
@@ -682,37 +698,219 @@ module.exports = grammar({
     gabc_line_break_modifier_disable_custos: _ => '-',
 
     // 6.4.15 Choral Signs
-    // (gabc_attribute name: "cs")
-    // (gabc_attribute name: "cn")
+    // [cs:text]
+    gabc_attribute_choral_sign: _ => seq(
+      '[',
+      'cs',
+      ':',
+      field('text', /[^\]]*/),
+      ']'
+    ),
+
+    // [cn:nabc_code]
+    gabc_attribute_nabc_choral_sign: $ => seq(
+      '[',
+      'cn',
+      ':',
+      field('nabc_code', /[^\]]*/),
+      ']'
+    ),
 
     // 6.4.16 Braces
-    // (gabc_attribute name: "ob")
-    // (gabc_attribute name: "ub")
-    // (gabc_attribute name: "ocb")
-    // (gabc_attribute name: "ocba")
+    // [ob:n;size] or [ob:n{] or [ob:n}]
+    gabc_attribute_brace_over: $ => seq(
+      '[',
+      'ob',
+      ':',
+      field('position', choice('0', '1')),
+      choice(
+        seq(';', field('size', /[^\]]+/)),
+        '{',
+        '}'
+      ),
+      ']'
+    ),
 
-    // 6.4.17 Stem length for the bottom lines
-    // (gabc_attribute name: "ll")
+    // [ub:n;size] or [ub:n{] or [ub:n}]
+    gabc_attribute_brace_under: $ => seq(
+      '[',
+      'ub',
+      ':',
+      field('position', choice('0', '1')),
+      choice(
+        seq(';', field('size', /[^\]]+/)),
+        '{',
+        '}'
+      ),
+      ']'
+    ),
+
+    // [ocb:n;size] or [ocb:n{] or [ocb:n}]
+    gabc_attribute_curly_brace_over: $ => seq(
+      '[',
+      'ocb',
+      ':',
+      field('position', choice('0', '1')),
+      choice(
+        seq(';', field('size', /[^\]]+/)),
+        '{',
+        '}'
+      ),
+      ']'
+    ),
+
+    // [ocba:n;size] or [ocba:n{] or [ocba:n}]
+    gabc_attribute_curly_brace_over_accent: $ => seq(
+      '[',
+      'ocba',
+      ':',
+      field('position', choice('0', '1')),
+      choice(
+        seq(';', field('size', /[^\]]+/)),
+        '{',
+        '}'
+      ),
+      ']'
+    ),
+
+    // 6.4.17 Stem Length
+    // [ll:0] or [ll:1]
+    gabc_attribute_stem_length: $ => seq(
+      '[',
+      'll',
+      ':',
+      field('value', choice('0', '1')),
+      ']'
+    ),
 
     // 6.4.18 Custom Ledger Lines
-    // (gabc_attribute name: "oll")
-    // (gabc_attribute name: "ull")
+    // [oll:left;right] or [oll:left{right] or [oll:}]
+    gabc_attribute_ledger_line_over: $ => seq(
+      '[',
+      'oll',
+      ':',
+      choice(
+        seq(
+          field('left', /[^\];{}]+/),
+          choice(
+            seq(';', field('right', /[^\]]+/)),
+            seq('{', optional(field('right', /[^\]]+/)))
+          )
+        ),
+        '}'
+      ),
+      ']'
+    ),
+
+    // [ull:left;right] or [ull:left{right] or [ull:}]
+    gabc_attribute_ledger_line_under: $ => seq(
+      '[',
+      'ull',
+      ':',
+      choice(
+        seq(
+          field('left', /[^\];{}]+/),
+          choice(
+            seq(';', field('right', /[^\]]+/)),
+            seq('{', optional(field('right', /[^\]]+/)))
+          )
+        ),
+        '}'
+      ),
+      ']'
+    ),
 
     // 6.4.19 Simple Slurs
-    // (gabc_attribute name: "oslur")
-    // (gabc_attribute name: "uslur")
+    // [oslur:shift;width,height] or [oslur:shift{] or [oslur:shift}]
+    gabc_attribute_slur_over: $ => seq(
+      '[',
+      'oslur',
+      ':',
+      field('shift', choice('0', '1', '2')),
+      choice(
+        seq(';', field('dimensions', /[^\]]+/)),
+        '{',
+        '}'
+      ),
+      ']'
+    ),
+
+    // [uslur:shift;width,height] or [uslur:shift{] or [uslur:shift}]
+    gabc_attribute_slur_under: $ => seq(
+      '[',
+      'uslur',
+      ':',
+      field('shift', choice('0', '1', '2')),
+      choice(
+        seq(';', field('dimensions', /[^\]]+/)),
+        '{',
+        '}'
+      ),
+      ']'
+    ),
 
     // 6.4.21 Horizontal Episema Tuning
-    // (gabc_attribute name: "oh")
-    // (gabc_attribute name: "uh")
+    // [oh:p] or [oh:p{] or [oh]} or [oh{] or [oh}]
+    gabc_attribute_horizontal_episema_over: $ => seq(
+      '[',
+      'oh',
+      optional(seq(
+        ':',
+        field('position', /[^\]{}]+/)
+      )),
+      optional(choice('{', '}')),
+      ']'
+    ),
 
-    // 6.4.22 Above LinesTextWithin Notes
-    // (gabc_attribute name: "alt")
+    // [uh:p] or [uh:p{] or [uh]} or [uh{] or [uh}]
+    gabc_attribute_horizontal_episema_under: $ => seq(
+      '[',
+      'uh',
+      optional(seq(
+        ':',
+        field('position', /[^\]{}]+/)
+      )),
+      optional(choice('{', '}')),
+      ']'
+    ),
+
+    // 6.4.22 Above Lines Text within notes
+    // [alt:text]
+    gabc_attribute_above_lines_text: $ => seq(
+      '[',
+      'alt',
+      ':',
+      field('text', /[^\]]*/),
+      ']'
+    ),
 
     // 6.4.23 Verbatim TeX
-    // (gabc_attribute name: "nv")
-    // (gabc_attribute name: "gv")
-    // (gabc_attribute name: "ev")
+    // [nv:tex_code]
+    gabc_attribute_verbatim_note: $ => seq(
+      '[',
+      'nv',
+      ':',
+      field('tex_code', /[^\]]*/),
+      ']'
+    ),
+
+    // [gv:tex_code]
+    gabc_attribute_verbatim_glyph: $ => seq(
+      '[',
+      'gv',
+      ':',
+      field('tex_code', /[^\]]*/),
+      ']'
+    ),
+
+    // [ev:tex_code]
+    gabc_attribute_verbatim_element: $ => seq(
+      '[',
+      'ev',
+      ':',
+      field('tex_code', /[^\]]*/),
+      ']'
+    ),
 
     // 6.4.24 Macros
     _gabc_macro: $ => seq(
