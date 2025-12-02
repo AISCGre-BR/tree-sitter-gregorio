@@ -28,6 +28,12 @@ module.exports = grammar({
     [$.nabc_st_gall_ls_shorthand, $.nabc_laon_ls_shorthand],
     // gabc_neume and gabc_complex_neume can conflict when seeing consecutive pitches
     [$.gabc_neume, $.gabc_complex_neume],
+    // gabc_neume can appear alone or as operand in gabc_neume_fusion
+    [$.gabc_neume, $.gabc_neume_fusion],
+    // gabc_complex_neume can appear alone or as operand in gabc_neume_fusion
+    [$.gabc_complex_neume, $.gabc_neume_fusion],
+    // gabc_complex_neume can have ambiguity with optional post_neume (e.g., quilisma)
+    [$.gabc_complex_neume],
   ],
 
   rules: {
@@ -305,8 +311,7 @@ module.exports = grammar({
     // GABC snippet: notes and other GABC elements
     gabc_snippet: $ => repeat1(
       choice(
-        $.gabc_complex_neume,
-        $.gabc_neume,
+        $._gabc_any_neume,
         $.gabc_alteration,
         $._gabc_neume_fusion,
         $._gabc_spacing,
@@ -321,6 +326,12 @@ module.exports = grammar({
         $._gabc_attribute,
         $._gabc_macro
       )
+    ),
+
+    // Any neume: either simple or complex neume, used in fusion groups and snippets
+    _gabc_any_neume: $ => choice(
+      $.gabc_complex_neume,
+      $.gabc_neume
     ),
 
     pitch: _ => /[a-np]/,
@@ -434,33 +445,37 @@ module.exports = grammar({
       seq(
         field('pitch', $.pitch),
         field('shape', alias(token.immediate('w'), $.quilisma)),
-        field('post_neume', $.gabc_neume)
+        optional(field('post_neume', $.gabc_neume))
       ),
       // Quadratum
       seq(
         field('pitch', $.pitch),
         field('shape', alias(token.immediate('q'), $.quadratum)),
-        field('post_neume', $.gabc_neume)
+        optional(field('post_neume', $.gabc_neume))
       ),
       // Quilisma quadratum
       seq(
         field('pitch', $.pitch),
         field('shape', alias(token.immediate('W'), $.quilisma_quadratum)),
-        field('post_neume', $.gabc_neume)
+        optional(field('post_neume', $.gabc_neume))
       ),
     ),
 
     // 6.4.6 Neume Fusion
     _gabc_neume_fusion: $ => choice(
-      $.gabc_neume_fusion_delimiter,
+      $.gabc_neume_fusion,
       $.gabc_neume_fusion_group
     ),
 
-    gabc_neume_fusion_delimiter: _ => '@',
+    gabc_neume_fusion: $ => prec.left(1, seq(
+      field('left', choice($.gabc_neume, $.gabc_complex_neume, $.gabc_neume_fusion)),
+      '@',
+      field('right', choice($.gabc_neume, $.gabc_complex_neume))
+    )),
 
     gabc_neume_fusion_group: $ => seq(
       '@[',
-      $.gabc_snippet,
+      repeat1($._gabc_any_neume),
       ']'
     ),
 
