@@ -329,34 +329,91 @@ module.exports = grammar({
       // Punctum inclinatum: upper pitch + optional leaning + optional liquescence
       seq(
         field('pitch', $.pitch_upper),
-        optional(field('leaning', alias(token.immediate(choice('0', '1', '2')), $.leaning_direction))),
-        optional(field('liquescence', alias(token.immediate(choice('~', '<', '>')), $.liquescence_suffix)))
+        optional(field('leaning', choice(
+          alias(token.immediate('0'), $.left_leaning),
+          alias(token.immediate('1'), $.right_leaning),
+          alias(token.immediate('2'), $.non_leaning)
+        ))),
+        optional(field('liquescence', choice(
+          alias(token.immediate('~'), $.deminutus),
+          alias(token.immediate('<'), $.augmented),
+          alias(token.immediate('>'), $.diminished)
+        )))
       ),
       // Oriscus with optional orientation and liquescence
       seq(
         field('pitch', $.pitch),
-        alias(token.immediate('o'), $.neume_shape),
-        optional(field('orientation', alias(token.immediate(choice('0', '1')), $.orientation_mark))),
-        optional(field('liquescence', alias(token.immediate(choice('~', '<', '>')), $.liquescence_suffix)))
+        field('shape', alias(token.immediate('o'), $.oriscus)),
+        optional(field('orientation', choice(
+          alias(token.immediate('0'), $.downwards),
+          alias(token.immediate('1'), $.upwards)
+        ))),
+        optional(field('liquescence', choice(
+          alias(token.immediate('~'), $.deminutus),
+          alias(token.immediate('<'), $.augmented),
+          alias(token.immediate('>'), $.diminished)
+        )))
       ),
       // Stropha variants with optional liquescence
       seq(
         field('pitch', $.pitch),
-        alias(token.immediate(choice('s', 'ss', 'sss')), $.neume_shape),
-        optional(field('liquescence', alias(token.immediate(choice('~', '<', '>')), $.liquescence_suffix)))
+        field('shape', choice(
+          alias(token.immediate('s'), $.stropha),
+          alias(token.immediate('ss'), $.distropha),
+          alias(token.immediate('sss'), $.tristropha)
+        )),
+        optional(field('liquescence', choice(
+          alias(token.immediate('~'), $.deminutus),
+          alias(token.immediate('<'), $.augmented),
+          alias(token.immediate('>'), $.diminished)
+        )))
       ),
-      // All other neume shapes without liquescence support
+      // Virga variants
       seq(
         field('pitch', $.pitch),
-        alias(token.immediate(choice(
-          'w', 'v', 'V', 'vv', 'vvv', 'r', 'R', 'r0', '=',
-          /O[01]?/
-        )), $.neume_shape)
+        field('shape', choice(
+          alias(token.immediate('v'), $.virga),
+          alias(token.immediate('V'), $.virga_reversa),
+          alias(token.immediate('vv'), $.bivirga),
+          alias(token.immediate('vvv'), $.trivirga)
+        ))
+      ),
+      // Quilisma
+      seq(
+        field('pitch', $.pitch),
+        field('shape', alias(token.immediate('w'), $.quilisma))
+      ),
+      // Cavum variants
+      seq(
+        field('pitch', $.pitch),
+        field('shape', choice(
+          alias(token.immediate('r'), $.cavum),
+          alias(token.immediate('R'), $.punctum_linea),
+          alias(token.immediate('r0'), $.cavum_linea)
+        ))
+      ),
+      // Linea
+      seq(
+        field('pitch', $.pitch),
+        field('shape', alias(token.immediate('='), $.linea))
+      ),
+      // Oriscus scapus with optional orientation
+      seq(
+        field('pitch', $.pitch),
+        field('shape', alias(token.immediate('O'), $.oriscus_scapus)),
+        optional(field('orientation', choice(
+          alias(token.immediate('0'), $.downwards),
+          alias(token.immediate('1'), $.upwards)
+        )))
       ),
       // Punctum quadratum: just pitch + optional liquescence (must come last)
       seq(
         field('pitch', $.pitch),
-        optional(field('liquescence', alias(token.immediate(choice('~', '<', '>')), $.liquescence_suffix)))
+        optional(field('liquescence', choice(
+          alias(token.immediate('~'), $.deminutus),
+          alias(token.immediate('<'), $.augmented),
+          alias(token.immediate('>'), $.diminished)
+        )))
       )
     ),
 
