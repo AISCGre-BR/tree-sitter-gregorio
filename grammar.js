@@ -304,7 +304,7 @@ module.exports = grammar({
     gabc_snippet: $ => repeat1(
       choice(
         $.gabc_neume,
-        $._gabc_alteration,
+        $.gabc_alteration,
         $._gabc_complex_neume,
         $._gabc_neume_fusion,
         $._gabc_spacing,
@@ -324,7 +324,7 @@ module.exports = grammar({
     pitch: _ => /[a-np]/,
     pitch_upper: _ => /[A-NP]/,
 
-    // 6.4.2 One-Note Neumes - Unified implementation
+    // 6.4.2 One-Note Neumes
     gabc_neume: $ => choice(
       // Punctum inclinatum: upper pitch + optional leaning modifier
       seq(
@@ -390,26 +390,28 @@ module.exports = grammar({
     ),
 
     // 6.4.3 Alterations
-    _gabc_alteration: $ => choice(
-      $.gabc_alteration_sharp,
-      $.gabc_alteration_flat,
-      $.gabc_alteration_natural,
-      $.gabc_alteration_sharp_parenthesized,
-      $.gabc_alteration_flat_parenthesized,
-      $.gabc_alteration_natural_parenthesized,
-      $.gabc_alteration_sharp_soft,
-      $.gabc_alteration_flat_soft,
-      $.gabc_alteration_natural_soft,
+    gabc_alteration: $ => seq(
+      field('pitch', $.pitch),
+      field(
+        'sign',
+        alias(
+          token.immediate(
+            choice(
+              '#',   // sharp
+              'x',   // flat
+              'y',   // natural
+              '#?',  // sharp parenthesized
+              'x?',  // flat parenthesized
+              'y?',  // natural parenthesized
+              '##',  // sharp soft
+              'X',   // flat soft
+              'Y'    // natural soft
+            )
+          ),
+          $.alteration_sign
+        )
+      )
     ),
-    gabc_alteration_sharp: $ => seq($.pitch, '#'),
-    gabc_alteration_flat: $ => seq($.pitch, 'x'),
-    gabc_alteration_natural: $ => seq($.pitch, 'y'),
-    gabc_alteration_sharp_parenthesized: $ => seq($.pitch, '#?'),
-    gabc_alteration_flat_parenthesized: $ => seq($.pitch, 'x?'),
-    gabc_alteration_natural_parenthesized: $ => seq($.pitch, 'y?'),
-    gabc_alteration_sharp_soft: $ => seq($.pitch, '##'),
-    gabc_alteration_flat_soft: $ => seq($.pitch, 'X'),
-    gabc_alteration_natural_soft: $ => seq($.pitch, 'Y'),
 
     // 6.4.5 Complex Neumes
     _gabc_complex_neume: $ => choice(
