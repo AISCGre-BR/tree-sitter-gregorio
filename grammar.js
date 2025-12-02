@@ -26,6 +26,8 @@ module.exports = grammar({
     [$.nabc_significant_letter_sequence],
     // St. Gall and Laon significant letter shorthands can overlap
     [$.nabc_st_gall_ls_shorthand, $.nabc_laon_ls_shorthand],
+    // gabc_neume and gabc_complex_neume can conflict when seeing consecutive pitches
+    [$.gabc_neume, $.gabc_complex_neume],
   ],
 
   rules: {
@@ -303,9 +305,9 @@ module.exports = grammar({
     // GABC snippet: notes and other GABC elements
     gabc_snippet: $ => repeat1(
       choice(
+        $.gabc_complex_neume,
         $.gabc_neume,
         $.gabc_alteration,
-        $._gabc_complex_neume,
         $._gabc_neume_fusion,
         $._gabc_spacing,
         $._gabc_symbol,
@@ -378,11 +380,6 @@ module.exports = grammar({
           alias(token.immediate('vvv'), $.trivirga)
         ))
       ),
-      // Quilisma
-      seq(
-        field('pitch', $.pitch),
-        field('shape', alias(token.immediate('w'), $.quilisma))
-      ),
       // Cavum variants
       seq(
         field('pitch', $.pitch),
@@ -396,15 +393,6 @@ module.exports = grammar({
       seq(
         field('pitch', $.pitch),
         field('shape', alias(token.immediate('='), $.linea))
-      ),
-      // Oriscus scapus with optional orientation
-      seq(
-        field('pitch', $.pitch),
-        field('shape', alias(token.immediate('O'), $.oriscus_scapus)),
-        optional(field('orientation', choice(
-          alias(token.immediate('0'), $.downwards),
-          alias(token.immediate('1'), $.upwards)
-        )))
       ),
       // Punctum quadratum: just pitch + optional liquescence (must come last)
       seq(
@@ -434,15 +422,41 @@ module.exports = grammar({
     ),
 
     // 6.4.5 Complex Neumes
-    _gabc_complex_neume: $ => choice(
-      $.gabc_complex_neume_initio_debilis,
-      $.gabc_complex_neume_quadratum,
-      $.gabc_complex_neume_quilisma_quadratum,
+    gabc_complex_neume: $ => choice(
+      // Initio debilis
+      seq(
+        field('shape', alias('-', $.initio_debilis)),
+        field('pitch', $.pitch)
+      ),
+      // Oriscus scapus
+      seq(
+        field('pre_pitch', $.pitch),
+        field('pitch', $.pitch),
+        field('shape', alias(token.immediate('O'), $.oriscus_scapus)),
+        optional(field('orientation', choice(
+          alias(token.immediate('0'), $.downwards),
+          alias(token.immediate('1'), $.upwards)
+        )))
+      ),
+      // Quilisma
+      seq(
+        field('pitch', $.pitch),
+        field('shape', alias(token.immediate('w'), $.quilisma)),
+        field('post_neume', $.gabc_neume)
+      ),
+      // Quadratum
+      seq(
+        field('pitch', $.pitch),
+        field('shape', alias(token.immediate('q'), $.quadratum)),
+        field('post_neume', $.gabc_neume)
+      ),
+      // Quilisma quadratum
+      seq(
+        field('pitch', $.pitch),
+        field('shape', alias(token.immediate('W'), $.quilisma_quadratum)),
+        field('post_neume', $.gabc_neume)
+      ),
     ),
-
-    gabc_complex_neume_initio_debilis: $ => seq('-', $.pitch),
-    gabc_complex_neume_quadratum: $ => seq($.pitch, 'q'),
-    gabc_complex_neume_quilisma_quadratum: $ => seq($.pitch, 'W'),
 
     // 6.4.6 Neume Fusion
     _gabc_neume_fusion: $ => choice(

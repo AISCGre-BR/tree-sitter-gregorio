@@ -15,13 +15,6 @@ name: Style tags test;
 --------------------------------------------------------------------------------
 
 (source_file
-  (header_section
-    (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
-  (section_separator)
   (notation_section
     (notation_item
       (syllable
@@ -123,13 +116,6 @@ name: Syllable controls test;
 --------------------------------------------------------------------------------
 
 (source_file
-  (header_section
-    (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
-  (section_separator)
   (notation_section
     (notation_item
       (syllable
@@ -194,13 +180,6 @@ name: Syllable other test;
 --------------------------------------------------------------------------------
 
 (source_file
-  (header_section
-    (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
-  (section_separator)
   (notation_section
     (notation_item
       (syllable
