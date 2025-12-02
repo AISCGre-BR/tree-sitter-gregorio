@@ -1,0 +1,222 @@
+================================================================================
+Initio debilis
+================================================================================
+
+name: Initio debilis;
+
+%%
+
+(-g-h-i)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_complex_neume
+              shape: (initio_debilis)
+              pitch: (pitch))
+            (gabc_complex_neume
+              shape: (initio_debilis)
+              pitch: (pitch))
+            (gabc_complex_neume
+              shape: (initio_debilis)
+              pitch: (pitch))))))))
+
+================================================================================
+Quilisma
+================================================================================
+
+name: Quilisma;
+
+%%
+
+(gwhiwhjwk)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_complex_neume
+              pitch: (pitch)
+              shape: (quilisma)
+              post_neume: (gabc_neume
+                pitch: (pitch)))
+            (gabc_complex_neume
+              pitch: (pitch)
+              shape: (quilisma)
+              post_neume: (gabc_neume
+                pitch: (pitch)))
+            (gabc_complex_neume
+              pitch: (pitch)
+              shape: (quilisma)
+              post_neume: (gabc_neume
+                pitch: (pitch)))))))))
+
+================================================================================
+Oriscus scapus
+================================================================================
+
+name: Oriscus scapus;
+
+%%
+
+(fgOhiOjkO0lmO1n)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_complex_neume
+              pre_pitch: (pitch)
+              pitch: (pitch)
+              shape: (oriscus_scapus))
+            (gabc_complex_neume
+              pre_pitch: (pitch)
+              pitch: (pitch)
+              shape: (oriscus_scapus))
+            (gabc_complex_neume
+              pre_pitch: (pitch)
+              pitch: (pitch)
+              shape: (oriscus_scapus)
+              orientation: (downwards))
+            (gabc_complex_neume
+              pre_pitch: (pitch)
+              pitch: (pitch)
+              shape: (oriscus_scapus)
+              orientation: (upwards))
+            (gabc_neume
+              pitch: (pitch))))))))
+
+================================================================================
+Quadratum
+================================================================================
+
+name: Quadratum;
+
+%%
+
+(gqh)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_complex_neume
+              pitch: (pitch)
+              shape: (quadratum)
+              post_neume: (gabc_neume
+                pitch: (pitch)))))))))
+
+================================================================================
+Quilisma quadratum
+================================================================================
+
+name: Quilisma quadratum;
+
+%%
+
+(gWh)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_complex_neume
+              pitch: (pitch)
+              shape: (quilisma_quadratum)
+              post_neume: (gabc_neume
+                pitch: (pitch)))))))))
+
+================================================================================
+Mixed complex neumes
+================================================================================
+
+name: Mixed complex neumes;
+
+%%
+
+(-ggqhiWj)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_complex_neume
+              shape: (initio_debilis)
+              pitch: (pitch))
+            (gabc_complex_neume
+              pitch: (pitch)
+              shape: (quadratum)
+              post_neume: (gabc_neume
+                pitch: (pitch)))
+            (gabc_complex_neume
+              pitch: (pitch)
+              shape: (quilisma_quadratum)
+              post_neume: (gabc_neume
+                pitch: (pitch)))))))))

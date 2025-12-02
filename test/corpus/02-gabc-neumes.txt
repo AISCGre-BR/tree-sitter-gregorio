@@ -11,13 +11,6 @@ name: Punctum quadratum;
 --------------------------------------------------------------------------------
 
 (source_file
-  (header_section
-    (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
-  (section_separator)
   (notation_section
     (notation_item
       (note_group
@@ -65,13 +58,6 @@ name: Punctum inclinatum;
 --------------------------------------------------------------------------------
 
 (source_file
-  (header_section
-    (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
-  (section_separator)
   (notation_section
     (notation_item
       (note_group
@@ -105,13 +91,6 @@ name: Inclinatum leaning;
 --------------------------------------------------------------------------------
 
 (source_file
-  (header_section
-    (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
-  (section_separator)
   (notation_section
     (notation_item
       (note_group
@@ -140,13 +119,6 @@ name: Oriscus;
 --------------------------------------------------------------------------------
 
 (source_file
-  (header_section
-    (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
-  (section_separator)
   (notation_section
     (notation_item
       (note_group
@@ -166,81 +138,6 @@ name: Oriscus;
               pitch: (pitch)
               shape: (oriscus)
               orientation: (upwards))))))))
-
-================================================================================
-Oriscus scapus
-================================================================================
-
-name: Oriscus scapus;
-
-%%
-
-(gOhOjO0kO1)
-
---------------------------------------------------------------------------------
-
-(source_file
-  (header_section
-    (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
-  (section_separator)
-  (notation_section
-    (notation_item
-      (note_group
-        (snippet_list
-          single: (gabc_snippet
-            (gabc_neume
-              pitch: (pitch)
-              shape: (oriscus_scapus))
-            (gabc_neume
-              pitch: (pitch)
-              shape: (oriscus_scapus))
-            (gabc_neume
-              pitch: (pitch)
-              shape: (oriscus_scapus)
-              orientation: (downwards))
-            (gabc_neume
-              pitch: (pitch)
-              shape: (oriscus_scapus)
-              orientation: (upwards))))))))
-
-================================================================================
-Quilisma
-================================================================================
-
-name: Quilisma;
-
-%%
-
-(gwiwkw)
-
---------------------------------------------------------------------------------
-
-(source_file
-  (header_section
-    (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
-  (section_separator)
-  (notation_section
-    (notation_item
-      (note_group
-        (snippet_list
-          single: (gabc_snippet
-            (gabc_neume
-              pitch: (pitch)
-              shape: (quilisma))
-            (gabc_neume
-              pitch: (pitch)
-              shape: (quilisma))
-            (gabc_neume
-              pitch: (pitch)
-              shape: (quilisma))))))))
 
 ================================================================================
 Virga
@@ -255,13 +152,6 @@ name: Virga;
 --------------------------------------------------------------------------------
 
 (source_file
-  (header_section
-    (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
-  (section_separator)
   (notation_section
     (notation_item
       (note_group
@@ -287,13 +177,6 @@ name: Virga reversa;
 --------------------------------------------------------------------------------
 
 (source_file
-  (header_section
-    (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
-  (section_separator)
   (notation_section
     (notation_item
       (note_group
@@ -319,13 +202,6 @@ name: Bivirga trivirga;
 --------------------------------------------------------------------------------
 
 (source_file
-  (header_section
-    (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
-  (section_separator)
   (notation_section
     (notation_item
       (note_group
@@ -351,13 +227,6 @@ name: Strophae;
 --------------------------------------------------------------------------------
 
 (source_file
-  (header_section
-    (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
-  (section_separator)
   (notation_section
     (notation_item
       (note_group
@@ -388,13 +257,6 @@ name: Cavum;
 --------------------------------------------------------------------------------
 
 (source_file
-  (header_section
-    (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
-  (section_separator)
   (notation_section
     (notation_item
       (note_group
@@ -426,13 +288,6 @@ name: Liquescent;
 --------------------------------------------------------------------------------
 
 (source_file
-  (header_section
-    (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
-  (section_separator)
   (notation_section
     (notation_item
       (note_group
@@ -461,13 +316,6 @@ name: Linea;
 --------------------------------------------------------------------------------
 
 (source_file
-  (header_section
-    (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
-  (section_separator)
   (notation_section
     (notation_item
       (note_group
@@ -488,18 +336,11 @@ name: Mixed neumes;
 
 %%
 
-(gabcGHIgohOgwgvgVgvvgvvvgsgssgsssgrgRgr0g~g<g>g=)
+(gabcGHIgogvgVgvvgvvvgsgssgsssgrgRgr0g~g<g>g=)
 
 --------------------------------------------------------------------------------
 
 (source_file
-  (header_section
-    (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
-  (section_separator)
   (notation_section
     (notation_item
       (note_group
@@ -522,12 +363,6 @@ name: Mixed neumes;
             (gabc_neume
               pitch: (pitch)
               shape: (oriscus))
-            (gabc_neume
-              pitch: (pitch)
-              shape: (oriscus_scapus))
-            (gabc_neume
-              pitch: (pitch)
-              shape: (quilisma))
             (gabc_neume
               pitch: (pitch)
               shape: (virga))
