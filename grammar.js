@@ -326,67 +326,38 @@ module.exports = grammar({
 
     // 6.4.2 One-Note Neumes
     gabc_neume: $ => choice(
-      // Punctum inclinatum: upper pitch + optional leaning modifier
+      // Punctum inclinatum: upper pitch + optional leaning + optional liquescence
       seq(
         field('pitch', $.pitch_upper),
-        optional(
-          field(
-            'leaning',
-            choice(
-              '0', // left-leaning (descending)
-              '1', // right-leaning (ascending)
-              '2'  // non-leaning (unison)
-            )
-          )
-        )
+        optional(field('leaning', alias(token.immediate(choice('0', '1', '2')), $.leaning_direction))),
+        optional(field('liquescence', alias(token.immediate(choice('~', '<', '>')), $.liquescence_suffix)))
       ),
-      // All other neume shapes: pitch + shape modifier(s)
+      // Oriscus with optional orientation and liquescence
       seq(
         field('pitch', $.pitch),
-        field(
-          'shape',
-          alias(
-            token.immediate(
-              choice(
-                'o',   // oriscus
-                'O',   // oriscus scapus
-                'w',   // quilisma
-                'v',   // virga
-                'V',   // virga reversa
-                'vv',  // bivirga
-                'vvv', // trivirga
-                's',   // stropha
-                'ss',  // distropha
-                'sss', // tristropha
-                'r',   // punctum cavum
-                'R',   // punctum quadratum surrounded by lines
-                'r0',  // punctum cavum surrounded by lines
-                '~',   // liquescent deminutus
-                '<',   // liquescent augmented
-                '>',   // liquescent diminished
-                '=',   // linea
-                seq(
-                  'o', // oriscus
-                  choice(
-                    '0', // downwards-pointing
-                    '1' // upwards-pointing
-                  )
-                ),
-                seq(
-                  'O', // oruscos scapus
-                  choice(
-                    '0', // downwards-pointing
-                    '1' // upwards-pointing
-                  )
-                )
-              )
-            ),
-            $.neume_shape
-          )
-        )
+        alias(token.immediate('o'), $.neume_shape),
+        optional(field('orientation', alias(token.immediate(choice('0', '1')), $.orientation_mark))),
+        optional(field('liquescence', alias(token.immediate(choice('~', '<', '>')), $.liquescence_suffix)))
       ),
-      // Punctum quadratum: just pitch (must come last to avoid consuming other patterns)
-      field('pitch', $.pitch)
+      // Stropha variants with optional liquescence
+      seq(
+        field('pitch', $.pitch),
+        alias(token.immediate(choice('s', 'ss', 'sss')), $.neume_shape),
+        optional(field('liquescence', alias(token.immediate(choice('~', '<', '>')), $.liquescence_suffix)))
+      ),
+      // All other neume shapes without liquescence support
+      seq(
+        field('pitch', $.pitch),
+        alias(token.immediate(choice(
+          'w', 'v', 'V', 'vv', 'vvv', 'r', 'R', 'r0', '=',
+          /O[01]?/
+        )), $.neume_shape)
+      ),
+      // Punctum quadratum: just pitch + optional liquescence (must come last)
+      seq(
+        field('pitch', $.pitch),
+        optional(field('liquescence', alias(token.immediate(choice('~', '<', '>')), $.liquescence_suffix)))
+      )
     ),
 
     // 6.4.3 Alterations
