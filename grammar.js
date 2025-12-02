@@ -420,25 +420,17 @@ module.exports = grammar({
     // 6.4.3 Alterations
     gabc_alteration: $ => seq(
       field('pitch', $.pitch),
-      field(
-        'sign',
-        alias(
-          token.immediate(
-            choice(
-              '#',   // sharp
-              'x',   // flat
-              'y',   // natural
-              '#?',  // sharp parenthesized
-              'x?',  // flat parenthesized
-              'y?',  // natural parenthesized
-              '##',  // sharp soft
-              'X',   // flat soft
-              'Y'    // natural soft
-            )
-          ),
-          $.alteration_sign
-        )
-      )
+      field('alteration', choice(
+        alias(token.immediate('#'), $.sharp),
+        alias(token.immediate('x'), $.flat),
+        alias(token.immediate('y'), $.natural),
+        alias(token.immediate('#?'), $.sharp_parenthesized),
+        alias(token.immediate('x?'), $.flat_parenthesized),
+        alias(token.immediate('y?'), $.natural_parenthesized),
+        alias(token.immediate('##'), $.sharp_soft),
+        alias(token.immediate('X'), $.flat_soft),
+        alias(token.immediate('Y'), $.natural_soft)
+      ))
     ),
 
     // 6.4.5 Complex Neumes
