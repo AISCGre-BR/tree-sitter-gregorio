@@ -1,0 +1,297 @@
+================================================================================
+Flat alteration
+================================================================================
+
+name: Flat;
+
+%%
+
+(cx)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_alteration
+              pitch: (pitch)
+              sign: (alteration_sign))))))))
+
+================================================================================
+Natural alteration
+================================================================================
+
+name: Natural;
+
+%%
+
+(dy)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_alteration
+              pitch: (pitch)
+              sign: (alteration_sign))))))))
+
+================================================================================
+Sharp alteration
+================================================================================
+
+name: Sharp;
+
+%%
+
+(e#)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_alteration
+              pitch: (pitch)
+              sign: (alteration_sign))))))))
+
+================================================================================
+Mixed alterations with neume
+================================================================================
+
+name: Mixed alterations;
+
+%%
+
+(cxdye#f)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_alteration
+              pitch: (pitch)
+              sign: (alteration_sign))
+            (gabc_alteration
+              pitch: (pitch)
+              sign: (alteration_sign))
+            (gabc_alteration
+              pitch: (pitch)
+              sign: (alteration_sign))
+            (gabc_neume
+              pitch: (pitch))))))))
+
+================================================================================
+Soft flat alteration
+================================================================================
+
+name: Soft flat;
+
+%%
+
+(cX)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_alteration
+              pitch: (pitch)
+              sign: (alteration_sign))))))))
+
+================================================================================
+Soft natural alteration
+================================================================================
+
+name: Soft natural;
+
+%%
+
+(dY)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_alteration
+              pitch: (pitch)
+              sign: (alteration_sign))))))))
+
+================================================================================
+Soft sharp alteration
+================================================================================
+
+name: Soft sharp;
+
+%%
+
+(e##)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_alteration
+              pitch: (pitch)
+              sign: (alteration_sign))))))))
+
+================================================================================
+Flat alteration with parentheses
+================================================================================
+
+name: Flat with parentheses;
+
+%%
+
+(cx?)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_alteration
+              pitch: (pitch)
+              sign: (alteration_sign))))))))
+
+================================================================================
+Natural alteration with parentheses
+================================================================================
+
+name: Natural with parentheses;
+
+%%
+
+(dy?)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_alteration
+              pitch: (pitch)
+              sign: (alteration_sign))))))))
+
+================================================================================
+Sharp alteration with parentheses
+================================================================================
+
+name: Sharp with parentheses;
+
+%%
+
+(e#?)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_alteration
+              pitch: (pitch)
+              sign: (alteration_sign))))))))
