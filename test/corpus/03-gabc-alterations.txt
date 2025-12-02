@@ -25,7 +25,7 @@ name: Flat;
           single: (gabc_snippet
             (gabc_alteration
               pitch: (pitch)
-              sign: (alteration_sign))))))))
+              alteration: (flat))))))))
 
 ================================================================================
 Natural alteration
@@ -54,7 +54,7 @@ name: Natural;
           single: (gabc_snippet
             (gabc_alteration
               pitch: (pitch)
-              sign: (alteration_sign))))))))
+              alteration: (natural))))))))
 
 ================================================================================
 Sharp alteration
@@ -83,7 +83,7 @@ name: Sharp;
           single: (gabc_snippet
             (gabc_alteration
               pitch: (pitch)
-              sign: (alteration_sign))))))))
+              alteration: (sharp))))))))
 
 ================================================================================
 Mixed alterations with neume
@@ -112,13 +112,13 @@ name: Mixed alterations;
           single: (gabc_snippet
             (gabc_alteration
               pitch: (pitch)
-              sign: (alteration_sign))
+              alteration: (flat))
             (gabc_alteration
               pitch: (pitch)
-              sign: (alteration_sign))
+              alteration: (natural))
             (gabc_alteration
               pitch: (pitch)
-              sign: (alteration_sign))
+              alteration: (sharp))
             (gabc_neume
               pitch: (pitch))))))))
 
@@ -149,7 +149,7 @@ name: Soft flat;
           single: (gabc_snippet
             (gabc_alteration
               pitch: (pitch)
-              sign: (alteration_sign))))))))
+              alteration: (flat_soft))))))))
 
 ================================================================================
 Soft natural alteration
@@ -178,7 +178,7 @@ name: Soft natural;
           single: (gabc_snippet
             (gabc_alteration
               pitch: (pitch)
-              sign: (alteration_sign))))))))
+              alteration: (natural_soft))))))))
 
 ================================================================================
 Soft sharp alteration
@@ -207,7 +207,7 @@ name: Soft sharp;
           single: (gabc_snippet
             (gabc_alteration
               pitch: (pitch)
-              sign: (alteration_sign))))))))
+              alteration: (sharp_soft))))))))
 
 ================================================================================
 Flat alteration with parentheses
@@ -236,7 +236,7 @@ name: Flat with parentheses;
           single: (gabc_snippet
             (gabc_alteration
               pitch: (pitch)
-              sign: (alteration_sign))))))))
+              alteration: (flat_parenthesized))))))))
 
 ================================================================================
 Natural alteration with parentheses
@@ -265,7 +265,7 @@ name: Natural with parentheses;
           single: (gabc_snippet
             (gabc_alteration
               pitch: (pitch)
-              sign: (alteration_sign))))))))
+              alteration: (natural_parenthesized))))))))
 
 ================================================================================
 Sharp alteration with parentheses
@@ -294,4 +294,4 @@ name: Sharp with parentheses;
           single: (gabc_snippet
             (gabc_alteration
               pitch: (pitch)
-              sign: (alteration_sign))))))))
+              alteration: (sharp_parenthesized))))))))
