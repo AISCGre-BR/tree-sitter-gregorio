@@ -326,35 +326,38 @@ module.exports = grammar({
     pitch: _ => /[a-np]/,
     pitch_upper: _ => /[A-NP]/,
 
+    // Helper rules for neume modifiers
+    _liquescence: $ => choice(
+      alias(token.immediate('~'), $.deminutus),
+      alias(token.immediate('<'), $.augmented),
+      alias(token.immediate('>'), $.diminished)
+    ),
+
+    _orientation: $ => choice(
+      alias(token.immediate('0'), $.downwards),
+      alias(token.immediate('1'), $.upwards)
+    ),
+
+    _leaning: $ => choice(
+      alias(token.immediate('0'), $.left_leaning),
+      alias(token.immediate('1'), $.right_leaning),
+      alias(token.immediate('2'), $.non_leaning)
+    ),
+
     // 6.4.2 One-Note Neumes
     gabc_neume: $ => choice(
       // Punctum inclinatum: upper pitch + optional leaning + optional liquescence
       seq(
         field('pitch', $.pitch_upper),
-        optional(field('leaning', choice(
-          alias(token.immediate('0'), $.left_leaning),
-          alias(token.immediate('1'), $.right_leaning),
-          alias(token.immediate('2'), $.non_leaning)
-        ))),
-        optional(field('liquescence', choice(
-          alias(token.immediate('~'), $.deminutus),
-          alias(token.immediate('<'), $.augmented),
-          alias(token.immediate('>'), $.diminished)
-        )))
+        optional(field('leaning', $._leaning)),
+        optional(field('liquescence', $._liquescence))
       ),
       // Oriscus with optional orientation and liquescence
       seq(
         field('pitch', $.pitch),
         field('shape', alias(token.immediate('o'), $.oriscus)),
-        optional(field('orientation', choice(
-          alias(token.immediate('0'), $.downwards),
-          alias(token.immediate('1'), $.upwards)
-        ))),
-        optional(field('liquescence', choice(
-          alias(token.immediate('~'), $.deminutus),
-          alias(token.immediate('<'), $.augmented),
-          alias(token.immediate('>'), $.diminished)
-        )))
+        optional(field('orientation', $._orientation)),
+        optional(field('liquescence', $._liquescence))
       ),
       // Stropha variants with optional liquescence
       seq(
@@ -364,11 +367,7 @@ module.exports = grammar({
           alias(token.immediate('ss'), $.distropha),
           alias(token.immediate('sss'), $.tristropha)
         )),
-        optional(field('liquescence', choice(
-          alias(token.immediate('~'), $.deminutus),
-          alias(token.immediate('<'), $.augmented),
-          alias(token.immediate('>'), $.diminished)
-        )))
+        optional(field('liquescence', $._liquescence))
       ),
       // Virga variants
       seq(
@@ -397,11 +396,7 @@ module.exports = grammar({
       // Punctum quadratum: just pitch + optional liquescence (must come last)
       seq(
         field('pitch', $.pitch),
-        optional(field('liquescence', choice(
-          alias(token.immediate('~'), $.deminutus),
-          alias(token.immediate('<'), $.augmented),
-          alias(token.immediate('>'), $.diminished)
-        )))
+        optional(field('liquescence', $._liquescence))
       )
     ),
 
@@ -433,10 +428,7 @@ module.exports = grammar({
         field('pre_pitch', $.pitch),
         field('pitch', $.pitch),
         field('shape', alias(token.immediate('O'), $.oriscus_scapus)),
-        optional(field('orientation', choice(
-          alias(token.immediate('0'), $.downwards),
-          alias(token.immediate('1'), $.upwards)
-        )))
+        optional(field('orientation', $._orientation))
       ),
       // Quilisma
       seq(

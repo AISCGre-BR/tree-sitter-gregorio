@@ -11,6 +11,13 @@ name: Flat;
 --------------------------------------------------------------------------------
 
 (source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
   (notation_section
     (notation_item
       (note_group
@@ -33,6 +40,13 @@ name: Natural;
 --------------------------------------------------------------------------------
 
 (source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
   (notation_section
     (notation_item
       (note_group
@@ -55,6 +69,13 @@ name: Sharp;
 --------------------------------------------------------------------------------
 
 (source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
   (notation_section
     (notation_item
       (note_group
@@ -77,6 +98,13 @@ name: Mixed alterations;
 --------------------------------------------------------------------------------
 
 (source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
   (notation_section
     (notation_item
       (note_group
@@ -107,6 +135,13 @@ name: Soft flat;
 --------------------------------------------------------------------------------
 
 (source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
   (notation_section
     (notation_item
       (note_group
@@ -129,6 +164,13 @@ name: Soft natural;
 --------------------------------------------------------------------------------
 
 (source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
   (notation_section
     (notation_item
       (note_group
@@ -151,6 +193,13 @@ name: Soft sharp;
 --------------------------------------------------------------------------------
 
 (source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
   (notation_section
     (notation_item
       (note_group
@@ -173,6 +222,13 @@ name: Flat with parentheses;
 --------------------------------------------------------------------------------
 
 (source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
   (notation_section
     (notation_item
       (note_group
@@ -195,6 +251,13 @@ name: Natural with parentheses;
 --------------------------------------------------------------------------------
 
 (source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
   (notation_section
     (notation_item
       (note_group
@@ -217,6 +280,13 @@ name: Sharp with parentheses;
 --------------------------------------------------------------------------------
 
 (source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
   (notation_section
     (notation_item
       (note_group
