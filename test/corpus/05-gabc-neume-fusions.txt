@@ -1,0 +1,459 @@
+================================================================================
+Simple fusion
+================================================================================
+
+name: Simple fusion;
+
+%%
+
+(g@h)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume_fusion
+              left: (gabc_neume
+                pitch: (pitch))
+              right: (gabc_neume
+                pitch: (pitch)))))))))
+
+================================================================================
+Multiple fusion
+================================================================================
+
+name: Multiple fusion;
+
+%%
+
+(g@h@i)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume_fusion
+              left: (gabc_neume_fusion
+                left: (gabc_neume
+                  pitch: (pitch))
+                right: (gabc_neume
+                  pitch: (pitch)))
+              right: (gabc_neume
+                pitch: (pitch)))))))))
+
+================================================================================
+Fusion with virga
+================================================================================
+
+name: Fusion with virga;
+
+%%
+
+(gv@h)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume_fusion
+              left: (gabc_neume
+                pitch: (pitch)
+                shape: (virga))
+              right: (gabc_neume
+                pitch: (pitch)))))))))
+
+================================================================================
+Fusion with liquescence
+================================================================================
+
+name: Fusion with liquescence;
+
+%%
+
+(g~@h)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume_fusion
+              left: (gabc_neume
+                pitch: (pitch)
+                liquescence: (deminutus))
+              right: (gabc_neume
+                pitch: (pitch)))))))))
+
+================================================================================
+Fusion with oriscus
+================================================================================
+
+name: Fusion with oriscus;
+
+%%
+
+(go@h)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume_fusion
+              left: (gabc_neume
+                pitch: (pitch)
+                shape: (oriscus))
+              right: (gabc_neume
+                pitch: (pitch)))))))))
+
+================================================================================
+Mixed fusion types
+================================================================================
+
+name: Mixed fusion types;
+
+%%
+
+(gv@ho@is~@j)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume_fusion
+              left: (gabc_neume_fusion
+                left: (gabc_neume_fusion
+                  left: (gabc_neume
+                    pitch: (pitch)
+                    shape: (virga))
+                  right: (gabc_neume
+                    pitch: (pitch)
+                    shape: (oriscus)))
+                right: (gabc_neume
+                  pitch: (pitch)
+                  shape: (stropha)
+                  liquescence: (deminutus)))
+              right: (gabc_neume
+                pitch: (pitch)))))))))
+
+================================================================================
+Fusion group
+================================================================================
+
+name: Fusion group;
+
+%%
+
+(g@[hi]j)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_neume_fusion_group
+              (gabc_neume
+                pitch: (pitch))
+              (gabc_neume
+                pitch: (pitch)))
+            (gabc_neume
+              pitch: (pitch))))))))
+
+================================================================================
+Fusion group with complex neumes
+================================================================================
+
+name: Fusion group with complex neumes;
+
+%%
+
+(g@[gwh-i]j)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_neume_fusion_group
+              (gabc_complex_neume
+                pitch: (pitch)
+                shape: (quilisma)
+                post_neume: (gabc_neume
+                  pitch: (pitch)))
+              (gabc_complex_neume
+                shape: (initio_debilis)
+                pitch: (pitch)))
+            (gabc_neume
+              pitch: (pitch))))))))
+
+================================================================================
+Fusion with quilisma
+================================================================================
+
+name: Fusion with quilisma;
+
+%%
+
+(f@gwh@i)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume_fusion
+              left: (gabc_neume_fusion
+                left: (gabc_neume
+                  pitch: (pitch))
+                right: (gabc_complex_neume
+                  pitch: (pitch)
+                  shape: (quilisma)
+                  post_neume: (gabc_neume
+                    pitch: (pitch))))
+              right: (gabc_neume
+                pitch: (pitch)))))))))
+
+================================================================================
+Fusion with incomplete quilisma
+================================================================================
+
+name: Fusion with incomplete quilisma;
+
+%%
+
+(f@gw@hgh)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume_fusion
+              left: (gabc_neume_fusion
+                left: (gabc_neume
+                  pitch: (pitch))
+                right: (gabc_complex_neume
+                  pitch: (pitch)
+                  shape: (quilisma)))
+              right: (gabc_neume
+                pitch: (pitch)))
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_neume
+              pitch: (pitch))))))))
+
+================================================================================
+Fusion with oriscus scapus
+================================================================================
+
+name: Fusion with oriscus scapus;
+
+%%
+
+(fgO@h)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume_fusion
+              left: (gabc_complex_neume
+                pre_pitch: (pitch)
+                pitch: (pitch)
+                shape: (oriscus_scapus))
+              right: (gabc_neume
+                pitch: (pitch)))))))))
+
+================================================================================
+Fusion with initio debilis
+================================================================================
+
+name: Fusion with initio debilis;
+
+%%
+
+(-g@h)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume_fusion
+              left: (gabc_complex_neume
+                shape: (initio_debilis)
+                pitch: (pitch))
+              right: (gabc_neume
+                pitch: (pitch)))))))))
+
+================================================================================
+Multiple quilisma fusions
+================================================================================
+
+name: Multiple quilisma fusions;
+
+%%
+
+(f@gwh@iwj@k)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume_fusion
+              left: (gabc_neume_fusion
+                left: (gabc_neume_fusion
+                  left: (gabc_neume
+                    pitch: (pitch))
+                  right: (gabc_complex_neume
+                    pitch: (pitch)
+                    shape: (quilisma)
+                    post_neume: (gabc_neume
+                      pitch: (pitch))))
+                right: (gabc_complex_neume
+                  pitch: (pitch)
+                  shape: (quilisma)
+                  post_neume: (gabc_neume
+                    pitch: (pitch))))
+              right: (gabc_neume
+                pitch: (pitch)))))))))
