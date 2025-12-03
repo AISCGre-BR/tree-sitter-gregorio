@@ -14,8 +14,7 @@ module.exports = grammar({
     // `gabc_snippet` can have repetition ambiguities with symbols
     [$.gabc_snippet],
     // Spacing and NABC horizontal spacing can conflict with '/' characters
-    [$.gabc_spacing_small_neume_separation, $.nabc_horizontal_spacing_adjustment],
-    [$.gabc_spacing_medium_neume_separation, $.nabc_horizontal_spacing_adjustment],
+    [$.gabc_spacing, $.nabc_horizontal_spacing_adjustment],
     // Bar (including virgula '`') and NABC horizontal spacing can conflict
     [$._gabc_bar, $.nabc_horizontal_spacing_adjustment],
     // NABC complex glyph descriptor can have ambiguities with subpunctis/prepunctis sequences
@@ -314,7 +313,7 @@ module.exports = grammar({
         $._gabc_any_neume,
         $.gabc_alteration,
         $._gabc_neume_fusion,
-        $._gabc_spacing,
+        $.gabc_spacing,
         $._gabc_symbol,
         $._gabc_bar,
         // 6.4.12 Clefs
@@ -480,28 +479,26 @@ module.exports = grammar({
     ),
 
     // 6.4.7 Neume Spacing
-    _gabc_spacing: $ => choice(
-      $.gabc_spacing_half_space_same_neume,
-      $.gabc_spacing_small_space_same_neume,
-      $.gabc_spacing_small_neume_separation,
-      $.gabc_spacing_medium_neume_separation,
-      $.gabc_spacing_large_neume_separation,
-      $.gabc_spacing_zero_space
+    gabc_spacing: $ => choice(
+      field('type', choice(
+        alias(token.immediate('! '), $.large_unbreakable_space),
+        alias(token.immediate('/0'), $.half_space_same_neume),
+        alias(token.immediate('/!'), $.small_space_same_neume),
+        alias(token.immediate('//'), $.medium_neume_separation),
+        alias(token.immediate('/'), $.small_neume_separation),
+        alias(token.immediate('!'), $.zero_space),
+        alias(token.immediate(' '), $.large_space),
+        $.scaled_large_neume_separation
+      ))
     ),
 
-    gabc_spacing_half_space_same_neume: _ => '/0',
-    gabc_spacing_small_space_same_neume: _ => '/!',
-    gabc_spacing_small_neume_separation: _ => '/',
-    gabc_spacing_medium_neume_separation: _ => '//',
-    gabc_spacing_zero_space: _ => '!',
-
-    gabc_spacing_large_neume_separation: $ => seq(
+    scaled_large_neume_separation: $ => seq(
       '/[',
-      $.gabc_spacing_large_neume_separation_factor,
+      field('factor', $.scale_factor),
       ']'
     ),
 
-    gabc_spacing_large_neume_separation_factor: _ => /-?[0-9.]+/,
+    scale_factor: _ => /-?[0-9.]+/,
 
     // GABC attributes - specific implementations
     _gabc_attribute: $ => choice(
