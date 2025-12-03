@@ -1,0 +1,430 @@
+
+================================================================================
+Small neume separation
+================================================================================
+
+name: Small neume separation;
+
+%%
+
+(g/h)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_spacing
+              type: (small_neume_separation))
+            (gabc_neume
+              pitch: (pitch))))))))
+
+================================================================================
+Medium neume separation
+================================================================================
+
+name: Medium neume separation;
+
+%%
+
+(g//h)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_spacing
+              type: (medium_neume_separation))
+            (gabc_neume
+              pitch: (pitch))))))))
+
+================================================================================
+Half space same neume
+================================================================================
+
+name: Half space same neume;
+
+%%
+
+(g/0h)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_spacing
+              type: (half_space_same_neume))
+            (gabc_neume
+              pitch: (pitch))))))))
+
+================================================================================
+Small space same neume
+================================================================================
+
+name: Small space same neume;
+
+%%
+
+(g/!h)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_spacing
+              type: (small_space_same_neume))
+            (gabc_neume
+              pitch: (pitch))))))))
+
+================================================================================
+Zero space
+================================================================================
+
+name: Zero space;
+
+%%
+
+(g!h)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_spacing
+              type: (zero_space))
+            (gabc_neume
+              pitch: (pitch))))))))
+
+================================================================================
+Large space
+================================================================================
+
+name: Large space;
+
+%%
+
+(g h)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_spacing
+              type: (large_space))
+            (gabc_neume
+              pitch: (pitch))))))))
+
+================================================================================
+Large unbreakable space
+================================================================================
+
+name: Large unbreakable space;
+
+%%
+
+(g! h)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_spacing
+              type: (large_unbreakable_space))
+            (gabc_neume
+              pitch: (pitch))))))))
+
+================================================================================
+Large neume separation
+================================================================================
+
+name: Large neume separation;
+
+%%
+
+(g/[1.5]h)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_spacing
+              type: (scaled_large_neume_separation
+                factor: (scale_factor)))
+            (gabc_neume
+              pitch: (pitch))))))))
+
+================================================================================
+Large neume separation with negative factor
+================================================================================
+
+name: Large neume separation negative;
+
+%%
+
+(g/[-0.5]h)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_spacing
+              type: (scaled_large_neume_separation
+                factor: (scale_factor)))
+            (gabc_neume
+              pitch: (pitch))))))))
+
+================================================================================
+Mixed spacing types
+================================================================================
+
+name: Mixed spacing types;
+
+%%
+
+(g/h//i/!j)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_spacing
+              type: (small_neume_separation))
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_spacing
+              type: (medium_neume_separation))
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_spacing
+              type: (small_space_same_neume))
+            (gabc_neume
+              pitch: (pitch))))))))
+
+================================================================================
+All spacing types
+================================================================================
+
+name: All spacing types;
+
+%%
+
+(g//h/!i/0j!k/[1.5]l m! n)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_spacing
+              type: (medium_neume_separation))
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_spacing
+              type: (small_space_same_neume))
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_spacing
+              type: (half_space_same_neume))
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_spacing
+              type: (zero_space))
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_spacing
+              type: (scaled_large_neume_separation
+                factor: (scale_factor)))
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_spacing
+              type: (large_space))
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_spacing
+              type: (large_unbreakable_space))
+            (gabc_neume
+              pitch: (pitch))))))))
+
+================================================================================
+Spacing with complex neumes
+================================================================================
+
+name: Spacing with complex neumes;
+
+%%
+
+(gwh//-i//gqh)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_complex_neume
+              pitch: (pitch)
+              shape: (quilisma)
+              post_neume: (gabc_neume
+                pitch: (pitch)))
+            (gabc_spacing
+              type: (medium_neume_separation))
+            (gabc_complex_neume
+              shape: (initio_debilis)
+              pitch: (pitch))
+            (gabc_spacing
+              type: (medium_neume_separation))
+            (gabc_complex_neume
+              pitch: (pitch)
+              shape: (quadratum)
+              post_neume: (gabc_neume
+                pitch: (pitch)))))))))
