@@ -22,7 +22,7 @@ name: test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               extra_symbol: (gabc_extra_symbol
                 name: (punctum_mora)))))))))
 
@@ -50,7 +50,7 @@ name: test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               extra_symbol: (gabc_extra_symbol
                 name: (punctum_mora)))))))))
 
@@ -78,7 +78,7 @@ name: test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               extra_symbol: (gabc_extra_symbol
                 name: (ictus)))))))))
 
@@ -106,7 +106,7 @@ name: test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               extra_symbol: (gabc_extra_symbol
                 name: (ictus)
                 modifier: (always_below)))))))))
@@ -135,7 +135,7 @@ name: test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               extra_symbol: (gabc_extra_symbol
                 name: (ictus)
                 modifier: (always_above)))))))))
@@ -164,7 +164,7 @@ name: test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               extra_symbol: (gabc_extra_symbol
                 name: (episema)))))))))
 
@@ -192,7 +192,7 @@ name: test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               extra_symbol: (gabc_extra_symbol
                 name: (episema)
                 modifier: (below_note)))))))))
@@ -221,7 +221,7 @@ name: test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               extra_symbol: (gabc_extra_symbol
                 name: (episema)
                 modifier: (above_note)))))))))
@@ -250,7 +250,7 @@ name: test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               extra_symbol: (gabc_extra_symbol
                 name: (episema)
                 modifier: (disable_bridging)))))))))
@@ -279,7 +279,7 @@ name: test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               extra_symbol: (gabc_extra_symbol
                 name: (episema)
                 modifier: (small_left)))))))))
@@ -308,7 +308,7 @@ name: test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               extra_symbol: (gabc_extra_symbol
                 name: (episema)
                 modifier: (small_center)))))))))
@@ -337,7 +337,7 @@ name: test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               extra_symbol: (gabc_extra_symbol
                 name: (episema)
                 modifier: (small_right)))))))))
@@ -366,7 +366,7 @@ name: test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               extra_symbol: (gabc_extra_symbol
                 name: (episema)
                 modifier: (below_note)
@@ -396,7 +396,7 @@ name: test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               extra_symbol: (gabc_extra_symbol
                 name: (accent_above_staff)))))))))
 
@@ -424,7 +424,7 @@ name: test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               extra_symbol: (gabc_extra_symbol
                 name: (accent_grave_above_staff)))))))))
 
@@ -452,7 +452,7 @@ name: test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               extra_symbol: (gabc_extra_symbol
                 name: (circle_above_staff)))))))))
 
@@ -480,7 +480,7 @@ name: test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               extra_symbol: (gabc_extra_symbol
                 name: (lower_semicircle_above_staff)))))))))
 
@@ -508,7 +508,7 @@ name: test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               extra_symbol: (gabc_extra_symbol
                 name: (upper_semicircle_above_staff)))))))))
 
@@ -536,7 +536,7 @@ name: test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               extra_symbol: (gabc_extra_symbol
                 name: (musica_ficta_flat)))))))))
 
@@ -564,7 +564,7 @@ name: test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               extra_symbol: (gabc_extra_symbol
                 name: (musica_ficta_natural)))))))))
 
@@ -592,7 +592,7 @@ name: test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               extra_symbol: (gabc_extra_symbol
                 name: (musica_ficta_sharp)))))))))
 
@@ -620,7 +620,7 @@ name: test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               extra_symbol: (gabc_extra_symbol
                 name: (punctum_mora))
               extra_symbol: (gabc_extra_symbol

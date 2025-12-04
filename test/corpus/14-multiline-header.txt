@@ -26,4 +26,4 @@ Second line;;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))))
+              pitch: (pitch_lowercase))))))))

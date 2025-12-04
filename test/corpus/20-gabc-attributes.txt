@@ -24,15 +24,15 @@ Test(gh[shape:stroke]i)
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_attribute
               name: (shape)
               hint: (shape_hint
                 (stroke)))
             (gabc_neume
-              pitch: (pitch))))))))
+              pitch: (pitch_lowercase))))))))
 
 ================================================================================
 Choral sign attributes
@@ -60,12 +60,12 @@ Test(d[cs:vi]e[cn:pu])
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_attribute
               name: (cs)
               text: (choral_sign_text))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_attribute
               name: (cn)
               nabc_code: (nabc_choral_sign_code))))))))
@@ -97,16 +97,16 @@ Test(d[ob:0;2mm]e[ub:1{]f[ub:1}])
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_attribute
               name: (ob)
               size: (brace_size))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_attribute
               name: (ub))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_attribute
               name: (ub))))))))
 
@@ -137,17 +137,17 @@ Test(c[ll:0]d[oll:0;2mm]e[ull:1{0])
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_attribute
               name: (ll))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_attribute
               name: (oll)
               left: (ledger_line_left)
               right: (ledger_line_right))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_attribute
               name: (ull)
               left: (ledger_line_left)
@@ -180,15 +180,15 @@ Test(d[oslur:0{]e[oslur:0}]f[uslur:1;2mm,1mm])
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_attribute
               name: (oslur))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_attribute
               name: (oslur))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_attribute
               name: (uslur)
               dimensions: (slur_dimensions))))))))
@@ -220,20 +220,20 @@ Test(d_[oh:m+1pt]e_[uh{]f_[uh}])
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               extra_symbol: (gabc_extra_symbol
                 name: (episema)))
             (gabc_attribute
               name: (oh)
               position: (episema_position))
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               extra_symbol: (gabc_extra_symbol
                 name: (episema)))
             (gabc_attribute
               name: (uh))
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               extra_symbol: (gabc_extra_symbol
                 name: (episema)))
             (gabc_attribute
@@ -266,22 +266,22 @@ Test(d[alt:*]e[nv:\test]f[gv:\code]g[ev:\elem])
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_attribute
               name: (alt)
               text: (above_lines_text))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_attribute
               name: (nv)
               tex_code: (verbatim_tex_code))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_attribute
               name: (gv)
               tex_code: (verbatim_tex_code))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_attribute
               name: (ev)
               tex_code: (verbatim_tex_code))))))))

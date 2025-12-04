@@ -25,9 +25,9 @@ name: Simple fusion;
           single: (gabc_snippet
             (gabc_neume_fusion
               left: (gabc_neume
-                pitch: (pitch))
+                pitch: (pitch_lowercase))
               right: (gabc_neume
-                pitch: (pitch)))))))))
+                pitch: (pitch_lowercase)))))))))
 
 ================================================================================
 Multiple fusion
@@ -57,11 +57,11 @@ name: Multiple fusion;
             (gabc_neume_fusion
               left: (gabc_neume_fusion
                 left: (gabc_neume
-                  pitch: (pitch))
+                  pitch: (pitch_lowercase))
                 right: (gabc_neume
-                  pitch: (pitch)))
+                  pitch: (pitch_lowercase)))
               right: (gabc_neume
-                pitch: (pitch)))))))))
+                pitch: (pitch_lowercase)))))))))
 
 ================================================================================
 Fusion with virga
@@ -90,10 +90,10 @@ name: Fusion with virga;
           single: (gabc_snippet
             (gabc_neume_fusion
               left: (gabc_neume
-                pitch: (pitch)
+                pitch: (pitch_lowercase)
                 shape: (virga))
               right: (gabc_neume
-                pitch: (pitch)))))))))
+                pitch: (pitch_lowercase)))))))))
 
 ================================================================================
 Fusion with liquescence
@@ -122,10 +122,10 @@ name: Fusion with liquescence;
           single: (gabc_snippet
             (gabc_neume_fusion
               left: (gabc_neume
-                pitch: (pitch)
+                pitch: (pitch_lowercase)
                 liquescence: (deminutus))
               right: (gabc_neume
-                pitch: (pitch)))))))))
+                pitch: (pitch_lowercase)))))))))
 
 ================================================================================
 Fusion with oriscus
@@ -154,10 +154,10 @@ name: Fusion with oriscus;
           single: (gabc_snippet
             (gabc_neume_fusion
               left: (gabc_neume
-                pitch: (pitch)
+                pitch: (pitch_lowercase)
                 shape: (oriscus))
               right: (gabc_neume
-                pitch: (pitch)))))))))
+                pitch: (pitch_lowercase)))))))))
 
 ================================================================================
 Mixed fusion types
@@ -188,17 +188,17 @@ name: Mixed fusion types;
               left: (gabc_neume_fusion
                 left: (gabc_neume_fusion
                   left: (gabc_neume
-                    pitch: (pitch)
+                    pitch: (pitch_lowercase)
                     shape: (virga))
                   right: (gabc_neume
-                    pitch: (pitch)
+                    pitch: (pitch_lowercase)
                     shape: (oriscus)))
                 right: (gabc_neume
-                  pitch: (pitch)
+                  pitch: (pitch_lowercase)
                   shape: (stropha)
                   liquescence: (deminutus)))
               right: (gabc_neume
-                pitch: (pitch)))))))))
+                pitch: (pitch_lowercase)))))))))
 
 ================================================================================
 Fusion group
@@ -226,14 +226,14 @@ name: Fusion group;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_neume_fusion_group
               (gabc_neume
-                pitch: (pitch))
+                pitch: (pitch_lowercase))
               (gabc_neume
-                pitch: (pitch)))
+                pitch: (pitch_lowercase)))
             (gabc_neume
-              pitch: (pitch))))))))
+              pitch: (pitch_lowercase))))))))
 
 ================================================================================
 Fusion group with complex neumes
@@ -261,18 +261,18 @@ name: Fusion group with complex neumes;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_neume_fusion_group
               (gabc_neume
-                pitch: (pitch)
+                pitch: (pitch_lowercase)
                 shape: (quilisma))
               (gabc_neume
-                pitch: (pitch))
+                pitch: (pitch_lowercase))
               (gabc_neume
                 shape: (initio_debilis)
-                pitch: (pitch)))
+                pitch: (pitch_lowercase)))
             (gabc_neume
-              pitch: (pitch))))))))
+              pitch: (pitch_lowercase))))))))
 
 ================================================================================
 Fusion with quilisma
@@ -301,15 +301,15 @@ name: Fusion with quilisma;
           single: (gabc_snippet
             (gabc_neume_fusion
               left: (gabc_neume
-                pitch: (pitch))
+                pitch: (pitch_lowercase))
               right: (gabc_neume
-                pitch: (pitch)
+                pitch: (pitch_lowercase)
                 shape: (quilisma)))
             (gabc_neume_fusion
               left: (gabc_neume
-                pitch: (pitch))
+                pitch: (pitch_lowercase))
               right: (gabc_neume
-                pitch: (pitch)))))))))
+                pitch: (pitch_lowercase)))))))))
 
 ================================================================================
 Fusion with incomplete quilisma
@@ -339,16 +339,16 @@ name: Fusion with incomplete quilisma;
             (gabc_neume_fusion
               left: (gabc_neume_fusion
                 left: (gabc_neume
-                  pitch: (pitch))
+                  pitch: (pitch_lowercase))
                 right: (gabc_neume
-                  pitch: (pitch)
+                  pitch: (pitch_lowercase)
                   shape: (quilisma)))
               right: (gabc_neume
-                pitch: (pitch)))
+                pitch: (pitch_lowercase)))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_neume
-              pitch: (pitch))))))))
+              pitch: (pitch_lowercase))))))))
 
 ================================================================================
 Fusion with oriscus scapus
@@ -376,13 +376,13 @@ name: Fusion with oriscus scapus;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_neume_fusion
               left: (gabc_neume
-                pitch: (pitch)
+                pitch: (pitch_lowercase)
                 shape: (oriscus_scapus))
               right: (gabc_neume
-                pitch: (pitch)))))))))
+                pitch: (pitch_lowercase)))))))))
 
 ================================================================================
 Fusion with initio debilis
@@ -412,9 +412,9 @@ name: Fusion with initio debilis;
             (gabc_neume_fusion
               left: (gabc_neume
                 shape: (initio_debilis)
-                pitch: (pitch))
+                pitch: (pitch_lowercase))
               right: (gabc_neume
-                pitch: (pitch)))))))))
+                pitch: (pitch_lowercase)))))))))
 
 ================================================================================
 Multiple quilisma fusions
@@ -443,18 +443,18 @@ name: Multiple quilisma fusions;
           single: (gabc_snippet
             (gabc_neume_fusion
               left: (gabc_neume
-                pitch: (pitch))
+                pitch: (pitch_lowercase))
               right: (gabc_neume
-                pitch: (pitch)
+                pitch: (pitch_lowercase)
                 shape: (quilisma)))
             (gabc_neume_fusion
               left: (gabc_neume
-                pitch: (pitch))
+                pitch: (pitch_lowercase))
               right: (gabc_neume
-                pitch: (pitch)
+                pitch: (pitch_lowercase)
                 shape: (quilisma)))
             (gabc_neume_fusion
               left: (gabc_neume
-                pitch: (pitch))
+                pitch: (pitch_lowercase))
               right: (gabc_neume
-                pitch: (pitch)))))))))
+                pitch: (pitch_lowercase)))))))))

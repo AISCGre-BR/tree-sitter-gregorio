@@ -24,11 +24,11 @@ name: Small neume separation;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_spacing
               type: (small_neume_separation))
             (gabc_neume
-              pitch: (pitch))))))))
+              pitch: (pitch_lowercase))))))))
 
 ================================================================================
 Medium neume separation
@@ -56,11 +56,11 @@ name: Medium neume separation;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_spacing
               type: (medium_neume_separation))
             (gabc_neume
-              pitch: (pitch))))))))
+              pitch: (pitch_lowercase))))))))
 
 ================================================================================
 Half space same neume
@@ -88,11 +88,11 @@ name: Half space same neume;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_spacing
               type: (half_space_same_neume))
             (gabc_neume
-              pitch: (pitch))))))))
+              pitch: (pitch_lowercase))))))))
 
 ================================================================================
 Small space same neume
@@ -120,11 +120,11 @@ name: Small space same neume;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_spacing
               type: (small_space_same_neume))
             (gabc_neume
-              pitch: (pitch))))))))
+              pitch: (pitch_lowercase))))))))
 
 ================================================================================
 Zero space
@@ -152,11 +152,11 @@ name: Zero space;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_spacing
               type: (zero_space))
             (gabc_neume
-              pitch: (pitch))))))))
+              pitch: (pitch_lowercase))))))))
 
 ================================================================================
 Large space
@@ -184,11 +184,11 @@ name: Large space;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_spacing
               type: (large_space))
             (gabc_neume
-              pitch: (pitch))))))))
+              pitch: (pitch_lowercase))))))))
 
 ================================================================================
 Large unbreakable space
@@ -216,11 +216,11 @@ name: Large unbreakable space;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_spacing
               type: (large_unbreakable_space))
             (gabc_neume
-              pitch: (pitch))))))))
+              pitch: (pitch_lowercase))))))))
 
 ================================================================================
 Large neume separation
@@ -248,12 +248,12 @@ name: Large neume separation;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_spacing
               type: (scaled_large_neume_separation
                 factor: (scale_factor)))
             (gabc_neume
-              pitch: (pitch))))))))
+              pitch: (pitch_lowercase))))))))
 
 ================================================================================
 Large neume separation with negative factor
@@ -281,12 +281,12 @@ name: Large neume separation negative;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_spacing
               type: (scaled_large_neume_separation
                 factor: (scale_factor)))
             (gabc_neume
-              pitch: (pitch))))))))
+              pitch: (pitch_lowercase))))))))
 
 ================================================================================
 Mixed spacing types
@@ -314,19 +314,19 @@ name: Mixed spacing types;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_spacing
               type: (small_neume_separation))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_spacing
               type: (medium_neume_separation))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_spacing
               type: (small_space_same_neume))
             (gabc_neume
-              pitch: (pitch))))))))
+              pitch: (pitch_lowercase))))))))
 
 ================================================================================
 All spacing types
@@ -354,36 +354,36 @@ name: All spacing types;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_spacing
               type: (medium_neume_separation))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_spacing
               type: (small_space_same_neume))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_spacing
               type: (half_space_same_neume))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_spacing
               type: (zero_space))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_spacing
               type: (scaled_large_neume_separation
                 factor: (scale_factor)))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_spacing
               type: (large_space))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_spacing
               type: (large_unbreakable_space))
             (gabc_neume
-              pitch: (pitch))))))))
+              pitch: (pitch_lowercase))))))))
 
 ================================================================================
 Spacing with complex neumes
@@ -411,19 +411,19 @@ name: Spacing with complex neumes;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               shape: (quilisma))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_spacing
               type: (medium_neume_separation))
             (gabc_neume
               shape: (initio_debilis)
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_spacing
               type: (medium_neume_separation))
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               shape: (quadratum))
             (gabc_neume
-              pitch: (pitch))))))))
+              pitch: (pitch_lowercase))))))))

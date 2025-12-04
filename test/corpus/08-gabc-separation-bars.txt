@@ -390,19 +390,19 @@ name: test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_separation_bar
               type: (divisio_minima))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_separation_bar
               type: (divisio_minor))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_separation_bar
               type: (divisio_maior))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_separation_bar
               type: (divisio_finalis))))))))
 
@@ -430,17 +430,17 @@ name: test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_separation_bar
               type: (divisio_maior_dotted)
               modifier: (vertical_episema))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_neume
-              pitch: (pitch))))))))
+              pitch: (pitch_lowercase))))))))
