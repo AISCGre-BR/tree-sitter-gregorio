@@ -23,13 +23,13 @@ name: Initio debilis;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_complex_neume
+            (gabc_neume
               shape: (initio_debilis)
               pitch: (pitch))
-            (gabc_complex_neume
+            (gabc_neume
               shape: (initio_debilis)
               pitch: (pitch))
-            (gabc_complex_neume
+            (gabc_neume
               shape: (initio_debilis)
               pitch: (pitch))))))))
 
@@ -58,21 +58,21 @@ name: Quilisma;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_complex_neume
+            (gabc_neume
               pitch: (pitch)
-              shape: (quilisma)
-              post_neume: (gabc_neume
-                pitch: (pitch)))
-            (gabc_complex_neume
+              shape: (quilisma))
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_neume
               pitch: (pitch)
-              shape: (quilisma)
-              post_neume: (gabc_neume
-                pitch: (pitch)))
-            (gabc_complex_neume
+              shape: (quilisma))
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_neume
               pitch: (pitch)
-              shape: (quilisma)
-              post_neume: (gabc_neume
-                pitch: (pitch)))))))))
+              shape: (quilisma))
+            (gabc_neume
+              pitch: (pitch))))))))
 
 ================================================================================
 Oriscus scapus
@@ -99,21 +99,25 @@ name: Oriscus scapus;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_complex_neume
-              pre_pitch: (pitch)
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_neume
               pitch: (pitch)
               shape: (oriscus_scapus))
-            (gabc_complex_neume
-              pre_pitch: (pitch)
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_neume
               pitch: (pitch)
               shape: (oriscus_scapus))
-            (gabc_complex_neume
-              pre_pitch: (pitch)
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_neume
               pitch: (pitch)
               shape: (oriscus_scapus)
               orientation: (downwards))
-            (gabc_complex_neume
-              pre_pitch: (pitch)
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_neume
               pitch: (pitch)
               shape: (oriscus_scapus)
               orientation: (upwards))
@@ -145,11 +149,11 @@ name: Quadratum;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_complex_neume
+            (gabc_neume
               pitch: (pitch)
-              shape: (quadratum)
-              post_neume: (gabc_neume
-                pitch: (pitch)))))))))
+              shape: (quadratum))
+            (gabc_neume
+              pitch: (pitch))))))))
 
 ================================================================================
 Quilisma quadratum
@@ -176,11 +180,11 @@ name: Quilisma quadratum;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_complex_neume
+            (gabc_neume
               pitch: (pitch)
-              shape: (quilisma_quadratum)
-              post_neume: (gabc_neume
-                pitch: (pitch)))))))))
+              shape: (quilisma_quadratum))
+            (gabc_neume
+              pitch: (pitch))))))))
 
 ================================================================================
 Mixed complex neumes
@@ -207,16 +211,16 @@ name: Mixed complex neumes;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_complex_neume
+            (gabc_neume
               shape: (initio_debilis)
               pitch: (pitch))
-            (gabc_complex_neume
+            (gabc_neume
               pitch: (pitch)
-              shape: (quadratum)
-              post_neume: (gabc_neume
-                pitch: (pitch)))
-            (gabc_complex_neume
+              shape: (quadratum))
+            (gabc_neume
+              pitch: (pitch))
+            (gabc_neume
               pitch: (pitch)
-              shape: (quilisma_quadratum)
-              post_neume: (gabc_neume
-                pitch: (pitch)))))))))
+              shape: (quilisma_quadratum))
+            (gabc_neume
+              pitch: (pitch))))))))

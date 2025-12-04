@@ -1,4 +1,3 @@
-
 ================================================================================
 Small neume separation
 ================================================================================
@@ -411,20 +410,20 @@ name: Spacing with complex neumes;
       (note_group
         (snippet_list
           single: (gabc_snippet
-            (gabc_complex_neume
+            (gabc_neume
               pitch: (pitch)
-              shape: (quilisma)
-              post_neume: (gabc_neume
-                pitch: (pitch)))
+              shape: (quilisma))
+            (gabc_neume
+              pitch: (pitch))
             (gabc_spacing
               type: (medium_neume_separation))
-            (gabc_complex_neume
+            (gabc_neume
               shape: (initio_debilis)
               pitch: (pitch))
             (gabc_spacing
               type: (medium_neume_separation))
-            (gabc_complex_neume
+            (gabc_neume
               pitch: (pitch)
-              shape: (quadratum)
-              post_neume: (gabc_neume
-                pitch: (pitch)))))))))
+              shape: (quadratum))
+            (gabc_neume
+              pitch: (pitch))))))))
