@@ -263,12 +263,12 @@ name: Fusion group with complex neumes;
             (gabc_neume
               pitch: (pitch))
             (gabc_neume_fusion_group
-              (gabc_complex_neume
+              (gabc_neume
                 pitch: (pitch)
-                shape: (quilisma)
-                post_neume: (gabc_neume
-                  pitch: (pitch)))
-              (gabc_complex_neume
+                shape: (quilisma))
+              (gabc_neume
+                pitch: (pitch))
+              (gabc_neume
                 shape: (initio_debilis)
                 pitch: (pitch)))
             (gabc_neume
@@ -300,14 +300,14 @@ name: Fusion with quilisma;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume_fusion
-              left: (gabc_neume_fusion
-                left: (gabc_neume
-                  pitch: (pitch))
-                right: (gabc_complex_neume
-                  pitch: (pitch)
-                  shape: (quilisma)
-                  post_neume: (gabc_neume
-                    pitch: (pitch))))
+              left: (gabc_neume
+                pitch: (pitch))
+              right: (gabc_neume
+                pitch: (pitch)
+                shape: (quilisma)))
+            (gabc_neume_fusion
+              left: (gabc_neume
+                pitch: (pitch))
               right: (gabc_neume
                 pitch: (pitch)))))))))
 
@@ -340,7 +340,7 @@ name: Fusion with incomplete quilisma;
               left: (gabc_neume_fusion
                 left: (gabc_neume
                   pitch: (pitch))
-                right: (gabc_complex_neume
+                right: (gabc_neume
                   pitch: (pitch)
                   shape: (quilisma)))
               right: (gabc_neume
@@ -375,9 +375,10 @@ name: Fusion with oriscus scapus;
       (note_group
         (snippet_list
           single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch))
             (gabc_neume_fusion
-              left: (gabc_complex_neume
-                pre_pitch: (pitch)
+              left: (gabc_neume
                 pitch: (pitch)
                 shape: (oriscus_scapus))
               right: (gabc_neume
@@ -409,7 +410,7 @@ name: Fusion with initio debilis;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume_fusion
-              left: (gabc_complex_neume
+              left: (gabc_neume
                 shape: (initio_debilis)
                 pitch: (pitch))
               right: (gabc_neume
@@ -441,19 +442,19 @@ name: Multiple quilisma fusions;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume_fusion
-              left: (gabc_neume_fusion
-                left: (gabc_neume_fusion
-                  left: (gabc_neume
-                    pitch: (pitch))
-                  right: (gabc_complex_neume
-                    pitch: (pitch)
-                    shape: (quilisma)
-                    post_neume: (gabc_neume
-                      pitch: (pitch))))
-                right: (gabc_complex_neume
-                  pitch: (pitch)
-                  shape: (quilisma)
-                  post_neume: (gabc_neume
-                    pitch: (pitch))))
+              left: (gabc_neume
+                pitch: (pitch))
+              right: (gabc_neume
+                pitch: (pitch)
+                shape: (quilisma)))
+            (gabc_neume_fusion
+              left: (gabc_neume
+                pitch: (pitch))
+              right: (gabc_neume
+                pitch: (pitch)
+                shape: (quilisma)))
+            (gabc_neume_fusion
+              left: (gabc_neume
+                pitch: (pitch))
               right: (gabc_neume
                 pitch: (pitch)))))))))
