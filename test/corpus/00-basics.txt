@@ -194,3 +194,49 @@ al()le()lú()ia.()
       (syllable
         (syllable_text))
       (note_group))))
+
+================================================================================
+Multiline header
+================================================================================
+
+name: Multiline header test;
+commentary: This is a long commentary
+that spans multiple lines
+and contains various information;;
+
+%%
+
+Al()le()lu()ia()
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value))))
+    (header
+      name: (header_name)
+      value: (header_value
+        (multiline_header_value_terminated
+          (multiline_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (syllable
+        (syllable_text))
+      (note_group))
+    (notation_item
+      (syllable
+        (syllable_text))
+      (note_group))
+    (notation_item
+      (syllable
+        (syllable_text))
+      (note_group))
+    (notation_item
+      (syllable
+        (syllable_text))
+      (note_group))))
