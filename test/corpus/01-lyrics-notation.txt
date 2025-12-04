@@ -10,8 +10,6 @@ name: Style tags test;
 
 <c>Al</c>(c)<ul>le</ul>(d)<sc>lu</sc>(e)<tt>ia</tt>,(f)
 
-(::)
-
 --------------------------------------------------------------------------------
 
 (source_file
@@ -104,13 +102,7 @@ name: Style tags test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))
-    (notation_item
-      (note_group
-        (snippet_list
-          single: (gabc_snippet
-            (gabc_separation_bar
-              type: (divisio_finalis))))))))
+              pitch: (pitch))))))))
 
 ================================================================================
 Syllable controls

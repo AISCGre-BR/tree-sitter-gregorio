@@ -1,0 +1,620 @@
+================================================================================
+C clef position 1
+================================================================================
+name: test;
+%%
+(c1)
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_clef
+              name: (c_clef)
+              position: (clef_position))))))))
+
+================================================================================
+C clef position 2
+================================================================================
+name: test;
+%%
+(c2)
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_clef
+              name: (c_clef)
+              position: (clef_position))))))))
+
+================================================================================
+C clef position 3
+================================================================================
+name: test;
+%%
+(c3)
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_clef
+              name: (c_clef)
+              position: (clef_position))))))))
+
+================================================================================
+C clef position 4
+================================================================================
+name: test;
+%%
+(c4)
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_clef
+              name: (c_clef)
+              position: (clef_position))))))))
+
+================================================================================
+F clef position 1
+================================================================================
+name: test;
+%%
+(f1)
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_clef
+              name: (f_clef)
+              position: (clef_position))))))))
+
+================================================================================
+F clef position 2
+================================================================================
+name: test;
+%%
+(f2)
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_clef
+              name: (f_clef)
+              position: (clef_position))))))))
+
+================================================================================
+F clef position 3
+================================================================================
+name: test;
+%%
+(f3)
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_clef
+              name: (f_clef)
+              position: (clef_position))))))))
+
+================================================================================
+F clef position 4
+================================================================================
+name: test;
+%%
+(f4)
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_clef
+              name: (f_clef)
+              position: (clef_position))))))))
+
+================================================================================
+C clef with flat position 1
+================================================================================
+name: test;
+%%
+(cb1)
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_clef
+              name: (c_clef_flat)
+              position: (clef_position))))))))
+
+================================================================================
+C clef with flat position 2
+================================================================================
+name: test;
+%%
+(cb2)
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_clef
+              name: (c_clef_flat)
+              position: (clef_position))))))))
+
+================================================================================
+C clef with flat position 3
+================================================================================
+name: test;
+%%
+(cb3)
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_clef
+              name: (c_clef_flat)
+              position: (clef_position))))))))
+
+================================================================================
+C clef with flat position 4
+================================================================================
+name: test;
+%%
+(cb4)
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_clef
+              name: (c_clef_flat)
+              position: (clef_position))))))))
+
+================================================================================
+Clef link: c2 to c4
+================================================================================
+name: test;
+%%
+(c2@c4)
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_clef_link
+                left: (gabc_clef
+                  name: (c_clef)
+                  position: (clef_position))
+                right: (gabc_clef
+                  name: (c_clef)
+                  position: (clef_position)))))))))
+
+================================================================================
+Clef link: c2 to f2
+================================================================================
+name: test;
+%%
+(c2@f2)
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_clef_link
+                left: (gabc_clef
+                  name: (c_clef)
+                  position: (clef_position))
+                right: (gabc_clef
+                  name: (f_clef)
+                  position: (clef_position)))))))))
+
+================================================================================
+Clef link: f3 to c4
+================================================================================
+name: test;
+%%
+(f3@c4)
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_clef_link
+                left: (gabc_clef
+                  name: (f_clef)
+                  position: (clef_position))
+                right: (gabc_clef
+                  name: (c_clef)
+                  position: (clef_position)))))))))
+
+================================================================================
+Clef link: cb2 to c4
+================================================================================
+name: test;
+%%
+(cb2@c4)
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_clef_link
+                left: (gabc_clef
+                  name: (c_clef_flat)
+                  position: (clef_position))
+                right: (gabc_clef
+                  name: (c_clef)
+                  position: (clef_position)))))))))
+
+================================================================================
+Clef link: triple link c1 to c2 to c3
+================================================================================
+name: test;
+%%
+(c1@c2@c3)
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_clef_link
+              left: (gabc_clef_link
+                left: (gabc_clef
+                  name: (c_clef)
+                  position: (clef_position))
+                right: (gabc_clef
+                  name: (c_clef)
+                  position: (clef_position)))
+              right: (gabc_clef
+                name: (c_clef)
+                position: (clef_position)))))))))
+
+================================================================================
+Clef link with music before
+================================================================================
+name: test;
+%%
+(c4) a(c2@c4b)
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_clef
+              name: (c_clef)
+              position: (clef_position))))))
+    (notation_item
+      (syllable
+        (syllable_text))
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_clef_link
+              left: (gabc_clef
+                name: (c_clef)
+                position: (clef_position))
+              right: (gabc_clef
+                name: (c_clef)
+                position: (clef_position)))
+            (gabc_neume
+              pitch: (pitch))))))))
+
+================================================================================
+Clef link with music after
+================================================================================
+name: test;
+%%
+a(c2@c4b) b(d)
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (syllable
+        (syllable_text))
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_clef_link
+              left: (gabc_clef
+                name: (c_clef)
+                position: (clef_position))
+              right: (gabc_clef
+                name: (c_clef)
+                position: (clef_position)))
+            (gabc_neume
+              pitch: (pitch))))))
+    (notation_item
+      (syllable
+        (syllable_text))
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch))))))))
+
+================================================================================
+Mixed clef types in link: f to c to cb
+================================================================================
+name: test;
+%%
+(f2@c3@cb4)
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_clef_link
+              left: (gabc_clef_link
+                left: (gabc_clef
+                  name: (f_clef)
+                  position: (clef_position))
+                right: (gabc_clef
+                  name: (c_clef)
+                  position: (clef_position)))
+              right: (gabc_clef
+                name: (c_clef_flat)
+                position: (clef_position)))))))))
+================================================================================
+Pitch c vs Clef c3: differentiating single note from clef
+================================================================================
+name: test;
+%%
+(c4) a(c) b(c3) c(f) d(f2)
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_clef
+              name: (c_clef)
+              position: (clef_position))))))
+    (notation_item
+      (syllable
+        (syllable_text))
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch))))))
+    (notation_item
+      (syllable
+        (syllable_text))
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_clef
+              name: (c_clef)
+              position: (clef_position))))))
+    (notation_item
+      (syllable
+        (syllable_text))
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch))))))
+    (notation_item
+      (syllable
+        (syllable_text))
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_clef
+              name: (f_clef)
+              position: (clef_position))))))))

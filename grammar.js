@@ -312,19 +312,19 @@ module.exports = grammar({
         $.gabc_spacing,
         $._gabc_symbol,
         $.gabc_separation_bar,
-        // 6.4.12 Clefs
-        $.gabc_clef,
         // 6.4.13 Custos
         $._gabc_custos,
         $._gabc_line_break,
         // GABC Attributes
         $.gabc_attribute,
-        $._gabc_macro
+        $._gabc_macro,
+        // 6.4.12 Clefs - try AFTER neumes to avoid 'c'/'f' ambiguity
+        $._gabc_clef_or_link
       )
     ),
 
-    pitch: _ => /[a-np]/,
-    pitch_upper: _ => /[A-NP]/,
+    pitch: _ => token(prec(10, /[a-np]/)),
+    pitch_upper: _ => token(prec(10, /[A-NP]/)),
 
     // Helper rules for neume modifiers
     _liquescence: $ => choice(
@@ -608,12 +608,73 @@ module.exports = grammar({
     ),
 
     // 6.4.12 Clefs
-    gabc_clef: _ => prec(1, token(seq(
-      /[cf]/,
-      optional('b'),
-      /[1-4]/
-    ))),
-    // TODO: implement clef composition e.g. (c2@c4)
+    _gabc_clef_or_link: $ => choice(
+      $.gabc_clef,
+      $.gabc_clef_link
+    ),
+
+    gabc_clef: $ => choice(
+      $._gabc_clef_c1, $._gabc_clef_c2, $._gabc_clef_c3, $._gabc_clef_c4,
+      $._gabc_clef_f1, $._gabc_clef_f2, $._gabc_clef_f3, $._gabc_clef_f4,
+      $._gabc_clef_cb1, $._gabc_clef_cb2, $._gabc_clef_cb3, $._gabc_clef_cb4
+    ),
+
+    _gabc_clef_c1: $ => seq(
+      field('name', alias(token(prec(20, 'c1')), $.c_clef)),
+      field('position', alias('', $.clef_position))
+    ),
+    _gabc_clef_c2: $ => seq(
+      field('name', alias(token(prec(20, 'c2')), $.c_clef)),
+      field('position', alias('', $.clef_position))
+    ),
+    _gabc_clef_c3: $ => seq(
+      field('name', alias(token(prec(20, 'c3')), $.c_clef)),
+      field('position', alias('', $.clef_position))
+    ),
+    _gabc_clef_c4: $ => seq(
+      field('name', alias(token(prec(20, 'c4')), $.c_clef)),
+      field('position', alias('', $.clef_position))
+    ),
+
+    _gabc_clef_f1: $ => seq(
+      field('name', alias(token(prec(20, 'f1')), $.f_clef)),
+      field('position', alias('', $.clef_position))
+    ),
+    _gabc_clef_f2: $ => seq(
+      field('name', alias(token(prec(20, 'f2')), $.f_clef)),
+      field('position', alias('', $.clef_position))
+    ),
+    _gabc_clef_f3: $ => seq(
+      field('name', alias(token(prec(20, 'f3')), $.f_clef)),
+      field('position', alias('', $.clef_position))
+    ),
+    _gabc_clef_f4: $ => seq(
+      field('name', alias(token(prec(20, 'f4')), $.f_clef)),
+      field('position', alias('', $.clef_position))
+    ),
+
+    _gabc_clef_cb1: $ => seq(
+      field('name', alias(token(prec(20, 'cb1')), $.c_clef_flat)),
+      field('position', alias('', $.clef_position))
+    ),
+    _gabc_clef_cb2: $ => seq(
+      field('name', alias(token(prec(20, 'cb2')), $.c_clef_flat)),
+      field('position', alias('', $.clef_position))
+    ),
+    _gabc_clef_cb3: $ => seq(
+      field('name', alias(token(prec(20, 'cb3')), $.c_clef_flat)),
+      field('position', alias('', $.clef_position))
+    ),
+    _gabc_clef_cb4: $ => seq(
+      field('name', alias(token(prec(20, 'cb4')), $.c_clef_flat)),
+      field('position', alias('', $.clef_position))
+    ),
+
+    gabc_clef_link: $ => prec.left(1, seq(
+      field('left', choice($.gabc_clef, $.gabc_clef_link)),
+      '@',
+      field('right', $.gabc_clef)
+    )),
 
     // 6.4.13 Custos
     _gabc_custos: $ => choice(
