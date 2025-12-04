@@ -1,37 +1,4 @@
 ================================================================================
-Clef only
-================================================================================
-
-name: Clef only;
-
-%%
-
-(c4) (::)
-
---------------------------------------------------------------------------------
-
-(source_file
-  (header_section
-    (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
-  (section_separator)
-  (notation_section
-    (notation_item
-      (note_group
-        (snippet_list
-          single: (gabc_snippet
-            (gabc_clef)))))
-    (notation_item
-      (note_group
-        (snippet_list
-          single: (gabc_snippet
-            (gabc_separation_bar
-              type: (divisio_finalis))))))))
-
-================================================================================
 No lyrics
 ================================================================================
 
@@ -39,12 +6,10 @@ name: No lyrics;
 
 %%
 
-(c4) () ()    ()()
-()()()
+() ()    ()()
+()()() 
 
 ()()()()
-
-(::)
 
 --------------------------------------------------------------------------------
 
@@ -58,10 +23,7 @@ name: No lyrics;
   (section_separator)
   (notation_section
     (notation_item
-      (note_group
-        (snippet_list
-          single: (gabc_snippet
-            (gabc_clef)))))
+      (note_group))
     (notation_item
       (note_group))
     (notation_item
@@ -85,11 +47,7 @@ name: No lyrics;
     (notation_item
       (note_group))
     (notation_item
-      (note_group
-        (snippet_list
-          single: (gabc_snippet
-            (gabc_separation_bar
-              type: (divisio_finalis))))))))
+      (note_group))))
 
 ================================================================================
 Basic lyrics
@@ -99,11 +57,9 @@ name: Basic lyrics;
 
 %%
 
-(c4) Al()le()lú()ia,()
+Al()le()lú()ia,()
 
 al()le()lú()ia,()     al()le()lú()ia.()
-
-(::)
 
 --------------------------------------------------------------------------------
 
@@ -117,11 +73,6 @@ al()le()lú()ia,()     al()le()lú()ia.()
   (section_separator)
   (notation_section
     (notation_item
-      (note_group
-        (snippet_list
-          single: (gabc_snippet
-            (gabc_clef)))))
-    (notation_item
       (syllable
         (syllable_text))
       (note_group))
@@ -168,13 +119,7 @@ al()le()lú()ia,()     al()le()lú()ia.()
     (notation_item
       (syllable
         (syllable_text))
-      (note_group))
-    (notation_item
-      (note_group
-        (snippet_list
-          single: (gabc_snippet
-            (gabc_separation_bar
-              type: (divisio_finalis))))))))
+      (note_group))))
 
 ================================================================================
 Basic lyrics (with comments)
@@ -185,13 +130,11 @@ name: Basic lyrics (with comments);
 
 %%
 
-(c4) Al()le()lú()ia,() % A comment
+Al()le()lú()ia,() % A comment
 
 al()le()lú()ia,()
 % Another comment
 al()le()lú()ia.()
-
-(::)
 
 --------------------------------------------------------------------------------
 
@@ -206,11 +149,6 @@ al()le()lú()ia.()
   (section_separator)
   (notation_section
     (notation_item
-      (note_group
-        (snippet_list
-          single: (gabc_snippet
-            (gabc_clef)))))
-    (notation_item
       (syllable
         (syllable_text))
       (note_group))
@@ -259,10 +197,4 @@ al()le()lú()ia.()
     (notation_item
       (syllable
         (syllable_text))
-      (note_group))
-    (notation_item
-      (note_group
-        (snippet_list
-          single: (gabc_snippet
-            (gabc_separation_bar
-              type: (divisio_finalis))))))))
+      (note_group))))
