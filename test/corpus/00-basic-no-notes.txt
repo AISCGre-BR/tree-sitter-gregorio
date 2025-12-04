@@ -43,10 +43,6 @@ name: No lyrics;
     (notation_item
       (note_group))
     (notation_item
-      (note_group))
-    (notation_item
-      (note_group))
-    (notation_item
       (note_group))))
 
 ================================================================================

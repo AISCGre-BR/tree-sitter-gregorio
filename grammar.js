@@ -323,8 +323,8 @@ module.exports = grammar({
       )
     ),
 
-    pitch: _ => token(prec(10, /[a-np]/)),
-    pitch_upper: _ => token(prec(10, /[A-NP]/)),
+    pitch: _ => prec(10, /[a-np]/),
+    pitch_upper: _ => prec(10, /[A-NP]/),
 
     // Helper rules for neume modifiers
     _liquescence: $ => choice(
