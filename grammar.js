@@ -27,6 +27,8 @@ module.exports = grammar({
     [$.nabc_st_gall_ls_shorthand, $.nabc_laon_ls_shorthand],
     // gabc_neume can appear alone or as operand in gabc_neume_fusion
     [$.gabc_neume, $.gabc_neume_fusion],
+    // gabc_neume with or without additional signs can be ambiguous
+    [$.gabc_neume],
   ],
 
   rules: {
@@ -343,90 +345,144 @@ module.exports = grammar({
     ),
 
     // 6.4.2 One-Note Neumes (includes complex neumes from 6.4.5)
-    gabc_neume: $ => choice(
-      // Initio debilis
-      seq(
-        field('shape', alias('-', $.initio_debilis)),
-        field('pitch', $.pitch)
+    gabc_neume: $ => seq(
+      choice(
+        // Initio debilis
+        seq(
+          field('shape', alias('-', $.initio_debilis)),
+          field('pitch', $.pitch)
+        ),
+        // Oriscus scapus
+        // NOTE: Must be preceded by another gabc_neume or '@'
+        seq(
+          field('pitch', $.pitch),
+          field('shape', alias(token.immediate('O'), $.oriscus_scapus)),
+          optional(field('orientation', $._orientation))
+        ),
+        // Quilisma
+        // NOTE: Must be followed by another gabc_neume or '@'
+        seq(
+          field('pitch', $.pitch),
+          field('shape', alias(token.immediate('w'), $.quilisma))
+        ),
+        // Quadratum
+        // NOTE: Must be followed by another gabc_neume or '@'
+        seq(
+          field('pitch', $.pitch),
+          field('shape', alias(token.immediate('q'), $.quadratum))
+        ),
+        // Quilisma quadratum
+        // NOTE: Must be followed by another gabc_neume or '@'
+        seq(
+          field('pitch', $.pitch),
+          field('shape', alias(token.immediate('W'), $.quilisma_quadratum))
+        ),
+        // Punctum inclinatum: upper pitch + optional leaning + optional liquescence
+        seq(
+          field('pitch', $.pitch_upper),
+          optional(field('leaning', $._leaning)),
+          optional(field('liquescence', $._liquescence))
+        ),
+        // Oriscus with optional orientation and liquescence
+        seq(
+          field('pitch', $.pitch),
+          field('shape', alias(token.immediate('o'), $.oriscus)),
+          optional(field('orientation', $._orientation)),
+          optional(field('liquescence', $._liquescence))
+        ),
+        // Stropha variants with optional liquescence
+        seq(
+          field('pitch', $.pitch),
+          field('shape', choice(
+            alias(token.immediate('s'), $.stropha),
+            alias(token.immediate('ss'), $.distropha),
+            alias(token.immediate('sss'), $.tristropha)
+          )),
+          optional(field('liquescence', $._liquescence))
+        ),
+        // Virga variants
+        seq(
+          field('pitch', $.pitch),
+          field('shape', choice(
+            alias(token.immediate('v'), $.virga),
+            alias(token.immediate('V'), $.virga_reversa),
+            alias(token.immediate('vv'), $.bivirga),
+            alias(token.immediate('vvv'), $.trivirga)
+          ))
+        ),
+        // Cavum variants
+        seq(
+          field('pitch', $.pitch),
+          field('shape', choice(
+            alias(token.immediate('r'), $.cavum),
+            alias(token.immediate('R'), $.punctum_linea),
+            alias(token.immediate('r0'), $.cavum_linea)
+          ))
+        ),
+        // Linea
+        seq(
+          field('pitch', $.pitch),
+          field('shape', alias(token.immediate('='), $.linea))
+        ),
+        // Punctum quadratum: just pitch + optional liquescence (must come last)
+        seq(
+          field('pitch', $.pitch),
+          optional(field('liquescence', $._liquescence))
+        )
       ),
-      // Oriscus scapus
-      // NOTE: Must be preceded by another gabc_neume or '@'
-      seq(
-        field('pitch', $.pitch),
-        field('shape', alias(token.immediate('O'), $.oriscus_scapus)),
-        optional(field('orientation', $._orientation))
-      ),
-      // Quilisma
-      // NOTE: Must be followed by another gabc_neume or '@'
-      seq(
-        field('pitch', $.pitch),
-        field('shape', alias(token.immediate('w'), $.quilisma))
-      ),
-      // Quadratum
-      // NOTE: Must be followed by another gabc_neume or '@'
-      seq(
-        field('pitch', $.pitch),
-        field('shape', alias(token.immediate('q'), $.quadratum))
-      ),
-      // Quilisma quadratum
-      // NOTE: Must be followed by another gabc_neume or '@'
-      seq(
-        field('pitch', $.pitch),
-        field('shape', alias(token.immediate('W'), $.quilisma_quadratum))
-      ),
-      // Punctum inclinatum: upper pitch + optional leaning + optional liquescence
-      seq(
-        field('pitch', $.pitch_upper),
-        optional(field('leaning', $._leaning)),
-        optional(field('liquescence', $._liquescence))
-      ),
-      // Oriscus with optional orientation and liquescence
-      seq(
-        field('pitch', $.pitch),
-        field('shape', alias(token.immediate('o'), $.oriscus)),
-        optional(field('orientation', $._orientation)),
-        optional(field('liquescence', $._liquescence))
-      ),
-      // Stropha variants with optional liquescence
-      seq(
-        field('pitch', $.pitch),
-        field('shape', choice(
-          alias(token.immediate('s'), $.stropha),
-          alias(token.immediate('ss'), $.distropha),
-          alias(token.immediate('sss'), $.tristropha)
-        )),
-        optional(field('liquescence', $._liquescence))
-      ),
-      // Virga variants
-      seq(
-        field('pitch', $.pitch),
-        field('shape', choice(
-          alias(token.immediate('v'), $.virga),
-          alias(token.immediate('V'), $.virga_reversa),
-          alias(token.immediate('vv'), $.bivirga),
-          alias(token.immediate('vvv'), $.trivirga)
-        ))
-      ),
-      // Cavum variants
-      seq(
-        field('pitch', $.pitch),
-        field('shape', choice(
-          alias(token.immediate('r'), $.cavum),
-          alias(token.immediate('R'), $.punctum_linea),
-          alias(token.immediate('r0'), $.cavum_linea)
-        ))
-      ),
-      // Linea
-      seq(
-        field('pitch', $.pitch),
-        field('shape', alias(token.immediate('='), $.linea))
-      ),
-      // Punctum quadratum: just pitch + optional liquescence (must come last)
-      seq(
-        field('pitch', $.pitch),
-        optional(field('liquescence', $._liquescence))
-      )
+      // Additional neume signs (punctum mora, ictus, episema, accents, musica ficta)
+      repeat(field('extra_symbol', $.gabc_extra_symbol))
     ),
+
+    // 6.4.2.1 Additional Neume Signs
+    gabc_extra_symbol: $ => choice(
+      $._gabc_extra_symbol_punctum_mora,
+      $._gabc_extra_symbol_ictus,
+      $._gabc_extra_symbol_episema,
+      $._gabc_extra_symbol_accent,
+      $._gabc_extra_symbol_musica_ficta
+    ),
+
+    // Punctum mora
+    _gabc_extra_symbol_punctum_mora: $ => field('name', alias(token.immediate(choice('.', '..')), $.punctum_mora)),
+
+    // Ictus
+    _gabc_extra_symbol_ictus: $ => seq(
+      field('name', alias(token.immediate("'"), $.ictus)),
+      optional(field('modifier', choice(
+        alias('0', $.always_below),
+        alias('1', $.always_above)
+      )))
+    ),
+
+    // Episema
+    _gabc_extra_symbol_episema: $ => seq(
+      field('name', alias(token.immediate('_'), $.episema)),
+      repeat(field('modifier', choice(
+        alias('0', $.below_note),
+        alias('1', $.above_note),
+        alias('2', $.disable_bridging),
+        alias('3', $.small_left),
+        alias('4', $.small_center),
+        alias('5', $.small_right)
+      )))
+    ),
+
+    // Accents above staff
+    _gabc_extra_symbol_accent: $ => field('name', choice(
+      alias(token.immediate('r1'), $.accent_above_staff),
+      alias(token.immediate('r2'), $.accent_grave_above_staff),
+      alias(token.immediate('r3'), $.circle_above_staff),
+      alias(token.immediate('r4'), $.lower_semicircle_above_staff),
+      alias(token.immediate('r5'), $.upper_semicircle_above_staff)
+    )),
+
+    // Musica ficta
+    _gabc_extra_symbol_musica_ficta: $ => field('name', choice(
+      alias(token.immediate('r6'), $.musica_ficta_flat),
+      alias(token.immediate('r7'), $.musica_ficta_natural),
+      alias(token.immediate('r8'), $.musica_ficta_sharp)
+    )),
 
     // 6.4.3 Alterations
     gabc_alteration: $ => seq(
@@ -520,55 +576,8 @@ module.exports = grammar({
       alias('stroke', $.stroke)
     ),
 
-    // 6.4.9 Additional symbols
-    _gabc_symbol: $ => repeat1(
-      choice(
-        $.gabc_symbol_punctum_mora,
-        $.gabc_symbol_ictus,
-        $.gabc_symbol_episema,
-        $.gabc_symbol_accent_above_staff,
-        $.gabc_symbol_accent_grave_above_staff,
-        $.gabc_symbol_circle_above_staff,
-        $.gabc_symbol_lower_semicircle_above_staff,
-        $.gabc_symbol_upper_semicircle_above_staff,
-        $.gabc_symbol_musica_ficta_flat,
-        $.gabc_symbol_musica_ficta_natural,
-        $.gabc_symbol_musica_ficta_sharp
-      )
-    ),
-
-    // 6.4.10 Rhythmic Signs
-
-    // Punctum mora
-    gabc_symbol_punctum_mora: _ => choice('.', '..'),
-
-    // Ictus
-    gabc_symbol_ictus: $ => seq(
-      "'",
-      optional($._gabc_symbol_ictus_modifier)
-    ),
-
-    _gabc_symbol_ictus_modifier: _ => choice('0', '1'),
-
-    // Episema
-    gabc_symbol_episema: $ => seq(
-      '_',
-      repeat($._gabc_symbol_episema_modifier)
-    ),
-
-    _gabc_symbol_episema_modifier: _ => choice('0', '1', '2', '3', '4', '5'),
-
-    // Accents above staff: r1-r5
-    gabc_symbol_accent_above_staff: _ => 'r1',
-    gabc_symbol_accent_grave_above_staff: _ => 'r2',
-    gabc_symbol_circle_above_staff: _ => 'r3',
-    gabc_symbol_lower_semicircle_above_staff: _ => 'r4',
-    gabc_symbol_upper_semicircle_above_staff: _ => 'r5',
-
-    // Musica ficta: r6-r8
-    gabc_symbol_musica_ficta_flat: _ => 'r6',
-    gabc_symbol_musica_ficta_natural: _ => 'r7',
-    gabc_symbol_musica_ficta_sharp: _ => 'r8',
+    // 6.4.9 Additional symbols (standalone, not attached to neumes)
+    _gabc_symbol: $ => repeat1($.gabc_extra_symbol),
 
     // 6.4.11 Separation Bars
     _gabc_bar: $ => seq(
