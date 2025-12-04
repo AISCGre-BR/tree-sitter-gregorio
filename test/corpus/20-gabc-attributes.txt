@@ -1,7 +1,6 @@
-
 ================================================================================
-================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================Shape attribute
-
+Shape attribute
+================================================================================
 
 name: Shape;
 %%
@@ -28,13 +27,16 @@ Test(gh[shape:stroke]i)
               pitch: (pitch))
             (gabc_neume
               pitch: (pitch))
-            (gabc_attribute_shape)
+            (gabc_attribute
+              name: (shape)
+              hint: (shape_hint
+                (stroke)))
             (gabc_neume
               pitch: (pitch))))))))
 
-
+================================================================================
 Choral sign attributes
-
+================================================================================
 
 name: Choral signs;
 %%
@@ -59,13 +61,18 @@ Test(d[cs:vi]e[cn:pu])
           single: (gabc_snippet
             (gabc_neume
               pitch: (pitch))
-            (gabc_attribute_choral_sign)
+            (gabc_attribute
+              name: (cs)
+              text: (choral_sign_text))
             (gabc_neume
               pitch: (pitch))
-            (gabc_attribute_nabc_choral_sign)))))))
+            (gabc_attribute
+              name: (cn)
+              nabc_code: (nabc_choral_sign_code))))))))
 
-
+================================================================================
 Brace attributes
+================================================================================
 
 
 name: Braces;
@@ -91,16 +98,21 @@ Test(d[ob:0;2mm]e[ub:1{]f[ub:1}])
           single: (gabc_snippet
             (gabc_neume
               pitch: (pitch))
-            (gabc_attribute_brace_over)
+            (gabc_attribute
+              name: (ob)
+              size: (brace_size))
             (gabc_neume
               pitch: (pitch))
-            (gabc_attribute_brace_under)
+            (gabc_attribute
+              name: (ub))
             (gabc_neume
               pitch: (pitch))
-            (gabc_attribute_brace_under)))))))
+            (gabc_attribute
+              name: (ub))))))))
 
-
+================================================================================
 Stem length and ledger lines
+================================================================================
 
 
 name: Stem and ledger;
@@ -126,16 +138,24 @@ Test(c[ll:0]d[oll:0;2mm]e[ull:1{0])
           single: (gabc_snippet
             (gabc_neume
               pitch: (pitch))
-            (gabc_attribute_stem_length)
+            (gabc_attribute
+              name: (ll))
             (gabc_neume
               pitch: (pitch))
-            (gabc_attribute_ledger_line_over)
+            (gabc_attribute
+              name: (oll)
+              left: (ledger_line_left)
+              right: (ledger_line_right))
             (gabc_neume
               pitch: (pitch))
-            (gabc_attribute_ledger_line_under)))))))
+            (gabc_attribute
+              name: (ull)
+              left: (ledger_line_left)
+              right: (ledger_line_right))))))))
 
-
+================================================================================
 Slur attributes
+================================================================================
 
 
 name: Slurs;
@@ -161,16 +181,21 @@ Test(d[oslur:0{]e[oslur:0}]f[uslur:1;2mm,1mm])
           single: (gabc_snippet
             (gabc_neume
               pitch: (pitch))
-            (gabc_attribute_slur_over)
+            (gabc_attribute
+              name: (oslur))
             (gabc_neume
               pitch: (pitch))
-            (gabc_attribute_slur_over)
+            (gabc_attribute
+              name: (oslur))
             (gabc_neume
               pitch: (pitch))
-            (gabc_attribute_slur_under)))))))
+            (gabc_attribute
+              name: (uslur)
+              dimensions: (slur_dimensions))))))))
 
-
+================================================================================
 Horizontal episema attributes
+================================================================================
 
 
 name: Episema;
@@ -197,18 +222,23 @@ Test(d_[oh:m+1pt]e_[uh{]f_[uh}])
             (gabc_neume
               pitch: (pitch))
             (gabc_symbol_episema)
-            (gabc_attribute_horizontal_episema_over)
+            (gabc_attribute
+              name: (oh)
+              position: (episema_position))
             (gabc_neume
               pitch: (pitch))
             (gabc_symbol_episema)
-            (gabc_attribute_horizontal_episema_under)
+            (gabc_attribute
+              name: (uh))
             (gabc_neume
               pitch: (pitch))
             (gabc_symbol_episema)
-            (gabc_attribute_horizontal_episema_under)))))))
+            (gabc_attribute
+              name: (uh))))))))
 
-
+================================================================================
 Above lines text and verbatim TeX
+================================================================================
 
 
 name: Alt and verbatim;
@@ -234,13 +264,21 @@ Test(d[alt:*]e[nv:\test]f[gv:\code]g[ev:\elem])
           single: (gabc_snippet
             (gabc_neume
               pitch: (pitch))
-            (gabc_attribute_above_lines_text)
+            (gabc_attribute
+              name: (alt)
+              text: (above_lines_text))
             (gabc_neume
               pitch: (pitch))
-            (gabc_attribute_verbatim_note)
+            (gabc_attribute
+              name: (nv)
+              tex_code: (verbatim_tex_code))
             (gabc_neume
               pitch: (pitch))
-            (gabc_attribute_verbatim_glyph)
+            (gabc_attribute
+              name: (gv)
+              tex_code: (verbatim_tex_code))
             (gabc_neume
               pitch: (pitch))
-            (gabc_attribute_verbatim_element)))))))
+            (gabc_attribute
+              name: (ev)
+              tex_code: (verbatim_tex_code))))))))
