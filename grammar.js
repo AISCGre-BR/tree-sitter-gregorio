@@ -560,6 +560,7 @@ module.exports = grammar({
       $._gabc_attribute_verbatim_note,
       $._gabc_attribute_verbatim_glyph,
       $._gabc_attribute_verbatim_element,
+      $._gabc_attribute_nocustos,
     ),
 
     // 6.4.8 Shape Hints
@@ -574,6 +575,14 @@ module.exports = grammar({
 
     shape_hint: $ => choice(
       alias('stroke', $.stroke)
+    ),
+
+    // No custos attribute
+    // [nocustos]
+    _gabc_attribute_nocustos: $ => seq(
+      '[',
+      field('name', alias('nocustos', $.nocustos)),
+      ']'
     ),
 
     // 6.4.9 Additional symbols (standalone, not attached to neumes)
@@ -678,9 +687,11 @@ module.exports = grammar({
 
     // 6.4.13 Custos
     _gabc_custos: $ => choice(
-      'z0',
-      seq($.pitch_lowercase, '+'),
-      '[nocustos]'
+      alias('z0', $.custos_auto_pitch),
+      seq(
+        field('pitch', $.pitch_lowercase),
+        field('symbol', alias('+', $.custos_symbol))
+      )
     ),
 
     // 6.4.14 Line break

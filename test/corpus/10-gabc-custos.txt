@@ -1,0 +1,96 @@
+================================================================================
+Custos: set pitch automatically (z0)
+================================================================================
+
+name: Custos test;
+
+%%
+
+(cz0d)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase))
+            (custos_auto_pitch)
+            (gabc_neume
+              pitch: (pitch_lowercase))))))))
+
+================================================================================
+Custos: with pitch
+================================================================================
+
+name: Custos with pitch;
+
+%%
+
+(c+de)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            pitch: (pitch_lowercase)
+            symbol: (custos_symbol)
+            (gabc_neume
+              pitch: (pitch_lowercase))
+            (gabc_neume
+              pitch: (pitch_lowercase))))))))
+
+================================================================================
+Custos: nocustos attribute
+================================================================================
+
+name: No custos attribute;
+
+%%
+
+(c[nocustos]de)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase))
+            (gabc_attribute
+              name: (nocustos))
+            (gabc_neume
+              pitch: (pitch_lowercase))
+            (gabc_neume
+              pitch: (pitch_lowercase))))))))
