@@ -108,7 +108,9 @@ name: Style tags test;
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet))))))
+          single: (gabc_snippet
+            (gabc_separation_bar
+              type: (divisio_finalis))))))))
 
 ================================================================================
 Syllable controls

@@ -7,8 +7,8 @@ module.exports = grammar({
   ],
 
   conflicts: $ => [
-    // `_gabc_bar` may be followed by `_gabc_bar_modifier` which can create ambiguities
-    [$._gabc_bar],
+    // `gabc_separation_bar` may be followed by `_gabc_bar_modifier` which can create ambiguities
+    [$.gabc_separation_bar],
     // `_gabc_line_break` may be followed by `_gabc_line_break_modifier` which can create ambiguities
     [$._gabc_line_break],
     // `gabc_snippet` can have repetition ambiguities with symbols
@@ -16,7 +16,7 @@ module.exports = grammar({
     // Spacing and NABC horizontal spacing can conflict with '/' characters
     [$.gabc_spacing, $.nabc_horizontal_spacing_adjustment],
     // Bar (including virgula '`') and NABC horizontal spacing can conflict
-    [$._gabc_bar, $.nabc_horizontal_spacing_adjustment],
+    [$.gabc_separation_bar, $.nabc_horizontal_spacing_adjustment],
     // NABC complex glyph descriptor can have ambiguities with subpunctis/prepunctis sequences
     [$.nabc_complex_glyph_descriptor],
     // NABC subpunctis/prepunctis sequence can have repetition ambiguities
@@ -311,7 +311,7 @@ module.exports = grammar({
         $._gabc_neume_fusion,
         $.gabc_spacing,
         $._gabc_symbol,
-        $._gabc_bar,
+        $.gabc_separation_bar,
         // 6.4.12 Clefs
         $.gabc_clef,
         // 6.4.13 Custos
@@ -580,26 +580,32 @@ module.exports = grammar({
     _gabc_symbol: $ => repeat1($.gabc_extra_symbol),
 
     // 6.4.11 Separation Bars
-    _gabc_bar: $ => seq(
-      choice(
-        '`',
-        '`0',
-        '^',
-        '^0',
-        ',',
-        ',0',
-        ';',
-        ':',
-        ':?',
-        '::',
-        seq(';', $.gabc_bar_dominican_position)
-      ),
-      optional($._gabc_bar_modifier)
+    gabc_separation_bar: $ => seq(
+      field('type', choice(
+        alias('`', $.virgula),
+        alias('`0', $.virgula_upper_ledger_line),
+        alias('^', $.divisio_minimis),
+        alias('^0', $.divisio_minimis_upper_ledger_line),
+        alias(',', $.divisio_minima),
+        alias(',0', $.divisio_minima_upper_ledger_line),
+        alias(';', $.divisio_minor),
+        alias(':', $.divisio_maior),
+        alias(':?', $.divisio_maior_dotted),
+        alias('::', $.divisio_finalis),
+        seq(
+          alias(';', $.dominican_bar),
+          field('position', $.dominican_bar_position)
+        )
+      )),
+      optional(field('modifier', $._gabc_bar_modifier))
     ),
 
-    gabc_bar_dominican_position: _ => /[1-8]/,
+    dominican_bar_position: _ => /[1-8]/,
 
-    _gabc_bar_modifier: _ => choice("'", '_'),
+    _gabc_bar_modifier: $ => choice(
+      alias(token.immediate("'"), $.vertical_episema),
+      alias(token.immediate('_'), $.brace)
+    ),
 
     // 6.4.12 Clefs
     gabc_clef: _ => prec(1, token(seq(

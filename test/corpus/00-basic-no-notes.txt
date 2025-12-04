@@ -27,7 +27,9 @@ name: Clef only;
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet))))))
+          single: (gabc_snippet
+            (gabc_separation_bar
+              type: (divisio_finalis))))))))
 
 ================================================================================
 No lyrics
@@ -85,7 +87,9 @@ name: No lyrics;
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet))))))
+          single: (gabc_snippet
+            (gabc_separation_bar
+              type: (divisio_finalis))))))))
 
 ================================================================================
 Basic lyrics
@@ -168,7 +172,9 @@ al()le()lú()ia,()     al()le()lú()ia.()
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet))))))
+          single: (gabc_snippet
+            (gabc_separation_bar
+              type: (divisio_finalis))))))))
 
 ================================================================================
 Basic lyrics (with comments)
@@ -257,4 +263,6 @@ al()le()lú()ia.()
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet))))))
+          single: (gabc_snippet
+            (gabc_separation_bar
+              type: (divisio_finalis))))))))
