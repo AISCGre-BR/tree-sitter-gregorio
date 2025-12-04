@@ -323,8 +323,8 @@ module.exports = grammar({
       )
     ),
 
-    pitch: _ => prec(10, /[a-np]/),
-    pitch_upper: _ => prec(10, /[A-NP]/),
+    pitch_lowercase: _ => prec(10, /[a-np]/),
+    pitch_uppercase: _ => prec(10, /[A-NP]/),
 
     // Helper rules for neume modifiers
     _liquescence: $ => choice(
@@ -350,49 +350,49 @@ module.exports = grammar({
         // Initio debilis
         seq(
           field('shape', alias('-', $.initio_debilis)),
-          field('pitch', $.pitch)
+          field('pitch', $.pitch_lowercase)
         ),
         // Oriscus scapus
         // NOTE: Must be preceded by another gabc_neume or '@'
         seq(
-          field('pitch', $.pitch),
+          field('pitch', $.pitch_lowercase),
           field('shape', alias(token.immediate('O'), $.oriscus_scapus)),
           optional(field('orientation', $._orientation))
         ),
         // Quilisma
         // NOTE: Must be followed by another gabc_neume or '@'
         seq(
-          field('pitch', $.pitch),
+          field('pitch', $.pitch_lowercase),
           field('shape', alias(token.immediate('w'), $.quilisma))
         ),
         // Quadratum
         // NOTE: Must be followed by another gabc_neume or '@'
         seq(
-          field('pitch', $.pitch),
+          field('pitch', $.pitch_lowercase),
           field('shape', alias(token.immediate('q'), $.quadratum))
         ),
         // Quilisma quadratum
         // NOTE: Must be followed by another gabc_neume or '@'
         seq(
-          field('pitch', $.pitch),
+          field('pitch', $.pitch_lowercase),
           field('shape', alias(token.immediate('W'), $.quilisma_quadratum))
         ),
         // Punctum inclinatum: upper pitch + optional leaning + optional liquescence
         seq(
-          field('pitch', $.pitch_upper),
+          field('pitch', $.pitch_uppercase),
           optional(field('leaning', $._leaning)),
           optional(field('liquescence', $._liquescence))
         ),
         // Oriscus with optional orientation and liquescence
         seq(
-          field('pitch', $.pitch),
+          field('pitch', $.pitch_lowercase),
           field('shape', alias(token.immediate('o'), $.oriscus)),
           optional(field('orientation', $._orientation)),
           optional(field('liquescence', $._liquescence))
         ),
         // Stropha variants with optional liquescence
         seq(
-          field('pitch', $.pitch),
+          field('pitch', $.pitch_lowercase),
           field('shape', choice(
             alias(token.immediate('s'), $.stropha),
             alias(token.immediate('ss'), $.distropha),
@@ -402,7 +402,7 @@ module.exports = grammar({
         ),
         // Virga variants
         seq(
-          field('pitch', $.pitch),
+          field('pitch', $.pitch_lowercase),
           field('shape', choice(
             alias(token.immediate('v'), $.virga),
             alias(token.immediate('V'), $.virga_reversa),
@@ -412,7 +412,7 @@ module.exports = grammar({
         ),
         // Cavum variants
         seq(
-          field('pitch', $.pitch),
+          field('pitch', $.pitch_lowercase),
           field('shape', choice(
             alias(token.immediate('r'), $.cavum),
             alias(token.immediate('R'), $.punctum_linea),
@@ -421,12 +421,12 @@ module.exports = grammar({
         ),
         // Linea
         seq(
-          field('pitch', $.pitch),
+          field('pitch', $.pitch_lowercase),
           field('shape', alias(token.immediate('='), $.linea))
         ),
         // Punctum quadratum: just pitch + optional liquescence (must come last)
         seq(
-          field('pitch', $.pitch),
+          field('pitch', $.pitch_lowercase),
           optional(field('liquescence', $._liquescence))
         )
       ),
@@ -486,7 +486,7 @@ module.exports = grammar({
 
     // 6.4.3 Alterations
     gabc_alteration: $ => seq(
-      field('pitch', $.pitch),
+      field('pitch', $.pitch_lowercase),
       field('alteration', choice(
         alias(token.immediate('#'), $.sharp),
         alias(token.immediate('x'), $.flat),
@@ -679,7 +679,7 @@ module.exports = grammar({
     // 6.4.13 Custos
     _gabc_custos: $ => choice(
       'z0',
-      seq($.pitch, '+'),
+      seq($.pitch_lowercase, '+'),
       '[nocustos]'
     ),
 

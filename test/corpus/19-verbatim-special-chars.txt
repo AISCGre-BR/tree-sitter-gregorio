@@ -27,7 +27,7 @@ name: Verbatim special chars;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))
+              pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_other_verbatim
@@ -36,7 +36,7 @@ name: Verbatim special chars;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))))
+              pitch: (pitch_lowercase))))))))
 
 
 Verbatim tag with brackets
@@ -66,7 +66,7 @@ name: Verbatim brackets;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))
+              pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_other_verbatim
@@ -75,7 +75,7 @@ name: Verbatim brackets;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))))
+              pitch: (pitch_lowercase))))))))
 
 
 Verbatim tag with multiple special characters
@@ -106,7 +106,7 @@ text<v>()[];</v>(f)more<v>{}</v>(g)
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))
+              pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_text)
@@ -116,4 +116,4 @@ text<v>()[];</v>(f)more<v>{}</v>(g)
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))))
+              pitch: (pitch_lowercase))))))))

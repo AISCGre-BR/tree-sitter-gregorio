@@ -36,7 +36,7 @@ name: Nested tags;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))
+              pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_text))
@@ -44,7 +44,7 @@ name: Nested tags;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))
+              pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_text))
@@ -52,7 +52,7 @@ name: Nested tags;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))
+              pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_text))
@@ -60,9 +60,9 @@ name: Nested tags;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_neume
-              pitch: (pitch))))))
+              pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_text))
@@ -70,9 +70,9 @@ name: Nested tags;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_neume
-              pitch: (pitch))))))
+              pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_text))
@@ -80,7 +80,7 @@ name: Nested tags;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))
+              pitch: (pitch_lowercase))))))
     (notation_item
       (note_group
         (snippet_list

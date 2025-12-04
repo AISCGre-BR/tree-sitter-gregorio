@@ -30,7 +30,7 @@ name: Style tags test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))
+              pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_style_italic
@@ -40,7 +40,7 @@ name: Style tags test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))
+              pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_style_small_caps
@@ -50,7 +50,7 @@ name: Style tags test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))
+              pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_style_teletype
@@ -61,7 +61,7 @@ name: Style tags test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))
+              pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_style_colored
@@ -71,7 +71,7 @@ name: Style tags test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))
+              pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_style_underline
@@ -81,7 +81,7 @@ name: Style tags test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))
+              pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_style_small_caps
@@ -91,7 +91,7 @@ name: Style tags test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))
+              pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_style_teletype
@@ -102,7 +102,7 @@ name: Style tags test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))))
+              pitch: (pitch_lowercase))))))))
 
 ================================================================================
 Syllable controls
@@ -134,7 +134,7 @@ name: Syllable controls test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))
+              pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_control_clear)
@@ -145,7 +145,7 @@ name: Syllable controls test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))
+              pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_control_no_line_break
@@ -155,7 +155,7 @@ name: Syllable controls test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))
+              pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_control_protrusion)
@@ -164,7 +164,7 @@ name: Syllable controls test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))
+              pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_control_protrusion
@@ -173,7 +173,7 @@ name: Syllable controls test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))))
+              pitch: (pitch_lowercase))))))))
 
 ================================================================================
 Syllable other tags
@@ -205,7 +205,7 @@ name: Syllable other test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))
+              pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_other_special_character
@@ -215,7 +215,7 @@ name: Syllable other test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))
+              pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_other_verbatim
@@ -224,7 +224,7 @@ name: Syllable other test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))
+              pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_text))
@@ -232,7 +232,7 @@ name: Syllable other test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))))
+              pitch: (pitch_lowercase))))))))
 
 ================================================================================
 Translation and centering
@@ -264,7 +264,7 @@ Q{ui}(f)a(f) text[texto](g)$@end(h)
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))
+              pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_text))
@@ -272,7 +272,7 @@ Q{ui}(f)a(f) text[texto](g)$@end(h)
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))
+              pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_text)
@@ -282,7 +282,7 @@ Q{ui}(f)a(f) text[texto](g)$@end(h)
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))
+              pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_escape_sequence)
@@ -291,4 +291,4 @@ Q{ui}(f)a(f) text[texto](g)$@end(h)
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))))
+              pitch: (pitch_lowercase))))))))

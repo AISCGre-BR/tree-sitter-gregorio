@@ -485,7 +485,7 @@ name: test;
                 name: (c_clef)
                 position: (clef_position)))
             (gabc_neume
-              pitch: (pitch))))))))
+              pitch: (pitch_lowercase))))))))
 
 ================================================================================
 Clef link with music after
@@ -518,7 +518,7 @@ a(c2@c4b) b(d)
                 name: (c_clef)
                 position: (clef_position)))
             (gabc_neume
-              pitch: (pitch))))))
+              pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_text))
@@ -526,7 +526,7 @@ a(c2@c4b) b(d)
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))))
+              pitch: (pitch_lowercase))))))))
 
 ================================================================================
 Mixed clef types in link: f to c to cb
@@ -591,7 +591,7 @@ name: test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))
+              pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_text))
@@ -608,7 +608,7 @@ name: test;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))))))
+              pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_text))

@@ -24,33 +24,33 @@ name: Punctum quadratum;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_neume
-              pitch: (pitch))))))))
+              pitch: (pitch_lowercase))))))))
 
 ================================================================================
 Punctum inclinatum (upper case pitch)
@@ -78,19 +78,19 @@ name: Punctum inclinatum;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch_upper))
+              pitch: (pitch_uppercase))
             (gabc_neume
-              pitch: (pitch_upper))
+              pitch: (pitch_uppercase))
             (gabc_neume
-              pitch: (pitch_upper))
+              pitch: (pitch_uppercase))
             (gabc_neume
-              pitch: (pitch_upper))
+              pitch: (pitch_uppercase))
             (gabc_neume
-              pitch: (pitch_upper))
+              pitch: (pitch_uppercase))
             (gabc_neume
-              pitch: (pitch_upper))
+              pitch: (pitch_uppercase))
             (gabc_neume
-              pitch: (pitch_upper))))))))
+              pitch: (pitch_uppercase))))))))
 
 ================================================================================
 Punctum inclinatum with leaning modifiers
@@ -118,13 +118,13 @@ name: Inclinatum leaning;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch_upper)
+              pitch: (pitch_uppercase)
               leaning: (left_leaning))
             (gabc_neume
-              pitch: (pitch_upper)
+              pitch: (pitch_uppercase)
               leaning: (right_leaning))
             (gabc_neume
-              pitch: (pitch_upper)
+              pitch: (pitch_uppercase)
               leaning: (non_leaning))))))))
 
 ================================================================================
@@ -153,17 +153,17 @@ name: Oriscus;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               shape: (oriscus))
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               shape: (oriscus))
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               shape: (oriscus)
               orientation: (downwards))
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               shape: (oriscus)
               orientation: (upwards))))))))
 
@@ -193,10 +193,10 @@ name: Virga;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               shape: (virga))
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               shape: (virga))))))))
 
 ================================================================================
@@ -225,10 +225,10 @@ name: Virga reversa;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               shape: (virga_reversa))
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               shape: (virga_reversa))))))))
 
 ================================================================================
@@ -257,10 +257,10 @@ name: Bivirga trivirga;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               shape: (bivirga))
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               shape: (trivirga))))))))
 
 ================================================================================
@@ -289,15 +289,15 @@ name: Strophae;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               shape: (stropha))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               shape: (distropha))
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               shape: (tristropha))))))))
 
 ================================================================================
@@ -326,16 +326,16 @@ name: Cavum;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               shape: (cavum))
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               shape: (cavum))
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               shape: (punctum_linea))
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               shape: (cavum_linea))))))))
 
 ================================================================================
@@ -364,13 +364,13 @@ name: Liquescent;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               liquescence: (deminutus))
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               liquescence: (augmented))
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               liquescence: (diminished))))))))
 
 ================================================================================
@@ -399,10 +399,10 @@ name: Linea;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               shape: (linea))
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               shape: (linea))))))))
 
 ================================================================================
@@ -431,61 +431,61 @@ name: Mixed neumes;
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_neume
-              pitch: (pitch))
+              pitch: (pitch_lowercase))
             (gabc_neume
-              pitch: (pitch_upper))
+              pitch: (pitch_uppercase))
             (gabc_neume
-              pitch: (pitch_upper))
+              pitch: (pitch_uppercase))
             (gabc_neume
-              pitch: (pitch_upper))
+              pitch: (pitch_uppercase))
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               shape: (oriscus))
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               shape: (virga))
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               shape: (virga_reversa))
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               shape: (bivirga))
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               shape: (trivirga))
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               shape: (stropha))
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               shape: (distropha))
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               shape: (tristropha))
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               shape: (cavum))
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               shape: (punctum_linea))
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               shape: (cavum_linea))
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               liquescence: (deminutus))
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               liquescence: (augmented))
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               liquescence: (diminished))
             (gabc_neume
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               shape: (linea))))))))

@@ -24,7 +24,7 @@ name: Flat;
         (snippet_list
           single: (gabc_snippet
             (gabc_alteration
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               alteration: (flat))))))))
 
 ================================================================================
@@ -53,7 +53,7 @@ name: Natural;
         (snippet_list
           single: (gabc_snippet
             (gabc_alteration
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               alteration: (natural))))))))
 
 ================================================================================
@@ -82,7 +82,7 @@ name: Sharp;
         (snippet_list
           single: (gabc_snippet
             (gabc_alteration
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               alteration: (sharp))))))))
 
 ================================================================================
@@ -111,16 +111,16 @@ name: Mixed alterations;
         (snippet_list
           single: (gabc_snippet
             (gabc_alteration
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               alteration: (flat))
             (gabc_alteration
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               alteration: (natural))
             (gabc_alteration
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               alteration: (sharp))
             (gabc_neume
-              pitch: (pitch))))))))
+              pitch: (pitch_lowercase))))))))
 
 ================================================================================
 Soft flat alteration
@@ -148,7 +148,7 @@ name: Soft flat;
         (snippet_list
           single: (gabc_snippet
             (gabc_alteration
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               alteration: (flat_soft))))))))
 
 ================================================================================
@@ -177,7 +177,7 @@ name: Soft natural;
         (snippet_list
           single: (gabc_snippet
             (gabc_alteration
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               alteration: (natural_soft))))))))
 
 ================================================================================
@@ -206,7 +206,7 @@ name: Soft sharp;
         (snippet_list
           single: (gabc_snippet
             (gabc_alteration
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               alteration: (sharp_soft))))))))
 
 ================================================================================
@@ -235,7 +235,7 @@ name: Flat with parentheses;
         (snippet_list
           single: (gabc_snippet
             (gabc_alteration
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               alteration: (flat_parenthesized))))))))
 
 ================================================================================
@@ -264,7 +264,7 @@ name: Natural with parentheses;
         (snippet_list
           single: (gabc_snippet
             (gabc_alteration
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               alteration: (natural_parenthesized))))))))
 
 ================================================================================
@@ -293,5 +293,5 @@ name: Sharp with parentheses;
         (snippet_list
           single: (gabc_snippet
             (gabc_alteration
-              pitch: (pitch)
+              pitch: (pitch_lowercase)
               alteration: (sharp_parenthesized))))))))
