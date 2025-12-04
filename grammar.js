@@ -696,8 +696,14 @@ module.exports = grammar({
 
     // 6.4.14 Line break
     _gabc_line_break: $ => seq(
-      choice('z', 'Z'),
-      optional(choice('+', '-'))
+      field('type', choice(
+        alias('z', $.justified_line_break),
+        alias('Z', $.ragged_line_break)
+      )),
+      optional(field('custos_modifier', choice(
+        alias('+', $.force_custos),
+        alias('-', $.disable_custos)
+      )))
     ),
 
     // 6.4.15 Choral Signs

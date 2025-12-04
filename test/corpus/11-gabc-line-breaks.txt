@@ -1,0 +1,150 @@
+================================================================================
+Line break: justified (z)
+================================================================================
+
+name: Line breaks test;
+
+%%
+
+(cz)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase))
+            type: (justified_line_break)))))))
+
+================================================================================
+Line break: ragged (Z)
+================================================================================
+
+name: Line breaks test;
+
+%%
+
+(cZ)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase))
+            type: (ragged_line_break)))))))
+
+================================================================================
+Line break: with force custos (z+)
+================================================================================
+
+name: Line breaks test;
+
+%%
+
+(cz+)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase))
+            type: (justified_line_break)
+            custos_modifier: (force_custos)))))))
+
+================================================================================
+Line break: with disable custos (Z-)
+================================================================================
+
+name: Line breaks test;
+
+%%
+
+(cZ-)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase))
+            type: (ragged_line_break)
+            custos_modifier: (disable_custos)))))))
+
+================================================================================
+Line break: multiple line breaks
+================================================================================
+
+name: Line breaks test;
+
+%%
+
+(czZ+z-)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase))
+            type: (justified_line_break)
+            type: (ragged_line_break)
+            custos_modifier: (force_custos)
+            type: (justified_line_break)
+            custos_modifier: (disable_custos)))))))
