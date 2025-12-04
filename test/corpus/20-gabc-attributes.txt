@@ -220,19 +220,22 @@ Test(d_[oh:m+1pt]e_[uh{]f_[uh}])
         (snippet_list
           single: (gabc_snippet
             (gabc_neume
-              pitch: (pitch))
-            (gabc_symbol_episema)
+              pitch: (pitch)
+              extra_symbol: (gabc_extra_symbol
+                name: (episema)))
             (gabc_attribute
               name: (oh)
               position: (episema_position))
             (gabc_neume
-              pitch: (pitch))
-            (gabc_symbol_episema)
+              pitch: (pitch)
+              extra_symbol: (gabc_extra_symbol
+                name: (episema)))
             (gabc_attribute
               name: (uh))
             (gabc_neume
-              pitch: (pitch))
-            (gabc_symbol_episema)
+              pitch: (pitch)
+              extra_symbol: (gabc_extra_symbol
+                name: (episema)))
             (gabc_attribute
               name: (uh))))))))
 

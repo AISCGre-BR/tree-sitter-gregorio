@@ -1,0 +1,659 @@
+================================================================================
+Punctum mora single
+================================================================================
+
+name: test;
+%%
+(g.)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch)
+              extra_symbol: (gabc_extra_symbol
+                name: (punctum_mora)))))))))
+
+================================================================================
+Punctum mora double
+================================================================================
+
+name: test;
+%%
+(g..)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch)
+              extra_symbol: (gabc_extra_symbol
+                name: (punctum_mora)))))))))
+
+================================================================================
+Ictus simple
+================================================================================
+
+name: test;
+%%
+(g')
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch)
+              extra_symbol: (gabc_extra_symbol
+                name: (ictus)))))))))
+
+================================================================================
+Ictus with vertical modifier
+================================================================================
+
+name: test;
+%%
+(g'0)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch)
+              extra_symbol: (gabc_extra_symbol
+                name: (ictus)
+                modifier: (always_below)))))))))
+
+================================================================================
+Ictus with horizontal modifier
+================================================================================
+
+name: test;
+%%
+(g'1)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch)
+              extra_symbol: (gabc_extra_symbol
+                name: (ictus)
+                modifier: (always_above)))))))))
+
+================================================================================
+Episema simple
+================================================================================
+
+name: test;
+%%
+(g_)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch)
+              extra_symbol: (gabc_extra_symbol
+                name: (episema)))))))))
+
+================================================================================
+Episema below note
+================================================================================
+
+name: test;
+%%
+(g_0)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch)
+              extra_symbol: (gabc_extra_symbol
+                name: (episema)
+                modifier: (below_note)))))))))
+
+================================================================================
+Episema above note
+================================================================================
+
+name: test;
+%%
+(g_1)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch)
+              extra_symbol: (gabc_extra_symbol
+                name: (episema)
+                modifier: (above_note)))))))))
+
+================================================================================
+Episema disable bridging
+================================================================================
+
+name: test;
+%%
+(g_2)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch)
+              extra_symbol: (gabc_extra_symbol
+                name: (episema)
+                modifier: (disable_bridging)))))))))
+
+================================================================================
+Episema small left
+================================================================================
+
+name: test;
+%%
+(g_3)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch)
+              extra_symbol: (gabc_extra_symbol
+                name: (episema)
+                modifier: (small_left)))))))))
+
+================================================================================
+Episema small center
+================================================================================
+
+name: test;
+%%
+(g_4)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch)
+              extra_symbol: (gabc_extra_symbol
+                name: (episema)
+                modifier: (small_center)))))))))
+
+================================================================================
+Episema small right
+================================================================================
+
+name: test;
+%%
+(g_5)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch)
+              extra_symbol: (gabc_extra_symbol
+                name: (episema)
+                modifier: (small_right)))))))))
+
+================================================================================
+Episema with multiple modifiers
+================================================================================
+
+name: test;
+%%
+(g_01)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch)
+              extra_symbol: (gabc_extra_symbol
+                name: (episema)
+                modifier: (below_note)
+                modifier: (above_note)))))))))
+
+================================================================================
+Accent above staff
+================================================================================
+
+name: test;
+%%
+(gr1)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch)
+              extra_symbol: (gabc_extra_symbol
+                name: (accent_above_staff)))))))))
+
+================================================================================
+Accent grave above staff
+================================================================================
+
+name: test;
+%%
+(gr2)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch)
+              extra_symbol: (gabc_extra_symbol
+                name: (accent_grave_above_staff)))))))))
+
+================================================================================
+Circle above staff
+================================================================================
+
+name: test;
+%%
+(gr3)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch)
+              extra_symbol: (gabc_extra_symbol
+                name: (circle_above_staff)))))))))
+
+================================================================================
+Lower semicircle above staff
+================================================================================
+
+name: test;
+%%
+(gr4)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch)
+              extra_symbol: (gabc_extra_symbol
+                name: (lower_semicircle_above_staff)))))))))
+
+================================================================================
+Upper semicircle above staff
+================================================================================
+
+name: test;
+%%
+(gr5)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch)
+              extra_symbol: (gabc_extra_symbol
+                name: (upper_semicircle_above_staff)))))))))
+
+================================================================================
+Musica ficta flat
+================================================================================
+
+name: test;
+%%
+(gr6)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch)
+              extra_symbol: (gabc_extra_symbol
+                name: (musica_ficta_flat)))))))))
+
+================================================================================
+Musica ficta natural
+================================================================================
+
+name: test;
+%%
+(gr7)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch)
+              extra_symbol: (gabc_extra_symbol
+                name: (musica_ficta_natural)))))))))
+
+================================================================================
+Musica ficta sharp
+================================================================================
+
+name: test;
+%%
+(gr8)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch)
+              extra_symbol: (gabc_extra_symbol
+                name: (musica_ficta_sharp)))))))))
+
+================================================================================
+Multiple extra symbols
+================================================================================
+
+name: test;
+%%
+(g.'_)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch)
+              extra_symbol: (gabc_extra_symbol
+                name: (punctum_mora))
+              extra_symbol: (gabc_extra_symbol
+                name: (ictus))
+              extra_symbol: (gabc_extra_symbol
+                name: (episema)))))))))
+
+================================================================================
+Standalone extra symbols
+================================================================================
+
+name: test;
+%%
+(.'_)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)
+      value: (header_value
+        (single_line_header_value_terminated
+          (single_line_header_value)))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          single: (gabc_snippet
+            (gabc_extra_symbol
+              name: (punctum_mora))
+            (gabc_extra_symbol
+              name: (ictus))
+            (gabc_extra_symbol
+              name: (episema))))))))
