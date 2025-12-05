@@ -977,6 +977,7 @@ module.exports = grammar({
     nabc_complex_glyph_descriptor: $ => seq(
       $.nabc_glyph_descriptor,
       repeat(seq('!', $.nabc_glyph_descriptor)),
+      optional(field('modifiers', $.glyph_modifiers)),
       optional($.nabc_subpunctis_prepunctis_sequence),
       optional($.nabc_significant_letter_sequence)
     ),
@@ -984,8 +985,7 @@ module.exports = grammar({
     // Glyph descriptor
     nabc_glyph_descriptor: $ => seq(
       field('neume', $._nabc_neume),
-      optional(field('modifiers', $._nabc_glyph_modifiers)),
-      optional(field('pitch_descriptor', $._nabc_pitch_descriptor))
+      optional(field('pitch_descriptor', $.pitch_descriptor))
     ),
 
     // NABC neume (St. Gall or Laon neume codes with semantic aliases)
@@ -1000,37 +1000,37 @@ module.exports = grammar({
       alias('to', $.torculus),
       alias('ci', $.climacus),
       alias('sc', $.scandicus),
-      alias('pf', $.pressus_flexus),
+      alias('pf', $.porrectus_flexus),
       alias('sf', $.scandicus_flexus),
-      alias('tr', $.tresvirga),
-      alias('st', $.strophicus),
+      alias('tr', $.torculus_resupinus),
+      alias('st', $.stropha),
       alias('ds', $.distropha),
       alias('ts', $.tristropha),
-      alias('tg', $.trigon),
+      alias('tg', $.trigonus),
       alias('bv', $.bivirga),
       alias('tv', $.trivirga),
-      alias('pr', $.pressus),
-      alias('pi', $.pes_initio_debilis),
+      alias('pr', $.pressus_maior),
+      alias('pi', $.pressus_minor),
       alias('vs', $.virga_strata),
       alias('or', $.oriscus),
       alias('sa', $.salicus),
       alias('pq', $.pes_quassus),
-      alias('ql', $.quilisma),
-      alias('qi', $.quilisma_pes),
-      alias('pt', $.punctum_inclinatum),
-      alias('ni', $.punctum_inclinatum_parvum),
+      alias('ql', $.quilisma_3_loops),
+      alias('qi', $.quilisma_2_loops),
+      alias('pt', $.pes_stratus),
+      alias('ni', $.nihil),
       alias('un', $.uncinus),
-      alias('oc', $.oriscus_cavum)
+      alias('oc', $.oriscus_clivis)
     ),
 
     // Glyph modifiers
-    _nabc_glyph_modifiers: $ => seq(
+    glyph_modifiers: _ => seq(
       repeat1(choice('S', 'G', 'M', '-', '>', '~')),
       optional(/[1-9]/)
     ),
 
     // Pitch descriptor: h followed by pitch letter
-    _nabc_pitch_descriptor: $ => seq('h', /[a-np]/),
+    pitch_descriptor: $ => seq('h', field('pitch', $.pitch_lowercase)),
 
     // Subpunctis and prepunctis sequence
     nabc_subpunctis_prepunctis_sequence: $ => repeat1($.nabc_subpunctis_prepunctis_descriptor),
