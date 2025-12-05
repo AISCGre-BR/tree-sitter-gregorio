@@ -13,16 +13,13 @@ name: Simple fusion;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume_fusion
               left: (gabc_neume
                 pitch: (pitch_lowercase))
@@ -44,16 +41,13 @@ name: Multiple fusion;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume_fusion
               left: (gabc_neume_fusion
                 left: (gabc_neume
@@ -78,16 +72,13 @@ name: Fusion with virga;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume_fusion
               left: (gabc_neume
                 pitch: (pitch_lowercase)
@@ -110,16 +101,13 @@ name: Fusion with liquescence;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume_fusion
               left: (gabc_neume
                 pitch: (pitch_lowercase)
@@ -142,16 +130,13 @@ name: Fusion with oriscus;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume_fusion
               left: (gabc_neume
                 pitch: (pitch_lowercase)
@@ -174,16 +159,13 @@ name: Mixed fusion types;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume_fusion
               left: (gabc_neume_fusion
                 left: (gabc_neume_fusion
@@ -215,16 +197,13 @@ name: Fusion group;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))
             (gabc_neume_fusion_group
@@ -250,16 +229,13 @@ name: Fusion group with complex neumes;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))
             (gabc_neume_fusion_group
@@ -289,16 +265,13 @@ name: Fusion with quilisma;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume_fusion
               left: (gabc_neume
                 pitch: (pitch_lowercase))
@@ -326,16 +299,13 @@ name: Fusion with incomplete quilisma;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume_fusion
               left: (gabc_neume_fusion
                 left: (gabc_neume
@@ -365,16 +335,13 @@ name: Fusion with oriscus scapus;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))
             (gabc_neume_fusion
@@ -399,16 +366,13 @@ name: Fusion with initio debilis;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume_fusion
               left: (gabc_neume
                 shape: (initio_debilis)
@@ -431,16 +395,13 @@ name: Multiple quilisma fusions;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume_fusion
               left: (gabc_neume
                 pitch: (pitch_lowercase))

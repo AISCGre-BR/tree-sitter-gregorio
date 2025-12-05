@@ -9,16 +9,13 @@ name: test;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_clef
               name: (c_clef)
               position: (clef_position))))))))
@@ -34,16 +31,13 @@ name: test;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_clef
               name: (c_clef)
               position: (clef_position))))))))
@@ -59,16 +53,13 @@ name: test;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_clef
               name: (c_clef)
               position: (clef_position))))))))
@@ -84,16 +75,13 @@ name: test;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_clef
               name: (c_clef)
               position: (clef_position))))))))
@@ -109,16 +97,13 @@ name: test;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_clef
               name: (f_clef)
               position: (clef_position))))))))
@@ -134,16 +119,13 @@ name: test;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_clef
               name: (f_clef)
               position: (clef_position))))))))
@@ -159,16 +141,13 @@ name: test;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_clef
               name: (f_clef)
               position: (clef_position))))))))
@@ -184,16 +163,13 @@ name: test;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_clef
               name: (f_clef)
               position: (clef_position))))))))
@@ -209,16 +185,13 @@ name: test;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_clef
               name: (c_clef_flat)
               position: (clef_position))))))))
@@ -234,16 +207,13 @@ name: test;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_clef
               name: (c_clef_flat)
               position: (clef_position))))))))
@@ -259,16 +229,13 @@ name: test;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_clef
               name: (c_clef_flat)
               position: (clef_position))))))))
@@ -284,16 +251,13 @@ name: test;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_clef
               name: (c_clef_flat)
               position: (clef_position))))))))
@@ -309,23 +273,20 @@ name: test;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_clef_link
-                left: (gabc_clef
-                  name: (c_clef)
-                  position: (clef_position))
-                right: (gabc_clef
-                  name: (c_clef)
-                  position: (clef_position)))))))))
+              left: (gabc_clef
+                name: (c_clef)
+                position: (clef_position))
+              right: (gabc_clef
+                name: (c_clef)
+                position: (clef_position)))))))))
 
 ================================================================================
 Clef link: c2 to f2
@@ -338,23 +299,20 @@ name: test;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_clef_link
-                left: (gabc_clef
-                  name: (c_clef)
-                  position: (clef_position))
-                right: (gabc_clef
-                  name: (f_clef)
-                  position: (clef_position)))))))))
+              left: (gabc_clef
+                name: (c_clef)
+                position: (clef_position))
+              right: (gabc_clef
+                name: (f_clef)
+                position: (clef_position)))))))))
 
 ================================================================================
 Clef link: f3 to c4
@@ -367,23 +325,20 @@ name: test;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_clef_link
-                left: (gabc_clef
-                  name: (f_clef)
-                  position: (clef_position))
-                right: (gabc_clef
-                  name: (c_clef)
-                  position: (clef_position)))))))))
+              left: (gabc_clef
+                name: (f_clef)
+                position: (clef_position))
+              right: (gabc_clef
+                name: (c_clef)
+                position: (clef_position)))))))))
 
 ================================================================================
 Clef link: cb2 to c4
@@ -396,23 +351,20 @@ name: test;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_clef_link
-                left: (gabc_clef
-                  name: (c_clef_flat)
-                  position: (clef_position))
-                right: (gabc_clef
-                  name: (c_clef)
-                  position: (clef_position)))))))))
+              left: (gabc_clef
+                name: (c_clef_flat)
+                position: (clef_position))
+              right: (gabc_clef
+                name: (c_clef)
+                position: (clef_position)))))))))
 
 ================================================================================
 Clef link: triple link c1 to c2 to c3
@@ -425,16 +377,13 @@ name: test;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_clef_link
               left: (gabc_clef_link
                 left: (gabc_clef
@@ -458,16 +407,13 @@ name: test;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_clef
               name: (c_clef)
               position: (clef_position))))))
@@ -476,7 +422,7 @@ name: test;
         (syllable_text))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_clef_link
               left: (gabc_clef
                 name: (c_clef)
@@ -498,10 +444,7 @@ a(c2@c4b) b(d)
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
@@ -509,7 +452,7 @@ a(c2@c4b) b(d)
         (syllable_text))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_clef_link
               left: (gabc_clef
                 name: (c_clef)
@@ -524,7 +467,7 @@ a(c2@c4b) b(d)
         (syllable_text))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))))))))
 
@@ -539,16 +482,13 @@ name: test;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_clef_link
               left: (gabc_clef_link
                 left: (gabc_clef
@@ -560,6 +500,7 @@ name: test;
               right: (gabc_clef
                 name: (c_clef_flat)
                 position: (clef_position)))))))))
+
 ================================================================================
 Pitch c vs Clef c3: differentiating single note from clef
 ================================================================================
@@ -571,16 +512,13 @@ name: test;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_clef
               name: (c_clef)
               position: (clef_position))))))
@@ -589,7 +527,7 @@ name: test;
         (syllable_text))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))))))
     (notation_item
@@ -597,7 +535,7 @@ name: test;
         (syllable_text))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_clef
               name: (c_clef)
               position: (clef_position))))))
@@ -606,7 +544,7 @@ name: test;
         (syllable_text))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))))))
     (notation_item
@@ -614,7 +552,7 @@ name: test;
         (syllable_text))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_clef
               name: (f_clef)
               position: (clef_position))))))))
