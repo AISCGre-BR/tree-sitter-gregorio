@@ -1,25 +1,29 @@
 # Project Status Summary
 
 **Project**: tree-sitter-gregorio  
-**Version**: 0.2.0  
-**Date**: December 4, 2024  
-**Status**: ✅ **PRODUCTION-READY for Basic GABC**
+**Version**: 0.3.0  
+**Date**: December 2024  
+**Status**: ✅ **PRODUCTION-READY for GABC+NABC**  
+**Target Compatibility**: Gregorio 6.1.0
 
 ---
 
 ## Executive Summary
 
-The tree-sitter-gregorio parser has achieved **complete basic GABC notation support** with comprehensive test coverage. All 138 tests pass successfully, validating the parser's ability to handle real-world Gregorian chant notation files.
+The tree-sitter-gregorio parser has achieved **complete GABC+NABC notation support** with comprehensive test coverage. All 226 tests pass successfully, validating the parser's ability to handle real-world Gregorian chant notation files.
+
+**Compatibility Target**: This parser is designed for full compatibility with the GABC+NABC specification as defined in Gregorio version 6.1.0. This compatibility target will remain stable through the 1.0.0 release.
 
 ## Quick Facts
 
 | Category | Status |
 |----------|--------|
-| **Basic GABC Support** | ✅ Complete (100%) |
-| **Test Coverage** | ✅ 138/138 passing (100%) |
+| **GABC Support** | ✅ Complete (100%) |
+| **NABC Support** | ✅ Complete (100%) |
+| **Test Coverage** | ✅ 226/226 passing (100%) |
 | **Documentation** | ✅ Comprehensive |
 | **Grammar Quality** | ✅ Production-ready |
-| **NABC Support** | ⚠️ Basic (40%) |
+| **Gregorio Compatibility** | ✅ 6.1.0 |
 
 ---
 

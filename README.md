@@ -2,14 +2,17 @@
 
 Tree-sitter grammar for GABC+NABC notation (Gregorian chant).
 
-[![Tests](https://img.shields.io/badge/tests-221%20passing-brightgreen)](test/corpus/)
+[![Tests](https://img.shields.io/badge/tests-226%20passing-brightgreen)](test/corpus/)
 [![Grammar](https://img.shields.io/badge/grammar-GABC%2BNABC%20complete-blue)](#features)
+[![Compatibility](https://img.shields.io/badge/gregorio-6.1.0-blue)](https://gregorio-project.github.io/)
 
 ## Overview
 
 This project provides a [tree-sitter](https://tree-sitter.github.io/tree-sitter/) grammar for parsing GABC (Gregorio ABC) files with NABC (Cardine-Based Adiastematic Notation) extensions. GABC is a text-based notation system for Gregorian chant, and NABC extends it with support for adiastematic neumes.
 
 **Current Status**: ✅ **Complete GABC+NABC support** - The parser has been fully reviewed and tested for core GABC notation and comprehensive NABC (adiastematic notation) support including all glyph descriptors, modifiers, spacing, and significant letters.
+
+**Target Compatibility**: [Gregorio 6.1.0](https://gregorio-project.github.io/) — This parser targets full compatibility with the GABC+NABC specification from Gregorio version 6.1.0. This compatibility target will be maintained for the future 1.0.0 release.
 
 ## Features
 
