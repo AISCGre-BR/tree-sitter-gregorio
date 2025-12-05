@@ -1,0 +1,417 @@
+================================================================================
+NABC subpunctis simple
+================================================================================
+
+(c|visu3)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (virga))
+              (nabc_subpunctis_prepunctis_descriptor
+                type: (subpunctis)
+                count: (repetition_count)))))))))
+
+================================================================================
+NABC prepunctis simple
+================================================================================
+
+(c|pupp2)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (punctum))
+              (nabc_subpunctis_prepunctis_descriptor
+                type: (prepunctis)
+                count: (repetition_count)))))))))
+
+================================================================================
+NABC subpunctis with tractulus modifier
+================================================================================
+
+(c|clsut2)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (clivis))
+              (nabc_subpunctis_prepunctis_descriptor
+                type: (subpunctis)
+                modifier: (tractulus)
+                count: (repetition_count)))))))))
+
+================================================================================
+NABC subpunctis with tractulus episema modifier
+================================================================================
+
+(c|pesuu1)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (pes))
+              (nabc_subpunctis_prepunctis_descriptor
+                type: (subpunctis)
+                modifier: (tractulus_episema)
+                count: (repetition_count)))))))))
+
+================================================================================
+NABC subpunctis with tractulus double episema modifier
+================================================================================
+
+(c|posuv3)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (porrectus))
+              (nabc_subpunctis_prepunctis_descriptor
+                type: (subpunctis)
+                modifier: (tractulus_double_episema)
+                count: (repetition_count)))))))))
+
+================================================================================
+NABC subpunctis with gravis modifier
+================================================================================
+
+(c|tosuw2)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (torculus))
+              (nabc_subpunctis_prepunctis_descriptor
+                type: (subpunctis)
+                modifier: (gravis)
+                count: (repetition_count)))))))))
+
+================================================================================
+NABC subpunctis with gravis episema modifier
+================================================================================
+
+(c|cisuy1)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (climacus))
+              (nabc_subpunctis_prepunctis_descriptor
+                type: (subpunctis)
+                modifier: (gravis_episema)
+                count: (repetition_count)))))))))
+
+================================================================================
+NABC subpunctis with liquescens stropha cephalicus modifier
+================================================================================
+
+(c|scsux4)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (scandicus))
+              (nabc_subpunctis_prepunctis_descriptor
+                type: (subpunctis)
+                modifier: (liquescens_stropha_cephalicus)
+                count: (repetition_count)))))))))
+
+================================================================================
+NABC subpunctis with uncinus modifier (Laon)
+================================================================================
+
+(c|pfsun2)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (porrectus_flexus))
+              (nabc_subpunctis_prepunctis_descriptor
+                type: (subpunctis)
+                modifier: (uncinus)
+                count: (repetition_count)))))))))
+
+================================================================================
+NABC subpunctis with quilisma modifier (Laon)
+================================================================================
+
+(c|sfsuq3)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (scandicus_flexus))
+              (nabc_subpunctis_prepunctis_descriptor
+                type: (subpunctis)
+                modifier: (quilisma)
+                count: (repetition_count)))))))))
+
+================================================================================
+NABC subpunctis with virga modifier (Laon)
+================================================================================
+
+(c|trsuz1)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (torculus_resupinus))
+              (nabc_subpunctis_prepunctis_descriptor
+                type: (subpunctis)
+                modifier: (virga)
+                count: (repetition_count)))))))))
+
+================================================================================
+NABC multiple subpunctis prepunctis
+================================================================================
+
+(c|vipp2su3)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (virga))
+              (nabc_subpunctis_prepunctis_descriptor
+                type: (prepunctis)
+                count: (repetition_count))
+              (nabc_subpunctis_prepunctis_descriptor
+                type: (subpunctis)
+                count: (repetition_count)))))))))
+
+================================================================================
+NABC multiple with modifiers
+================================================================================
+
+(c|clppt1suu2suw3)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (clivis))
+              (nabc_subpunctis_prepunctis_descriptor
+                type: (prepunctis)
+                modifier: (tractulus)
+                count: (repetition_count))
+              (nabc_subpunctis_prepunctis_descriptor
+                type: (subpunctis)
+                modifier: (tractulus_episema)
+                count: (repetition_count))
+              (nabc_subpunctis_prepunctis_descriptor
+                type: (subpunctis)
+                modifier: (gravis)
+                count: (repetition_count)))))))))
+
+================================================================================
+NABC prepunctis with tractulus modifier
+================================================================================
+
+(c|peppt2)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (pes))
+              (nabc_subpunctis_prepunctis_descriptor
+                type: (prepunctis)
+                modifier: (tractulus)
+                count: (repetition_count)))))))))
+
+================================================================================
+NABC complex sequence with all modifier types
+================================================================================
+
+(c|visut1suu2suv1suw3suy1sux2sun1suq1suz2pp3)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (virga))
+              (nabc_subpunctis_prepunctis_descriptor
+                type: (subpunctis)
+                modifier: (tractulus)
+                count: (repetition_count))
+              (nabc_subpunctis_prepunctis_descriptor
+                type: (subpunctis)
+                modifier: (tractulus_episema)
+                count: (repetition_count))
+              (nabc_subpunctis_prepunctis_descriptor
+                type: (subpunctis)
+                modifier: (tractulus_double_episema)
+                count: (repetition_count))
+              (nabc_subpunctis_prepunctis_descriptor
+                type: (subpunctis)
+                modifier: (gravis)
+                count: (repetition_count))
+              (nabc_subpunctis_prepunctis_descriptor
+                type: (subpunctis)
+                modifier: (gravis_episema)
+                count: (repetition_count))
+              (nabc_subpunctis_prepunctis_descriptor
+                type: (subpunctis)
+                modifier: (liquescens_stropha_cephalicus)
+                count: (repetition_count))
+              (nabc_subpunctis_prepunctis_descriptor
+                type: (subpunctis)
+                modifier: (uncinus)
+                count: (repetition_count))
+              (nabc_subpunctis_prepunctis_descriptor
+                type: (subpunctis)
+                modifier: (quilisma)
+                count: (repetition_count))
+              (nabc_subpunctis_prepunctis_descriptor
+                type: (subpunctis)
+                modifier: (virga)
+                count: (repetition_count))
+              (nabc_subpunctis_prepunctis_descriptor
+                type: (prepunctis)
+                count: (repetition_count)))))))))
