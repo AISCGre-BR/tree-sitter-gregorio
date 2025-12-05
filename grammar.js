@@ -959,13 +959,14 @@ module.exports = grammar({
 
     ======================================================================================== */
 
-    // NABC snippet: sequence of complex neume descriptors
-    nabc_snippet: $ => repeat1($.nabc_complex_neume_descriptor),
+    // NABC snippet: sequence of complex glyph descriptors
+    nabc_snippet: $ => repeat1($.nabc_complex_glyph_descriptor),
 
-    // Complex neume descriptor
-    nabc_complex_neume_descriptor: $ => seq(
+    // Complex glyph descriptor
+    nabc_complex_glyph_descriptor: $ => seq(
       optional($.nabc_horizontal_spacing_adjustment),
-      $.nabc_complex_glyph_descriptor,
+      choice($.nabc_glyph_descriptor, $.nabc_glyph_fusion),
+      optional(field('modifiers', $.glyph_modifiers)),
       optional($.nabc_subpunctis_prepunctis_sequence),
       optional($.nabc_significant_letter_sequence)
     ),
@@ -973,17 +974,9 @@ module.exports = grammar({
     // Horizontal spacing adjustment
     nabc_horizontal_spacing_adjustment: $ => repeat1(choice('//', '/', '``', '`')),
 
-    // Complex glyph descriptor
-    nabc_complex_glyph_descriptor: $ => seq(
-      choice($.nabc_glyph_descriptor, $.nabc_glyph_fusion),
-      optional(field('modifiers', $.glyph_modifiers)),
-      optional($.nabc_subpunctis_prepunctis_sequence),
-      optional($.nabc_significant_letter_sequence)
-    ),
-
     // Glyph descriptor
     nabc_glyph_descriptor: $ => seq(
-      field('neume', $._nabc_neume),
+      field('basic_glyph_descriptor', $._nabc_basic_glyph_descriptor),
       optional(field('pitch_descriptor', $.pitch_descriptor))
     ),
 
@@ -994,8 +987,8 @@ module.exports = grammar({
       field('right', $.nabc_glyph_descriptor)
     )),
 
-    // NABC neume (St. Gall or Laon neume codes with semantic aliases)
-    _nabc_neume: $ => choice(
+    // NABC basic glyph descriptor (St. Gall or Laon glyph codes with semantic aliases)
+    _nabc_basic_glyph_descriptor: $ => choice(
       alias('vi', $.virga),
       alias('pu', $.punctum),
       alias('ta', $.tractulus),

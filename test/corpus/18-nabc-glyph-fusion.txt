@@ -15,16 +15,15 @@ NABC simple glyph fusion
             (gabc_neume
               pitch: (pitch_lowercase)))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_fusion
-                  left: (nabc_glyph_descriptor
-                    neume: (virga))
-                  right: (nabc_glyph_descriptor
-                    neume: (punctum)))))))))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_fusion
+                left: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (virga))
+                right: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (punctum))))))))))
 
 ================================================================================
-NABC glyph fusion with three neumes
+NABC glyph fusion with three glyphs
 ================================================================================
 
 (c|vi!pu!ta)
@@ -40,19 +39,18 @@ NABC glyph fusion with three neumes
             (gabc_neume
               pitch: (pitch_lowercase)))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_fusion
-                  left: (nabc_glyph_fusion
-                    left: (nabc_glyph_descriptor
-                      neume: (virga))
-                    right: (nabc_glyph_descriptor
-                      neume: (punctum)))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_fusion
+                left: (nabc_glyph_fusion
+                  left: (nabc_glyph_descriptor
+                    basic_glyph_descriptor: (virga))
                   right: (nabc_glyph_descriptor
-                    neume: (tractulus)))))))))))
+                    basic_glyph_descriptor: (punctum)))
+                right: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (tractulus))))))))))
 
 ================================================================================
-NABC glyph fusion with four neumes
+NABC glyph fusion with four glyphs
 ================================================================================
 
 (c|cl!pe!po!to)
@@ -68,19 +66,18 @@ NABC glyph fusion with four neumes
             (gabc_neume
               pitch: (pitch_lowercase)))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_fusion
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_fusion
+                left: (nabc_glyph_fusion
                   left: (nabc_glyph_fusion
-                    left: (nabc_glyph_fusion
-                      left: (nabc_glyph_descriptor
-                        neume: (clivis))
-                      right: (nabc_glyph_descriptor
-                        neume: (pes)))
+                    left: (nabc_glyph_descriptor
+                      basic_glyph_descriptor: (clivis))
                     right: (nabc_glyph_descriptor
-                      neume: (porrectus)))
+                      basic_glyph_descriptor: (pes)))
                   right: (nabc_glyph_descriptor
-                    neume: (torculus)))))))))))
+                    basic_glyph_descriptor: (porrectus)))
+                right: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (torculus))))))))))
 
 ================================================================================
 NABC glyph fusion with pitch descriptors
@@ -99,17 +96,16 @@ NABC glyph fusion with pitch descriptors
             (gabc_neume
               pitch: (pitch_lowercase)))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_fusion
-                  left: (nabc_glyph_descriptor
-                    neume: (virga)
-                    pitch_descriptor: (pitch_descriptor
-                      pitch: (pitch_lowercase)))
-                  right: (nabc_glyph_descriptor
-                    neume: (punctum)
-                    pitch_descriptor: (pitch_descriptor
-                      pitch: (pitch_lowercase))))))))))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_fusion
+                left: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (virga)
+                  pitch_descriptor: (pitch_descriptor
+                    pitch: (pitch_lowercase)))
+                right: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (punctum)
+                  pitch_descriptor: (pitch_descriptor
+                    pitch: (pitch_lowercase)))))))))))
 
 ================================================================================
 NABC glyph fusion with mixed pitch descriptors
@@ -128,20 +124,19 @@ NABC glyph fusion with mixed pitch descriptors
             (gabc_neume
               pitch: (pitch_lowercase)))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_fusion
-                  left: (nabc_glyph_fusion
-                    left: (nabc_glyph_descriptor
-                      neume: (virga))
-                    right: (nabc_glyph_descriptor
-                      neume: (punctum)
-                      pitch_descriptor: (pitch_descriptor
-                        pitch: (pitch_lowercase))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_fusion
+                left: (nabc_glyph_fusion
+                  left: (nabc_glyph_descriptor
+                    basic_glyph_descriptor: (virga))
                   right: (nabc_glyph_descriptor
-                    neume: (tractulus)
+                    basic_glyph_descriptor: (punctum)
                     pitch_descriptor: (pitch_descriptor
-                      pitch: (pitch_lowercase))))))))))))
+                      pitch: (pitch_lowercase))))
+                right: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (tractulus)
+                  pitch_descriptor: (pitch_descriptor
+                    pitch: (pitch_lowercase)))))))))))
 
 ================================================================================
 NABC multiple fused glyphs in sequence
@@ -160,23 +155,21 @@ NABC multiple fused glyphs in sequence
             (gabc_neume
               pitch: (pitch_lowercase)))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_fusion
-                  left: (nabc_glyph_descriptor
-                    neume: (virga))
-                  right: (nabc_glyph_descriptor
-                    neume: (punctum)))))
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_fusion
-                  left: (nabc_glyph_descriptor
-                    neume: (tractulus))
-                  right: (nabc_glyph_descriptor
-                    neume: (gravis)))))))))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_fusion
+                left: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (virga))
+                right: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (punctum))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_fusion
+                left: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (tractulus))
+                right: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (gravis))))))))))
 
 ================================================================================
-NABC fusion with different neume types
+NABC fusion with different glyph types
 ================================================================================
 
 (c|st!ds!ts)
@@ -192,19 +185,18 @@ NABC fusion with different neume types
             (gabc_neume
               pitch: (pitch_lowercase)))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_fusion
-                  left: (nabc_glyph_fusion
-                    left: (nabc_glyph_descriptor
-                      neume: (stropha))
-                    right: (nabc_glyph_descriptor
-                      neume: (distropha)))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_fusion
+                left: (nabc_glyph_fusion
+                  left: (nabc_glyph_descriptor
+                    basic_glyph_descriptor: (stropha))
                   right: (nabc_glyph_descriptor
-                    neume: (tristropha)))))))))))
+                    basic_glyph_descriptor: (distropha)))
+                right: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (tristropha))))))))))
 
 ================================================================================
-NABC fusion with complex neumes
+NABC fusion with complex glyphs
 ================================================================================
 
 (c|sc!ci!sf)
@@ -220,13 +212,12 @@ NABC fusion with complex neumes
             (gabc_neume
               pitch: (pitch_lowercase)))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_fusion
-                  left: (nabc_glyph_fusion
-                    left: (nabc_glyph_descriptor
-                      neume: (scandicus))
-                    right: (nabc_glyph_descriptor
-                      neume: (climacus)))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_fusion
+                left: (nabc_glyph_fusion
+                  left: (nabc_glyph_descriptor
+                    basic_glyph_descriptor: (scandicus))
                   right: (nabc_glyph_descriptor
-                    neume: (scandicus_flexus)))))))))))
+                    basic_glyph_descriptor: (climacus)))
+                right: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (scandicus_flexus))))))))))

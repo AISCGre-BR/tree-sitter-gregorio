@@ -30,12 +30,11 @@ nabc-lines: 1;
             (gabc_neume
               pitch: (pitch_lowercase)))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_descriptor
-                  neume: (virga)
-                  pitch_descriptor: (pitch_descriptor
-                    pitch: (pitch_lowercase)))))))))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (virga)
+                pitch_descriptor: (pitch_descriptor
+                  pitch: (pitch_lowercase))))))))))
 
 ================================================================================
 NABC pitch descriptor hf
@@ -69,12 +68,11 @@ nabc-lines: 1;
             (gabc_neume
               pitch: (pitch_lowercase)))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_descriptor
-                  neume: (punctum)
-                  pitch_descriptor: (pitch_descriptor
-                    pitch: (pitch_lowercase)))))))))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (punctum)
+                pitch_descriptor: (pitch_descriptor
+                  pitch: (pitch_lowercase))))))))))
 
 ================================================================================
 NABC pitch descriptor hn
@@ -108,15 +106,14 @@ nabc-lines: 1;
             (gabc_neume
               pitch: (pitch_lowercase)))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_descriptor
-                  neume: (tractulus)
-                  pitch_descriptor: (pitch_descriptor
-                    pitch: (pitch_lowercase)))))))))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (tractulus)
+                pitch_descriptor: (pitch_descriptor
+                  pitch: (pitch_lowercase))))))))))
 
 ================================================================================
-NABC pitch descriptors on multiple neumes
+NABC pitch descriptors on multiple glyphs
 ================================================================================
 
 name: Test;
@@ -147,12 +144,11 @@ nabc-lines: 1;
             (gabc_neume
               pitch: (pitch_lowercase)))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_descriptor
-                  neume: (virga)
-                  pitch_descriptor: (pitch_descriptor
-                    pitch: (pitch_lowercase)))))))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (virga)
+                pitch_descriptor: (pitch_descriptor
+                  pitch: (pitch_lowercase))))))))
     (notation_item
       (note_group
         (snippet_list
@@ -160,12 +156,11 @@ nabc-lines: 1;
             (gabc_neume
               pitch: (pitch_lowercase)))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_descriptor
-                  neume: (punctum)
-                  pitch_descriptor: (pitch_descriptor
-                    pitch: (pitch_lowercase)))))))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (punctum)
+                pitch_descriptor: (pitch_descriptor
+                  pitch: (pitch_lowercase))))))))
     (notation_item
       (note_group
         (snippet_list
@@ -173,12 +168,11 @@ nabc-lines: 1;
             (gabc_neume
               pitch: (pitch_lowercase)))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_descriptor
-                  neume: (tractulus)
-                  pitch_descriptor: (pitch_descriptor
-                    pitch: (pitch_lowercase)))))))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (tractulus)
+                pitch_descriptor: (pitch_descriptor
+                  pitch: (pitch_lowercase))))))))
     (notation_item
       (note_group
         (snippet_list
@@ -186,12 +180,11 @@ nabc-lines: 1;
             (gabc_neume
               pitch: (pitch_lowercase)))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_descriptor
-                  neume: (gravis)
-                  pitch_descriptor: (pitch_descriptor
-                    pitch: (pitch_lowercase)))))))))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (gravis)
+                pitch_descriptor: (pitch_descriptor
+                  pitch: (pitch_lowercase))))))))))
 
 ================================================================================
 NABC all pitch letters
@@ -225,107 +218,92 @@ nabc-lines: 1;
             (gabc_neume
               pitch: (pitch_lowercase)))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_descriptor
-                  neume: (virga)
-                  pitch_descriptor: (pitch_descriptor
-                    pitch: (pitch_lowercase))))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (virga)
+                pitch_descriptor: (pitch_descriptor
+                  pitch: (pitch_lowercase)))))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_descriptor
-                  neume: (virga)
-                  pitch_descriptor: (pitch_descriptor
-                    pitch: (pitch_lowercase))))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (virga)
+                pitch_descriptor: (pitch_descriptor
+                  pitch: (pitch_lowercase)))))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_descriptor
-                  neume: (virga)
-                  pitch_descriptor: (pitch_descriptor
-                    pitch: (pitch_lowercase))))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (virga)
+                pitch_descriptor: (pitch_descriptor
+                  pitch: (pitch_lowercase)))))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_descriptor
-                  neume: (virga)
-                  pitch_descriptor: (pitch_descriptor
-                    pitch: (pitch_lowercase))))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (virga)
+                pitch_descriptor: (pitch_descriptor
+                  pitch: (pitch_lowercase)))))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_descriptor
-                  neume: (virga)
-                  pitch_descriptor: (pitch_descriptor
-                    pitch: (pitch_lowercase))))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (virga)
+                pitch_descriptor: (pitch_descriptor
+                  pitch: (pitch_lowercase)))))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_descriptor
-                  neume: (virga)
-                  pitch_descriptor: (pitch_descriptor
-                    pitch: (pitch_lowercase))))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (virga)
+                pitch_descriptor: (pitch_descriptor
+                  pitch: (pitch_lowercase)))))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_descriptor
-                  neume: (virga)
-                  pitch_descriptor: (pitch_descriptor
-                    pitch: (pitch_lowercase))))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (virga)
+                pitch_descriptor: (pitch_descriptor
+                  pitch: (pitch_lowercase)))))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_descriptor
-                  neume: (virga)
-                  pitch_descriptor: (pitch_descriptor
-                    pitch: (pitch_lowercase))))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (virga)
+                pitch_descriptor: (pitch_descriptor
+                  pitch: (pitch_lowercase)))))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_descriptor
-                  neume: (virga)
-                  pitch_descriptor: (pitch_descriptor
-                    pitch: (pitch_lowercase))))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (virga)
+                pitch_descriptor: (pitch_descriptor
+                  pitch: (pitch_lowercase)))))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_descriptor
-                  neume: (virga)
-                  pitch_descriptor: (pitch_descriptor
-                    pitch: (pitch_lowercase))))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (virga)
+                pitch_descriptor: (pitch_descriptor
+                  pitch: (pitch_lowercase)))))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_descriptor
-                  neume: (virga)
-                  pitch_descriptor: (pitch_descriptor
-                    pitch: (pitch_lowercase))))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (virga)
+                pitch_descriptor: (pitch_descriptor
+                  pitch: (pitch_lowercase)))))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_descriptor
-                  neume: (virga)
-                  pitch_descriptor: (pitch_descriptor
-                    pitch: (pitch_lowercase))))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (virga)
+                pitch_descriptor: (pitch_descriptor
+                  pitch: (pitch_lowercase)))))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_descriptor
-                  neume: (virga)
-                  pitch_descriptor: (pitch_descriptor
-                    pitch: (pitch_lowercase))))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (virga)
+                pitch_descriptor: (pitch_descriptor
+                  pitch: (pitch_lowercase)))))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_descriptor
-                  neume: (virga)
-                  pitch_descriptor: (pitch_descriptor
-                    pitch: (pitch_lowercase))))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (virga)
+                pitch_descriptor: (pitch_descriptor
+                  pitch: (pitch_lowercase)))))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_descriptor
-                  neume: (virga)
-                  pitch_descriptor: (pitch_descriptor
-                    pitch: (pitch_lowercase)))))))))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (virga)
+                pitch_descriptor: (pitch_descriptor
+                  pitch: (pitch_lowercase))))))))))
