@@ -1,0 +1,385 @@
+================================================================================
+NABC St. Gall significant letter - altius
+================================================================================
+
+(c|vilsal2)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (virga))
+              (nabc_significant_letter_descriptor
+                type: (significant_letter)
+                shorthand: (altius)
+                position: (position_number)))))))))
+
+================================================================================
+NABC St. Gall significant letter - celeriter
+================================================================================
+
+(c|talsc4)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (tractulus))
+              (nabc_significant_letter_descriptor
+                type: (significant_letter)
+                shorthand: (celeriter)
+                position: (position_number)))))))))
+
+================================================================================
+NABC St. Gall significant letter - tenere
+================================================================================
+
+(c|pelst8)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (pes))
+              (nabc_significant_letter_descriptor
+                type: (significant_letter)
+                shorthand: (tenere)
+                position: (position_number)))))))))
+
+================================================================================
+NABC Laon significant letter - augete
+================================================================================
+
+(c|vilsa2)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (virga))
+              (nabc_significant_letter_descriptor
+                type: (significant_letter)
+                shorthand: (augete)
+                position: (position_number)))))))))
+
+================================================================================
+NABC Laon significant letter - celeriter
+================================================================================
+
+(c|pulsc5)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (punctum))
+              (nabc_significant_letter_descriptor
+                type: (significant_letter)
+                shorthand: (celeriter)
+                position: (position_number)))))))))
+
+================================================================================
+NABC Laon significant letter - equaliter
+================================================================================
+
+(c|tolseq2)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (torculus))
+              (nabc_significant_letter_descriptor
+                type: (significant_letter)
+                shorthand: (equaliter_eq)
+                position: (position_number)))))))))
+
+================================================================================
+NABC Tironian letter - iusum
+================================================================================
+
+(c|vilti1)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (virga))
+              (nabc_significant_letter_descriptor
+                type: (tironian_letter)
+                shorthand: (iusum)
+                position: (position_number)))))))))
+
+================================================================================
+NABC Tironian letter - sursum
+================================================================================
+
+(c|taltsr6)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (tractulus))
+              (nabc_significant_letter_descriptor
+                type: (tironian_letter)
+                shorthand: (sursum)
+                position: (position_number)))))))))
+
+================================================================================
+NABC multiple significant letters
+================================================================================
+
+(c|vilsal2lsc4)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (virga))
+              (nabc_significant_letter_descriptor
+                type: (significant_letter)
+                shorthand: (altius)
+                position: (position_number))
+              (nabc_significant_letter_descriptor
+                type: (significant_letter)
+                shorthand: (celeriter)
+                position: (position_number)))))))))
+
+================================================================================
+NABC mixed significant letters (St. Gall and Laon)
+================================================================================
+
+(c|pelsal2lsa4)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (pes))
+              (nabc_significant_letter_descriptor
+                type: (significant_letter)
+                shorthand: (altius)
+                position: (position_number))
+              (nabc_significant_letter_descriptor
+                type: (significant_letter)
+                shorthand: (augete)
+                position: (position_number)))))))))
+
+================================================================================
+NABC significant letters with modifiers
+================================================================================
+
+(c|viMlsal2)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (virga)
+                glyph_modifiers: (glyph_modifiers
+                  type: (melodic_modification)))
+              (nabc_significant_letter_descriptor
+                type: (significant_letter)
+                shorthand: (altius)
+                position: (position_number)))))))))
+
+================================================================================
+NABC significant letters with pitch descriptor
+================================================================================
+
+(c|clhdlsc4)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (clivis)
+                pitch_descriptor: (pitch_descriptor
+                  pitch: (pitch_lowercase)))
+              (nabc_significant_letter_descriptor
+                type: (significant_letter)
+                shorthand: (celeriter)
+                position: (position_number)))))))))
+
+================================================================================
+NABC significant letters with subpunctis
+================================================================================
+
+(c|pesu2lsal2)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (pes))
+              (nabc_subpunctis_prepunctis_descriptor
+                type: (subpunctis)
+                count: (repetition_count))
+              (nabc_significant_letter_descriptor
+                type: (significant_letter)
+                shorthand: (altius)
+                position: (position_number)))))))))
+
+================================================================================
+NABC complex with all features and significant letters
+================================================================================
+
+(c|viMhd!clS-su2lsal2lsc4lti1)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_fusion
+                left: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (virga)
+                  glyph_modifiers: (glyph_modifiers
+                    type: (melodic_modification))
+                  pitch_descriptor: (pitch_descriptor
+                    pitch: (pitch_lowercase)))
+                right: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (clivis)
+                  glyph_modifiers: (glyph_modifiers
+                    type: (mark_modification)
+                    type: (episema))))
+              (nabc_subpunctis_prepunctis_descriptor
+                type: (subpunctis)
+                count: (repetition_count))
+              (nabc_significant_letter_descriptor
+                type: (significant_letter)
+                shorthand: (altius)
+                position: (position_number))
+              (nabc_significant_letter_descriptor
+                type: (significant_letter)
+                shorthand: (celeriter)
+                position: (position_number))
+              (nabc_significant_letter_descriptor
+                type: (tironian_letter)
+                shorthand: (iusum)
+                position: (position_number)))))))))

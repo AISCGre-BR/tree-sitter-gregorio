@@ -19,10 +19,6 @@ module.exports = grammar({
     [$.gabc_separation_bar, $.nabc_spacing],
     // NABC complex glyph descriptor can have ambiguities with subpunctis/prepunctis sequences
     [$.nabc_complex_glyph_descriptor],
-    // NABC significant letter sequence can have repetition ambiguities
-    [$.nabc_significant_letter_sequence],
-    // St. Gall and Laon significant letter shorthands can overlap
-    [$.nabc_st_gall_ls_shorthand, $.nabc_laon_ls_shorthand],
     // gabc_neume can appear alone or as operand in gabc_neume_fusion
     [$.gabc_neume, $.gabc_neume_fusion],
     // gabc_neume with or without additional signs can be ambiguous
@@ -965,7 +961,7 @@ module.exports = grammar({
       repeat($.nabc_spacing),
       choice($.nabc_glyph_descriptor, $.nabc_glyph_fusion),
       repeat($.nabc_subpunctis_prepunctis_descriptor),
-      optional($.nabc_significant_letter_sequence)
+      repeat($.nabc_significant_letter_descriptor)
     ),
 
     // NABC spacing
@@ -1065,53 +1061,99 @@ module.exports = grammar({
     ),
 
     // Significant letter sequence
-    nabc_significant_letter_sequence: $ => repeat1($.nabc_significant_letter_descriptor),
-
-    // Significant letter descriptor
-    nabc_significant_letter_descriptor: $ => choice(
-      $.nabc_st_gall_significant_letter,
-      $.nabc_laon_significant_letter,
-      $.nabc_tironian_note
-    ),
-
-    // St. Gall significant letter
-    nabc_st_gall_significant_letter: $ => seq(
-      'ls',
-      $.nabc_st_gall_ls_shorthand,
-      /[1-9]/
-    ),
-
-    nabc_st_gall_ls_shorthand: $ => choice(
-      'al', 'am', 'b', 'c', 'cm', 'co', 'cw', 'd', 'e', 'eq', 'ew',
-      'fid', 'fr', 'g', 'i', 'im', 'iv', 'k', 'l', 'lb', 'lc', 'len',
-      'lm', 'lp', 'lt', 'm', 'moll', 'p', 'par', 'pfec', 'pm', 'sb',
-      'sc', 'simil', 'simul', 'sm', 'st', 'sta', 'tb', 'tm', 'tw', 'v',
-      'vol', 'x'
-    ),
-
-    // Laon significant letter
-    nabc_laon_significant_letter: $ => seq(
-      'ls',
-      $.nabc_laon_ls_shorthand,
-      /[1-9]/
-    ),
-
-    nabc_laon_ls_shorthand: $ => choice(
-      'a', 'c', 'eq', 'eq-', 'equ', 'f', 'h', 'hn', 'hp', 'l', 'n',
-      'nl', 'nt', 'm', 'md', 's', 'simp', 'simpl', 'sp', 'st', 't', 'th'
-    ),
-
-    // Tironian note (Laon only)
-    nabc_tironian_note: $ => seq(
-      'lt',
-      $.nabc_tironian_shorthand,
-      /[1-9]/
-    ),
-
-    nabc_tironian_shorthand: $ => choice(
-      'i', 'do', 'dr', 'dx', 'ps', 'qm', 'sb', 'se', 'sj', 'sl', 'sn',
-      'sp', 'sr', 'st', 'us'
-    ),
+    // Significant letter descriptor with semantic aliases and fields
+    nabc_significant_letter_descriptor: $ => field('type', choice(
+      alias(seq(
+        'ls',
+        field('shorthand', choice(
+          // St. Gall and Laon shorthands unified
+          alias('a', $.augete),
+          alias('al', $.altius),
+          alias('am', $.altius_mediocriter),
+          alias('b', $.bene),
+          alias('c', $.celeriter),
+          alias('cm', $.celeriter_mediocriter),
+          alias('co', $.coniunguntur),
+          alias('cw', $.celeriter_wide),
+          alias('d', $.deprimatur),
+          alias('e', $.equaliter),
+          alias('eq', $.equaliter_eq),
+          alias('eq-', $.equaliter_dash),
+          alias('equ', $.equaliter_equ),
+          alias('ew', $.equaliter_wide),
+          alias('f', $.fastigium),
+          alias('fid', $.fideliter),
+          alias('fr', $.frendor),
+          alias('g', $.gutture),
+          alias('h', $.humiliter),
+          alias('hn', $.humiliter_nectum),
+          alias('hp', $.humiliter_parum),
+          alias('i', $.iusum),
+          alias('im', $.iusum_mediocriter),
+          alias('iv', $.iusum_valde),
+          alias('k', $.klenche),
+          alias('l', $.levare),
+          alias('lb', $.levare_bene),
+          alias('lc', $.levare_celeriter),
+          alias('len', $.leniter),
+          alias('lm', $.levare_mediocriter),
+          alias('lp', $.levare_parvum),
+          alias('lt', $.levare_tenere),
+          alias('m', $.mediocriter),
+          alias('md', $.mediocriter_md),
+          alias('moll', $.molliter),
+          alias('n', $.non_tenere_negare_nectum_naturaliter),
+          alias('nl', $.non_levare),
+          alias('nt', $.non_tenere),
+          alias('p', $.parvum),
+          alias('par', $.paratim),
+          alias('pfec', $.perfecte),
+          alias('pm', $.parvum_mediocriter),
+          alias('pulcre', $.pulcre),
+          alias('s', $.sursum),
+          alias('sb', $.sursum_bene),
+          alias('sc', $.sursum_celeriter),
+          alias('simil', $.similiter),
+          alias('simp', $.simpliciter),
+          alias('simpl', $.simpliciter_simpl),
+          alias('simul', $.simul),
+          alias('sm', $.sursum_mediocriter),
+          alias('sp', $.sursum_parum),
+          alias('st', $.sursum_tenere),
+          alias('sta', $.statim),
+          alias('t', $.tenere),
+          alias('tb', $.tenere_bene),
+          alias('th', $.tenere_humiliter),
+          alias('tm', $.tenere_mediocriter),
+          alias('tw', $.tenere_wide),
+          alias('v', $.valde),
+          alias('vol', $.volubiliter),
+          alias('x', $.expectare)
+        )),
+        field('position', alias(/[1-9]/, $.position_number))
+      ), $.significant_letter),
+      alias(seq(
+        'lt',
+        field('shorthand', choice(
+          alias('i', $.iusum),
+          alias('do', $.deorsum),
+          alias('dr', $.devertit),
+          alias('dx', $.devexum),
+          alias('ps', $.prode_sub_eam),
+          alias('qm', $.quam_mox),
+          alias('sb', $.sub),
+          alias('se', $.seorsum),
+          alias('sj', $.subjice),
+          alias('sl', $.saltim),
+          alias('sn', $.sonare),
+          alias('sp', $.supra),
+          alias('sr', $.sursum),
+          alias('st', $.saltate),
+          alias('us', $.ut_supra)
+        )),
+        field('position', alias(/[1-9]/, $.position_number))
+      ), $.tironian_letter)
+    )),
 
     // Comment: % until end of line
     comment: $ => seq('%', /.*/)
