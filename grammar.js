@@ -966,7 +966,6 @@ module.exports = grammar({
     nabc_complex_glyph_descriptor: $ => seq(
       optional($.nabc_horizontal_spacing_adjustment),
       choice($.nabc_glyph_descriptor, $.nabc_glyph_fusion),
-      optional(field('modifiers', $.glyph_modifiers)),
       optional($.nabc_subpunctis_prepunctis_sequence),
       optional($.nabc_significant_letter_sequence)
     ),
@@ -977,6 +976,7 @@ module.exports = grammar({
     // Glyph descriptor
     nabc_glyph_descriptor: $ => seq(
       field('basic_glyph_descriptor', $._nabc_basic_glyph_descriptor),
+      optional(field('glyph_modifiers', $.glyph_modifiers)),
       optional(field('pitch_descriptor', $.pitch_descriptor))
     ),
 
@@ -1023,9 +1023,16 @@ module.exports = grammar({
     ),
 
     // Glyph modifiers
-    glyph_modifiers: _ => seq(
-      repeat1(choice('S', 'G', 'M', '-', '>', '~')),
-      optional(/[1-9]/)
+    glyph_modifiers: $ => seq(
+      repeat1(field('type', choice(
+        alias('S', $.mark_modification),
+        alias('G', $.grouping_modification),
+        alias('M', $.melodic_modification),
+        alias('-', $.episema),
+        alias('>', $.augmentive_liquescence),
+        alias('~', $.diminutive_liquescence)
+      ))),
+      optional(field('variant', alias(/[1-9]/, $.variant_number)))
     ),
 
     // Pitch descriptor: h followed by pitch letter
