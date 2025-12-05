@@ -1,5 +1,5 @@
 ================================================================================
-NABC basic neumes
+NABC basic glyphs
 ================================================================================
 
 name: Test;
@@ -30,10 +30,9 @@ nabc-lines: 1;
             (gabc_neume
               pitch: (pitch_lowercase)))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_descriptor
-                  neume: (virga))))))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (virga)))))))
     (notation_item
       (note_group
         (snippet_list
@@ -41,10 +40,9 @@ nabc-lines: 1;
             (gabc_neume
               pitch: (pitch_lowercase)))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_descriptor
-                  neume: (punctum))))))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (punctum)))))))
     (notation_item
       (note_group
         (snippet_list
@@ -52,10 +50,9 @@ nabc-lines: 1;
             (gabc_neume
               pitch: (pitch_lowercase)))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_descriptor
-                  neume: (tractulus))))))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (tractulus)))))))
     (notation_item
       (note_group
         (snippet_list
@@ -63,10 +60,9 @@ nabc-lines: 1;
             (gabc_neume
               pitch: (pitch_lowercase)))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_descriptor
-                  neume: (gravis))))))))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (gravis)))))))))
 
 ================================================================================
 NABC alternation
@@ -100,18 +96,16 @@ nabc-lines: 1;
             (gabc_neume
               pitch: (pitch_lowercase)))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_descriptor
-                  neume: (virga)))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (virga))))
           alternate: (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase)))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_descriptor
-                  neume: (punctum))))))))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (punctum)))))))))
 
 ================================================================================
 NABC complex alternation
@@ -145,26 +139,21 @@ nabc-lines: 2;
             (gabc_neume
               pitch: (pitch_lowercase)))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_descriptor
-                  neume: (virga)))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (virga))))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_descriptor
-                  neume: (punctum)))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (punctum))))
           alternate: (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase)))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_descriptor
-                  neume: (tractulus)))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (tractulus))))
           alternate: (nabc_snippet
-            (nabc_complex_neume_descriptor
-              (nabc_complex_glyph_descriptor
-                (nabc_glyph_descriptor
-                  neume: (gravis))))))))))
-
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (gravis)))))))))
