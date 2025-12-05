@@ -48,31 +48,15 @@ module.exports = grammar({
     header: $ => prec(2, seq(
       field('name', $.header_name),
       token.immediate(':'),
-      field('value', $.header_value)
+      field('value', choice(
+        /[^;%]*/,
+        seq(/[^;%]*/, ';')
+      )),
+      field('terminator', choice(';', ';;'))
     )),
 
     // Token to ensure "name:" is recognized atomically before syllable_text can match
     header_name: _ => token(prec(10, /[a-zA-Z0-9][a-zA-Z0-9-]*/)),
-
-    header_value: $ => choice(
-      $.multiline_header_value_terminated,
-      $.single_line_header_value_terminated
-    ),
-
-    single_line_header_value_terminated: $ => seq(
-      $.single_line_header_value,
-      ';'
-    ),
-
-    single_line_header_value: _ => /[^;%]*/,
-
-    // Multiline header: end with ;;
-    multiline_header_value_terminated: $ => seq(
-      $.multiline_header_value,
-      ';;'
-    ),
-
-    multiline_header_value: _ => /[^;%]*/,
 
     // Notation section: sequence of notation items
     notation_section: $ => repeat1($.notation_item),
@@ -114,7 +98,7 @@ module.exports = grammar({
       '<',
       'b',
       '>',
-      optional($.syllable),
+      optional(field('content', $.syllable)),
       '</',
       'b',
       '>'
@@ -123,7 +107,7 @@ module.exports = grammar({
       '<',
       'c',
       '>',
-      optional($.syllable),
+      optional(field('content', $.syllable)),
       '</',
       'c',
       '>'
@@ -132,7 +116,7 @@ module.exports = grammar({
       '<',
       'i',
       '>',
-      optional($.syllable),
+      optional(field('content', $.syllable)),
       '</',
       'i',
       '>'
@@ -141,7 +125,7 @@ module.exports = grammar({
       '<',
       'sc',
       '>',
-      optional($.syllable),
+      optional(field('content', $.syllable)),
       '</',
       'sc',
       '>'
@@ -150,7 +134,7 @@ module.exports = grammar({
       '<',
       'tt',
       '>',
-      optional($.syllable),
+      optional(field('content', $.syllable)),
       '</',
       'tt',
       '>'
@@ -159,7 +143,7 @@ module.exports = grammar({
       '<',
       'ul',
       '>',
-      optional($.syllable),
+      optional(field('content', $.syllable)),
       '</',
       'ul',
       '>'
@@ -177,7 +161,7 @@ module.exports = grammar({
       '<',
       'e',
       '>',
-      optional($.syllable),
+      optional(field('content', $.syllable)),
       '</',
       'e',
       '>'
@@ -187,7 +171,7 @@ module.exports = grammar({
       '<',
       'eu',
       '>',
-      optional($.syllable),
+      optional(field('content', $.syllable)),
       '</',
       'eu',
       '>'
@@ -197,7 +181,7 @@ module.exports = grammar({
       '<',
       'nlba',
       '>',
-      optional($.syllable),
+      optional(field('content', $.syllable)),
       '</',
       'nlba',
       '>'
@@ -209,20 +193,19 @@ module.exports = grammar({
       optional(
         seq(
           ':',
-          $.syllable_control_protrusion_value
+          /[0-9]*\.?[0-9]+/
         )
       ),
       optional('/'),
       '>'
     ),
-    syllable_control_protrusion_value: _ => /[0-9]*\.?[0-9]+/,
 
     // Other tags
     syllable_other_above_lines_text: $ => seq(
       '<',
       'alt',
       '>',
-      optional($.syllable),
+      optional(field('content', $.syllable)),
       '</',
       'alt',
       '>'
@@ -231,7 +214,7 @@ module.exports = grammar({
       '<',
       'sp',
       '>',
-      optional($.syllable),
+      optional(field('content', $.syllable)),
       '</',
       'sp',
       '>'
@@ -240,31 +223,25 @@ module.exports = grammar({
       '<',
       'v',
       '>',
-      optional($.syllable_verbatim_text),
+      optional(/[^<]+/),
       '</',
       'v',
       '>'
     ),
 
-    syllable_verbatim_text: _ => /[^<]+/,
-
     // Translation text: [text]
     syllable_translation: $ => seq(
       '[',
-      optional($.syllable_translation_text),
+      optional(/[^\]]*/),
       ']'
     ),
-
-    syllable_translation_text: _ => /[^\]]*/,
 
     // Lyric centering: {text}
     syllable_centering: $ => seq(
       '{',
-      optional($.syllable_centering_text),
+      optional(/[^}]*/),
       '}'
     ),
-
-    syllable_centering_text: _ => /[^}]*/,
 
     // Escape sequence: $ followed by character
     syllable_escape_sequence: _ => seq('$', /./),
@@ -279,7 +256,7 @@ module.exports = grammar({
     // Snippet list: GABC snippets and/or NABC snippets separated by |
     snippet_list: $ => choice(
       // Simple case: single GABC snippet (no alternation)
-      field('single', $.gabc_snippet),
+      $.gabc_snippet,
 
       // Complex case: alternating snippets
       seq(
@@ -528,11 +505,9 @@ module.exports = grammar({
 
     scaled_large_neume_separation: $ => seq(
       '/[',
-      field('factor', $.scale_factor),
+      field('factor', /-?[0-9.]+/),
       ']'
     ),
-
-    scale_factor: _ => /-?[0-9.]+/,
 
     // GABC attributes - specific implementations
     gabc_attribute: $ => choice(
@@ -563,12 +538,8 @@ module.exports = grammar({
       '[',
       field('name', alias('shape', $.shape)),
       ':',
-      field('hint', $.shape_hint),
+      field('hint', alias('stroke', $.stroke)),
       ']'
-    ),
-
-    shape_hint: $ => choice(
-      alias('stroke', $.stroke)
     ),
 
     // No custos attribute
@@ -597,13 +568,11 @@ module.exports = grammar({
         alias('::', $.divisio_finalis),
         seq(
           alias(';', $.dominican_bar),
-          field('position', $.dominican_bar_position)
+          field('position', /[1-8]/)
         )
       )),
       optional(field('modifier', $._gabc_bar_modifier))
     ),
-
-    dominican_bar_position: _ => /[1-8]/,
 
     _gabc_bar_modifier: $ => choice(
       alias(token.immediate("'"), $.vertical_episema),
@@ -706,22 +675,18 @@ module.exports = grammar({
       '[',
       field('name', alias('cs', $.cs)),
       ':',
-      field('text', $.choral_sign_text),
+      field('text', /[^\]]*/),
       ']'
     ),
-
-    choral_sign_text: _ => /[^\]]*/,
 
     // [cn:nabc_code]
     _gabc_attribute_nabc_choral_sign: $ => seq(
       '[',
       field('name', alias('cn', $.cn)),
       ':',
-      field('nabc_code', $.nabc_choral_sign_code),
+      field('nabc_code', /[^\]]*/),
       ']'
     ),
-
-    nabc_choral_sign_code: _ => /[^\]]*/,
 
     // 6.4.16 Braces
     // [ob:n;size] or [ob:n{] or [ob:n}]
@@ -731,14 +696,12 @@ module.exports = grammar({
       ':',
       field('position', choice('0', '1')),
       choice(
-        seq(';', field('size', $.brace_size)),
+        seq(';', field('size', /[^\]]+/)),
         '{',
         '}'
       ),
       ']'
     ),
-
-    brace_size: _ => /[^\]]+/,
 
     // [ub:n;size] or [ub:n{] or [ub:n}]
     _gabc_attribute_brace_under: $ => seq(
@@ -747,7 +710,7 @@ module.exports = grammar({
       ':',
       field('position', choice('0', '1')),
       choice(
-        seq(';', field('size', $.brace_size)),
+        seq(';', field('size', /[^\]]+/)),
         '{',
         '}'
       ),
@@ -761,7 +724,7 @@ module.exports = grammar({
       ':',
       field('position', choice('0', '1')),
       choice(
-        seq(';', field('size', $.brace_size)),
+        seq(';', field('size', /[^\]]+/)),
         '{',
         '}'
       ),
@@ -775,7 +738,7 @@ module.exports = grammar({
       ':',
       field('position', choice('0', '1')),
       choice(
-        seq(';', field('size', $.brace_size)),
+        seq(';', field('size', /[^\]]+/)),
         '{',
         '}'
       ),
@@ -896,11 +859,9 @@ module.exports = grammar({
       '[',
       field('name', alias('alt', $.alt)),
       ':',
-      field('text', $.above_lines_text),
+      field('text', /[^\]]*/),
       ']'
     ),
-
-    above_lines_text: _ => /[^\]]*/,
 
     // 6.4.23 Verbatim TeX
     // [nv:tex_code]
@@ -908,18 +869,16 @@ module.exports = grammar({
       '[',
       field('name', alias('nv', $.nv)),
       ':',
-      field('tex_code', $.verbatim_tex_code),
+      field('tex_code', /[^\]]*/),
       ']'
     ),
-
-    verbatim_tex_code: _ => /[^\]]*/,
 
     // [gv:tex_code]
     _gabc_attribute_verbatim_glyph: $ => seq(
       '[',
       field('name', alias('gv', $.gv)),
       ':',
-      field('tex_code', $.verbatim_tex_code),
+      field('tex_code', /[^\]]*/),
       ']'
     ),
 
@@ -928,7 +887,7 @@ module.exports = grammar({
       '[',
       field('name', alias('ev', $.ev)),
       ':',
-      field('tex_code', $.verbatim_tex_code),
+      field('tex_code', /[^\]]*/),
       ']'
     ),
 

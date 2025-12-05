@@ -12,15 +12,9 @@ nabc-lines: 1;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value))))
+      name: (header_name))
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
@@ -78,15 +72,9 @@ nabc-lines: 1;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value))))
+      name: (header_name))
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
@@ -121,15 +109,9 @@ nabc-lines: 2;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value))))
+      name: (header_name))
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item

@@ -11,10 +11,7 @@ Test(gh[shape:stroke]i)
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
@@ -22,15 +19,14 @@ Test(gh[shape:stroke]i)
         (syllable_text))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))
             (gabc_neume
               pitch: (pitch_lowercase))
             (gabc_attribute
               name: (shape)
-              hint: (shape_hint
-                (stroke)))
+              hint: (stroke))
             (gabc_neume
               pitch: (pitch_lowercase))))))))
 
@@ -47,10 +43,7 @@ Test(d[cs:vi]e[cn:pu])
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
@@ -58,17 +51,15 @@ Test(d[cs:vi]e[cn:pu])
         (syllable_text))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))
             (gabc_attribute
-              name: (cs)
-              text: (choral_sign_text))
+              name: (cs))
             (gabc_neume
               pitch: (pitch_lowercase))
             (gabc_attribute
-              name: (cn)
-              nabc_code: (nabc_choral_sign_code))))))))
+              name: (cn))))))))
 
 ================================================================================
 Brace attributes
@@ -84,10 +75,7 @@ Test(d[ob:0;2mm]e[ub:1{]f[ub:1}])
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
@@ -95,12 +83,11 @@ Test(d[ob:0;2mm]e[ub:1{]f[ub:1}])
         (syllable_text))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))
             (gabc_attribute
-              name: (ob)
-              size: (brace_size))
+              name: (ob))
             (gabc_neume
               pitch: (pitch_lowercase))
             (gabc_attribute
@@ -124,10 +111,7 @@ Test(c[ll:0]d[oll:0;2mm]e[ull:1{0])
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
@@ -135,7 +119,7 @@ Test(c[ll:0]d[oll:0;2mm]e[ull:1{0])
         (syllable_text))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))
             (gabc_attribute
@@ -167,10 +151,7 @@ Test(d[oslur:0{]e[oslur:0}]f[uslur:1;2mm,1mm])
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
@@ -178,7 +159,7 @@ Test(d[oslur:0{]e[oslur:0}]f[uslur:1;2mm,1mm])
         (syllable_text))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))
             (gabc_attribute
@@ -207,10 +188,7 @@ Test(d_[oh:m+1pt]e_[uh{]f_[uh}])
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
@@ -218,7 +196,7 @@ Test(d_[oh:m+1pt]e_[uh{]f_[uh}])
         (syllable_text))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase)
               extra_symbol: (gabc_extra_symbol
@@ -253,10 +231,7 @@ Test(d[alt:*]e[nv:\test]f[gv:\code]g[ev:\elem])
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
@@ -264,24 +239,20 @@ Test(d[alt:*]e[nv:\test]f[gv:\code]g[ev:\elem])
         (syllable_text))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))
             (gabc_attribute
-              name: (alt)
-              text: (above_lines_text))
+              name: (alt))
             (gabc_neume
               pitch: (pitch_lowercase))
             (gabc_attribute
-              name: (nv)
-              tex_code: (verbatim_tex_code))
+              name: (nv))
             (gabc_neume
               pitch: (pitch_lowercase))
             (gabc_attribute
-              name: (gv)
-              tex_code: (verbatim_tex_code))
+              name: (gv))
             (gabc_neume
               pitch: (pitch_lowercase))
             (gabc_attribute
-              name: (ev)
-              tex_code: (verbatim_tex_code))))))))
+              name: (ev))))))))

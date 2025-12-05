@@ -13,16 +13,13 @@ name: Punctum quadratum;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))
             (gabc_neume
@@ -67,16 +64,13 @@ name: Punctum inclinatum;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_uppercase))
             (gabc_neume
@@ -107,16 +101,13 @@ name: Inclinatum leaning;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_uppercase)
               leaning: (left_leaning))
@@ -142,16 +133,13 @@ name: Oriscus;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase)
               shape: (oriscus))
@@ -182,16 +170,13 @@ name: Virga;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase)
               shape: (virga))
@@ -214,16 +199,13 @@ name: Virga reversa;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase)
               shape: (virga_reversa))
@@ -246,16 +228,13 @@ name: Bivirga trivirga;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase)
               shape: (bivirga))
@@ -278,16 +257,13 @@ name: Strophae;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase)
               shape: (stropha))
@@ -315,16 +291,13 @@ name: Cavum;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase)
               shape: (cavum))
@@ -353,16 +326,13 @@ name: Liquescent;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase)
               liquescence: (deminutus))
@@ -388,16 +358,13 @@ name: Linea;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase)
               shape: (linea))
@@ -420,16 +387,13 @@ name: Mixed neumes;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))
             (gabc_neume
