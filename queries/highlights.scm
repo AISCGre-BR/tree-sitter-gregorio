@@ -1,63 +1,40 @@
-; highlights.scm - Syntax highlighting for GABC+NABC notation
-; Tree-sitter query file for Gregorian chant notation
-
 ; ============================================================================
-; COMMENTS
+; TREE-SITTER HIGHLIGHTING QUERIES FOR GABC+NABC
 ; ============================================================================
-
-(comment) @comment
+; Queries compatible with the refactored grammar (v0.3.0+)
+; Based on actual nodes from grammar.js after anonymous rule changes
 
 ; ============================================================================
 ; HEADERS
 ; ============================================================================
 
 (header_name) @property
-(header
-  terminator: _ @punctuation.delimiter)
+(section_separator) @punctuation.special
 
 ; ============================================================================
-; PUNCTUATION AND DELIMITERS
+; GABC NOTATION - PITCHES
 ; ============================================================================
 
-["(" ")" "{" "}" "[" "]"] @punctuation.bracket
-["|" ":" ";" "," "."] @punctuation.delimiter
-["%" "%%"] @punctuation.special
-
-; ============================================================================
-; GABC NOTATION - PITCHES AND NOTES
-; ============================================================================
-
-; Pitch letters (lowercase for quadratum, uppercase for inclinatum)
 (pitch_lowercase) @constant.builtin
-(pitch_uppercase) @constant.builtin.italic
+(pitch_uppercase) @constant.builtin
 
 ; ============================================================================
 ; GABC NOTATION - CLEFS
 ; ============================================================================
 
-(c_clef
-  name: _ @keyword.directive
-  position: _ @number)
-
-(f_clef
-  name: _ @keyword.directive
-  position: _ @number)
-
-(c_clef_flat
-  name: _ @keyword.directive
-  position: _ @number)
-
-(f_clef_flat
-  name: _ @keyword.directive
-  position: _ @number)
+(c_clef) @keyword.directive
+(f_clef) @keyword.directive
+(c_clef_flat) @keyword.directive
+(clef_position) @number
 
 ; ============================================================================
-; GABC NOTATION - BARS AND SEPARATORS
+; GABC NOTATION - SEPARATION BARS
 ; ============================================================================
 
-; Bar types
 (virgula) @punctuation.special
+(virgula_upper_ledger_line) @punctuation.special
 (divisio_minimis) @punctuation.special
+(divisio_minimis_upper_ledger_line) @punctuation.special
 (divisio_minima) @punctuation.special
 (divisio_minor) @punctuation.special
 (divisio_maior) @punctuation.special
@@ -65,19 +42,25 @@
 (divisio_finalis) @punctuation.special
 (dominican_bar) @punctuation.special
 
+; Bar modifiers
+(vertical_episema) @attribute
+(brace) @punctuation.bracket
+
 ; ============================================================================
-; GABC NOTATION - LINE BREAKS AND CUSTOS
+; GABC NOTATION - CUSTOS
+; ============================================================================
+
+(custos_auto_pitch) @keyword.directive
+(custos_symbol) @keyword.directive
+(force_custos) @keyword.control
+(disable_custos) @keyword.control
+
+; ============================================================================
+; GABC NOTATION - LINE BREAKS
 ; ============================================================================
 
 (justified_line_break) @keyword.control
 (ragged_line_break) @keyword.control
-(force_custos) @keyword.control
-(disable_custos) @keyword.control
-
-(custos_auto_pitch) @keyword.directive
-(custos
-  symbol: _ @keyword.directive
-  pitch: _ @constant.builtin)
 
 ; ============================================================================
 ; GABC NOTATION - SPACING
@@ -85,288 +68,270 @@
 
 (small_neume_separation) @punctuation.delimiter
 (medium_neume_separation) @punctuation.delimiter
-(large_neume_separation) @punctuation.special
-(large_unbreakable_neume_separation) @punctuation.special
+(large_space) @punctuation.delimiter
+(large_unbreakable_space) @punctuation.delimiter
 (half_space_same_neume) @punctuation.delimiter
 (small_space_same_neume) @punctuation.delimiter
 (zero_space) @punctuation.delimiter
+(scaled_large_neume_separation) @punctuation.delimiter
 
 ; ============================================================================
 ; GABC NOTATION - ALTERATIONS
 ; ============================================================================
 
-(natural_alteration) @operator
-(flat_alteration) @operator
-(sharp_alteration) @operator
+(natural) @operator
+(flat) @operator
+(sharp) @operator
+(natural_parenthesized) @operator
+(flat_parenthesized) @operator
+(sharp_parenthesized) @operator
+(natural_soft) @operator
+(flat_soft) @operator
+(sharp_soft) @operator
 
-; ============================================================================
-; GABC NOTATION - NEUME MODIFIERS
-; ============================================================================
-
-; Episema
-(episema_below) @attribute
-(episema_above) @attribute
-(episema_disable_bridging) @attribute
-(episema_small_left) @attribute
-(episema_small_center) @attribute
-(episema_small_right) @attribute
-
-; Ictus
-(ictus_simple) @attribute
-(ictus_vertical) @attribute
-(ictus_horizontal) @attribute
-
-; Punctum mora
-(punctum_mora_single) @attribute
-(punctum_mora_double) @attribute
+; Musica ficta
+(musica_ficta_natural) @operator
+(musica_ficta_flat) @operator
+(musica_ficta_sharp) @operator
 
 ; ============================================================================
 ; GABC NOTATION - EXTRA SYMBOLS
 ; ============================================================================
 
-(asterisk) @operator
-(cross_simple) @operator
-(maltese_cross) @operator
-(cross_accent) @operator
-(r_symbol) @keyword.directive
-(v_symbol) @keyword.directive
-(a_symbol) @keyword.directive
+; Punctum mora
+(punctum_mora) @attribute
+
+; Ictus
+(ictus) @attribute
+(always_below) @attribute
+(always_above) @attribute
+
+; Episema
+(episema) @attribute
+(below_note) @attribute
+(above_note) @attribute
+(disable_bridging) @attribute
+(small_left) @attribute
+(small_center) @attribute
+(small_right) @attribute
+
+; Accents above staff
+(accent_above_staff) @operator
+(accent_grave_above_staff) @operator
+(circle_above_staff) @operator
+(lower_semicircle_above_staff) @operator
+(upper_semicircle_above_staff) @operator
+
+; ============================================================================
+; GABC NOTATION - NEUME SHAPES
+; ============================================================================
+
+; Basic shapes
+(oriscus) @type
+(oriscus_scapus) @type
+(quilisma) @type
+(quilisma_quadratum) @type
+(quadratum) @type
+(virga) @type
+(virga_reversa) @type
+(bivirga) @type
+(trivirga) @type
+(stropha) @type
+(distropha) @type
+(tristropha) @type
+(linea) @type
+(cavum) @type
+(punctum_linea) @type
+(cavum_linea) @type
+
+; Initio debilis
+(initio_debilis) @type
+
+; Liquescence
+(deminutus) @type
+(augmented) @type
+(diminished) @type
+
+; Orientation
+(upwards) @keyword
+(downwards) @keyword
+
+; Leaning
+(left_leaning) @keyword
+(right_leaning) @keyword
+(non_leaning) @keyword
 
 ; ============================================================================
 ; GABC NOTATION - ATTRIBUTES
 ; ============================================================================
 
-(gabc_attribute
-  name: _ @attribute)
+; Shape & stroke
+(shape) @keyword.directive
+(stroke) @keyword.directive
 
-; Shape hints
-(stroke) @constant.builtin
+; Custos control
+(nocustos) @keyword.control
 
-; Choral signs and NABC codes
-(cs) @attribute
-(cn) @attribute
+; Choral signs
+(cs) @keyword.directive
+(cn) @keyword.directive
 
 ; Braces
-(ob) @attribute
-(ub) @attribute
-(ocb) @attribute
-(ocba) @attribute
+(ob) @keyword.directive
+(ub) @keyword.directive
+(ocb) @keyword.directive
+(ocba) @keyword.directive
+
+; Stem length
+(ll) @keyword.directive
 
 ; Ledger lines
-(ll) @attribute
-(ul) @attribute
+(oll) @keyword.directive
+(ull) @keyword.directive
 
 ; Slurs
-(olS) @attribute
-(ulS) @attribute
+(oslur) @keyword.directive
+(uslur) @keyword.directive
 
 ; Horizontal episema
-(oh) @attribute
-(uh) @attribute
+(oh) @keyword.directive
+(uh) @keyword.directive
+(episema_position) @string
 
 ; Above lines text
-(alt) @attribute
+(alt) @keyword.directive
 
-; Verbatim TeX
-(nv) @attribute
-(gv) @attribute
-(ev) @attribute
-(ocp) @attribute
-(ocb) @attribute
-
-; No custos
-(nocustos) @attribute
+; Verbatim
+(nv) @keyword.directive
+(gv) @keyword.directive
+(ev) @keyword.directive
 
 ; ============================================================================
-; GABC NOTATION - LIQUESCENCE
-; ============================================================================
-
-(initiodebilis) @attribute
-(initiodebilis_2) @attribute
-(auctusdescendens) @attribute
-(auctusascendens) @attribute
-(quilismaauctusdescendens) @attribute
-(quilismaauctusascendens) @attribute
-(oriscusauctusdescendens) @attribute
-(oriscusauctusascendens) @attribute
-(diminutive) @attribute
-
-; ============================================================================
-; LYRICS - STYLE TAGS
-; ============================================================================
-
-; Style tag markers
-(syllable_style_bold) @tag
-(syllable_style_italic) @tag
-(syllable_style_colored) @tag
-(syllable_style_small_caps) @tag
-(syllable_style_teletype) @tag
-(syllable_style_underline) @tag
-
-; ============================================================================
-; LYRICS - CONTROL TAGS
-; ============================================================================
-
-(syllable_control_clear) @keyword.directive
-(syllable_control_elision) @keyword.directive
-(syllable_control_euouae) @keyword.directive
-(syllable_control_no_line_break) @keyword.directive
-(syllable_control_protrusion) @keyword.directive
-
-; ============================================================================
-; LYRICS - OTHER TAGS
-; ============================================================================
-
-(syllable_other_above_lines_text) @tag
-(syllable_other_special_character) @tag
-(syllable_other_verbatim) @tag
-
-; ============================================================================
-; LYRICS - TEXT CONTENT
+; SYLLABLE TEXT & STYLING
 ; ============================================================================
 
 (syllable_text) @string
-(syllable_translation) @string.special
-(syllable_centering) @string.special
-(syllable_escape_sequence) @string.escape
+(syllable_other_verbatim) @string.special
+(syllable_other_above_lines_text) @string.special
+(syllable_other_special_character) @string.escape
 
 ; ============================================================================
-; NABC NOTATION - GLYPH DESCRIPTORS
+; NABC - BASIC GLYPHS
 ; ============================================================================
 
-; Basic glyphs (St. Gall and Laon)
-(virga) @constant.builtin
-(punctum) @constant.builtin
-(tractulus) @constant.builtin
-(clivis) @constant.builtin
-(pes) @constant.builtin
-(torculus) @constant.builtin
-(porrectus) @constant.builtin
-(climacus) @constant.builtin
-(scandicus) @constant.builtin
-(salicus) @constant.builtin
-(pressus) @constant.builtin
+; Single note glyphs
+(punctum) @constant
+(virga) @constant
+(tractulus) @constant
+(gravis) @constant
 
-; Laon-specific glyphs
-(bivirga) @constant.builtin
-(trivirga) @constant.builtin
-(distropha) @constant.builtin
-(tristropha) @constant.builtin
-(strophicus) @constant.builtin
-(oriscus) @constant.builtin
-(quilisma) @constant.builtin
-
-; Additional complex glyphs
-(torculus_resupinus) @constant.builtin
-(pes_subpunctis) @constant.builtin
-(pes_subbipunctis) @constant.builtin
-(porrectus_flexus) @constant.builtin
-(torculus_liquescens) @constant.builtin
+; Compound glyphs
+(clivis) @constant
+(pes) @constant
+(porrectus) @constant
+(torculus) @constant
+(climacus) @constant
+(scandicus) @constant
+(porrectus_flexus) @constant
+(scandicus_flexus) @constant
+(torculus_resupinus) @constant
+(trigonus) @constant
+(pressus_maior) @constant
+(pressus_minor) @constant
+(virga_strata) @constant
+(salicus) @constant
+(pes_quassus) @constant
+(pes_stratus) @constant
+(nihil) @constant
+(uncinus) @constant
+(oriscus_clivis) @constant
 
 ; ============================================================================
-; NABC NOTATION - MODIFIERS
+; NABC - MODIFIERS
 ; ============================================================================
 
-; Glyph modifiers with semantic aliases
-(mark_modification) @attribute
-(grouping_modification) @attribute
-(melodic_modification) @attribute
-(episema_addition) @attribute
-(augmentive_liquescence) @attribute
-(diminutive_liquescence) @attribute
+(mark_modification) @keyword
+(grouping_modification) @keyword
+(melodic_modification) @keyword
+(augmentive_liquescence) @type
+(diminutive_liquescence) @type
+(variant_number) @number
 
 ; ============================================================================
-; NABC NOTATION - PITCH DESCRIPTORS
+; NABC - SUBPUNCTIS/PREPUNCTIS
 ; ============================================================================
 
-(pitch_descriptor_altius) @operator
-(pitch_descriptor_finalis) @operator
-(pitch_descriptor_normal) @operator
+(subpunctis) @keyword
+(prepunctis) @keyword
+(tractulus_episema) @constant
+(tractulus_double_episema) @constant
+(gravis_episema) @constant
+(quilisma) @constant
+(liquescens_stropha_cephalicus) @constant
+(repetition_count) @number
 
 ; ============================================================================
-; NABC NOTATION - SPACING
+; NABC - STRUCTURE
 ; ============================================================================
 
+(nabc_glyph_descriptor) @type
+(nabc_glyph_fusion) @type
+(pitch_descriptor) @constant
+
+; NABC spacing
 (larger_space_right) @punctuation.delimiter
 (inter_element_space_right) @punctuation.delimiter
 (larger_space_left) @punctuation.delimiter
 (inter_element_space_left) @punctuation.delimiter
 
 ; ============================================================================
-; NABC NOTATION - SUBPUNCTIS AND PREPUNCTIS
+; NABC - SIGNIFICANT LETTERS (Performance indications)
 ; ============================================================================
 
-(subpunctis_descriptor
-  modifier: _ @attribute)
-
-(prepunctis_descriptor
-  modifier: _ @attribute)
-
-; Specific modifiers
-(tractulus) @attribute
-(tractulus_episema) @attribute
-(tractulus_double_episema) @attribute
-(gravis) @attribute
-(gravis_episema) @attribute
-(liquescens_stropha_cephalicus) @attribute
-(uncinus) @attribute
-(laon_quilisma) @attribute
-(laon_virga) @attribute
-
-; ============================================================================
-; NABC NOTATION - SIGNIFICANT LETTERS
-; ============================================================================
-
-; St. Gall shorthands (examples of common ones)
-(altius) @keyword.modifier
-(celeriter) @keyword.modifier
-(tenere) @keyword.modifier
-(levare) @keyword.modifier
-(deprimere) @keyword.modifier
-(equaliter) @keyword.modifier
-(inferius) @keyword.modifier
-(superius) @keyword.modifier
-
-; Laon shorthands
-(augete) @keyword.modifier
-(humiliter) @keyword.modifier
-(mediocriter) @keyword.modifier
-(levate) @keyword.modifier
-
-; Tironian notes
-(iusum) @keyword.modifier
-(deorsum) @keyword.modifier
-(sursum) @keyword.modifier
-
-; Generic significant letter and tironian letter
-(significant_letter) @keyword.modifier
-(tironian_letter) @keyword.modifier
+(augete) @keyword
+(altius) @keyword
+(altius_mediocriter) @keyword
+(bene) @keyword
+(celeriter) @keyword
+(celeriter_mediocriter) @keyword
+(coniunguntur) @keyword
+(celeriter_wide) @keyword
+(deprimatur) @keyword
+(equaliter) @keyword
+(equaliter_eq) @keyword
+(equaliter_dash) @keyword
+(equaliter_equ) @keyword
+(equaliter_wide) @keyword
+(fastigium) @keyword
+(fideliter) @keyword
+(frendor) @keyword
+(gutture) @keyword
+(humiliter) @keyword
+(humiliter_nectum) @keyword
+(humiliter_parum) @keyword
+(iusum) @keyword
+(iusum_mediocriter) @keyword
+(iusum_valde) @keyword
+(klenche) @keyword
+(levare) @keyword
+(levare_bene) @keyword
+(levare_celeriter) @keyword
+(leniter) @keyword
+(levare_mediocriter) @keyword
+(levare_parvum) @keyword
+(levare_tenere) @keyword
+(mediocriter) @keyword
+(mediocriter_md) @keyword
+(molliter) @keyword
+(non_tenere_negare_nectum_naturaliter) @keyword
+(non_levare) @keyword
+(non_tenere) @keyword
+(parvum) @keyword
+(paratim) @keyword
+(perfecte) @keyword
 
 ; ============================================================================
-; NABC NOTATION - FIELDS
+; COMMENTS
 ; ============================================================================
 
-; Position numbers in descriptors
-(position_number) @number
-
-; ============================================================================
-; OPERATORS
-; ============================================================================
-
-; Neume fusion operator
-"@" @operator
-
-; Glyph fusion operator (NABC)
-"&" @operator
-
-; ============================================================================
-; STRINGS AND NUMBERS
-; ============================================================================
-
-(header
-  value: _ @string)
-
-; Numbers in various contexts
-[
-  (syllable_control_protrusion)
-] @number
+(comment) @comment
