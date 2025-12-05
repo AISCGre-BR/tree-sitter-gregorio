@@ -19,8 +19,6 @@ module.exports = grammar({
     [$.gabc_separation_bar, $.nabc_horizontal_spacing_adjustment],
     // NABC complex glyph descriptor can have ambiguities with subpunctis/prepunctis sequences
     [$.nabc_complex_glyph_descriptor],
-    // NABC subpunctis/prepunctis sequence can have repetition ambiguities
-    [$.nabc_subpunctis_prepunctis_sequence],
     // NABC significant letter sequence can have repetition ambiguities
     [$.nabc_significant_letter_sequence],
     // St. Gall and Laon significant letter shorthands can overlap
@@ -966,7 +964,7 @@ module.exports = grammar({
     nabc_complex_glyph_descriptor: $ => seq(
       optional($.nabc_horizontal_spacing_adjustment),
       choice($.nabc_glyph_descriptor, $.nabc_glyph_fusion),
-      optional($.nabc_subpunctis_prepunctis_sequence),
+      repeat($.nabc_subpunctis_prepunctis_descriptor),
       optional($.nabc_significant_letter_sequence)
     ),
 
@@ -1038,18 +1036,28 @@ module.exports = grammar({
     // Pitch descriptor: h followed by pitch letter
     pitch_descriptor: $ => seq('h', field('pitch', $.pitch_lowercase)),
 
-    // Subpunctis and prepunctis sequence
-    nabc_subpunctis_prepunctis_sequence: $ => repeat1($.nabc_subpunctis_prepunctis_descriptor),
-
     // Subpunctis or prepunctis descriptor
     nabc_subpunctis_prepunctis_descriptor: $ => seq(
-      choice('su', 'pp'),
-      optional($.nabc_subpunctis_modifier),
-      /[1-9]/
+      field('type', choice(
+        alias('su', $.subpunctis),
+        alias('pp', $.prepunctis)
+      )),
+      optional(field('modifier', choice(
+        // St. Gall modifiers
+        alias('t', $.tractulus),
+        alias('u', $.tractulus_episema),
+        alias('v', $.tractulus_double_episema),
+        alias('w', $.gravis),
+        alias('y', $.gravis_episema),
+        // Laon modifiers
+        alias('n', $.uncinus),
+        alias('q', $.quilisma),
+        alias('z', $.virga),
+        // Shared modifiers
+        alias('x', $.liquescens_stropha_cephalicus)
+      ))),
+      field('count', alias(/[1-9]/, $.repetition_count))
     ),
-
-    // Subpunctis modifier (St. Gall: t, u, v, w, x, y; Laon: n, q, z, x)
-    nabc_subpunctis_modifier: $ => /[tuvwxynqz]/,
 
     // Significant letter sequence
     nabc_significant_letter_sequence: $ => repeat1($.nabc_significant_letter_descriptor),
