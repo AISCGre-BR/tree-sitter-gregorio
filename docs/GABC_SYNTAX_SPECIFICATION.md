@@ -353,7 +353,12 @@ Bars can also take the following characters for additional symbols:
 
 ### Clefs
 
-The syntax for a clef is a letter corresponding to the clef symbol, `c` or `f`, followed optionally by `b` if the clef should have a flat, followed by a number from `1` up to the number of staff lines indicating the line on which the clef is typeset.
+The syntax for a clef is a letter corresponding to the clef symbol, `c` or `f`, followed optionally by `b` if the clef should have a flat (only supported for C-clefs: `cb1`, `cb2`, `cb3`, `cb4`), followed by a number from `1` up to the number of staff lines indicating the line on which the clef is typeset.
+
+**Supported clefs:**
+- C-clefs: `c1`, `c2`, `c3`, `c4`
+- F-clefs: `f1`, `f2`, `f3`, `f4`
+- C-clefs with flat: `cb1`, `cb2`, `cb3`, `cb4`
 
 Two clefs may be typeset at the same time by linking the two clefs with a `@`. The two clefs will be typeset in such a way that they don't collide with each other.
 
