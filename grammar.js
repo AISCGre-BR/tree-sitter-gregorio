@@ -953,6 +953,12 @@ module.exports = grammar({
       ']'
     ),
 
+    /* ========================================================================================
+
+    NABC NOTATION RULES
+
+    ======================================================================================== */
+
     // NABC snippet: sequence of complex neume descriptors
     nabc_snippet: $ => repeat1($.nabc_complex_neume_descriptor),
 
@@ -977,26 +983,54 @@ module.exports = grammar({
 
     // Glyph descriptor
     nabc_glyph_descriptor: $ => seq(
-      $.nabc_neume_code,
-      optional($.nabc_glyph_modifiers),
-      optional($.nabc_pitch_descriptor)
+      field('neume', $._nabc_neume),
+      optional(field('modifiers', $._nabc_glyph_modifiers)),
+      optional(field('pitch_descriptor', $._nabc_pitch_descriptor))
     ),
 
-    // NABC neume code (St. Gall or Laon)
-    nabc_neume_code: $ => choice(
-      'vi', 'pu', 'ta', 'gr', 'cl', 'pe', 'po', 'to', 'ci', 'sc',
-      'pf', 'sf', 'tr', 'st', 'ds', 'ts', 'tg', 'bv', 'tv', 'pr',
-      'pi', 'vs', 'or', 'sa', 'pq', 'ql', 'qi', 'pt', 'ni', 'un', 'oc'
+    // NABC neume (St. Gall or Laon neume codes with semantic aliases)
+    _nabc_neume: $ => choice(
+      alias('vi', $.virga),
+      alias('pu', $.punctum),
+      alias('ta', $.tractulus),
+      alias('gr', $.gravis),
+      alias('cl', $.clivis),
+      alias('pe', $.pes),
+      alias('po', $.porrectus),
+      alias('to', $.torculus),
+      alias('ci', $.climacus),
+      alias('sc', $.scandicus),
+      alias('pf', $.pressus_flexus),
+      alias('sf', $.scandicus_flexus),
+      alias('tr', $.tresvirga),
+      alias('st', $.strophicus),
+      alias('ds', $.distropha),
+      alias('ts', $.tristropha),
+      alias('tg', $.trigon),
+      alias('bv', $.bivirga),
+      alias('tv', $.trivirga),
+      alias('pr', $.pressus),
+      alias('pi', $.pes_initio_debilis),
+      alias('vs', $.virga_strata),
+      alias('or', $.oriscus),
+      alias('sa', $.salicus),
+      alias('pq', $.pes_quassus),
+      alias('ql', $.quilisma),
+      alias('qi', $.quilisma_pes),
+      alias('pt', $.punctum_inclinatum),
+      alias('ni', $.punctum_inclinatum_parvum),
+      alias('un', $.uncinus),
+      alias('oc', $.oriscus_cavum)
     ),
 
     // Glyph modifiers
-    nabc_glyph_modifiers: $ => seq(
+    _nabc_glyph_modifiers: $ => seq(
       repeat1(choice('S', 'G', 'M', '-', '>', '~')),
       optional(/[1-9]/)
     ),
 
     // Pitch descriptor: h followed by pitch letter
-    nabc_pitch_descriptor: $ => seq('h', /[a-np]/),
+    _nabc_pitch_descriptor: $ => seq('h', /[a-np]/),
 
     // Subpunctis and prepunctis sequence
     nabc_subpunctis_prepunctis_sequence: $ => repeat1($.nabc_subpunctis_prepunctis_descriptor),
