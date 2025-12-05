@@ -1,0 +1,200 @@
+================================================================================
+NABC glyph descriptor with modifiers and pitch
+================================================================================
+
+(c|viMhd)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (virga)
+                glyph_modifiers: (glyph_modifiers
+                  type: (melodic_modification))
+                pitch_descriptor: (pitch_descriptor
+                  pitch: (pitch_lowercase))))))))))
+
+================================================================================
+NABC glyph descriptor with multiple modifiers and pitch
+================================================================================
+
+(c|clSG-hg)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (clivis)
+                glyph_modifiers: (glyph_modifiers
+                  type: (mark_modification)
+                  type: (grouping_modification)
+                  type: (episema))
+                pitch_descriptor: (pitch_descriptor
+                  pitch: (pitch_lowercase))))))))))
+
+================================================================================
+NABC glyph descriptor with modifiers, variant and pitch
+================================================================================
+
+(c|peM2ha)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (pes)
+                glyph_modifiers: (glyph_modifiers
+                  type: (melodic_modification)
+                  variant: (variant_number))
+                pitch_descriptor: (pitch_descriptor
+                  pitch: (pitch_lowercase))))))))))
+
+================================================================================
+NABC glyph descriptor with liquescence modifiers and pitch
+================================================================================
+
+(c|to>~hm)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (torculus)
+                glyph_modifiers: (glyph_modifiers
+                  type: (augmentive_liquescence)
+                  type: (diminutive_liquescence))
+                pitch_descriptor: (pitch_descriptor
+                  pitch: (pitch_lowercase))))))))))
+
+================================================================================
+NABC glyph descriptor with all modifiers and pitch
+================================================================================
+
+(c|poSGM->~3hn)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (porrectus)
+                glyph_modifiers: (glyph_modifiers
+                  type: (mark_modification)
+                  type: (grouping_modification)
+                  type: (melodic_modification)
+                  type: (episema)
+                  type: (augmentive_liquescence)
+                  type: (diminutive_liquescence)
+                  variant: (variant_number))
+                pitch_descriptor: (pitch_descriptor
+                  pitch: (pitch_lowercase))))))))))
+
+================================================================================
+NABC multiple glyph descriptors
+================================================================================
+
+(c|viclpo)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (virga)))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (clivis)))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (porrectus)))))))))
+
+================================================================================
+NABC multiple glyph descriptors with modifiers and pitch
+================================================================================
+
+(c|viMhdclShapeGhm)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (virga)
+                glyph_modifiers: (glyph_modifiers
+                  type: (melodic_modification))
+                pitch_descriptor: (pitch_descriptor
+                  pitch: (pitch_lowercase))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (clivis)
+                glyph_modifiers: (glyph_modifiers
+                  type: (mark_modification))
+                pitch_descriptor: (pitch_descriptor
+                  pitch: (pitch_lowercase))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (pes)
+                glyph_modifiers: (glyph_modifiers
+                  type: (grouping_modification))
+                pitch_descriptor: (pitch_descriptor
+                  pitch: (pitch_lowercase))))))))))

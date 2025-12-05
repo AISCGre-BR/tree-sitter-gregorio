@@ -1,0 +1,530 @@
+================================================================================
+NABC simple glyph fusion
+================================================================================
+
+(c|vi!pu)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_fusion
+                left: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (virga))
+                right: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (punctum))))))))))
+
+================================================================================
+NABC glyph fusion with three glyphs
+================================================================================
+
+(c|vi!pu!ta)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_fusion
+                left: (nabc_glyph_fusion
+                  left: (nabc_glyph_descriptor
+                    basic_glyph_descriptor: (virga))
+                  right: (nabc_glyph_descriptor
+                    basic_glyph_descriptor: (punctum)))
+                right: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (tractulus))))))))))
+
+================================================================================
+NABC glyph fusion with four glyphs
+================================================================================
+
+(c|cl!pe!po!to)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_fusion
+                left: (nabc_glyph_fusion
+                  left: (nabc_glyph_fusion
+                    left: (nabc_glyph_descriptor
+                      basic_glyph_descriptor: (clivis))
+                    right: (nabc_glyph_descriptor
+                      basic_glyph_descriptor: (pes)))
+                  right: (nabc_glyph_descriptor
+                    basic_glyph_descriptor: (porrectus)))
+                right: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (torculus))))))))))
+
+================================================================================
+NABC glyph fusion with pitch descriptors
+================================================================================
+
+(c|viha!puhd)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_fusion
+                left: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (virga)
+                  pitch_descriptor: (pitch_descriptor
+                    pitch: (pitch_lowercase)))
+                right: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (punctum)
+                  pitch_descriptor: (pitch_descriptor
+                    pitch: (pitch_lowercase)))))))))))
+
+================================================================================
+NABC glyph fusion with mixed pitch descriptors
+================================================================================
+
+(c|vi!puhc!tahe)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_fusion
+                left: (nabc_glyph_fusion
+                  left: (nabc_glyph_descriptor
+                    basic_glyph_descriptor: (virga))
+                  right: (nabc_glyph_descriptor
+                    basic_glyph_descriptor: (punctum)
+                    pitch_descriptor: (pitch_descriptor
+                      pitch: (pitch_lowercase))))
+                right: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (tractulus)
+                  pitch_descriptor: (pitch_descriptor
+                    pitch: (pitch_lowercase)))))))))))
+
+================================================================================
+NABC multiple fused glyphs in sequence
+================================================================================
+
+(c|vi!puta!gr)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_fusion
+                left: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (virga))
+                right: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (punctum))))
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_fusion
+                left: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (tractulus))
+                right: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (gravis))))))))))
+
+================================================================================
+NABC fusion with different glyph types
+================================================================================
+
+(c|st!ds!ts)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_fusion
+                left: (nabc_glyph_fusion
+                  left: (nabc_glyph_descriptor
+                    basic_glyph_descriptor: (stropha))
+                  right: (nabc_glyph_descriptor
+                    basic_glyph_descriptor: (distropha)))
+                right: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (tristropha))))))))))
+
+================================================================================
+NABC fusion with complex glyphs
+================================================================================
+
+(c|sc!ci!sf)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_fusion
+                left: (nabc_glyph_fusion
+                  left: (nabc_glyph_descriptor
+                    basic_glyph_descriptor: (scandicus))
+                  right: (nabc_glyph_descriptor
+                    basic_glyph_descriptor: (climacus)))
+                right: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (scandicus_flexus))))))))))
+
+================================================================================
+NABC fusion with modifiers on left glyph
+================================================================================
+
+(c|viM!pu)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_fusion
+                left: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (virga)
+                  glyph_modifiers: (glyph_modifiers
+                    type: (melodic_modification)))
+                right: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (punctum))))))))))
+
+================================================================================
+NABC fusion with modifiers on right glyph
+================================================================================
+
+(c|vi!puS)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_fusion
+                left: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (virga))
+                right: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (punctum)
+                  glyph_modifiers: (glyph_modifiers
+                    type: (mark_modification)))))))))))
+
+================================================================================
+NABC fusion with modifiers on both glyphs
+================================================================================
+
+(c|viM!puS-)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_fusion
+                left: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (virga)
+                  glyph_modifiers: (glyph_modifiers
+                    type: (melodic_modification)))
+                right: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (punctum)
+                  glyph_modifiers: (glyph_modifiers
+                    type: (mark_modification)
+                    type: (episema)))))))))))
+
+================================================================================
+NABC fusion with modifiers and pitch on left
+================================================================================
+
+(c|clS-ha!pe)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_fusion
+                left: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (clivis)
+                  glyph_modifiers: (glyph_modifiers
+                    type: (mark_modification)
+                    type: (episema))
+                  pitch_descriptor: (pitch_descriptor
+                    pitch: (pitch_lowercase)))
+                right: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (pes))))))))))
+
+================================================================================
+NABC fusion with modifiers and pitch on right
+================================================================================
+
+(c|vi!poG>hm)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_fusion
+                left: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (virga))
+                right: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (porrectus)
+                  glyph_modifiers: (glyph_modifiers
+                    type: (grouping_modification)
+                    type: (augmentive_liquescence))
+                  pitch_descriptor: (pitch_descriptor
+                    pitch: (pitch_lowercase)))))))))))
+
+================================================================================
+NABC fusion with modifiers and pitch on both glyphs
+================================================================================
+
+(c|viMhd!clS-hg)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_fusion
+                left: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (virga)
+                  glyph_modifiers: (glyph_modifiers
+                    type: (melodic_modification))
+                  pitch_descriptor: (pitch_descriptor
+                    pitch: (pitch_lowercase)))
+                right: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (clivis)
+                  glyph_modifiers: (glyph_modifiers
+                    type: (mark_modification)
+                    type: (episema))
+                  pitch_descriptor: (pitch_descriptor
+                    pitch: (pitch_lowercase)))))))))))
+
+================================================================================
+NABC fusion with variant modifiers
+================================================================================
+
+(c|peM2!toG3)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_fusion
+                left: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (pes)
+                  glyph_modifiers: (glyph_modifiers
+                    type: (melodic_modification)
+                    variant: (variant_number)))
+                right: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (torculus)
+                  glyph_modifiers: (glyph_modifiers
+                    type: (grouping_modification)
+                    variant: (variant_number)))))))))))
+
+================================================================================
+NABC triple fusion with modifiers
+================================================================================
+
+(c|viM!puS!ta-)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_fusion
+                left: (nabc_glyph_fusion
+                  left: (nabc_glyph_descriptor
+                    basic_glyph_descriptor: (virga)
+                    glyph_modifiers: (glyph_modifiers
+                      type: (melodic_modification)))
+                  right: (nabc_glyph_descriptor
+                    basic_glyph_descriptor: (punctum)
+                    glyph_modifiers: (glyph_modifiers
+                      type: (mark_modification))))
+                right: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (tractulus)
+                  glyph_modifiers: (glyph_modifiers
+                    type: (episema)))))))))))
+
+================================================================================
+NABC triple fusion with modifiers and pitch
+================================================================================
+
+(c|clMha!peSG-hd!tohm)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_fusion
+                left: (nabc_glyph_fusion
+                  left: (nabc_glyph_descriptor
+                    basic_glyph_descriptor: (clivis)
+                    glyph_modifiers: (glyph_modifiers
+                      type: (melodic_modification))
+                    pitch_descriptor: (pitch_descriptor
+                      pitch: (pitch_lowercase)))
+                  right: (nabc_glyph_descriptor
+                    basic_glyph_descriptor: (pes)
+                    glyph_modifiers: (glyph_modifiers
+                      type: (mark_modification)
+                      type: (grouping_modification)
+                      type: (episema))
+                    pitch_descriptor: (pitch_descriptor
+                      pitch: (pitch_lowercase))))
+                right: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (torculus)
+                  pitch_descriptor: (pitch_descriptor
+                    pitch: (pitch_lowercase)))))))))))
+
+================================================================================
+NABC fusion with all modifier types
+================================================================================
+
+(c|viSGM->~!puhc)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_fusion
+                left: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (virga)
+                  glyph_modifiers: (glyph_modifiers
+                    type: (mark_modification)
+                    type: (grouping_modification)
+                    type: (melodic_modification)
+                    type: (episema)
+                    type: (augmentive_liquescence)
+                    type: (diminutive_liquescence)))
+                right: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (punctum)
+                  pitch_descriptor: (pitch_descriptor
+                    pitch: (pitch_lowercase)))))))))))
