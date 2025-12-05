@@ -39,7 +39,7 @@ This project provides a [tree-sitter](https://tree-sitter.github.io/tree-sitter/
     - Liquescent variants
     - Neume modifiers (episema, ictus, dot, etc.)
     - Neume fusion with `@`
-  - **Clefs**: C-clefs (c1-c4), F-clefs (f1-f4), with flat variants (cb1-cb4, fb1-fb4)
+  - **Clefs**: C-clefs (c1-c4), F-clefs (f1-f4), with flat variant for C-clef only (cb1-cb4)
   - **Clef changes**: Single and multiple clef links (`::`)
   - **Bars**: Virgula, divisio minima/minor/maior/finalis, Dominican bars
   - **Line breaks**: Justified (`z`), ragged (`Z`), with custos modifiers (`+`, `-`)

@@ -106,7 +106,7 @@ This release marks the completion of comprehensive basic GABC notation support w
   - Bar types: `virgula`, `divisio_minima`, `divisio_minor`, `divisio_maior`, `divisio_finalis`, etc.
 
 #### Clef System Refactoring
-- Token-based clef implementation with complete strings (`c1`, `c2`, `c3`, `c4`, `f1-f4`, `cb1-cb4`, `fb1-fb4`)
+- Token-based clef implementation with complete strings (`c1`, `c2`, `c3`, `c4`, `f1-f4`, `cb1-cb4`)
 - High precedence (20) to avoid ambiguity with pitch recognition
 - Proper clef position tracking with empty string aliases
 - Full clef link support with multiple consecutive links

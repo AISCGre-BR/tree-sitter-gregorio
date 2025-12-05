@@ -44,7 +44,7 @@ The parser now uses meaningful names instead of anonymous tokens:
 #### ✅ Musical Notation
 - **19 note variations** (punctum, quilisma, oriscus, virga, etc.)
 - **22 pitched neume types** (clivis, pes, torculus, porrectus, etc.)
-- **Complete clef system**: All C-clefs (c1-c4), F-clefs (f1-f4), with flat variants
+- **Complete clef system**: All C-clefs (c1-c4), F-clefs (f1-f4), with flat variants for C-clefs (cb1-cb4)
 - **Clef changes**: Single and multiple consecutive clef links
 - **9 bar types**: From simple virgula to complex Dominican bars
 - **Line breaks**: Justified/ragged with custos modifiers

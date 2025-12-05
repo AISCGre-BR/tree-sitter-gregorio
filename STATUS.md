@@ -66,7 +66,7 @@ The tree-sitter-gregorio parser has achieved **complete basic GABC notation supp
 - [x] Clefs (16 types)
   - [x] C-clefs (c1-c4)
   - [x] F-clefs (f1-f4)
-  - [x] Flat variants (cb1-cb4, fb1-fb4)
+  - [x] Flat variants for C-clef (cb1-cb4)
 - [x] Clef changes/links
 - [x] Bars (9 types)
   - [x] Virgula, divisio types
