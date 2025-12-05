@@ -1,0 +1,317 @@
+================================================================================
+NABC spacing larger space right
+================================================================================
+
+(c|ta//vi)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (tractulus)))
+            (nabc_complex_glyph_descriptor
+              (nabc_spacing
+                type: (larger_space_right))
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (virga)))))))))
+
+================================================================================
+NABC spacing inter element space right
+================================================================================
+
+(c|ta/pu)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (tractulus)))
+            (nabc_complex_glyph_descriptor
+              (nabc_spacing
+                type: (inter_element_space_right))
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (punctum)))))))))
+
+================================================================================
+NABC spacing larger space left
+================================================================================
+
+(c|``cl)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_spacing
+                type: (larger_space_left))
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (clivis)))))))))
+
+================================================================================
+NABC spacing inter element space left
+================================================================================
+
+(c|`pe)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_spacing
+                type: (inter_element_space_left))
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (pes)))))))))
+
+================================================================================
+NABC multiple spacing same type
+================================================================================
+
+(c|ta////po)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (tractulus)))
+            (nabc_complex_glyph_descriptor
+              (nabc_spacing
+                type: (larger_space_right))
+              (nabc_spacing
+                type: (larger_space_right))
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (porrectus)))))))))
+
+================================================================================
+NABC multiple spacing different types
+================================================================================
+
+(c|ta//`/to)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (tractulus)))
+            (nabc_complex_glyph_descriptor
+              (nabc_spacing
+                type: (larger_space_right))
+              (nabc_spacing
+                type: (inter_element_space_left))
+              (nabc_spacing
+                type: (inter_element_space_right))
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (torculus)))))))))
+
+================================================================================
+NABC spacing with modifiers
+================================================================================
+
+(c|ta//viM)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (tractulus)))
+            (nabc_complex_glyph_descriptor
+              (nabc_spacing
+                type: (larger_space_right))
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (virga)
+                glyph_modifiers: (glyph_modifiers
+                  type: (melodic_modification))))))))))
+
+================================================================================
+NABC spacing with pitch descriptor
+================================================================================
+
+(c|ta/clhd)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (tractulus)))
+            (nabc_complex_glyph_descriptor
+              (nabc_spacing
+                type: (inter_element_space_right))
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (clivis)
+                pitch_descriptor: (pitch_descriptor
+                  pitch: (pitch_lowercase))))))))))
+
+================================================================================
+NABC spacing with glyph fusion
+================================================================================
+
+(c|ta//vi!pu)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (tractulus)))
+            (nabc_complex_glyph_descriptor
+              (nabc_spacing
+                type: (larger_space_right))
+              (nabc_glyph_fusion
+                left: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (virga))
+                right: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (punctum))))))))))
+
+================================================================================
+NABC spacing with subpunctis
+================================================================================
+
+(c|ta/pesu2)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (tractulus)))
+            (nabc_complex_glyph_descriptor
+              (nabc_spacing
+                type: (inter_element_space_right))
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (pes))
+              (nabc_subpunctis_prepunctis_descriptor
+                type: (subpunctis)
+                count: (repetition_count)))))))))
+
+================================================================================
+NABC complex spacing sequence
+================================================================================
+
+(c|ta//`/``viMhd!clS-su2pp1)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          first: (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase)))
+          alternate: (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                basic_glyph_descriptor: (tractulus)))
+            (nabc_complex_glyph_descriptor
+              (nabc_spacing
+                type: (larger_space_right))
+              (nabc_spacing
+                type: (inter_element_space_left))
+              (nabc_spacing
+                type: (inter_element_space_right))
+              (nabc_spacing
+                type: (larger_space_left))
+              (nabc_glyph_fusion
+                left: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (virga)
+                  glyph_modifiers: (glyph_modifiers
+                    type: (melodic_modification))
+                  pitch_descriptor: (pitch_descriptor
+                    pitch: (pitch_lowercase)))
+                right: (nabc_glyph_descriptor
+                  basic_glyph_descriptor: (clivis)
+                  glyph_modifiers: (glyph_modifiers
+                    type: (mark_modification)
+                    type: (episema))))
+              (nabc_subpunctis_prepunctis_descriptor
+                type: (subpunctis)
+                count: (repetition_count))
+              (nabc_subpunctis_prepunctis_descriptor
+                type: (prepunctis)
+                count: (repetition_count)))))))))

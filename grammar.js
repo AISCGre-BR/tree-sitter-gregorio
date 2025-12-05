@@ -13,10 +13,10 @@ module.exports = grammar({
     [$._gabc_line_break],
     // `gabc_snippet` can have repetition ambiguities with symbols
     [$.gabc_snippet],
-    // Spacing and NABC horizontal spacing can conflict with '/' characters
-    [$.gabc_spacing, $.nabc_horizontal_spacing_adjustment],
-    // Bar (including virgula '`') and NABC horizontal spacing can conflict
-    [$.gabc_separation_bar, $.nabc_horizontal_spacing_adjustment],
+    // Spacing and NABC spacing can conflict with '/' characters
+    [$.gabc_spacing, $.nabc_spacing],
+    // Bar (including virgula '`') and NABC spacing can conflict
+    [$.gabc_separation_bar, $.nabc_spacing],
     // NABC complex glyph descriptor can have ambiguities with subpunctis/prepunctis sequences
     [$.nabc_complex_glyph_descriptor],
     // NABC significant letter sequence can have repetition ambiguities
@@ -962,14 +962,19 @@ module.exports = grammar({
 
     // Complex glyph descriptor
     nabc_complex_glyph_descriptor: $ => seq(
-      optional($.nabc_horizontal_spacing_adjustment),
+      repeat($.nabc_spacing),
       choice($.nabc_glyph_descriptor, $.nabc_glyph_fusion),
       repeat($.nabc_subpunctis_prepunctis_descriptor),
       optional($.nabc_significant_letter_sequence)
     ),
 
-    // Horizontal spacing adjustment
-    nabc_horizontal_spacing_adjustment: $ => repeat1(choice('//', '/', '``', '`')),
+    // NABC spacing
+    nabc_spacing: $ => field('type', choice(
+      alias('//', $.larger_space_right),
+      alias('/', $.inter_element_space_right),
+      alias('``', $.larger_space_left),
+      alias('`', $.inter_element_space_left)
+    )),
 
     // Glyph descriptor
     nabc_glyph_descriptor: $ => seq(
