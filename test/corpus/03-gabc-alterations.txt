@@ -13,16 +13,13 @@ name: Flat;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_alteration
               pitch: (pitch_lowercase)
               alteration: (flat))))))))
@@ -42,16 +39,13 @@ name: Natural;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_alteration
               pitch: (pitch_lowercase)
               alteration: (natural))))))))
@@ -71,16 +65,13 @@ name: Sharp;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_alteration
               pitch: (pitch_lowercase)
               alteration: (sharp))))))))
@@ -100,16 +91,13 @@ name: Mixed alterations;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_alteration
               pitch: (pitch_lowercase)
               alteration: (flat))
@@ -137,16 +125,13 @@ name: Soft flat;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_alteration
               pitch: (pitch_lowercase)
               alteration: (flat_soft))))))))
@@ -166,16 +151,13 @@ name: Soft natural;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_alteration
               pitch: (pitch_lowercase)
               alteration: (natural_soft))))))))
@@ -195,16 +177,13 @@ name: Soft sharp;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_alteration
               pitch: (pitch_lowercase)
               alteration: (sharp_soft))))))))
@@ -224,16 +203,13 @@ name: Flat with parentheses;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_alteration
               pitch: (pitch_lowercase)
               alteration: (flat_parenthesized))))))))
@@ -253,16 +229,13 @@ name: Natural with parentheses;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_alteration
               pitch: (pitch_lowercase)
               alteration: (natural_parenthesized))))))))
@@ -282,16 +255,13 @@ name: Sharp with parentheses;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_alteration
               pitch: (pitch_lowercase)
               alteration: (sharp_parenthesized))))))))

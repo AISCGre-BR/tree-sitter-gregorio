@@ -15,92 +15,89 @@ name: Style tags test;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (syllable
         (syllable_style_bold
-          (syllable
+          content: (syllable
             (syllable_text))))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_style_italic
-          (syllable
+          content: (syllable
             (syllable_text))))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_style_small_caps
-          (syllable
+          content: (syllable
             (syllable_text))))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_style_teletype
-          (syllable
+          content: (syllable
             (syllable_text)))
         (syllable_text))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_style_colored
-          (syllable
+          content: (syllable
             (syllable_text))))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_style_underline
-          (syllable
+          content: (syllable
             (syllable_text))))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_style_small_caps
-          (syllable
+          content: (syllable
             (syllable_text))))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_style_teletype
-          (syllable
+          content: (syllable
             (syllable_text)))
         (syllable_text))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))))))))
 
@@ -119,41 +116,38 @@ name: Syllable controls test;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (syllable
         (syllable_control_elision
-          (syllable
+          content: (syllable
             (syllable_text))))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_control_clear)
         (syllable_control_euouae
-          (syllable
+          content: (syllable
             (syllable_text))))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_control_no_line_break
-          (syllable
+          content: (syllable
             (syllable_text))))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))))))
     (notation_item
@@ -162,16 +156,15 @@ name: Syllable controls test;
         (syllable_text))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
-        (syllable_control_protrusion
-          (syllable_control_protrusion_value)))
+        (syllable_control_protrusion))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))))))))
 
@@ -190,39 +183,35 @@ name: Syllable other test;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (syllable
         (syllable_other_above_lines_text
-          (syllable
+          content: (syllable
             (syllable_text))))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_other_special_character
-          (syllable
+          content: (syllable
             (syllable_text))))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
-        (syllable_other_verbatim
-          (syllable_verbatim_text)))
+        (syllable_other_verbatim))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))))))
     (notation_item
@@ -230,7 +219,7 @@ name: Syllable other test;
         (syllable_text))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))))))))
 
@@ -249,20 +238,16 @@ Q{ui}(f)a(f) text[texto](g)$@end(h)
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (syllable
         (syllable_text)
-        (syllable_centering
-          (syllable_centering_text)))
+        (syllable_centering))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))))))
     (notation_item
@@ -270,17 +255,16 @@ Q{ui}(f)a(f) text[texto](g)$@end(h)
         (syllable_text))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_text)
-        (syllable_translation
-          (syllable_translation_text)))
+        (syllable_translation))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))))))
     (notation_item
@@ -289,7 +273,7 @@ Q{ui}(f)a(f) text[texto](g)$@end(h)
         (syllable_text))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))))))))
 
@@ -308,36 +292,33 @@ name: Nested tags test;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (syllable
         (syllable_style_bold
-          (syllable
+          content: (syllable
             (syllable_style_italic
-              (syllable
+              content: (syllable
                 (syllable_text)
                 (syllable_text))))))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_style_colored
-          (syllable
+          content: (syllable
             (syllable_other_special_character
-              (syllable
+              content: (syllable
                 (syllable_text)))
             (syllable_text))))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))))))))
 
@@ -356,63 +337,54 @@ name: Verbatim test;
 (source_file
   (header_section
     (header
-      name: (header_name)
-      value: (header_value
-        (single_line_header_value_terminated
-          (single_line_header_value)))))
+      name: (header_name)))
   (section_separator)
   (notation_section
     (notation_item
       (syllable
-        (syllable_other_verbatim
-          (syllable_verbatim_text)))
+        (syllable_other_verbatim))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
-        (syllable_other_verbatim
-          (syllable_verbatim_text)))
+        (syllable_other_verbatim))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
-        (syllable_other_verbatim
-          (syllable_verbatim_text)))
+        (syllable_other_verbatim))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
-        (syllable_other_verbatim
-          (syllable_verbatim_text)))
+        (syllable_other_verbatim))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
-        (syllable_other_verbatim
-          (syllable_verbatim_text)))
+        (syllable_other_verbatim))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
-        (syllable_other_verbatim
-          (syllable_verbatim_text)))
+        (syllable_other_verbatim))
       (note_group
         (snippet_list
-          single: (gabc_snippet
+          (gabc_snippet
             (gabc_neume
               pitch: (pitch_lowercase))))))))
