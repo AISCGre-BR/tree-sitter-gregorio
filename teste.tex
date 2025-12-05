@@ -1,0 +1,148 @@
+% !TeX program = lualatex
+\documentclass[a4paper,12pt]{article}
+
+%\usepackage[brazil]{babel}
+%\usepackage[paperwidth=\dimexpr\textwidth+0.2cm\relax,paperheight=\dimexpr\textheight+2cm\relax,text={\textwidth,\textheight}]{geometry}
+%\usepackage{ebgaramond}
+\usepackage[autocompile]{gregoriotex}
+%\usepackage{textcomp}
+%\usepackage[explicit]{titlesec}
+
+\usepackage{tikz}
+
+% Macro para desenhar círculo em torno de notas gregorianas
+% Calcula automaticamente a posição vertical baseada na altura da nota
+\makeatletter
+
+% Registra a altura da nota atual (será definida pelo GregorioTeX)
+\newdimen\gre@temp@noteheight
+
+% Macro principal do círculo
+\newcommand{\grecircle}{%
+  % Captura a altura atual do glyph (valor em raise)
+  \gre@temp@noteheight=\gre@dimen@glyphraisevalue\relax%
+  \tikz[overlay, remember picture, baseline=0pt]{%
+    % Posiciona o círculo na altura exata da nota
+    % Usa spacelinestext (distância texto-pauta) + glyphraisevalue (altura da nota na pauta)
+    \draw[red, thick] 
+      (0, \dimexpr\gre@space@dimen@spacelinestext + \gre@temp@noteheight\relax) 
+      circle [radius=0.75ex];
+  }%
+}
+\makeatother
+
+
+\begin{document}
+
+%\begin{minipage}[1]{12cm}
+%\gregorioscore{teste}
+%\end{minipage}
+
+% GR 16
+%\gresetinitiallines{0}
+%\begin{minipage}[t]{8.3cm}
+%\gabcsnippet{(f3) Dó(f)mi(fgf)ne.(kxf/e!fqhhv/i/jkIGij/hhf) (f+::c4) <sp>V/</sp>. Vi(dh)as(h) tu(hg)as,(gh)}
+%\end{minipage}
+
+% GR 43 - parte 1
+%\gresetinitiallines{0}
+%\begin{minipage}[t]{4.5cm}
+%\gabcsnippet{(c3) (gxhhvFEfgED.gyhhvFEf_gffe.) (:)}
+%\end{minipage}
+
+%\vspace{1cm}
+
+% GR 43 - parte 2
+%\gresetinitiallines{0}
+%\begin{minipage}[t]{10cm}
+%\gabcsnippet{(c3) hó(hfhGEfhFDgxgvFEf./hhh/ijHF.,gig___ivHGhe.gyf_e/g_egvFEfd)di(ed)e.(d.) (;)}
+%\end{minipage}
+
+%\vspace{1cm}
+
+% GR 233
+%\gresetinitiallines{0}
+%\begin{minipage}[t]{7cm}
+%\gabcsnippet{(c3) Dum(fh~) vé(hgh)ne(gxfgFD)rit(d.) Pa(f)rá(hgh)cli(fe)tus(ev.de!fvfe.) (;)}
+%\end{minipage}
+
+% GR 518
+%\gresetinitiallines{0}
+%\begin{minipage}[t]{8cm}
+%\gabcsnippet{(c4) De(c)si(d)dé(ff)ri(fhg)um(ghff) *(`) á(d/fffg)ni(f)m<sp>ae</sp>(f) e(fg!hv_GF)jus(gf..) (:)}
+%\end{minipage}
+
+%\vspace{1cm}
+
+% GR 15
+%\gresetinitiallines{0}
+%\begin{minipage}[t]{8cm}
+%\gabcsnippet{(c4) Ad(gd~) te(f) le(gh)vá(h)vi(g.) *(,) á(gjj)ni(h)mam(gh) me(fg)am:(ghggf.) (::)}
+%\end{minipage}
+
+%\vspace{1cm}
+
+% GR 738
+%\gresetinitiallines{0}
+%\begin{minipage}[t]{10cm}
+%\gabcsnippet{(c3) Ký(k)ri(j)e(kvJIjkh.) *(,) (kjkvJIjkh.gxkhiv.fghv.) **(,) e(gxhvFEDgf)lé(e)i(e)son.(d.) (::)}
+%\end{minipage}
+
+%\vspace{1cm}
+
+% GR 540
+%\gresetinitiallines{0}
+%\begin{minipage}[t]{11cm}
+%\gabcsnippet{(c3) Nunc(e) di(f)mít(h)tis(h) ser(h)vum(h) tu(h)um,(h) Dó(i)mi(h)ne,(h) *(:) se(h)cún(h)dum(h) ver(h)bum(h) tu(h)um(g) in(h) pa(f)ce(e.) (:)}
+%\end{minipage}
+
+%\vspace{1cm}
+
+% Psalmus 65
+%\gresetinitiallines{0}
+%\begin{minipage}[t]{11cm}
+%\gabcsnippet{(c3) In(h) ter(h)ra(h) de(h)sér(h)ta(h) et(h) á(h)ri(h)da(h) et(h) in(h)a(h)quó(h)sa,(f) +(,) sic(h) in(h) sanc(h)to(h) ap(h)pá(h)ru(h)i(h) ti(i)bi,(h.) *(:) ut(h) vi(h)dé(h)rem(h) vir(h)tú(h)tem(h) tu(h)am(h) et(h) gló(h)ri(f)am(h) tu(i)am.(h.) (::)}
+%\end{minipage}
+
+%\gresetinitiallines{0}
+%\begin{minipage}[t]{5cm}
+%\gregorioscore{teste}
+%\end{minipage}
+
+% GR 740
+%\gresetinitiallines{0}
+%\begin{minipage}[t]{4.5cm}
+%\gabcsnippet{(c4) mi(f)se(gh)ré(h)re(ixgiHGh) no(fgf___)bis.(f.) (::)}
+%\end{minipage}
+
+%\vspace{1cm}
+
+% GR 768
+%\gresetinitiallines{0}
+%\begin{minipage}[t]{8.5cm}
+%\gabcsnippet{(c4) A(g)gnus(g) De(gh)i(h.) *(,) qui(h) tol(h)lis(h) pec(g)cá(h)ta(f) mun(g)di:(h.) (,)}
+%\end{minipage}
+
+%\gresetinitiallines{0}
+%\begin{minipage}[t]{9.5cm}
+%\gabcsnippet{(c4)non(i_) con(hg~)fun(ef)dén(hi)tur,(gh/ih/ivHG') Dó(f)mi(fgf___)ne.(f.) (,_)(ef/hh/kxi.jkIGh_ihhf.)}
+%\end{minipage}
+
+%\begin{minipage}[t]{11.5cm}
+%\gabcsnippet{(c3) Sanc(g)tus,(gf..) *(,) San(g)ctus,(gf..) (,) San(e')ctus(f) Dó(g')mi(g)nus(g') De(g)us(g') Sá(g)ba(f)oth.(g.) (:)}
+%\end{minipage}
+
+\gresetinitiallines{0}
+\gabcsnippet{E(G[nv:\grecircle]) u(G1~) o(G2>[nv:\grecircle]) u(G<)}
+
+\gabcsnippet{E(gs) u(gs~) o(gs>) u(gs<)}
+
+\gabcsnippet{E(gss) u(gss~[ev:\grecircle]) o(gss>) u(gss<)}
+
+\gabcsnippet{E(go) u(go~[nv:\grecircle]) o(go>) u(go<)}
+
+\gabcsnippet{E(gO) u(gO~) o(gO>) u(gO<[nv:\grecircle])}
+
+\gabcsnippet{E(fg) u(f[nv:\grecircle]g)}
+
+\end{document}
