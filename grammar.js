@@ -975,8 +975,7 @@ module.exports = grammar({
 
     // Complex glyph descriptor
     nabc_complex_glyph_descriptor: $ => seq(
-      $.nabc_glyph_descriptor,
-      repeat(seq('!', $.nabc_glyph_descriptor)),
+      choice($.nabc_glyph_descriptor, $.nabc_glyph_fusion),
       optional(field('modifiers', $.glyph_modifiers)),
       optional($.nabc_subpunctis_prepunctis_sequence),
       optional($.nabc_significant_letter_sequence)
@@ -987,6 +986,13 @@ module.exports = grammar({
       field('neume', $._nabc_neume),
       optional(field('pitch_descriptor', $.pitch_descriptor))
     ),
+
+    // NABC glyph fusion (similar to GABC neume fusion)
+    nabc_glyph_fusion: $ => prec.left(1, seq(
+      field('left', choice($.nabc_glyph_descriptor, $.nabc_glyph_fusion)),
+      '!',
+      field('right', $.nabc_glyph_descriptor)
+    )),
 
     // NABC neume (St. Gall or Laon neume codes with semantic aliases)
     _nabc_neume: $ => choice(
