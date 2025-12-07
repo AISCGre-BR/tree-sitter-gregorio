@@ -25,7 +25,6 @@
 (c_clef) @keyword.directive
 (f_clef) @keyword.directive
 (c_clef_flat) @keyword.directive
-(clef_position) @number
 
 ; ============================================================================
 ; GABC NOTATION - SEPARATION BARS

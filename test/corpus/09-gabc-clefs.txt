@@ -17,8 +17,7 @@ name: test;
         (snippet_list
           (gabc_snippet
             (gabc_clef
-              name: (c_clef)
-              position: (clef_position))))))))
+              name: (c_clef))))))))
 
 ================================================================================
 C clef position 2
@@ -39,8 +38,7 @@ name: test;
         (snippet_list
           (gabc_snippet
             (gabc_clef
-              name: (c_clef)
-              position: (clef_position))))))))
+              name: (c_clef))))))))
 
 ================================================================================
 C clef position 3
@@ -61,8 +59,7 @@ name: test;
         (snippet_list
           (gabc_snippet
             (gabc_clef
-              name: (c_clef)
-              position: (clef_position))))))))
+              name: (c_clef))))))))
 
 ================================================================================
 C clef position 4
@@ -83,8 +80,7 @@ name: test;
         (snippet_list
           (gabc_snippet
             (gabc_clef
-              name: (c_clef)
-              position: (clef_position))))))))
+              name: (c_clef))))))))
 
 ================================================================================
 F clef position 1
@@ -105,8 +101,7 @@ name: test;
         (snippet_list
           (gabc_snippet
             (gabc_clef
-              name: (f_clef)
-              position: (clef_position))))))))
+              name: (f_clef))))))))
 
 ================================================================================
 F clef position 2
@@ -127,8 +122,7 @@ name: test;
         (snippet_list
           (gabc_snippet
             (gabc_clef
-              name: (f_clef)
-              position: (clef_position))))))))
+              name: (f_clef))))))))
 
 ================================================================================
 F clef position 3
@@ -149,8 +143,7 @@ name: test;
         (snippet_list
           (gabc_snippet
             (gabc_clef
-              name: (f_clef)
-              position: (clef_position))))))))
+              name: (f_clef))))))))
 
 ================================================================================
 F clef position 4
@@ -171,8 +164,7 @@ name: test;
         (snippet_list
           (gabc_snippet
             (gabc_clef
-              name: (f_clef)
-              position: (clef_position))))))))
+              name: (f_clef))))))))
 
 ================================================================================
 C clef with flat position 1
@@ -193,8 +185,7 @@ name: test;
         (snippet_list
           (gabc_snippet
             (gabc_clef
-              name: (c_clef_flat)
-              position: (clef_position))))))))
+              name: (c_clef_flat))))))))
 
 ================================================================================
 C clef with flat position 2
@@ -215,8 +206,7 @@ name: test;
         (snippet_list
           (gabc_snippet
             (gabc_clef
-              name: (c_clef_flat)
-              position: (clef_position))))))))
+              name: (c_clef_flat))))))))
 
 ================================================================================
 C clef with flat position 3
@@ -237,8 +227,7 @@ name: test;
         (snippet_list
           (gabc_snippet
             (gabc_clef
-              name: (c_clef_flat)
-              position: (clef_position))))))))
+              name: (c_clef_flat))))))))
 
 ================================================================================
 C clef with flat position 4
@@ -259,8 +248,7 @@ name: test;
         (snippet_list
           (gabc_snippet
             (gabc_clef
-              name: (c_clef_flat)
-              position: (clef_position))))))))
+              name: (c_clef_flat))))))))
 
 ================================================================================
 Clef link: c2 to c4
@@ -282,11 +270,9 @@ name: test;
           (gabc_snippet
             (gabc_clef_link
               left: (gabc_clef
-                name: (c_clef)
-                position: (clef_position))
+                name: (c_clef))
               right: (gabc_clef
-                name: (c_clef)
-                position: (clef_position)))))))))
+                name: (c_clef)))))))))
 
 ================================================================================
 Clef link: c2 to f2
@@ -308,11 +294,9 @@ name: test;
           (gabc_snippet
             (gabc_clef_link
               left: (gabc_clef
-                name: (c_clef)
-                position: (clef_position))
+                name: (c_clef))
               right: (gabc_clef
-                name: (f_clef)
-                position: (clef_position)))))))))
+                name: (f_clef)))))))))
 
 ================================================================================
 Clef link: f3 to c4
@@ -334,11 +318,9 @@ name: test;
           (gabc_snippet
             (gabc_clef_link
               left: (gabc_clef
-                name: (f_clef)
-                position: (clef_position))
+                name: (f_clef))
               right: (gabc_clef
-                name: (c_clef)
-                position: (clef_position)))))))))
+                name: (c_clef)))))))))
 
 ================================================================================
 Clef link: cb2 to c4
@@ -360,11 +342,9 @@ name: test;
           (gabc_snippet
             (gabc_clef_link
               left: (gabc_clef
-                name: (c_clef_flat)
-                position: (clef_position))
+                name: (c_clef_flat))
               right: (gabc_clef
-                name: (c_clef)
-                position: (clef_position)))))))))
+                name: (c_clef)))))))))
 
 ================================================================================
 Clef link: triple link c1 to c2 to c3
@@ -387,14 +367,11 @@ name: test;
             (gabc_clef_link
               left: (gabc_clef_link
                 left: (gabc_clef
-                  name: (c_clef)
-                  position: (clef_position))
+                  name: (c_clef))
                 right: (gabc_clef
-                  name: (c_clef)
-                  position: (clef_position)))
+                  name: (c_clef)))
               right: (gabc_clef
-                name: (c_clef)
-                position: (clef_position)))))))))
+                name: (c_clef)))))))))
 
 ================================================================================
 Clef link with music before
@@ -415,8 +392,7 @@ name: test;
         (snippet_list
           (gabc_snippet
             (gabc_clef
-              name: (c_clef)
-              position: (clef_position))))))
+              name: (c_clef))))))
     (notation_item
       (syllable
         (syllable_text))
@@ -425,11 +401,9 @@ name: test;
           (gabc_snippet
             (gabc_clef_link
               left: (gabc_clef
-                name: (c_clef)
-                position: (clef_position))
+                name: (c_clef))
               right: (gabc_clef
-                name: (c_clef)
-                position: (clef_position)))
+                name: (c_clef)))
             (gabc_neume
               pitch: (pitch_lowercase))))))))
 
@@ -455,11 +429,9 @@ a(c2@c4b) b(d)
           (gabc_snippet
             (gabc_clef_link
               left: (gabc_clef
-                name: (c_clef)
-                position: (clef_position))
+                name: (c_clef))
               right: (gabc_clef
-                name: (c_clef)
-                position: (clef_position)))
+                name: (c_clef)))
             (gabc_neume
               pitch: (pitch_lowercase))))))
     (notation_item
@@ -492,14 +464,11 @@ name: test;
             (gabc_clef_link
               left: (gabc_clef_link
                 left: (gabc_clef
-                  name: (f_clef)
-                  position: (clef_position))
+                  name: (f_clef))
                 right: (gabc_clef
-                  name: (c_clef)
-                  position: (clef_position)))
+                  name: (c_clef)))
               right: (gabc_clef
-                name: (c_clef_flat)
-                position: (clef_position)))))))))
+                name: (c_clef_flat)))))))))
 
 ================================================================================
 Pitch c vs Clef c3: differentiating single note from clef
@@ -520,8 +489,7 @@ name: test;
         (snippet_list
           (gabc_snippet
             (gabc_clef
-              name: (c_clef)
-              position: (clef_position))))))
+              name: (c_clef))))))
     (notation_item
       (syllable
         (syllable_text))
@@ -537,8 +505,7 @@ name: test;
         (snippet_list
           (gabc_snippet
             (gabc_clef
-              name: (c_clef)
-              position: (clef_position))))))
+              name: (c_clef))))))
     (notation_item
       (syllable
         (syllable_text))
@@ -554,5 +521,4 @@ name: test;
         (snippet_list
           (gabc_snippet
             (gabc_clef
-              name: (f_clef)
-              position: (clef_position))))))))
+              name: (f_clef))))))))
