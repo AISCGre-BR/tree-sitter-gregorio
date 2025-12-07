@@ -1,0 +1,28 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "gregorio",
+      "camelcase": "Gregorio",
+      "scope": "source.gabc",
+      "file-types": [
+        "gabc"
+      ],
+      "injection-regex": "^(gabc|gregorio)$"
+    }
+  ],
+  "metadata": {
+    "version": "0.3.0",
+    "license": "MIT",
+    "description": "Tree-sitter grammar for GABC+NABC notation (Gregorian chant)",
+    "authors": [
+      {
+        "name": "Laércio de Sousa",
+        "email": "laercio@sivali.sousa.nom.br"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/AISCGre-BR/tree-sitter-gregorio"
+    }
+  }
+}
