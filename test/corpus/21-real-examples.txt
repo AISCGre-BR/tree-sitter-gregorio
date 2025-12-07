@@ -37,8 +37,7 @@ Ký(k')ri(j)e(kvJI'jkh.) *(,) (kjkvJI'jkh.gxkhiv./[-0.5]fg!hv.) **(,) e(gxhvFE'D
         (snippet_list
           (gabc_snippet
             (gabc_clef
-              (c_clef)
-              (clef_position))))))
+              (c_clef))))))
     (notation_item
       (syllable
         (syllable_text))
@@ -648,8 +647,7 @@ E(f) u(e) o(f) u(h) a(hg) e.(h) (::)
         (snippet_list
           (gabc_snippet
             (gabc_clef
-              (f_clef)
-              (clef_position))))))
+              (f_clef))))))
     (notation_item
       (syllable
         (syllable_text))
@@ -1465,32 +1463,18 @@ E(f) u(e) o(f) u(h) a(hg) e.(h) (::)
 Alleluia: Dies Sanctificatus
 ================================================================================
 
-name: Dies sanctificatus;
-office-part: Alleluia;
-mode: 1;
-book: Graduale Romanum, 1961, p. 41;
-transcriber: Dominique Crochu;
-initial-style: 1;
+name:Dies sanctificatus;
+office-part:Alleluia;
+mode:2;
+book:Graduale Romanum, 1961, p. 34 & The Liber Usualis, 1961, p. 409 & Graduale Romanum, 1974, p. 49 & Gregorian Missal, 1990, p. 200;
+transcriber:Andrew Hinkley;
 %%
-(c4) AL(f)le(d)lú(fgf'{g}f)ia.(f.) <sp>V/</sp>.(::)
-Di(f)es(gf) san(gh)cti(h)fi(h)cá(ixh_[oh:h]ig__fvED)tus(d.) *(;)
-il(d)lú(fgf~)xit(f) no(fgf)bis :(f.) (:)
-ve(c)ní(d!ewf)te(f) gen(gh)tes,(g.) (,)
-et(g) ad(gj)o(jh)rá(ixih!jvIH'Ghih)te(h.) (,)
-Dó(h)mi(gh)num :(h.) (:)
-qui(ixhg/hih)a(gf..) (,)
-hó(h)di(h!jk)e(k.) (,)
-de(k)scén(kjjs)dit(hg..) (;)
-lux(g) ma(ixhiHF.0)gna(f.ghGF.) (,)
-su(ixfh/ig/hf)per(f) ter(fgf)ram.(f.) (::)
-Al(f)le(d)lú(fgf'{g}f)ia.(f.) (::)
+(f3) AL(e)le(f)lú(hi~){ia}.(i_[oh:h]h/iggf.) <clear>*(,) <i>ij.</i>(hv.iji./[-0.5]ef/h_f//hv.ghe/hhh.f!gwhf.) (::) <sp>V/</sp>. Di(f_e/f!gwh'!iv//jiihi)es(iv.hh/fgf.) san(fg~)cti(f)fi(f)cá(fg)tus(f.) (,) il(f)lú(fg)xit(f) no(f!hh/ijHF'ivH'GEf./hfhhf/ge)bis :(e.) (:) ve(ffe/ffe/fc..)(,)(ef!hvvF'Ehhh)ní(hi)te(h) gen(hi~)tes,(h.) (,) et(h) ad(h)o(h)rá(h)te(ivH'Gh') Dó(f)mi(f_[oh:h]g_[oh:h]f_[oh:h])num :(f.) (:) qui(f)a(f) hó(f!h'i)di(jiihi)e(iv.hh/fgf.) (,) de(f)scén(fg~)dit(f) lux(f) ma(f!hh/ijHF'ivH'GEf./hfhhf/ge)gna(e.) (;) * su(hh)per(hi~) ter(i_[oh:h]h/jij)ram.(jvvIH'GE//f!gwhf.) (::)
 
 --------------------------------------------------------------------------------
 
 (source_file
   (header_section
-    (header
-      (header_name))
     (header
       (header_name))
     (header
@@ -1508,8 +1492,7 @@ Al(f)le(d)lú(fgf'{g}f)ia.(f.) (::)
         (snippet_list
           (gabc_snippet
             (gabc_clef
-              (c_clef)
-              (clef_position))))))
+              (f_clef))))))
     (notation_item
       (syllable
         (syllable_text))
@@ -1532,91 +1515,18 @@ Al(f)le(d)lú(fgf'{g}f)ia.(f.) (::)
       (note_group
         (snippet_list
           (gabc_snippet
-            (gabc_neume
-              (pitch_lowercase))
             (gabc_neume
               (pitch_lowercase))
             (gabc_neume
               (pitch_lowercase)
-              (gabc_extra_symbol
-                (ictus)))))
-        (ERROR
-          (header_name)
-          (header_name))))
+              (deminutus))))))
     (notation_item
       (syllable
+        (syllable_centering)
         (syllable_text))
       (note_group
         (snippet_list
           (gabc_snippet
-            (gabc_neume
-              (pitch_lowercase)
-              (gabc_extra_symbol
-                (punctum_mora)))))))
-    (notation_item
-      (syllable
-        (syllable_other_special_character
-          (syllable
-            (syllable_text)))
-        (syllable_text))
-      (note_group
-        (snippet_list
-          (gabc_snippet
-            (gabc_separation_bar
-              (divisio_finalis))))))
-    (notation_item
-      (syllable
-        (syllable_text))
-      (note_group
-        (snippet_list
-          (gabc_snippet
-            (gabc_neume
-              (pitch_lowercase))))))
-    (notation_item
-      (syllable
-        (syllable_text))
-      (note_group
-        (snippet_list
-          (gabc_snippet
-            (gabc_neume
-              (pitch_lowercase))
-            (gabc_neume
-              (pitch_lowercase))))))
-    (notation_item
-      (syllable
-        (syllable_text))
-      (note_group
-        (snippet_list
-          (gabc_snippet
-            (gabc_neume
-              (pitch_lowercase))
-            (gabc_neume
-              (pitch_lowercase))))))
-    (notation_item
-      (syllable
-        (syllable_text))
-      (note_group
-        (snippet_list
-          (gabc_snippet
-            (gabc_neume
-              (pitch_lowercase))))))
-    (notation_item
-      (syllable
-        (syllable_text))
-      (note_group
-        (snippet_list
-          (gabc_snippet
-            (gabc_neume
-              (pitch_lowercase))))))
-    (notation_item
-      (syllable
-        (syllable_text))
-      (note_group
-        (snippet_list
-          (gabc_snippet
-            (gabc_alteration
-              (pitch_lowercase)
-              (flat))
             (gabc_neume
               (pitch_lowercase)
               (gabc_extra_symbol
@@ -1626,25 +1536,171 @@ Al(f)le(d)lú(fgf'{g}f)ia.(f.) (::)
               (episema_position))
             (gabc_neume
               (pitch_lowercase))
+            (gabc_spacing
+              (small_neume_separation))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase))
             (gabc_neume
               (pitch_lowercase)
               (gabc_extra_symbol
-                (episema))
+                (punctum_mora)))))))
+    (notation_item
+      (syllable
+        (syllable_control_clear)
+        (syllable_text))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_separation_bar
+              (divisio_minima))))))
+    (notation_item
+      (syllable
+        (syllable_style_italic
+          (syllable
+            (syllable_text))))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              (pitch_lowercase)
+              (virga)
+              (gabc_extra_symbol
+                (punctum_mora)))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase)
+              (gabc_extra_symbol
+                (punctum_mora)))
+            (gabc_spacing
+              (scaled_large_neume_separation))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_spacing
+              (small_neume_separation))
+            (gabc_neume
+              (pitch_lowercase)
               (gabc_extra_symbol
                 (episema)))
             (gabc_neume
+              (pitch_lowercase))
+            (gabc_spacing
+              (medium_neume_separation))
+            (gabc_neume
+              (pitch_lowercase)
+              (virga)
+              (gabc_extra_symbol
+                (punctum_mora)))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_spacing
+              (small_neume_separation))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase)
+              (gabc_extra_symbol
+                (punctum_mora)))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_spacing
+              (zero_space))
+            (gabc_neume
+              (pitch_lowercase)
+              (quilisma))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase)
+              (gabc_extra_symbol
+                (punctum_mora)))))))
+    (notation_item
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_separation_bar
+              (divisio_finalis))))))
+    (notation_item
+      (syllable
+        (syllable_other_special_character
+          (syllable
+            (syllable_text)))
+        (syllable_text)
+        (syllable_text))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              (pitch_lowercase)
+              (gabc_extra_symbol
+                (episema)))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_spacing
+              (small_neume_separation))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_spacing
+              (zero_space))
+            (gabc_neume
+              (pitch_lowercase)
+              (quilisma))
+            (gabc_neume
+              (pitch_lowercase)
+              (gabc_extra_symbol
+                (ictus)))
+            (gabc_spacing
+              (zero_space))
+            (gabc_neume
               (pitch_lowercase)
               (virga))
+            (gabc_spacing
+              (medium_neume_separation))
             (gabc_neume
-              (pitch_uppercase))
+              (pitch_lowercase))
             (gabc_neume
-              (pitch_uppercase))))))
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_text))
       (note_group
         (snippet_list
           (gabc_snippet
+            (gabc_neume
+              (pitch_lowercase)
+              (virga)
+              (gabc_extra_symbol
+                (punctum_mora)))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_spacing
+              (small_neume_separation))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase))
             (gabc_neume
               (pitch_lowercase)
               (gabc_extra_symbol
@@ -1655,24 +1711,6 @@ Al(f)le(d)lú(fgf'{g}f)ia.(f.) (::)
       (note_group
         (snippet_list
           (gabc_snippet
-            (gabc_separation_bar
-              (divisio_minor))))))
-    (notation_item
-      (syllable
-        (syllable_text))
-      (note_group
-        (snippet_list
-          (gabc_snippet
-            (gabc_neume
-              (pitch_lowercase))))))
-    (notation_item
-      (syllable
-        (syllable_text))
-      (note_group
-        (snippet_list
-          (gabc_snippet
-            (gabc_neume
-              (pitch_lowercase))
             (gabc_neume
               (pitch_lowercase))
             (gabc_neume
@@ -1693,58 +1731,6 @@ Al(f)le(d)lú(fgf'{g}f)ia.(f.) (::)
         (snippet_list
           (gabc_snippet
             (gabc_neume
-              (pitch_lowercase))
-            (gabc_neume
-              (pitch_lowercase))
-            (gabc_neume
-              (pitch_lowercase))))))
-    (notation_item
-      (syllable
-        (syllable_text)
-        (syllable_text))
-      (note_group
-        (snippet_list
-          (gabc_snippet
-            (gabc_neume
-              (pitch_lowercase)
-              (gabc_extra_symbol
-                (punctum_mora)))))))
-    (notation_item
-      (note_group
-        (snippet_list
-          (gabc_snippet
-            (gabc_separation_bar
-              (divisio_maior))))))
-    (notation_item
-      (syllable
-        (syllable_text))
-      (note_group
-        (snippet_list
-          (gabc_snippet
-            (gabc_neume
-              (pitch_lowercase))))))
-    (notation_item
-      (syllable
-        (syllable_text))
-      (note_group
-        (snippet_list
-          (gabc_snippet
-            (gabc_neume
-              (pitch_lowercase))
-            (gabc_spacing
-              (zero_space))
-            (gabc_neume
-              (pitch_lowercase)
-              (quilisma))
-            (gabc_neume
-              (pitch_lowercase))))))
-    (notation_item
-      (syllable
-        (syllable_text))
-      (note_group
-        (snippet_list
-          (gabc_snippet
-            (gabc_neume
               (pitch_lowercase))))))
     (notation_item
       (syllable
@@ -1797,8 +1783,6 @@ Al(f)le(d)lú(fgf'{g}f)ia.(f.) (::)
         (snippet_list
           (gabc_snippet
             (gabc_neume
-              (pitch_lowercase))
-            (gabc_neume
               (pitch_lowercase))))))
     (notation_item
       (syllable
@@ -1806,9 +1790,114 @@ Al(f)le(d)lú(fgf'{g}f)ia.(f.) (::)
       (note_group
         (snippet_list
           (gabc_snippet
-            (gabc_alteration
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_spacing
+              (zero_space))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_spacing
+              (small_neume_separation))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_uppercase))
+            (gabc_neume
+              (pitch_uppercase)
+              (gabc_extra_symbol
+                (ictus)))
+            (gabc_neume
               (pitch_lowercase)
-              (flat))
+              (virga))
+            (gabc_neume
+              (pitch_uppercase)
+              (gabc_extra_symbol
+                (ictus)))
+            (gabc_neume
+              (pitch_uppercase))
+            (gabc_neume
+              (pitch_uppercase))
+            (gabc_neume
+              (pitch_lowercase)
+              (gabc_extra_symbol
+                (punctum_mora)))
+            (gabc_spacing
+              (small_neume_separation))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_spacing
+              (small_neume_separation))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase))))))
+    (notation_item
+      (syllable
+        (syllable_text)
+        (syllable_text))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              (pitch_lowercase)
+              (gabc_extra_symbol
+                (punctum_mora)))))))
+    (notation_item
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_separation_bar
+              (divisio_maior))))))
+    (notation_item
+      (syllable
+        (syllable_text))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_spacing
+              (small_neume_separation))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_spacing
+              (small_neume_separation))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase)
+              (gabc_extra_symbol
+                (punctum_mora)))))))
+    (notation_item
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_separation_bar
+              (divisio_minima))))))
+    (notation_item
+      (note_group
+        (snippet_list
+          (gabc_snippet
             (gabc_neume
               (pitch_lowercase))
             (gabc_neume
@@ -1817,9 +1906,7 @@ Al(f)le(d)lú(fgf'{g}f)ia.(f.) (::)
               (zero_space))
             (gabc_neume
               (pitch_lowercase)
-              (virga))
-            (gabc_neume
-              (pitch_uppercase))
+              (bivirga))
             (gabc_neume
               (pitch_uppercase)
               (gabc_extra_symbol
@@ -1839,6 +1926,35 @@ Al(f)le(d)lú(fgf'{g}f)ia.(f.) (::)
         (snippet_list
           (gabc_snippet
             (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase))))))
+    (notation_item
+      (syllable
+        (syllable_text))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              (pitch_lowercase))))))
+    (notation_item
+      (syllable
+        (syllable_text))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase)
+              (deminutus))))))
+    (notation_item
+      (syllable
+        (syllable_text))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
               (pitch_lowercase)
               (gabc_extra_symbol
                 (punctum_mora)))))))
@@ -1863,9 +1979,77 @@ Al(f)le(d)lú(fgf'{g}f)ia.(f.) (::)
         (snippet_list
           (gabc_snippet
             (gabc_neume
-              (pitch_lowercase))
+              (pitch_lowercase))))))
+    (notation_item
+      (syllable
+        (syllable_text))
+      (note_group
+        (snippet_list
+          (gabc_snippet
             (gabc_neume
               (pitch_lowercase))))))
+    (notation_item
+      (syllable
+        (syllable_text))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              (pitch_lowercase))))))
+    (notation_item
+      (syllable
+        (syllable_text))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              (pitch_lowercase)
+              (virga))
+            (gabc_neume
+              (pitch_uppercase)
+              (gabc_extra_symbol
+                (ictus)))
+            (gabc_neume
+              (pitch_uppercase))
+            (gabc_neume
+              (pitch_lowercase)
+              (gabc_extra_symbol
+                (ictus)))))))
+    (notation_item
+      (syllable
+        (syllable_text))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              (pitch_lowercase))))))
+    (notation_item
+      (syllable
+        (syllable_text))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              (pitch_lowercase)
+              (gabc_extra_symbol
+                (episema)))
+            (gabc_attribute
+              (oh)
+              (episema_position))
+            (gabc_neume
+              (pitch_lowercase)
+              (gabc_extra_symbol
+                (episema)))
+            (gabc_attribute
+              (oh)
+              (episema_position))
+            (gabc_neume
+              (pitch_lowercase)
+              (gabc_extra_symbol
+                (episema)))
+            (gabc_attribute
+              (oh)
+              (episema_position))))))
     (notation_item
       (syllable
         (syllable_text)
@@ -1889,15 +2073,42 @@ Al(f)le(d)lú(fgf'{g}f)ia.(f.) (::)
       (note_group
         (snippet_list
           (gabc_snippet
-            (gabc_alteration
-              (pitch_lowercase)
-              (flat))
             (gabc_neume
-              (pitch_lowercase))
+              (pitch_lowercase))))))
+    (notation_item
+      (syllable
+        (syllable_text))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              (pitch_lowercase))))))
+    (notation_item
+      (syllable
+        (syllable_text))
+      (note_group
+        (snippet_list
+          (gabc_snippet
             (gabc_neume
               (pitch_lowercase))
             (gabc_spacing
-              (small_neume_separation))
+              (zero_space))
+            (gabc_neume
+              (pitch_lowercase)
+              (gabc_extra_symbol
+                (ictus)))
+            (gabc_neume
+              (pitch_lowercase))))))
+    (notation_item
+      (syllable
+        (syllable_text))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase))
             (gabc_neume
               (pitch_lowercase))
             (gabc_neume
@@ -1911,6 +2122,19 @@ Al(f)le(d)lú(fgf'{g}f)ia.(f.) (::)
         (snippet_list
           (gabc_snippet
             (gabc_neume
+              (pitch_lowercase)
+              (virga)
+              (gabc_extra_symbol
+                (punctum_mora)))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_spacing
+              (small_neume_separation))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
               (pitch_lowercase))
             (gabc_neume
               (pitch_lowercase)
@@ -1922,6 +2146,33 @@ Al(f)le(d)lú(fgf'{g}f)ia.(f.) (::)
           (gabc_snippet
             (gabc_separation_bar
               (divisio_minima))))))
+    (notation_item
+      (syllable
+        (syllable_text))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              (pitch_lowercase))))))
+    (notation_item
+      (syllable
+        (syllable_text))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase)
+              (deminutus))))))
+    (notation_item
+      (syllable
+        (syllable_text))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              (pitch_lowercase))))))
     (notation_item
       (syllable
         (syllable_text))
@@ -1943,29 +2194,50 @@ Al(f)le(d)lú(fgf'{g}f)ia.(f.) (::)
             (gabc_neume
               (pitch_lowercase))
             (gabc_neume
-              (pitch_lowercase))))))
-    (notation_item
-      (syllable
-        (syllable_text))
-      (note_group
-        (snippet_list
-          (gabc_snippet
+              (pitch_lowercase))
+            (gabc_spacing
+              (small_neume_separation))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_uppercase))
+            (gabc_neume
+              (pitch_uppercase)
+              (gabc_extra_symbol
+                (ictus)))
+            (gabc_neume
+              (pitch_lowercase)
+              (virga))
+            (gabc_neume
+              (pitch_uppercase)
+              (gabc_extra_symbol
+                (ictus)))
+            (gabc_neume
+              (pitch_uppercase))
+            (gabc_neume
+              (pitch_uppercase))
             (gabc_neume
               (pitch_lowercase)
               (gabc_extra_symbol
-                (punctum_mora)))))))
-    (notation_item
-      (note_group
-        (snippet_list
-          (gabc_snippet
-            (gabc_separation_bar
-              (divisio_minima))))))
-    (notation_item
-      (syllable
-        (syllable_text))
-      (note_group
-        (snippet_list
-          (gabc_snippet
+                (punctum_mora)))
+            (gabc_spacing
+              (small_neume_separation))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_spacing
+              (small_neume_separation))
+            (gabc_neume
+              (pitch_lowercase))
             (gabc_neume
               (pitch_lowercase))))))
     (notation_item
@@ -1974,21 +2246,6 @@ Al(f)le(d)lú(fgf'{g}f)ia.(f.) (::)
       (note_group
         (snippet_list
           (gabc_snippet
-            (gabc_neume
-              (pitch_lowercase))
-            (gabc_neume
-              (pitch_lowercase))
-            (gabc_neume
-              (pitch_lowercase)
-              (stropha))))))
-    (notation_item
-      (syllable
-        (syllable_text))
-      (note_group
-        (snippet_list
-          (gabc_snippet
-            (gabc_neume
-              (pitch_lowercase))
             (gabc_neume
               (pitch_lowercase)
               (gabc_extra_symbol
@@ -2001,10 +2258,13 @@ Al(f)le(d)lú(fgf'{g}f)ia.(f.) (::)
               (divisio_minor))))))
     (notation_item
       (syllable
+        (syllable_text)
         (syllable_text))
       (note_group
         (snippet_list
           (gabc_snippet
+            (gabc_neume
+              (pitch_lowercase))
             (gabc_neume
               (pitch_lowercase))))))
     (notation_item
@@ -2013,21 +2273,11 @@ Al(f)le(d)lú(fgf'{g}f)ia.(f.) (::)
       (note_group
         (snippet_list
           (gabc_snippet
-            (gabc_alteration
+            (gabc_neume
+              (pitch_lowercase))
+            (gabc_neume
               (pitch_lowercase)
-              (flat))
-            (gabc_neume
-              (pitch_lowercase))
-            (gabc_neume
-              (pitch_lowercase))
-            (gabc_neume
-              (pitch_uppercase))
-            (gabc_neume
-              (pitch_uppercase)
-              (gabc_extra_symbol
-                (punctum_mora)))))
-        (ERROR
-          (downwards))))
+              (deminutus))))))
     (notation_item
       (syllable
         (syllable_text))
@@ -2037,34 +2287,10 @@ Al(f)le(d)lú(fgf'{g}f)ia.(f.) (::)
             (gabc_neume
               (pitch_lowercase)
               (gabc_extra_symbol
-                (punctum_mora)))
-            (gabc_neume
-              (pitch_lowercase))
-            (gabc_neume
-              (pitch_lowercase))
-            (gabc_neume
-              (pitch_uppercase))
-            (gabc_neume
-              (pitch_uppercase)
-              (gabc_extra_symbol
-                (punctum_mora)))))))
-    (notation_item
-      (note_group
-        (snippet_list
-          (gabc_snippet
-            (gabc_separation_bar
-              (divisio_minima))))))
-    (notation_item
-      (syllable
-        (syllable_text))
-      (note_group
-        (snippet_list
-          (gabc_snippet
-            (gabc_alteration
-              (pitch_lowercase)
-              (flat))
-            (gabc_neume
-              (pitch_lowercase))
+                (episema)))
+            (gabc_attribute
+              (oh)
+              (episema_position))
             (gabc_neume
               (pitch_lowercase))
             (gabc_spacing
@@ -2073,87 +2299,38 @@ Al(f)le(d)lú(fgf'{g}f)ia.(f.) (::)
               (pitch_lowercase))
             (gabc_neume
               (pitch_lowercase))
+            (gabc_neume
+              (pitch_lowercase))))))
+    (notation_item
+      (syllable
+        (syllable_text))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              (pitch_lowercase)
+              (bivirga))
+            (gabc_neume
+              (pitch_uppercase))
+            (gabc_neume
+              (pitch_uppercase)
+              (gabc_extra_symbol
+                (ictus)))
+            (gabc_neume
+              (pitch_uppercase))
+            (gabc_neume
+              (pitch_uppercase))
             (gabc_spacing
-              (small_neume_separation))
+              (medium_neume_separation))
             (gabc_neume
               (pitch_lowercase))
-            (gabc_neume
-              (pitch_lowercase))))))
-    (notation_item
-      (syllable
-        (syllable_text))
-      (note_group
-        (snippet_list
-          (gabc_snippet
-            (gabc_neume
-              (pitch_lowercase))))))
-    (notation_item
-      (syllable
-        (syllable_text))
-      (note_group
-        (snippet_list
-          (gabc_snippet
-            (gabc_neume
-              (pitch_lowercase))
-            (gabc_neume
-              (pitch_lowercase))
-            (gabc_neume
-              (pitch_lowercase))))))
-    (notation_item
-      (syllable
-        (syllable_text))
-      (note_group
-        (snippet_list
-          (gabc_snippet
+            (gabc_spacing
+              (zero_space))
             (gabc_neume
               (pitch_lowercase)
-              (gabc_extra_symbol
-                (punctum_mora)))))))
-    (notation_item
-      (note_group
-        (snippet_list
-          (gabc_snippet
-            (gabc_separation_bar
-              (divisio_finalis))))))
-    (notation_item
-      (syllable
-        (syllable_text))
-      (note_group
-        (snippet_list
-          (gabc_snippet
-            (gabc_neume
-              (pitch_lowercase))))))
-    (notation_item
-      (syllable
-        (syllable_text))
-      (note_group
-        (snippet_list
-          (gabc_snippet
-            (gabc_neume
-              (pitch_lowercase))))))
-    (notation_item
-      (syllable
-        (syllable_text))
-      (note_group
-        (snippet_list
-          (gabc_snippet
+              (quilisma))
             (gabc_neume
               (pitch_lowercase))
-            (gabc_neume
-              (pitch_lowercase))
-            (gabc_neume
-              (pitch_lowercase)
-              (gabc_extra_symbol
-                (ictus)))))
-        (ERROR
-          (header_name)
-          (header_name))))
-    (notation_item
-      (syllable
-        (syllable_text))
-      (note_group
-        (snippet_list
-          (gabc_snippet
             (gabc_neume
               (pitch_lowercase)
               (gabc_extra_symbol
@@ -2207,8 +2384,7 @@ sca(f)bél(h)lum(ih) pe(i)dum(ixi j_i/jkIH'Gh) tu(fe)ó(f.fg)rum.(e[ll:1]d..) (:
         (snippet_list
           (gabc_snippet
             (gabc_clef
-              (f_clef)
-              (clef_position))))))
+              (f_clef))))))
     (notation_item
       (syllable
         (syllable_text))
@@ -3075,8 +3251,7 @@ sa(hgh)lu(fg)tá(g_[oh:h]f)re(fgf) De(d_[oh:h]c)i(ef) no(f_[oh:h]g)stri.(f.) (::
         (snippet_list
           (gabc_snippet
             (gabc_clef
-              (c_clef)
-              (clef_position))))))
+              (c_clef))))))
     (notation_item
       (syllable
         (syllable_text))
