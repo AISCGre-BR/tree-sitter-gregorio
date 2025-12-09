@@ -2,7 +2,7 @@
 
 Tree-sitter grammar for GABC+NABC notation (Gregorian chant).
 
-[![Tests](https://img.shields.io/badge/tests-226%20passing-brightgreen)](test/corpus/)
+[![Tests](https://img.shields.io/badge/tests-231%20passing-brightgreen)](test/corpus/)
 [![Grammar](https://img.shields.io/badge/grammar-GABC%2BNABC%20complete-blue)](#features)
 [![Compatibility](https://img.shields.io/badge/gregorio-6.1.0-blue)](https://gregorio-project.github.io/)
 
@@ -16,7 +16,7 @@ This project provides a [tree-sitter](https://tree-sitter.github.io/tree-sitter/
 
 ## Features
 
-### ✅ Complete GABC+NABC Support (221 tests passing)
+### ✅ Complete GABC+NABC Support (231 tests passing)
 
 - **Header Section**:
   - Single-line headers (`name: value;`)
@@ -27,9 +27,11 @@ This project provides a [tree-sitter](https://tree-sitter.github.io/tree-sitter/
 - **Lyrics and Text**:
   - Syllable text with punctuation
   - Style tags: `<b>`, `<i>`, `<c>`, `<sc>`, `<tt>`, `<ul>`
+  - **Cross-syllable tags**: All style and control tags can span multiple syllables
   - Nested tags support
   - Syllable controls: `<e>`, `<eu>`, `<nlba>`, `<pr>`, `<clear>`
   - Special tags: `<alt>`, `<sp>`, `<v>` (verbatim)
+  - **LaTeX injection**: Syntax highlighting for TeX code in `<v>`, `[nv:]`, `[gv:]`, `[ev:]`
   - Translation text `[...]`
   - Lyric centering `{...}`
   - Escape sequences `$`
@@ -70,6 +72,19 @@ This project provides a [tree-sitter](https://tree-sitter.github.io/tree-sitter/
 ```bash
 npm install
 ```
+
+## Editor Support
+
+### Helix Editor
+
+For detailed setup instructions for Helix editor, see [docs/HELIX_SETUP.md](docs/HELIX_SETUP.md).
+
+Quick setup:
+1. Copy `helix-languages.toml` content to `~/.config/helix/languages.toml`
+2. Update the path to point to your tree-sitter-gregorio directory
+3. Run `hx --grammar build`
+
+The grammar includes syntax highlighting for all GABC/NABC elements, including special markup highlighting for text inside `<b>`, `<i>`, and `<ul>` tags. LaTeX code inside verbatim elements (`<v>`, `[nv:]`, `[gv:]`, `[ev:]`) receives LaTeX syntax highlighting when both grammars are available.
 
 ## Building
 
@@ -117,40 +132,43 @@ The grammar recognizes the following main structures:
 
 ## Test Coverage
 
-The parser is validated with **221 comprehensive tests** covering:
+The parser is validated with **231 comprehensive tests** covering:
 
 ### Core Tests (21 test files)
-#### GABC Tests (12 files, 139 tests)
+#### GABC Tests (14 files, 149 tests)
 1. **00-basics.txt** (4 tests): Basic structure, headers, multiline headers
 2. **01-lyrics-notation.txt** (6 tests): Style tags, syllable controls, nested tags, verbatim
-3. **02-gabc-neumes.txt** (12 tests): All neume types and modifiers
-4. **03-gabc-alterations.txt** (10 tests): Natural, flat, sharp with variations
-5. **04-gabc-complex-neumes.txt** (6 tests): Pitched complex neumes
-6. **05-gabc-neume-fusions.txt** (13 tests): Simple and multiple fusions
-7. **06-gabc-spacing.txt** (12 tests): All spacing types
-8. **07-gabc-extra-symbols.txt** (23 tests): Asterisk, cross, R/, V/, A/, mora, ictus, episema
-9. **08-gabc-separation-bars.txt** (16 tests): All bar types with modifiers
-10. **09-gabc-clefs.txt** (21 tests): All clef types and links
-11. **10-gabc-custos.txt** (3 tests): Auto-pitch and manual custos
-12. **11-gabc-attributes.txt** (7 tests): All attribute types
-13. **12-gabc-line-breaks.txt** (5 tests): Line breaks with modifiers
+3. **22-nlba-cross-syllable.txt** (1 test): Cross-syllable nlba tag
+4. **23-cross-syllable-all-tags.txt** (4 tests): Cross-syllable support for all style and control tags
+5. **02-gabc-neumes.txt** (12 tests): All neume types and modifiers
+6. **03-gabc-alterations.txt** (10 tests): Natural, flat, sharp with variations
+7. **04-gabc-complex-neumes.txt** (6 tests): Pitched complex neumes
+8. **05-gabc-neume-fusions.txt** (13 tests): Simple and multiple fusions
+9. **06-gabc-spacing.txt** (12 tests): All spacing types
+10. **07-gabc-extra-symbols.txt** (23 tests): Asterisk, cross, R/, V/, A/, mora, ictus, episema
+11. **08-gabc-separation-bars.txt** (16 tests): All bar types with modifiers
+12. **09-gabc-clefs.txt** (21 tests): All clef types and links
+13. **10-gabc-custos.txt** (3 tests): Auto-pitch and manual custos
+14. **11-gabc-attributes.txt** (7 tests): All attribute types
+15. **12-gabc-line-breaks.txt** (5 tests): Line breaks with modifiers
+16. **21-real-examples.txt** (5 tests): Real-world liturgical chants
 
 #### NABC Tests (8 files, 82 tests)
-14. **13-nabc-basic-glyph-descriptors.txt** (3 tests): Basic glyphs and alternation
-15. **14-nabc-glyph-modifiers.txt** (10 tests): All modifier types with variants
-16. **15-nabc-pitch-descriptors.txt** (5 tests): Pitch descriptors for all letters
-17. **16-nabc-glyph-descriptors.txt** (7 tests): Complex glyph descriptors
-18. **17-nabc-glyph-fusion.txt** (18 tests): Binary glyph fusion
-19. **18-nabc-subpunctis-prepunctis-descriptors.txt** (15 tests): All subpunctis/prepunctis modifiers
-20. **19-nabc-spacing.txt** (11 tests): All NABC spacing types
-21. **20-nabc-significant-letters.txt** (14 tests): St. Gall, Laon, and Tironian letters
+17. **13-nabc-basic-glyph-descriptors.txt** (3 tests): Basic glyphs and alternation
+18. **14-nabc-glyph-modifiers.txt** (10 tests): All modifier types with variants
+19. **15-nabc-pitch-descriptors.txt** (5 tests): Pitch descriptors for all letters
+20. **16-nabc-glyph-descriptors.txt** (7 tests): Complex glyph descriptors
+21. **17-nabc-glyph-fusion.txt** (18 tests): Binary glyph fusion
+22. **18-nabc-subpunctis-prepunctis-descriptors.txt** (15 tests): All subpunctis/prepunctis modifiers
+23. **19-nabc-spacing.txt** (11 tests): All NABC spacing types
+24. **20-nabc-significant-letters.txt** (14 tests): St. Gall, Laon, and Tironian letters
 
 ### Test Statistics
-- Total tests: **221**
+- Total tests: **231**
 - Pass rate: **100%**
-- Coverage: **Complete GABC+NABC notation**
-- GABC tests: 139 (63%)
-- NABC tests: 82 (37%)
+- Coverage: **Complete GABC+NABC notation with cross-syllable tags**
+- GABC tests: 149 (64.5%)
+- NABC tests: 82 (35.5%)
 
 ## References
 
@@ -164,6 +182,8 @@ Project Documentation:
 - [Changelog](CHANGELOG.md) - Version history and changes
 - [Development Milestones](MILESTONES.md) - Roadmap and achievements
 - [Project Structure](docs/PROJECT_STRUCTURE.md) - Architecture overview
+- [LaTeX Injection](docs/LATEX_INJECTION.md) - LaTeX syntax highlighting in verbatim elements
+- [Helix Setup](docs/HELIX_SETUP.md) - Editor configuration guide
 
 Official Gregorio documentation:
 - [Gregorio project website](http://gregorio-project.github.io/)

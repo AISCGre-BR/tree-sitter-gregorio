@@ -59,7 +59,49 @@ module.exports = grammar({
     header_section: $ => repeat1($.header),
 
     // Header: name: value;
-    header: $ => prec(2, seq(
+    // Headers with TeX content get special treatment for injection
+    header: $ => prec(2, choice(
+      $.header_tex_annotation,
+      $.header_tex_mode_modifier,
+      $.header_tex_mode_differentia,
+      $.header_tex_def_macro,
+      $.header_generic
+    )),
+
+    // Headers that accept TeX code (for LaTeX injection)
+    header_tex_annotation: $ => seq(
+      field('name', token(prec(11, 'annotation'))),
+      token.immediate(':'),
+      field('value', optional($.tex_code_header)),
+      field('terminator', choice(';', ';;'))
+    ),
+
+    header_tex_mode_modifier: $ => seq(
+      field('name', token(prec(11, 'mode-modifier'))),
+      token.immediate(':'),
+      field('value', optional($.tex_code_header)),
+      field('terminator', choice(';', ';;'))
+    ),
+
+    header_tex_mode_differentia: $ => seq(
+      field('name', token(prec(11, 'mode-differentia'))),
+      token.immediate(':'),
+      field('value', optional($.tex_code_header)),
+      field('terminator', choice(';', ';;'))
+    ),
+
+    header_tex_def_macro: $ => seq(
+      field('name', token(prec(11, /def-m[0-9]/))),
+      token.immediate(':'),
+      field('value', optional($.tex_code_header)),
+      field('terminator', choice(';', ';;'))
+    ),
+
+    // Value for TeX headers (for injection)
+    tex_code_header: _ => /[^;%]*/,
+
+    // Generic header for all other headers
+    header_generic: $ => seq(
       field('name', $.header_name),
       token.immediate(':'),
       field('value', choice(
@@ -67,7 +109,7 @@ module.exports = grammar({
         seq(/[^;%]*/, ';')
       )),
       field('terminator', choice(';', ';;'))
-    )),
+    ),
 
     // Token to ensure "name:" is recognized atomically before syllable_text can match
     header_name: _ => token(prec(10, /[a-zA-Z0-9][a-zA-Z0-9-]*/)),
@@ -278,11 +320,14 @@ module.exports = grammar({
       '<',
       'v',
       '>',
-      optional(/[^<]+/),
+      optional(field('tex_code', $.tex_code_verbatim)),
       '</',
       'v',
       '>'
     ),
+
+    // TeX code content for <v> tags (for injection) 
+    tex_code_verbatim: _ => /[^<]+/,
 
     // Translation text: [text]
     syllable_translation: $ => seq(
@@ -888,7 +933,7 @@ module.exports = grammar({
       '[',
       field('name', alias('nv', $.nv)),
       ':',
-      field('tex_code', /[^\]]*/),
+      field('tex_code', $.tex_code),
       ']'
     ),
 
@@ -897,7 +942,7 @@ module.exports = grammar({
       '[',
       field('name', alias('gv', $.gv)),
       ':',
-      field('tex_code', /[^\]]*/),
+      field('tex_code', $.tex_code),
       ']'
     ),
 
@@ -906,9 +951,12 @@ module.exports = grammar({
       '[',
       field('name', alias('ev', $.ev)),
       ':',
-      field('tex_code', /[^\]]*/),
+      field('tex_code', $.tex_code),
       ']'
     ),
+
+    // TeX code content (for injection)
+    tex_code: _ => /[^\]]*/,
 
     // 6.4.24 Macros
     _gabc_macro: $ => seq(

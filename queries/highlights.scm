@@ -8,7 +8,8 @@
 ; HEADERS
 ; ============================================================================
 
-(header_name) @property
+(header_name) @attribute
+
 (section_separator) @punctuation.special
 
 ; ============================================================================
@@ -209,7 +210,8 @@
 ; SYLLABLE TEXT & STYLING
 ; ============================================================================
 
-(syllable_text) @string
+; Note: syllable_text has no default highlight - text is plain unless styled
+; Special syllable elements
 (syllable_other_verbatim) @string.special
 (syllable_other_above_lines_text) @string.special
 (syllable_other_special_character) @string.escape
@@ -226,6 +228,18 @@
 (syllable_style_underline
   (syllable
     (syllable_text) @markup.underline))
+
+(syllable_style_small_caps
+  (syllable
+    (syllable_text) @markup.heading))
+
+(syllable_style_teletype
+  (syllable
+    (syllable_text) @markup.raw))
+
+(syllable_style_colored
+  (syllable
+    (syllable_text) @markup.link))
 
 ; Style tags - highlight text in cross-syllable tags (open/close)
 ; Bold
@@ -254,6 +268,33 @@
 (syllable
   (syllable_text) @markup.underline
   (syllable_style_underline_close))
+
+; Small Caps
+(syllable
+  (syllable_style_small_caps_open)
+  (syllable_text) @markup.heading)
+
+(syllable
+  (syllable_text) @markup.heading
+  (syllable_style_small_caps_close))
+
+; Teletype
+(syllable
+  (syllable_style_teletype_open)
+  (syllable_text) @markup.raw)
+
+(syllable
+  (syllable_text) @markup.raw
+  (syllable_style_teletype_close))
+
+; Colored
+(syllable
+  (syllable_style_colored_open)
+  (syllable_text) @markup.link)
+
+(syllable
+  (syllable_text) @markup.link
+  (syllable_style_colored_close))
 
 ; ============================================================================
 ; NABC - BASIC GLYPHS

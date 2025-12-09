@@ -1,0 +1,125 @@
+================================================================================
+Headers with TeX code
+================================================================================
+
+name: Test;
+annotation: \textbf{IN.};
+mode-modifier: \textit{t.};
+mode-differentia: \emph{g};
+def-m0: \textsc{Test};
+
+%%
+
+()
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      (header_generic
+        name: (header_name)))
+    (header
+      (header_tex_annotation
+        value: (tex_code_header)))
+    (header
+      (header_tex_mode_modifier
+        value: (tex_code_header)))
+    (header
+      (header_tex_mode_differentia
+        value: (tex_code_header)))
+    (header
+      (header_tex_def_macro
+        value: (tex_code_header))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group))))
+
+================================================================================
+Header TeX annotation with empty value
+================================================================================
+
+name: Test;
+annotation:;
+
+%%
+
+()
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      (header_generic
+        name: (header_name)))
+    (header
+      (header_tex_annotation
+        value: (tex_code_header))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group))))
+
+================================================================================
+All TeX macro headers
+================================================================================
+
+name: Test;
+def-m0: \macro0;
+def-m1: \macro1;
+def-m2: \macro2;
+def-m3: \macro3;
+def-m4: \macro4;
+def-m5: \macro5;
+def-m6: \macro6;
+def-m7: \macro7;
+def-m8: \macro8;
+def-m9: \macro9;
+
+%%
+
+()
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      (header_generic
+        name: (header_name)))
+    (header
+      (header_tex_def_macro
+        value: (tex_code_header)))
+    (header
+      (header_tex_def_macro
+        value: (tex_code_header)))
+    (header
+      (header_tex_def_macro
+        value: (tex_code_header)))
+    (header
+      (header_tex_def_macro
+        value: (tex_code_header)))
+    (header
+      (header_tex_def_macro
+        value: (tex_code_header)))
+    (header
+      (header_tex_def_macro
+        value: (tex_code_header)))
+    (header
+      (header_tex_def_macro
+        value: (tex_code_header)))
+    (header
+      (header_tex_def_macro
+        value: (tex_code_header)))
+    (header
+      (header_tex_def_macro
+        value: (tex_code_header)))
+    (header
+      (header_tex_def_macro
+        value: (tex_code_header))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group))))
