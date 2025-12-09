@@ -1,7 +1,7 @@
 ; ============================================================================
 ; TREE-SITTER HIGHLIGHTING QUERIES FOR GABC+NABC
 ; ============================================================================
-; Queries compatible with the refactored grammar (v0.3.0+)
+; Queries compatible with the refactored grammar (v0.4.0+)
 ; Based on actual nodes from grammar.js after anonymous rule changes
 
 ; ============================================================================

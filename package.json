@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-gregorio",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Tree-sitter grammar for GABC+NABC notation (Gregorian chant)",
   "main": "bindings/node",
   "keywords": [
