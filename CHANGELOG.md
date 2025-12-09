@@ -5,6 +5,40 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.0] - 2024-12-22
+
+### Added
+
+#### Header Syntax Highlighting Enhancements
+- **LaTeX injection for TeX headers**: 4 header types now support LaTeX syntax highlighting
+  - `annotation`: annotations with TeX macros
+  - `mode-modifier`: mode modifiers with TeX formatting
+  - `mode-differentia`: mode differentia with TeX content
+  - `def-m0` through `def-m9`: custom TeX macro definitions
+- **Numeric header highlighting**: 3 headers with numeric value highlighting
+  - `mode`: liturgical mode number (1-8)
+  - `staff-lines`: number of staff lines
+  - `nabc-lines`: number of NABC notation lines
+- **Header categorization system**: Headers now organized into 3 categories
+  - Generic headers (fallback for all other headers)
+  - Numeric headers (highlighted with @number)
+  - TeX headers (LaTeX injection enabled)
+
+#### Documentation
+- Added `docs/HEADER_HIGHLIGHTING.md`: comprehensive guide to header syntax highlighting
+- Updated `docs/LATEX_INJECTION.md`: now covers both header and syllable TeX injection
+- Updated README.md: added header highlighting features and documentation links
+
+#### Tests
+- Added `test/corpus/24-header-tex-injection.txt`: 3 tests for LaTeX injection in headers
+- Added `test/corpus/25-header-numeric.txt`: 6 tests for numeric header highlighting
+- Test suite expanded from 231 to 240 tests (all passing)
+
+### Changed
+- Grammar structure: Headers now categorized by type instead of generic parsing
+- Query files: Updated version comments to v0.4.0+
+- Test suite: Regenerated parse trees for existing tests to match new header structure
+
 ## [0.3.0] - 2024-12-05
 
 ### 🎉 Major Milestone: Complete NABC Support & Grammar Refactoring
