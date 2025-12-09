@@ -2,7 +2,7 @@
 
 Tree-sitter grammar for GABC+NABC notation (Gregorian chant).
 
-[![Tests](https://img.shields.io/badge/tests-231%20passing-brightgreen)](test/corpus/)
+[![Tests](https://img.shields.io/badge/tests-240%20passing-brightgreen)](test/corpus/)
 [![Grammar](https://img.shields.io/badge/grammar-GABC%2BNABC%20complete-blue)](#features)
 [![Compatibility](https://img.shields.io/badge/gregorio-6.1.0-blue)](https://gregorio-project.github.io/)
 
@@ -16,12 +16,14 @@ This project provides a [tree-sitter](https://tree-sitter.github.io/tree-sitter/
 
 ## Features
 
-### ✅ Complete GABC+NABC Support (231 tests passing)
+### ✅ Complete GABC+NABC Support (240 tests passing)
 
 - **Header Section**:
   - Single-line headers (`name: value;`)
   - Multi-line headers (`commentary: text...;;`)
   - All standard header fields
+  - **Numeric headers**: `mode`, `staff-lines`, `nabc-lines` with number highlighting
+  - **TeX headers**: `annotation`, `mode-modifier`, `mode-differentia`, `def-m0`-`def-m9` with LaTeX injection
   - Comment support (`%`)
 
 - **Lyrics and Text**:
@@ -164,11 +166,12 @@ The parser is validated with **231 comprehensive tests** covering:
 24. **20-nabc-significant-letters.txt** (14 tests): St. Gall, Laon, and Tironian letters
 
 ### Test Statistics
-- Total tests: **231**
+- Total tests: **240**
 - Pass rate: **100%**
-- Coverage: **Complete GABC+NABC notation with cross-syllable tags**
-- GABC tests: 149 (64.5%)
-- NABC tests: 82 (35.5%)
+- Coverage: **Complete GABC+NABC notation with cross-syllable tags and header highlighting**
+- GABC tests: 149 (62.1%)
+- NABC tests: 82 (34.2%)
+- Header tests: 9 (3.7%)
 
 ## References
 
@@ -182,6 +185,7 @@ Project Documentation:
 - [Changelog](CHANGELOG.md) - Version history and changes
 - [Development Milestones](MILESTONES.md) - Roadmap and achievements
 - [Project Structure](docs/PROJECT_STRUCTURE.md) - Architecture overview
+- [Header Highlighting](docs/HEADER_HIGHLIGHTING.md) - Numeric and TeX header syntax highlighting
 - [LaTeX Injection](docs/LATEX_INJECTION.md) - LaTeX syntax highlighting in verbatim elements
 - [Helix Setup](docs/HELIX_SETUP.md) - Editor configuration guide
 

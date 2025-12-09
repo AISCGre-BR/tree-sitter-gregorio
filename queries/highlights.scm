@@ -10,6 +10,9 @@
 
 (header_name) @attribute
 
+; Numeric header values
+(header_value_numeric) @number
+
 (section_separator) @punctuation.special
 
 ; ============================================================================

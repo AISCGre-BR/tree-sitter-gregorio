@@ -13,10 +13,10 @@ nabc-lines: 1;
   (header_section
     (header
       (header_generic
-      name: (header_name)))
+        name: (header_name)))
     (header
-      (header_generic
-      name: (header_name))))
+      (header_numeric_nabc_lines
+        value: (header_value_numeric))))
   (section_separator)
   (notation_section
     (notation_item
@@ -47,10 +47,10 @@ nabc-lines: 1;
   (header_section
     (header
       (header_generic
-      name: (header_name)))
+        name: (header_name)))
     (header
-      (header_generic
-      name: (header_name))))
+      (header_numeric_nabc_lines
+        value: (header_value_numeric))))
   (section_separator)
   (notation_section
     (notation_item
@@ -81,10 +81,10 @@ nabc-lines: 1;
   (header_section
     (header
       (header_generic
-      name: (header_name)))
+        name: (header_name)))
     (header
-      (header_generic
-      name: (header_name))))
+      (header_numeric_nabc_lines
+        value: (header_value_numeric))))
   (section_separator)
   (notation_section
     (notation_item
@@ -115,10 +115,10 @@ nabc-lines: 1;
   (header_section
     (header
       (header_generic
-      name: (header_name)))
+        name: (header_name)))
     (header
-      (header_generic
-      name: (header_name))))
+      (header_numeric_nabc_lines
+        value: (header_value_numeric))))
   (section_separator)
   (notation_section
     (notation_item
@@ -185,10 +185,10 @@ nabc-lines: 1;
   (header_section
     (header
       (header_generic
-      name: (header_name)))
+        name: (header_name)))
     (header
-      (header_generic
-      name: (header_name))))
+      (header_numeric_nabc_lines
+        value: (header_value_numeric))))
   (section_separator)
   (notation_section
     (notation_item

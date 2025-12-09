@@ -1,0 +1,191 @@
+================================================================================
+Numeric headers
+================================================================================
+
+name: Test;
+mode: 5;
+staff-lines: 4;
+nabc-lines: 1;
+
+%%
+
+()
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      (header_generic
+        name: (header_name)))
+    (header
+      (header_numeric_mode
+        value: (header_value_numeric)))
+    (header
+      (header_numeric_staff_lines
+        value: (header_value_numeric)))
+    (header
+      (header_numeric_nabc_lines
+        value: (header_value_numeric))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group))))
+
+================================================================================
+Mode with text value
+================================================================================
+
+name: Test;
+mode: 1 or 8;
+
+%%
+
+()
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      (header_generic
+        name: (header_name)))
+    (header
+      (header_numeric_mode
+        value: (header_value_numeric))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group))))
+
+================================================================================
+Mode with Roman numerals
+================================================================================
+
+name: Test;
+mode: VIII;
+
+%%
+
+()
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      (header_generic
+        name: (header_name)))
+    (header
+      (header_numeric_mode
+        value: (header_value_numeric))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group))))
+
+================================================================================
+Staff lines variations
+================================================================================
+
+name: Test;
+staff-lines: 3;
+
+%%
+
+()
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      (header_generic
+        name: (header_name)))
+    (header
+      (header_numeric_staff_lines
+        value: (header_value_numeric))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group))))
+
+================================================================================
+Empty numeric header values
+================================================================================
+
+name: Test;
+mode:;
+staff-lines:;
+nabc-lines:;
+
+%%
+
+()
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      (header_generic
+        name: (header_name)))
+    (header
+      (header_numeric_mode
+        value: (header_value_numeric)))
+    (header
+      (header_numeric_staff_lines
+        value: (header_value_numeric)))
+    (header
+      (header_numeric_nabc_lines
+        value: (header_value_numeric))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group))))
+
+================================================================================
+All numeric headers together
+================================================================================
+
+name: Mode 8 Chant;
+mode: 8;
+staff-lines: 5;
+nabc-lines: 1;
+
+%%
+
+(c4) test(f)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      (header_generic
+        name: (header_name)))
+    (header
+      (header_numeric_mode
+        value: (header_value_numeric)))
+    (header
+      (header_numeric_staff_lines
+        value: (header_value_numeric)))
+    (header
+      (header_numeric_nabc_lines
+        value: (header_value_numeric))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_clef
+              name: (c_clef))))))
+    (notation_item
+      (syllable
+        (syllable_text))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase))))))))
