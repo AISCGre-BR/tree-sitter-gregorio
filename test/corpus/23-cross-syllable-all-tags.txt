@@ -1,0 +1,209 @@
+================================================================================
+Cross-syllable bold tag
+================================================================================
+
+name: test;
+%%
+(c4) <b>text1(f) text2</b>(g) (::)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_clef
+              name: (c_clef))))))
+    (notation_item
+      (syllable
+        (syllable_style_bold_open)
+        (syllable_text))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase))))))
+    (notation_item
+      (syllable
+        (syllable_text)
+        (syllable_style_bold_close))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase))))))
+    (notation_item
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_separation_bar
+              type: (divisio_finalis))))))))
+
+================================================================================
+Cross-syllable italic and colored tags
+================================================================================
+
+name: test;
+%%
+(c4) <i>text1(f) text2</i><c>(g) text3</c>(h) (::)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_clef
+              name: (c_clef))))))
+    (notation_item
+      (syllable
+        (syllable_style_italic_open)
+        (syllable_text))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase))))))
+    (notation_item
+      (syllable
+        (syllable_text)
+        (syllable_style_italic_close)
+        (syllable_style_colored_open))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase))))))
+    (notation_item
+      (syllable
+        (syllable_text)
+        (syllable_style_colored_close))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase))))))
+    (notation_item
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_separation_bar
+              type: (divisio_finalis))))))))
+
+================================================================================
+Cross-syllable elision tag
+================================================================================
+
+name: test;
+%%
+(c4) <e>text1(f) text2</e>(g) (::)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_clef
+              name: (c_clef))))))
+    (notation_item
+      (syllable
+        (syllable_control_elision_open)
+        (syllable_text))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase))))))
+    (notation_item
+      (syllable
+        (syllable_text)
+        (syllable_control_elision_close))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase))))))
+    (notation_item
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_separation_bar
+              type: (divisio_finalis))))))))
+
+================================================================================
+Complete tags still work
+================================================================================
+
+name: test;
+%%
+(c4) <b>text1</b>(f) <i>text2</i>(g) <sc>text3</sc>(h) (::)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      name: (header_name)))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_clef
+              name: (c_clef))))))
+    (notation_item
+      (syllable
+        (syllable_style_bold
+          content: (syllable
+            (syllable_text))))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase))))))
+    (notation_item
+      (syllable
+        (syllable_style_italic
+          content: (syllable
+            (syllable_text))))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase))))))
+    (notation_item
+      (syllable
+        (syllable_style_small_caps
+          content: (syllable
+            (syllable_text))))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase))))))
+    (notation_item
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_separation_bar
+              type: (divisio_finalis))))))))

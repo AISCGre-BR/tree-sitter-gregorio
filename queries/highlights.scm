@@ -214,6 +214,47 @@
 (syllable_other_above_lines_text) @string.special
 (syllable_other_special_character) @string.escape
 
+; Style tags - highlight text within complete tags
+(syllable_style_bold
+  (syllable
+    (syllable_text) @markup.bold))
+
+(syllable_style_italic
+  (syllable
+    (syllable_text) @markup.italic))
+
+(syllable_style_underline
+  (syllable
+    (syllable_text) @markup.underline))
+
+; Style tags - highlight text in cross-syllable tags (open/close)
+; Bold
+(syllable
+  (syllable_style_bold_open)
+  (syllable_text) @markup.bold)
+
+(syllable
+  (syllable_text) @markup.bold
+  (syllable_style_bold_close))
+
+; Italic
+(syllable
+  (syllable_style_italic_open)
+  (syllable_text) @markup.italic)
+
+(syllable
+  (syllable_text) @markup.italic
+  (syllable_style_italic_close))
+
+; Underline
+(syllable
+  (syllable_style_underline_open)
+  (syllable_text) @markup.underline)
+
+(syllable
+  (syllable_text) @markup.underline
+  (syllable_style_underline_close))
+
 ; ============================================================================
 ; NABC - BASIC GLYPHS
 ; ============================================================================
