@@ -1,0 +1,23 @@
+# Example Helix languages.toml configuration for GABC files
+# Copy this to ~/.config/helix/languages.toml or append to your existing file
+
+# GABC (Gregorian Chant Notation)
+[[language]]
+name = "gabc"
+scope = "source.gabc"
+injection-regex = "^(gabc|gregorio)$"
+file-types = ["gabc"]
+comment-token = "%"
+indent = { tab-width = 2, unit = "  " }
+roots = []
+
+[language.auto-pairs]
+'(' = ')'
+'[' = ']'
+'{' = '}'
+'<' = '>'
+
+[[grammar]]
+name = "gabc"
+# IMPORTANT: Change this path to the absolute path of your tree-sitter-gregorio directory
+source = { path = "/home/laercio/Documentos/tree-sitter-gregorio" }

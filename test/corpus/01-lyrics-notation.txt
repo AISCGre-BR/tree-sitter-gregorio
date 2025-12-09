@@ -15,7 +15,8 @@ name: Style tags test;
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -116,7 +117,8 @@ name: Syllable controls test;
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -191,7 +193,8 @@ name: Syllable other test;
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -216,7 +219,8 @@ name: Syllable other test;
               pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
-        (syllable_other_verbatim))
+        (syllable_other_verbatim
+          tex_code: (tex_code_verbatim)))
       (note_group
         (snippet_list
           (gabc_snippet
@@ -246,7 +250,8 @@ Q{ui}(f)a(f) text[texto](g)$@end(h)
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -300,7 +305,8 @@ name: Nested tags test;
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -345,12 +351,14 @@ name: Verbatim test;
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
       (syllable
-        (syllable_other_verbatim))
+        (syllable_other_verbatim
+          tex_code: (tex_code_verbatim)))
       (note_group
         (snippet_list
           (gabc_snippet
@@ -358,7 +366,8 @@ name: Verbatim test;
               pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
-        (syllable_other_verbatim))
+        (syllable_other_verbatim
+          tex_code: (tex_code_verbatim)))
       (note_group
         (snippet_list
           (gabc_snippet
@@ -366,7 +375,8 @@ name: Verbatim test;
               pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
-        (syllable_other_verbatim))
+        (syllable_other_verbatim
+          tex_code: (tex_code_verbatim)))
       (note_group
         (snippet_list
           (gabc_snippet
@@ -374,7 +384,8 @@ name: Verbatim test;
               pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
-        (syllable_other_verbatim))
+        (syllable_other_verbatim
+          tex_code: (tex_code_verbatim)))
       (note_group
         (snippet_list
           (gabc_snippet
@@ -382,7 +393,8 @@ name: Verbatim test;
               pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
-        (syllable_other_verbatim))
+        (syllable_other_verbatim
+          tex_code: (tex_code_verbatim)))
       (note_group
         (snippet_list
           (gabc_snippet
@@ -390,7 +402,8 @@ name: Verbatim test;
               pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
-        (syllable_other_verbatim))
+        (syllable_other_verbatim
+          tex_code: (tex_code_verbatim)))
       (note_group
         (snippet_list
           (gabc_snippet

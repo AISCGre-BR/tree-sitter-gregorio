@@ -13,7 +13,8 @@ name: Line breaks test;
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -39,7 +40,8 @@ name: Line breaks test;
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -65,7 +67,8 @@ name: Line breaks test;
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -92,7 +95,8 @@ name: Line breaks test;
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -119,7 +123,8 @@ name: Line breaks test;
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item

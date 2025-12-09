@@ -13,7 +13,8 @@ name: Simple fusion;
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -41,7 +42,8 @@ name: Multiple fusion;
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -72,7 +74,8 @@ name: Fusion with virga;
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -101,7 +104,8 @@ name: Fusion with liquescence;
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -130,7 +134,8 @@ name: Fusion with oriscus;
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -159,7 +164,8 @@ name: Mixed fusion types;
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -197,7 +203,8 @@ name: Fusion group;
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -229,7 +236,8 @@ name: Fusion group with complex neumes;
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -265,7 +273,8 @@ name: Fusion with quilisma;
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -299,7 +308,8 @@ name: Fusion with incomplete quilisma;
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -335,7 +345,8 @@ name: Fusion with oriscus scapus;
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -366,7 +377,8 @@ name: Fusion with initio debilis;
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -395,7 +407,8 @@ name: Multiple quilisma fusions;
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item

@@ -13,7 +13,8 @@ name: Flat;
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -39,7 +40,8 @@ name: Natural;
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -65,7 +67,8 @@ name: Sharp;
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -91,7 +94,8 @@ name: Mixed alterations;
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -125,7 +129,8 @@ name: Soft flat;
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -151,7 +156,8 @@ name: Soft natural;
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -177,7 +183,8 @@ name: Soft sharp;
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -203,7 +210,8 @@ name: Flat with parentheses;
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -229,7 +237,8 @@ name: Natural with parentheses;
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -255,7 +264,8 @@ name: Sharp with parentheses;
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item

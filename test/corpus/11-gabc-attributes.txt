@@ -11,7 +11,8 @@ Test(gh[shape:stroke]i)
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -43,7 +44,8 @@ Test(d[cs:vi]e[cn:pu])
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -75,7 +77,8 @@ Test(d[ob:0;2mm]e[ub:1{]f[ub:1}])
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -111,7 +114,8 @@ Test(c[ll:0]d[oll:0;2mm]e[ull:1{0])
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -151,7 +155,8 @@ Test(d[oslur:0{]e[oslur:0}]f[uslur:1;2mm,1mm])
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -188,7 +193,8 @@ Test(d_[oh:m+1pt]e_[uh{]f_[uh}])
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -231,7 +237,8 @@ Test(d[alt:*]e[nv:\test]f[gv:\code]g[ev:\elem])
 (source_file
   (header_section
     (header
-      name: (header_name)))
+      (header_generic
+      name: (header_name))))
   (section_separator)
   (notation_section
     (notation_item
@@ -247,12 +254,15 @@ Test(d[alt:*]e[nv:\test]f[gv:\code]g[ev:\elem])
             (gabc_neume
               pitch: (pitch_lowercase))
             (gabc_attribute
-              name: (nv))
+              name: (nv)
+              tex_code: (tex_code))
             (gabc_neume
               pitch: (pitch_lowercase))
             (gabc_attribute
-              name: (gv))
+              name: (gv)
+              tex_code: (tex_code))
             (gabc_neume
               pitch: (pitch_lowercase))
             (gabc_attribute
-              name: (ev))))))))
+              name: (ev)
+              tex_code: (tex_code))))))))
