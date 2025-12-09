@@ -65,6 +65,9 @@ module.exports = grammar({
       $.header_tex_mode_modifier,
       $.header_tex_mode_differentia,
       $.header_tex_def_macro,
+      $.header_numeric_mode,
+      $.header_numeric_staff_lines,
+      $.header_numeric_nabc_lines,
       $.header_generic
     )),
 
@@ -99,6 +102,31 @@ module.exports = grammar({
 
     // Value for TeX headers (for injection)
     tex_code_header: _ => /[^;%]*/,
+
+    // Headers with numeric values
+    header_numeric_mode: $ => seq(
+      field('name', token(prec(11, 'mode'))),
+      token.immediate(':'),
+      field('value', optional($.header_value_numeric)),
+      field('terminator', choice(';', ';;'))
+    ),
+
+    header_numeric_staff_lines: $ => seq(
+      field('name', token(prec(11, 'staff-lines'))),
+      token.immediate(':'),
+      field('value', optional($.header_value_numeric)),
+      field('terminator', choice(';', ';;'))
+    ),
+
+    header_numeric_nabc_lines: $ => seq(
+      field('name', token(prec(11, 'nabc-lines'))),
+      token.immediate(':'),
+      field('value', optional($.header_value_numeric)),
+      field('terminator', choice(';', ';;'))
+    ),
+
+    // Numeric value for headers (can be just digits or mixed with text for mode)
+    header_value_numeric: _ => /[^;%]*/,
 
     // Generic header for all other headers
     header_generic: $ => seq(

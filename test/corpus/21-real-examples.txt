@@ -25,8 +25,8 @@ Ký(k')ri(j)e(kvJI'jkh.) *(,) (kjkvJI'jkh.gxkhiv./[-0.5]fg!hv.) **(,) e(gxhvFE'D
       (header_generic
         name: (header_name)))
     (header
-      (header_generic
-        name: (header_name)))
+      (header_numeric_mode
+        value: (header_value_numeric)))
     (header
       (header_generic
         name: (header_name)))
@@ -641,8 +641,8 @@ E(f) u(e) o(f) u(h) a(hg) e.(h) (::)
       (header_generic
         name: (header_name)))
     (header
-      (header_generic
-        name: (header_name)))
+      (header_numeric_mode
+        value: (header_value_numeric)))
     (header
       (header_generic
         name: (header_name)))
@@ -1494,8 +1494,8 @@ transcriber:Andrew Hinkley;
       (header_generic
         name: (header_name)))
     (header
-      (header_generic
-        name: (header_name)))
+      (header_numeric_mode
+        value: (header_value_numeric)))
     (header
       (header_generic
         name: (header_name)))
@@ -2391,8 +2391,8 @@ sca(f)bél(h)lum(ih) pe(i)dum(ixi j_i/jkIH'Gh) tu(fe)ó(f.fg)rum.(e[ll:1]d..) (:
       (header_generic
         name: (header_name)))
     (header
-      (header_generic
-        name: (header_name)))
+      (header_numeric_mode
+        value: (header_value_numeric)))
     (header
       (header_generic
         name: (header_name)))
@@ -3263,8 +3263,8 @@ sa(hgh)lu(fg)tá(g_[oh:h]f)re(fgf) De(d_[oh:h]c)i(ef) no(f_[oh:h]g)stri.(f.) (::
       (header_generic
         name: (header_name)))
     (header
-      (header_generic
-        name: (header_name)))
+      (header_numeric_mode
+        value: (header_value_numeric)))
     (header
       (header_generic
         name: (header_name)))
