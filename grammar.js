@@ -17,6 +17,26 @@ module.exports = grammar({
     [$.gabc_separation_bar, $.nabc_spacing],
     // gabc_neume with or without additional signs can be ambiguous
     [$.gabc_neume],
+    // syllable repeat1 within tags creates ambiguity
+    [$.syllable],
+    // Complete tags vs cross-syllable open tags
+    [$.syllable_style_bold, $.syllable_style_bold_open],
+    [$.syllable_style_colored, $.syllable_style_colored_open],
+    [$.syllable_style_italic, $.syllable_style_italic_open],
+    [$.syllable_style_small_caps, $.syllable_style_small_caps_open],
+    [$.syllable_style_teletype, $.syllable_style_teletype_open],
+    [$.syllable_style_underline, $.syllable_style_underline_open],
+    [$.syllable_control_elision, $.syllable_control_elision_open],
+    [$.syllable_control_euouae, $.syllable_control_euouae_open],
+    // Complete tags vs cross-syllable close tags
+    [$.syllable_style_bold, $.syllable_style_bold_close],
+    [$.syllable_style_colored, $.syllable_style_colored_close],
+    [$.syllable_style_italic, $.syllable_style_italic_close],
+    [$.syllable_style_small_caps, $.syllable_style_small_caps_close],
+    [$.syllable_style_teletype, $.syllable_style_teletype_close],
+    [$.syllable_style_underline, $.syllable_style_underline_close],
+    [$.syllable_control_elision, $.syllable_control_elision_close],
+    [$.syllable_control_euouae, $.syllable_control_euouae_close],
   ],
 
   rules: {
@@ -71,10 +91,27 @@ module.exports = grammar({
         $.syllable_style_small_caps,
         $.syllable_style_teletype,
         $.syllable_style_underline,
+        $.syllable_style_bold_open,
+        $.syllable_style_bold_close,
+        $.syllable_style_colored_open,
+        $.syllable_style_colored_close,
+        $.syllable_style_italic_open,
+        $.syllable_style_italic_close,
+        $.syllable_style_small_caps_open,
+        $.syllable_style_small_caps_close,
+        $.syllable_style_teletype_open,
+        $.syllable_style_teletype_close,
+        $.syllable_style_underline_open,
+        $.syllable_style_underline_close,
         $.syllable_control_clear,
         $.syllable_control_elision,
         $.syllable_control_euouae,
-        $.syllable_control_no_line_break,
+        $.syllable_control_elision_open,
+        $.syllable_control_elision_close,
+        $.syllable_control_euouae_open,
+        $.syllable_control_euouae_close,
+        $.syllable_control_no_line_break_open,
+        $.syllable_control_no_line_break_close,
         $.syllable_control_protrusion,
         $.syllable_other_above_lines_text,
         $.syllable_other_special_character,
@@ -88,7 +125,9 @@ module.exports = grammar({
     syllable_text: $ => /[^\s${}\\<>%()\[\]]+/,
 
     // Syllable style tags
-    syllable_style_bold: $ => seq(
+    // Complete tags: <b>text</b> - preferred for self-contained content
+    // Cross-syllable: text1<b>(notes) text2</b>(notes) - tags span multiple notation_items
+    syllable_style_bold: $ => prec.dynamic(1, seq(
       '<',
       'b',
       '>',
@@ -96,8 +135,8 @@ module.exports = grammar({
       '</',
       'b',
       '>'
-    ),
-    syllable_style_colored: $ => seq(
+    )),
+    syllable_style_colored: $ => prec.dynamic(1, seq(
       '<',
       'c',
       '>',
@@ -105,8 +144,8 @@ module.exports = grammar({
       '</',
       'c',
       '>'
-    ),
-    syllable_style_italic: $ => seq(
+    )),
+    syllable_style_italic: $ => prec.dynamic(1, seq(
       '<',
       'i',
       '>',
@@ -114,8 +153,8 @@ module.exports = grammar({
       '</',
       'i',
       '>'
-    ),
-    syllable_style_small_caps: $ => seq(
+    )),
+    syllable_style_small_caps: $ => prec.dynamic(1, seq(
       '<',
       'sc',
       '>',
@@ -123,8 +162,8 @@ module.exports = grammar({
       '</',
       'sc',
       '>'
-    ),
-    syllable_style_teletype: $ => seq(
+    )),
+    syllable_style_teletype: $ => prec.dynamic(1, seq(
       '<',
       'tt',
       '>',
@@ -132,8 +171,8 @@ module.exports = grammar({
       '</',
       'tt',
       '>'
-    ),
-    syllable_style_underline: $ => seq(
+    )),
+    syllable_style_underline: $ => prec.dynamic(1, seq(
       '<',
       'ul',
       '>',
@@ -141,7 +180,25 @@ module.exports = grammar({
       '</',
       'ul',
       '>'
-    ),
+    )),
+
+    // Cross-syllable style tags (simple open/close tags)
+    // These allow tags to span multiple syllables when used separately
+    // Example: text1<b>(f) text2</b>(g) - where <b> opens in first syllable, closes in second
+    syllable_style_bold_open: $ => seq('<', 'b', '>'),
+    syllable_style_colored_open: $ => seq('<', 'c', '>'),
+    syllable_style_italic_open: $ => seq('<', 'i', '>'),
+    syllable_style_small_caps_open: $ => seq('<', 'sc', '>'),
+    syllable_style_teletype_open: $ => seq('<', 'tt', '>'),
+    syllable_style_underline_open: $ => seq('<', 'ul', '>'),
+
+    // Closing tags for cross-syllable usage
+    syllable_style_bold_close: $ => seq('</', 'b', '>'),
+    syllable_style_colored_close: $ => seq('</', 'c', '>'),
+    syllable_style_italic_close: $ => seq('</', 'i', '>'),
+    syllable_style_small_caps_close: $ => seq('</', 'sc', '>'),
+    syllable_style_teletype_close: $ => seq('</', 'tt', '>'),
+    syllable_style_underline_close: $ => seq('</', 'ul', '>'),
 
     // Syllable controls
     syllable_control_clear: $ => seq(
@@ -151,7 +208,8 @@ module.exports = grammar({
       '>'
     ),
 
-    syllable_control_elision: $ => seq(
+    // Control tags for special text handling
+    syllable_control_elision: $ => prec.dynamic(1, seq(
       '<',
       'e',
       '>',
@@ -159,9 +217,9 @@ module.exports = grammar({
       '</',
       'e',
       '>'
-    ),
+    )),
 
-    syllable_control_euouae: $ => seq(
+    syllable_control_euouae: $ => prec.dynamic(1, seq(
       '<',
       'eu',
       '>',
@@ -169,17 +227,20 @@ module.exports = grammar({
       '</',
       'eu',
       '>'
-    ),
+    )),
 
-    syllable_control_no_line_break: $ => seq(
-      '<',
-      'nlba',
-      '>',
-      optional(field('content', $.syllable)),
-      '</',
-      'nlba',
-      '>'
-    ),
+    // Cross-syllable control tags (simple open/close tags)
+    syllable_control_elision_open: $ => seq('<', 'e', '>'),
+    syllable_control_euouae_open: $ => seq('<', 'eu', '>'),
+    
+    // Closing tags for cross-syllable control usage
+    syllable_control_elision_close: $ => seq('</', 'e', '>'),
+    syllable_control_euouae_close: $ => seq('</', 'eu', '>'),
+
+    // No Line Break Area (nlba) tag - cross-syllable only
+    // Usage: <nlba>text1(notes) text2</nlba>(notes) - spans multiple notation_items
+    syllable_control_no_line_break_open: $ => seq('<', 'nlba', '>'),
+    syllable_control_no_line_break_close: $ => seq('</', 'nlba', '>'),
 
     syllable_control_protrusion: $ => seq(
       '<',

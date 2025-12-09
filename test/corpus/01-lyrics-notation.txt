@@ -109,7 +109,7 @@ name: Syllable controls test;
 
 %%
 
-<e>E</e>(f)<clear/><eu>u</eu>(g)<nlba>o</nlba>(h)<pr>ae(i)<pr:.3/>(j)
+<e>E</e>(f)<clear/><eu>u</eu>(g)<nlba>o(h)ae</nlba>(i)<pr>b(j)<pr:.3/>(k)
 
 --------------------------------------------------------------------------------
 
@@ -142,9 +142,17 @@ name: Syllable controls test;
               pitch: (pitch_lowercase))))))
     (notation_item
       (syllable
-        (syllable_control_no_line_break
-          content: (syllable
-            (syllable_text))))
+        (syllable_control_no_line_break_open)
+        (syllable_text))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              pitch: (pitch_lowercase))))))
+    (notation_item
+      (syllable
+        (syllable_text)
+        (syllable_control_no_line_break_close))
       (note_group
         (snippet_list
           (gabc_snippet
