@@ -1,0 +1,3612 @@
+[
+  {
+    "type": "comment",
+    "named": true,
+    "extra": true,
+    "fields": {}
+  },
+  {
+    "type": "gabc_alteration",
+    "named": true,
+    "fields": {
+      "alteration": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "flat",
+            "named": true
+          },
+          {
+            "type": "flat_parenthesized",
+            "named": true
+          },
+          {
+            "type": "flat_soft",
+            "named": true
+          },
+          {
+            "type": "natural",
+            "named": true
+          },
+          {
+            "type": "natural_parenthesized",
+            "named": true
+          },
+          {
+            "type": "natural_soft",
+            "named": true
+          },
+          {
+            "type": "sharp",
+            "named": true
+          },
+          {
+            "type": "sharp_parenthesized",
+            "named": true
+          },
+          {
+            "type": "sharp_soft",
+            "named": true
+          }
+        ]
+      },
+      "pitch": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "pitch_lowercase",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "gabc_attribute",
+    "named": true,
+    "fields": {
+      "dimensions": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "slur_dimensions",
+            "named": true
+          }
+        ]
+      },
+      "hint": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "stroke",
+            "named": true
+          }
+        ]
+      },
+      "left": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "ledger_line_left",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "alt",
+            "named": true
+          },
+          {
+            "type": "cn",
+            "named": true
+          },
+          {
+            "type": "cs",
+            "named": true
+          },
+          {
+            "type": "ev",
+            "named": true
+          },
+          {
+            "type": "gv",
+            "named": true
+          },
+          {
+            "type": "ll",
+            "named": true
+          },
+          {
+            "type": "nocustos",
+            "named": true
+          },
+          {
+            "type": "nv",
+            "named": true
+          },
+          {
+            "type": "ob",
+            "named": true
+          },
+          {
+            "type": "ocb",
+            "named": true
+          },
+          {
+            "type": "ocba",
+            "named": true
+          },
+          {
+            "type": "oh",
+            "named": true
+          },
+          {
+            "type": "oll",
+            "named": true
+          },
+          {
+            "type": "oslur",
+            "named": true
+          },
+          {
+            "type": "shape",
+            "named": true
+          },
+          {
+            "type": "ub",
+            "named": true
+          },
+          {
+            "type": "uh",
+            "named": true
+          },
+          {
+            "type": "ull",
+            "named": true
+          },
+          {
+            "type": "uslur",
+            "named": true
+          }
+        ]
+      },
+      "position": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "0",
+            "named": false
+          },
+          {
+            "type": "1",
+            "named": false
+          },
+          {
+            "type": "episema_position",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "ledger_line_right",
+            "named": true
+          }
+        ]
+      },
+      "shift": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "0",
+            "named": false
+          },
+          {
+            "type": "1",
+            "named": false
+          },
+          {
+            "type": "2",
+            "named": false
+          }
+        ]
+      },
+      "tex_code": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "tex_code",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "0",
+            "named": false
+          },
+          {
+            "type": "1",
+            "named": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "gabc_clef",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "c_clef",
+            "named": true
+          },
+          {
+            "type": "c_clef_flat",
+            "named": true
+          },
+          {
+            "type": "f_clef",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "gabc_clef_link",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "gabc_clef",
+            "named": true
+          },
+          {
+            "type": "gabc_clef_link",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "gabc_clef",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "gabc_extra_symbol",
+    "named": true,
+    "fields": {
+      "modifier": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "above_note",
+            "named": true
+          },
+          {
+            "type": "always_above",
+            "named": true
+          },
+          {
+            "type": "always_below",
+            "named": true
+          },
+          {
+            "type": "below_note",
+            "named": true
+          },
+          {
+            "type": "disable_bridging",
+            "named": true
+          },
+          {
+            "type": "small_center",
+            "named": true
+          },
+          {
+            "type": "small_left",
+            "named": true
+          },
+          {
+            "type": "small_right",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "accent_above_staff",
+            "named": true
+          },
+          {
+            "type": "accent_grave_above_staff",
+            "named": true
+          },
+          {
+            "type": "circle_above_staff",
+            "named": true
+          },
+          {
+            "type": "episema",
+            "named": true
+          },
+          {
+            "type": "ictus",
+            "named": true
+          },
+          {
+            "type": "lower_semicircle_above_staff",
+            "named": true
+          },
+          {
+            "type": "musica_ficta_flat",
+            "named": true
+          },
+          {
+            "type": "musica_ficta_natural",
+            "named": true
+          },
+          {
+            "type": "musica_ficta_sharp",
+            "named": true
+          },
+          {
+            "type": "punctum_mora",
+            "named": true
+          },
+          {
+            "type": "upper_semicircle_above_staff",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "gabc_neume",
+    "named": true,
+    "fields": {
+      "extra_symbol": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "gabc_extra_symbol",
+            "named": true
+          }
+        ]
+      },
+      "leaning": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "left_leaning",
+            "named": true
+          },
+          {
+            "type": "non_leaning",
+            "named": true
+          },
+          {
+            "type": "right_leaning",
+            "named": true
+          }
+        ]
+      },
+      "liquescence": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "augmented",
+            "named": true
+          },
+          {
+            "type": "deminutus",
+            "named": true
+          },
+          {
+            "type": "diminished",
+            "named": true
+          }
+        ]
+      },
+      "orientation": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "downwards",
+            "named": true
+          },
+          {
+            "type": "upwards",
+            "named": true
+          }
+        ]
+      },
+      "pitch": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "pitch_lowercase",
+            "named": true
+          },
+          {
+            "type": "pitch_uppercase",
+            "named": true
+          }
+        ]
+      },
+      "shape": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "bivirga",
+            "named": true
+          },
+          {
+            "type": "cavum",
+            "named": true
+          },
+          {
+            "type": "cavum_linea",
+            "named": true
+          },
+          {
+            "type": "distropha",
+            "named": true
+          },
+          {
+            "type": "initio_debilis",
+            "named": true
+          },
+          {
+            "type": "linea",
+            "named": true
+          },
+          {
+            "type": "oriscus",
+            "named": true
+          },
+          {
+            "type": "oriscus_scapus",
+            "named": true
+          },
+          {
+            "type": "punctum_linea",
+            "named": true
+          },
+          {
+            "type": "quadratum",
+            "named": true
+          },
+          {
+            "type": "quilisma",
+            "named": true
+          },
+          {
+            "type": "quilisma_quadratum",
+            "named": true
+          },
+          {
+            "type": "stropha",
+            "named": true
+          },
+          {
+            "type": "tristropha",
+            "named": true
+          },
+          {
+            "type": "trivirga",
+            "named": true
+          },
+          {
+            "type": "virga",
+            "named": true
+          },
+          {
+            "type": "virga_reversa",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "gabc_neume_fusion",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "gabc_neume",
+            "named": true
+          },
+          {
+            "type": "gabc_neume_fusion",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "gabc_neume",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "gabc_neume_fusion_group",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "gabc_neume",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "gabc_separation_bar",
+    "named": true,
+    "fields": {
+      "modifier": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "brace",
+            "named": true
+          },
+          {
+            "type": "vertical_episema",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "divisio_finalis",
+            "named": true
+          },
+          {
+            "type": "divisio_maior",
+            "named": true
+          },
+          {
+            "type": "divisio_maior_dotted",
+            "named": true
+          },
+          {
+            "type": "divisio_minima",
+            "named": true
+          },
+          {
+            "type": "divisio_minima_upper_ledger_line",
+            "named": true
+          },
+          {
+            "type": "divisio_minimis",
+            "named": true
+          },
+          {
+            "type": "divisio_minimis_upper_ledger_line",
+            "named": true
+          },
+          {
+            "type": "divisio_minor",
+            "named": true
+          },
+          {
+            "type": "dominican_bar",
+            "named": true
+          },
+          {
+            "type": "virgula",
+            "named": true
+          },
+          {
+            "type": "virgula_upper_ledger_line",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "gabc_snippet",
+    "named": true,
+    "fields": {
+      "custos_modifier": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "disable_custos",
+            "named": true
+          },
+          {
+            "type": "force_custos",
+            "named": true
+          }
+        ]
+      },
+      "pitch": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "pitch_lowercase",
+            "named": true
+          }
+        ]
+      },
+      "symbol": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "custos_symbol",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "justified_line_break",
+            "named": true
+          },
+          {
+            "type": "ragged_line_break",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "custos_auto_pitch",
+          "named": true
+        },
+        {
+          "type": "gabc_alteration",
+          "named": true
+        },
+        {
+          "type": "gabc_attribute",
+          "named": true
+        },
+        {
+          "type": "gabc_clef",
+          "named": true
+        },
+        {
+          "type": "gabc_clef_link",
+          "named": true
+        },
+        {
+          "type": "gabc_extra_symbol",
+          "named": true
+        },
+        {
+          "type": "gabc_neume",
+          "named": true
+        },
+        {
+          "type": "gabc_neume_fusion",
+          "named": true
+        },
+        {
+          "type": "gabc_neume_fusion_group",
+          "named": true
+        },
+        {
+          "type": "gabc_separation_bar",
+          "named": true
+        },
+        {
+          "type": "gabc_spacing",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "gabc_spacing",
+    "named": true,
+    "fields": {
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "half_space_same_neume",
+            "named": true
+          },
+          {
+            "type": "large_space",
+            "named": true
+          },
+          {
+            "type": "large_unbreakable_space",
+            "named": true
+          },
+          {
+            "type": "medium_neume_separation",
+            "named": true
+          },
+          {
+            "type": "scaled_large_neume_separation",
+            "named": true
+          },
+          {
+            "type": "small_neume_separation",
+            "named": true
+          },
+          {
+            "type": "small_space_same_neume",
+            "named": true
+          },
+          {
+            "type": "zero_space",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "glyph_modifiers",
+    "named": true,
+    "fields": {
+      "type": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "augmentive_liquescence",
+            "named": true
+          },
+          {
+            "type": "diminutive_liquescence",
+            "named": true
+          },
+          {
+            "type": "episema",
+            "named": true
+          },
+          {
+            "type": "grouping_modification",
+            "named": true
+          },
+          {
+            "type": "mark_modification",
+            "named": true
+          },
+          {
+            "type": "melodic_modification",
+            "named": true
+          }
+        ]
+      },
+      "variant": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "variant_number",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "header",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "header_generic",
+          "named": true
+        },
+        {
+          "type": "header_numeric_mode",
+          "named": true
+        },
+        {
+          "type": "header_numeric_nabc_lines",
+          "named": true
+        },
+        {
+          "type": "header_numeric_staff_lines",
+          "named": true
+        },
+        {
+          "type": "header_tex_annotation",
+          "named": true
+        },
+        {
+          "type": "header_tex_def_macro",
+          "named": true
+        },
+        {
+          "type": "header_tex_mode_differentia",
+          "named": true
+        },
+        {
+          "type": "header_tex_mode_modifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "header_generic",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "header_name",
+            "named": true
+          }
+        ]
+      },
+      "terminator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": ";",
+            "named": false
+          },
+          {
+            "type": ";;",
+            "named": false
+          }
+        ]
+      },
+      "value": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ";",
+            "named": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "header_numeric_mode",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "mode",
+            "named": false
+          }
+        ]
+      },
+      "terminator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": ";",
+            "named": false
+          },
+          {
+            "type": ";;",
+            "named": false
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "header_value_numeric",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "header_numeric_nabc_lines",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "nabc-lines",
+            "named": false
+          }
+        ]
+      },
+      "terminator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": ";",
+            "named": false
+          },
+          {
+            "type": ";;",
+            "named": false
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "header_value_numeric",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "header_numeric_staff_lines",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "staff-lines",
+            "named": false
+          }
+        ]
+      },
+      "terminator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": ";",
+            "named": false
+          },
+          {
+            "type": ";;",
+            "named": false
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "header_value_numeric",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "header_section",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "header",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "header_tex_annotation",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "annotation",
+            "named": false
+          }
+        ]
+      },
+      "terminator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": ";",
+            "named": false
+          },
+          {
+            "type": ";;",
+            "named": false
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "tex_code_header",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "header_tex_def_macro",
+    "named": true,
+    "fields": {
+      "terminator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": ";",
+            "named": false
+          },
+          {
+            "type": ";;",
+            "named": false
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "tex_code_header",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "header_tex_mode_differentia",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "mode-differentia",
+            "named": false
+          }
+        ]
+      },
+      "terminator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": ";",
+            "named": false
+          },
+          {
+            "type": ";;",
+            "named": false
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "tex_code_header",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "header_tex_mode_modifier",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "mode-modifier",
+            "named": false
+          }
+        ]
+      },
+      "terminator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": ";",
+            "named": false
+          },
+          {
+            "type": ";;",
+            "named": false
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "tex_code_header",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "header_value_numeric",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "ledger_line_right",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "nabc_complex_glyph_descriptor",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "nabc_glyph_descriptor",
+          "named": true
+        },
+        {
+          "type": "nabc_glyph_fusion",
+          "named": true
+        },
+        {
+          "type": "nabc_significant_letter_descriptor",
+          "named": true
+        },
+        {
+          "type": "nabc_spacing",
+          "named": true
+        },
+        {
+          "type": "nabc_subpunctis_prepunctis_descriptor",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "nabc_glyph_descriptor",
+    "named": true,
+    "fields": {
+      "basic_glyph_descriptor": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "bivirga",
+            "named": true
+          },
+          {
+            "type": "climacus",
+            "named": true
+          },
+          {
+            "type": "clivis",
+            "named": true
+          },
+          {
+            "type": "distropha",
+            "named": true
+          },
+          {
+            "type": "gravis",
+            "named": true
+          },
+          {
+            "type": "nihil",
+            "named": true
+          },
+          {
+            "type": "oriscus",
+            "named": true
+          },
+          {
+            "type": "oriscus_clivis",
+            "named": true
+          },
+          {
+            "type": "pes",
+            "named": true
+          },
+          {
+            "type": "pes_quassus",
+            "named": true
+          },
+          {
+            "type": "pes_stratus",
+            "named": true
+          },
+          {
+            "type": "porrectus",
+            "named": true
+          },
+          {
+            "type": "porrectus_flexus",
+            "named": true
+          },
+          {
+            "type": "pressus_maior",
+            "named": true
+          },
+          {
+            "type": "pressus_minor",
+            "named": true
+          },
+          {
+            "type": "punctum",
+            "named": true
+          },
+          {
+            "type": "quilisma_2_loops",
+            "named": true
+          },
+          {
+            "type": "quilisma_3_loops",
+            "named": true
+          },
+          {
+            "type": "salicus",
+            "named": true
+          },
+          {
+            "type": "scandicus",
+            "named": true
+          },
+          {
+            "type": "scandicus_flexus",
+            "named": true
+          },
+          {
+            "type": "stropha",
+            "named": true
+          },
+          {
+            "type": "torculus",
+            "named": true
+          },
+          {
+            "type": "torculus_resupinus",
+            "named": true
+          },
+          {
+            "type": "tractulus",
+            "named": true
+          },
+          {
+            "type": "trigonus",
+            "named": true
+          },
+          {
+            "type": "tristropha",
+            "named": true
+          },
+          {
+            "type": "trivirga",
+            "named": true
+          },
+          {
+            "type": "uncinus",
+            "named": true
+          },
+          {
+            "type": "virga",
+            "named": true
+          },
+          {
+            "type": "virga_strata",
+            "named": true
+          }
+        ]
+      },
+      "glyph_modifiers": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "glyph_modifiers",
+            "named": true
+          }
+        ]
+      },
+      "pitch_descriptor": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "pitch_descriptor",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "nabc_glyph_fusion",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "nabc_glyph_descriptor",
+            "named": true
+          },
+          {
+            "type": "nabc_glyph_fusion",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "nabc_glyph_descriptor",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "nabc_significant_letter_descriptor",
+    "named": true,
+    "fields": {
+      "position": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "position_number",
+            "named": true
+          }
+        ]
+      },
+      "shorthand": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "altius",
+            "named": true
+          },
+          {
+            "type": "altius_mediocriter",
+            "named": true
+          },
+          {
+            "type": "augete",
+            "named": true
+          },
+          {
+            "type": "bene",
+            "named": true
+          },
+          {
+            "type": "celeriter",
+            "named": true
+          },
+          {
+            "type": "celeriter_mediocriter",
+            "named": true
+          },
+          {
+            "type": "celeriter_wide",
+            "named": true
+          },
+          {
+            "type": "coniunguntur",
+            "named": true
+          },
+          {
+            "type": "deorsum",
+            "named": true
+          },
+          {
+            "type": "deprimatur",
+            "named": true
+          },
+          {
+            "type": "devertit",
+            "named": true
+          },
+          {
+            "type": "devexum",
+            "named": true
+          },
+          {
+            "type": "equaliter",
+            "named": true
+          },
+          {
+            "type": "equaliter_dash",
+            "named": true
+          },
+          {
+            "type": "equaliter_eq",
+            "named": true
+          },
+          {
+            "type": "equaliter_equ",
+            "named": true
+          },
+          {
+            "type": "equaliter_wide",
+            "named": true
+          },
+          {
+            "type": "expectare",
+            "named": true
+          },
+          {
+            "type": "fastigium",
+            "named": true
+          },
+          {
+            "type": "fideliter",
+            "named": true
+          },
+          {
+            "type": "frendor",
+            "named": true
+          },
+          {
+            "type": "gutture",
+            "named": true
+          },
+          {
+            "type": "humiliter",
+            "named": true
+          },
+          {
+            "type": "humiliter_nectum",
+            "named": true
+          },
+          {
+            "type": "humiliter_parum",
+            "named": true
+          },
+          {
+            "type": "iusum",
+            "named": true
+          },
+          {
+            "type": "iusum_mediocriter",
+            "named": true
+          },
+          {
+            "type": "iusum_valde",
+            "named": true
+          },
+          {
+            "type": "klenche",
+            "named": true
+          },
+          {
+            "type": "leniter",
+            "named": true
+          },
+          {
+            "type": "levare",
+            "named": true
+          },
+          {
+            "type": "levare_bene",
+            "named": true
+          },
+          {
+            "type": "levare_celeriter",
+            "named": true
+          },
+          {
+            "type": "levare_mediocriter",
+            "named": true
+          },
+          {
+            "type": "levare_parvum",
+            "named": true
+          },
+          {
+            "type": "levare_tenere",
+            "named": true
+          },
+          {
+            "type": "mediocriter",
+            "named": true
+          },
+          {
+            "type": "mediocriter_md",
+            "named": true
+          },
+          {
+            "type": "molliter",
+            "named": true
+          },
+          {
+            "type": "non_levare",
+            "named": true
+          },
+          {
+            "type": "non_tenere",
+            "named": true
+          },
+          {
+            "type": "non_tenere_negare_nectum_naturaliter",
+            "named": true
+          },
+          {
+            "type": "paratim",
+            "named": true
+          },
+          {
+            "type": "parvum",
+            "named": true
+          },
+          {
+            "type": "parvum_mediocriter",
+            "named": true
+          },
+          {
+            "type": "perfecte",
+            "named": true
+          },
+          {
+            "type": "prode_sub_eam",
+            "named": true
+          },
+          {
+            "type": "pulcre",
+            "named": true
+          },
+          {
+            "type": "quam_mox",
+            "named": true
+          },
+          {
+            "type": "saltate",
+            "named": true
+          },
+          {
+            "type": "saltim",
+            "named": true
+          },
+          {
+            "type": "seorsum",
+            "named": true
+          },
+          {
+            "type": "similiter",
+            "named": true
+          },
+          {
+            "type": "simpliciter",
+            "named": true
+          },
+          {
+            "type": "simpliciter_simpl",
+            "named": true
+          },
+          {
+            "type": "simul",
+            "named": true
+          },
+          {
+            "type": "sonare",
+            "named": true
+          },
+          {
+            "type": "statim",
+            "named": true
+          },
+          {
+            "type": "sub",
+            "named": true
+          },
+          {
+            "type": "subjice",
+            "named": true
+          },
+          {
+            "type": "supra",
+            "named": true
+          },
+          {
+            "type": "sursum",
+            "named": true
+          },
+          {
+            "type": "sursum_bene",
+            "named": true
+          },
+          {
+            "type": "sursum_celeriter",
+            "named": true
+          },
+          {
+            "type": "sursum_mediocriter",
+            "named": true
+          },
+          {
+            "type": "sursum_parum",
+            "named": true
+          },
+          {
+            "type": "sursum_tenere",
+            "named": true
+          },
+          {
+            "type": "tenere",
+            "named": true
+          },
+          {
+            "type": "tenere_bene",
+            "named": true
+          },
+          {
+            "type": "tenere_humiliter",
+            "named": true
+          },
+          {
+            "type": "tenere_mediocriter",
+            "named": true
+          },
+          {
+            "type": "tenere_wide",
+            "named": true
+          },
+          {
+            "type": "ut_supra",
+            "named": true
+          },
+          {
+            "type": "valde",
+            "named": true
+          },
+          {
+            "type": "volubiliter",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "significant_letter",
+            "named": true
+          },
+          {
+            "type": "tironian_letter",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "nabc_snippet",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "nabc_complex_glyph_descriptor",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "nabc_spacing",
+    "named": true,
+    "fields": {
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "inter_element_space_left",
+            "named": true
+          },
+          {
+            "type": "inter_element_space_right",
+            "named": true
+          },
+          {
+            "type": "larger_space_left",
+            "named": true
+          },
+          {
+            "type": "larger_space_right",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "nabc_subpunctis_prepunctis_descriptor",
+    "named": true,
+    "fields": {
+      "count": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "repetition_count",
+            "named": true
+          }
+        ]
+      },
+      "modifier": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "gravis",
+            "named": true
+          },
+          {
+            "type": "gravis_episema",
+            "named": true
+          },
+          {
+            "type": "liquescens_stropha_cephalicus",
+            "named": true
+          },
+          {
+            "type": "quilisma",
+            "named": true
+          },
+          {
+            "type": "tractulus",
+            "named": true
+          },
+          {
+            "type": "tractulus_double_episema",
+            "named": true
+          },
+          {
+            "type": "tractulus_episema",
+            "named": true
+          },
+          {
+            "type": "uncinus",
+            "named": true
+          },
+          {
+            "type": "virga",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "prepunctis",
+            "named": true
+          },
+          {
+            "type": "subpunctis",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "notation_item",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "note_group",
+          "named": true
+        },
+        {
+          "type": "syllable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "notation_section",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "notation_item",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "note_group",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "snippet_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "pitch_descriptor",
+    "named": true,
+    "fields": {
+      "pitch": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "pitch_lowercase",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "pitch_lowercase",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "pitch_uppercase",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "scaled_large_neume_separation",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "slur_dimensions",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "snippet_list",
+    "named": true,
+    "fields": {
+      "alternate": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "gabc_snippet",
+            "named": true
+          },
+          {
+            "type": "nabc_snippet",
+            "named": true
+          }
+        ]
+      },
+      "first": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "gabc_snippet",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "gabc_snippet",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "header_section",
+          "named": true
+        },
+        {
+          "type": "notation_section",
+          "named": true
+        },
+        {
+          "type": "section_separator",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "syllable",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "syllable_centering",
+          "named": true
+        },
+        {
+          "type": "syllable_control_clear",
+          "named": true
+        },
+        {
+          "type": "syllable_control_elision",
+          "named": true
+        },
+        {
+          "type": "syllable_control_elision_close",
+          "named": true
+        },
+        {
+          "type": "syllable_control_elision_open",
+          "named": true
+        },
+        {
+          "type": "syllable_control_euouae",
+          "named": true
+        },
+        {
+          "type": "syllable_control_euouae_close",
+          "named": true
+        },
+        {
+          "type": "syllable_control_euouae_open",
+          "named": true
+        },
+        {
+          "type": "syllable_control_no_line_break_close",
+          "named": true
+        },
+        {
+          "type": "syllable_control_no_line_break_open",
+          "named": true
+        },
+        {
+          "type": "syllable_control_protrusion",
+          "named": true
+        },
+        {
+          "type": "syllable_escape_sequence",
+          "named": true
+        },
+        {
+          "type": "syllable_other_above_lines_text",
+          "named": true
+        },
+        {
+          "type": "syllable_other_special_character",
+          "named": true
+        },
+        {
+          "type": "syllable_other_verbatim",
+          "named": true
+        },
+        {
+          "type": "syllable_style_bold",
+          "named": true
+        },
+        {
+          "type": "syllable_style_bold_close",
+          "named": true
+        },
+        {
+          "type": "syllable_style_bold_open",
+          "named": true
+        },
+        {
+          "type": "syllable_style_colored",
+          "named": true
+        },
+        {
+          "type": "syllable_style_colored_close",
+          "named": true
+        },
+        {
+          "type": "syllable_style_colored_open",
+          "named": true
+        },
+        {
+          "type": "syllable_style_italic",
+          "named": true
+        },
+        {
+          "type": "syllable_style_italic_close",
+          "named": true
+        },
+        {
+          "type": "syllable_style_italic_open",
+          "named": true
+        },
+        {
+          "type": "syllable_style_small_caps",
+          "named": true
+        },
+        {
+          "type": "syllable_style_small_caps_close",
+          "named": true
+        },
+        {
+          "type": "syllable_style_small_caps_open",
+          "named": true
+        },
+        {
+          "type": "syllable_style_teletype",
+          "named": true
+        },
+        {
+          "type": "syllable_style_teletype_close",
+          "named": true
+        },
+        {
+          "type": "syllable_style_teletype_open",
+          "named": true
+        },
+        {
+          "type": "syllable_style_underline",
+          "named": true
+        },
+        {
+          "type": "syllable_style_underline_close",
+          "named": true
+        },
+        {
+          "type": "syllable_style_underline_open",
+          "named": true
+        },
+        {
+          "type": "syllable_text",
+          "named": true
+        },
+        {
+          "type": "syllable_translation",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "syllable_centering",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "syllable_control_clear",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "syllable_control_elision",
+    "named": true,
+    "fields": {
+      "content": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "syllable",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "syllable_control_elision_close",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "syllable_control_elision_open",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "syllable_control_euouae",
+    "named": true,
+    "fields": {
+      "content": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "syllable",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "syllable_control_euouae_close",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "syllable_control_euouae_open",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "syllable_control_no_line_break_close",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "syllable_control_no_line_break_open",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "syllable_control_protrusion",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "syllable_escape_sequence",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "syllable_other_above_lines_text",
+    "named": true,
+    "fields": {
+      "content": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "syllable",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "syllable_other_special_character",
+    "named": true,
+    "fields": {
+      "content": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "syllable",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "syllable_other_verbatim",
+    "named": true,
+    "fields": {
+      "tex_code": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "tex_code_verbatim",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "syllable_style_bold",
+    "named": true,
+    "fields": {
+      "content": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "syllable",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "syllable_style_bold_close",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "syllable_style_bold_open",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "syllable_style_colored",
+    "named": true,
+    "fields": {
+      "content": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "syllable",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "syllable_style_colored_close",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "syllable_style_colored_open",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "syllable_style_italic",
+    "named": true,
+    "fields": {
+      "content": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "syllable",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "syllable_style_italic_close",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "syllable_style_italic_open",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "syllable_style_small_caps",
+    "named": true,
+    "fields": {
+      "content": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "syllable",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "syllable_style_small_caps_close",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "syllable_style_small_caps_open",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "syllable_style_teletype",
+    "named": true,
+    "fields": {
+      "content": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "syllable",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "syllable_style_teletype_close",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "syllable_style_teletype_open",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "syllable_style_underline",
+    "named": true,
+    "fields": {
+      "content": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "syllable",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "syllable_style_underline_close",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "syllable_style_underline_open",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "syllable_translation",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "tex_code",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "tex_code_header",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "!",
+    "named": false
+  },
+  {
+    "type": "$",
+    "named": false
+  },
+  {
+    "type": "%",
+    "named": false
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": "/",
+    "named": false
+  },
+  {
+    "type": "/[",
+    "named": false
+  },
+  {
+    "type": "0",
+    "named": false
+  },
+  {
+    "type": "1",
+    "named": false
+  },
+  {
+    "type": "2",
+    "named": false
+  },
+  {
+    "type": ":",
+    "named": false
+  },
+  {
+    "type": ";",
+    "named": false
+  },
+  {
+    "type": ";;",
+    "named": false
+  },
+  {
+    "type": "<",
+    "named": false
+  },
+  {
+    "type": "</",
+    "named": false
+  },
+  {
+    "type": ">",
+    "named": false
+  },
+  {
+    "type": "@",
+    "named": false
+  },
+  {
+    "type": "@[",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "above_note",
+    "named": true
+  },
+  {
+    "type": "accent_above_staff",
+    "named": true
+  },
+  {
+    "type": "accent_grave_above_staff",
+    "named": true
+  },
+  {
+    "type": "alt",
+    "named": false
+  },
+  {
+    "type": "alt",
+    "named": true
+  },
+  {
+    "type": "altius",
+    "named": true
+  },
+  {
+    "type": "altius_mediocriter",
+    "named": true
+  },
+  {
+    "type": "altm",
+    "named": false
+  },
+  {
+    "type": "always_above",
+    "named": true
+  },
+  {
+    "type": "always_below",
+    "named": true
+  },
+  {
+    "type": "annotation",
+    "named": false
+  },
+  {
+    "type": "augete",
+    "named": true
+  },
+  {
+    "type": "augmented",
+    "named": true
+  },
+  {
+    "type": "augmentive_liquescence",
+    "named": true
+  },
+  {
+    "type": "b",
+    "named": false
+  },
+  {
+    "type": "below_note",
+    "named": true
+  },
+  {
+    "type": "bene",
+    "named": true
+  },
+  {
+    "type": "bivirga",
+    "named": true
+  },
+  {
+    "type": "brace",
+    "named": true
+  },
+  {
+    "type": "c",
+    "named": false
+  },
+  {
+    "type": "c_clef",
+    "named": true
+  },
+  {
+    "type": "c_clef_flat",
+    "named": true
+  },
+  {
+    "type": "cavum",
+    "named": true
+  },
+  {
+    "type": "cavum_linea",
+    "named": true
+  },
+  {
+    "type": "celeriter",
+    "named": true
+  },
+  {
+    "type": "celeriter_mediocriter",
+    "named": true
+  },
+  {
+    "type": "celeriter_wide",
+    "named": true
+  },
+  {
+    "type": "circle_above_staff",
+    "named": true
+  },
+  {
+    "type": "clear",
+    "named": false
+  },
+  {
+    "type": "climacus",
+    "named": true
+  },
+  {
+    "type": "clivis",
+    "named": true
+  },
+  {
+    "type": "cn",
+    "named": true
+  },
+  {
+    "type": "coniunguntur",
+    "named": true
+  },
+  {
+    "type": "cs",
+    "named": true
+  },
+  {
+    "type": "custos_auto_pitch",
+    "named": true
+  },
+  {
+    "type": "custos_symbol",
+    "named": true
+  },
+  {
+    "type": "deminutus",
+    "named": true
+  },
+  {
+    "type": "deorsum",
+    "named": true
+  },
+  {
+    "type": "deprimatur",
+    "named": true
+  },
+  {
+    "type": "devertit",
+    "named": true
+  },
+  {
+    "type": "devexum",
+    "named": true
+  },
+  {
+    "type": "diminished",
+    "named": true
+  },
+  {
+    "type": "diminutive_liquescence",
+    "named": true
+  },
+  {
+    "type": "disable_bridging",
+    "named": true
+  },
+  {
+    "type": "disable_custos",
+    "named": true
+  },
+  {
+    "type": "distropha",
+    "named": true
+  },
+  {
+    "type": "divisio_finalis",
+    "named": true
+  },
+  {
+    "type": "divisio_maior",
+    "named": true
+  },
+  {
+    "type": "divisio_maior_dotted",
+    "named": true
+  },
+  {
+    "type": "divisio_minima",
+    "named": true
+  },
+  {
+    "type": "divisio_minima_upper_ledger_line",
+    "named": true
+  },
+  {
+    "type": "divisio_minimis",
+    "named": true
+  },
+  {
+    "type": "divisio_minimis_upper_ledger_line",
+    "named": true
+  },
+  {
+    "type": "divisio_minor",
+    "named": true
+  },
+  {
+    "type": "dominican_bar",
+    "named": true
+  },
+  {
+    "type": "downwards",
+    "named": true
+  },
+  {
+    "type": "e",
+    "named": false
+  },
+  {
+    "type": "em",
+    "named": false
+  },
+  {
+    "type": "episema",
+    "named": true
+  },
+  {
+    "type": "episema_position",
+    "named": true
+  },
+  {
+    "type": "equaliter",
+    "named": true
+  },
+  {
+    "type": "equaliter_dash",
+    "named": true
+  },
+  {
+    "type": "equaliter_eq",
+    "named": true
+  },
+  {
+    "type": "equaliter_equ",
+    "named": true
+  },
+  {
+    "type": "equaliter_wide",
+    "named": true
+  },
+  {
+    "type": "eu",
+    "named": false
+  },
+  {
+    "type": "ev",
+    "named": true
+  },
+  {
+    "type": "expectare",
+    "named": true
+  },
+  {
+    "type": "f_clef",
+    "named": true
+  },
+  {
+    "type": "fastigium",
+    "named": true
+  },
+  {
+    "type": "fideliter",
+    "named": true
+  },
+  {
+    "type": "flat",
+    "named": true
+  },
+  {
+    "type": "flat_parenthesized",
+    "named": true
+  },
+  {
+    "type": "flat_soft",
+    "named": true
+  },
+  {
+    "type": "force_custos",
+    "named": true
+  },
+  {
+    "type": "frendor",
+    "named": true
+  },
+  {
+    "type": "gm",
+    "named": false
+  },
+  {
+    "type": "gravis",
+    "named": true
+  },
+  {
+    "type": "gravis_episema",
+    "named": true
+  },
+  {
+    "type": "grouping_modification",
+    "named": true
+  },
+  {
+    "type": "gutture",
+    "named": true
+  },
+  {
+    "type": "gv",
+    "named": true
+  },
+  {
+    "type": "h",
+    "named": false
+  },
+  {
+    "type": "half_space_same_neume",
+    "named": true
+  },
+  {
+    "type": "header_name",
+    "named": true
+  },
+  {
+    "type": "humiliter",
+    "named": true
+  },
+  {
+    "type": "humiliter_nectum",
+    "named": true
+  },
+  {
+    "type": "humiliter_parum",
+    "named": true
+  },
+  {
+    "type": "i",
+    "named": false
+  },
+  {
+    "type": "ictus",
+    "named": true
+  },
+  {
+    "type": "initio_debilis",
+    "named": true
+  },
+  {
+    "type": "inter_element_space_left",
+    "named": true
+  },
+  {
+    "type": "inter_element_space_right",
+    "named": true
+  },
+  {
+    "type": "iusum",
+    "named": true
+  },
+  {
+    "type": "iusum_mediocriter",
+    "named": true
+  },
+  {
+    "type": "iusum_valde",
+    "named": true
+  },
+  {
+    "type": "justified_line_break",
+    "named": true
+  },
+  {
+    "type": "klenche",
+    "named": true
+  },
+  {
+    "type": "large_space",
+    "named": true
+  },
+  {
+    "type": "large_unbreakable_space",
+    "named": true
+  },
+  {
+    "type": "larger_space_left",
+    "named": true
+  },
+  {
+    "type": "larger_space_right",
+    "named": true
+  },
+  {
+    "type": "ledger_line_left",
+    "named": true
+  },
+  {
+    "type": "left_leaning",
+    "named": true
+  },
+  {
+    "type": "leniter",
+    "named": true
+  },
+  {
+    "type": "levare",
+    "named": true
+  },
+  {
+    "type": "levare_bene",
+    "named": true
+  },
+  {
+    "type": "levare_celeriter",
+    "named": true
+  },
+  {
+    "type": "levare_mediocriter",
+    "named": true
+  },
+  {
+    "type": "levare_parvum",
+    "named": true
+  },
+  {
+    "type": "levare_tenere",
+    "named": true
+  },
+  {
+    "type": "linea",
+    "named": true
+  },
+  {
+    "type": "liquescens_stropha_cephalicus",
+    "named": true
+  },
+  {
+    "type": "ll",
+    "named": true
+  },
+  {
+    "type": "lower_semicircle_above_staff",
+    "named": true
+  },
+  {
+    "type": "mark_modification",
+    "named": true
+  },
+  {
+    "type": "mediocriter",
+    "named": true
+  },
+  {
+    "type": "mediocriter_md",
+    "named": true
+  },
+  {
+    "type": "medium_neume_separation",
+    "named": true
+  },
+  {
+    "type": "melodic_modification",
+    "named": true
+  },
+  {
+    "type": "mode",
+    "named": false
+  },
+  {
+    "type": "mode-differentia",
+    "named": false
+  },
+  {
+    "type": "mode-modifier",
+    "named": false
+  },
+  {
+    "type": "molliter",
+    "named": true
+  },
+  {
+    "type": "musica_ficta_flat",
+    "named": true
+  },
+  {
+    "type": "musica_ficta_natural",
+    "named": true
+  },
+  {
+    "type": "musica_ficta_sharp",
+    "named": true
+  },
+  {
+    "type": "nabc-lines",
+    "named": false
+  },
+  {
+    "type": "natural",
+    "named": true
+  },
+  {
+    "type": "natural_parenthesized",
+    "named": true
+  },
+  {
+    "type": "natural_soft",
+    "named": true
+  },
+  {
+    "type": "nihil",
+    "named": true
+  },
+  {
+    "type": "nlba",
+    "named": false
+  },
+  {
+    "type": "nm",
+    "named": false
+  },
+  {
+    "type": "nocustos",
+    "named": true
+  },
+  {
+    "type": "non_leaning",
+    "named": true
+  },
+  {
+    "type": "non_levare",
+    "named": true
+  },
+  {
+    "type": "non_tenere",
+    "named": true
+  },
+  {
+    "type": "non_tenere_negare_nectum_naturaliter",
+    "named": true
+  },
+  {
+    "type": "nv",
+    "named": true
+  },
+  {
+    "type": "ob",
+    "named": true
+  },
+  {
+    "type": "ocb",
+    "named": true
+  },
+  {
+    "type": "ocba",
+    "named": true
+  },
+  {
+    "type": "oh",
+    "named": true
+  },
+  {
+    "type": "oll",
+    "named": true
+  },
+  {
+    "type": "oriscus",
+    "named": true
+  },
+  {
+    "type": "oriscus_clivis",
+    "named": true
+  },
+  {
+    "type": "oriscus_scapus",
+    "named": true
+  },
+  {
+    "type": "oslur",
+    "named": true
+  },
+  {
+    "type": "paratim",
+    "named": true
+  },
+  {
+    "type": "parvum",
+    "named": true
+  },
+  {
+    "type": "parvum_mediocriter",
+    "named": true
+  },
+  {
+    "type": "perfecte",
+    "named": true
+  },
+  {
+    "type": "pes",
+    "named": true
+  },
+  {
+    "type": "pes_quassus",
+    "named": true
+  },
+  {
+    "type": "pes_stratus",
+    "named": true
+  },
+  {
+    "type": "porrectus",
+    "named": true
+  },
+  {
+    "type": "porrectus_flexus",
+    "named": true
+  },
+  {
+    "type": "position_number",
+    "named": true
+  },
+  {
+    "type": "pr",
+    "named": false
+  },
+  {
+    "type": "prepunctis",
+    "named": true
+  },
+  {
+    "type": "pressus_maior",
+    "named": true
+  },
+  {
+    "type": "pressus_minor",
+    "named": true
+  },
+  {
+    "type": "prode_sub_eam",
+    "named": true
+  },
+  {
+    "type": "pulcre",
+    "named": true
+  },
+  {
+    "type": "punctum",
+    "named": true
+  },
+  {
+    "type": "punctum_linea",
+    "named": true
+  },
+  {
+    "type": "punctum_mora",
+    "named": true
+  },
+  {
+    "type": "quadratum",
+    "named": true
+  },
+  {
+    "type": "quam_mox",
+    "named": true
+  },
+  {
+    "type": "quilisma",
+    "named": true
+  },
+  {
+    "type": "quilisma_2_loops",
+    "named": true
+  },
+  {
+    "type": "quilisma_3_loops",
+    "named": true
+  },
+  {
+    "type": "quilisma_quadratum",
+    "named": true
+  },
+  {
+    "type": "ragged_line_break",
+    "named": true
+  },
+  {
+    "type": "repetition_count",
+    "named": true
+  },
+  {
+    "type": "right_leaning",
+    "named": true
+  },
+  {
+    "type": "salicus",
+    "named": true
+  },
+  {
+    "type": "saltate",
+    "named": true
+  },
+  {
+    "type": "saltim",
+    "named": true
+  },
+  {
+    "type": "sc",
+    "named": false
+  },
+  {
+    "type": "scandicus",
+    "named": true
+  },
+  {
+    "type": "scandicus_flexus",
+    "named": true
+  },
+  {
+    "type": "section_separator",
+    "named": true
+  },
+  {
+    "type": "seorsum",
+    "named": true
+  },
+  {
+    "type": "shape",
+    "named": true
+  },
+  {
+    "type": "sharp",
+    "named": true
+  },
+  {
+    "type": "sharp_parenthesized",
+    "named": true
+  },
+  {
+    "type": "sharp_soft",
+    "named": true
+  },
+  {
+    "type": "significant_letter",
+    "named": true
+  },
+  {
+    "type": "similiter",
+    "named": true
+  },
+  {
+    "type": "simpliciter",
+    "named": true
+  },
+  {
+    "type": "simpliciter_simpl",
+    "named": true
+  },
+  {
+    "type": "simul",
+    "named": true
+  },
+  {
+    "type": "small_center",
+    "named": true
+  },
+  {
+    "type": "small_left",
+    "named": true
+  },
+  {
+    "type": "small_neume_separation",
+    "named": true
+  },
+  {
+    "type": "small_right",
+    "named": true
+  },
+  {
+    "type": "small_space_same_neume",
+    "named": true
+  },
+  {
+    "type": "sonare",
+    "named": true
+  },
+  {
+    "type": "sp",
+    "named": false
+  },
+  {
+    "type": "staff-lines",
+    "named": false
+  },
+  {
+    "type": "statim",
+    "named": true
+  },
+  {
+    "type": "stroke",
+    "named": true
+  },
+  {
+    "type": "stropha",
+    "named": true
+  },
+  {
+    "type": "sub",
+    "named": true
+  },
+  {
+    "type": "subjice",
+    "named": true
+  },
+  {
+    "type": "subpunctis",
+    "named": true
+  },
+  {
+    "type": "supra",
+    "named": true
+  },
+  {
+    "type": "sursum",
+    "named": true
+  },
+  {
+    "type": "sursum_bene",
+    "named": true
+  },
+  {
+    "type": "sursum_celeriter",
+    "named": true
+  },
+  {
+    "type": "sursum_mediocriter",
+    "named": true
+  },
+  {
+    "type": "sursum_parum",
+    "named": true
+  },
+  {
+    "type": "sursum_tenere",
+    "named": true
+  },
+  {
+    "type": "syllable_text",
+    "named": true
+  },
+  {
+    "type": "tenere",
+    "named": true
+  },
+  {
+    "type": "tenere_bene",
+    "named": true
+  },
+  {
+    "type": "tenere_humiliter",
+    "named": true
+  },
+  {
+    "type": "tenere_mediocriter",
+    "named": true
+  },
+  {
+    "type": "tenere_wide",
+    "named": true
+  },
+  {
+    "type": "tex_code_verbatim",
+    "named": true
+  },
+  {
+    "type": "tironian_letter",
+    "named": true
+  },
+  {
+    "type": "torculus",
+    "named": true
+  },
+  {
+    "type": "torculus_resupinus",
+    "named": true
+  },
+  {
+    "type": "tractulus",
+    "named": true
+  },
+  {
+    "type": "tractulus_double_episema",
+    "named": true
+  },
+  {
+    "type": "tractulus_episema",
+    "named": true
+  },
+  {
+    "type": "trigonus",
+    "named": true
+  },
+  {
+    "type": "tristropha",
+    "named": true
+  },
+  {
+    "type": "trivirga",
+    "named": true
+  },
+  {
+    "type": "tt",
+    "named": false
+  },
+  {
+    "type": "ub",
+    "named": true
+  },
+  {
+    "type": "uh",
+    "named": true
+  },
+  {
+    "type": "ul",
+    "named": false
+  },
+  {
+    "type": "ull",
+    "named": true
+  },
+  {
+    "type": "uncinus",
+    "named": true
+  },
+  {
+    "type": "upper_semicircle_above_staff",
+    "named": true
+  },
+  {
+    "type": "upwards",
+    "named": true
+  },
+  {
+    "type": "uslur",
+    "named": true
+  },
+  {
+    "type": "ut_supra",
+    "named": true
+  },
+  {
+    "type": "v",
+    "named": false
+  },
+  {
+    "type": "valde",
+    "named": true
+  },
+  {
+    "type": "variant_number",
+    "named": true
+  },
+  {
+    "type": "vertical_episema",
+    "named": true
+  },
+  {
+    "type": "virga",
+    "named": true
+  },
+  {
+    "type": "virga_reversa",
+    "named": true
+  },
+  {
+    "type": "virga_strata",
+    "named": true
+  },
+  {
+    "type": "virgula",
+    "named": true
+  },
+  {
+    "type": "virgula_upper_ledger_line",
+    "named": true
+  },
+  {
+    "type": "volubiliter",
+    "named": true
+  },
+  {
+    "type": "zero_space",
+    "named": true
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "|",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
+  }
+]

@@ -1,6 +1,5 @@
 node_modules/
 build/
-src/
 *.log
 *.o
 *.so
@@ -13,4 +12,3 @@ src/
 *~
 .vscode/
 .idea/
-
