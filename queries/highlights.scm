@@ -219,6 +219,9 @@
 (syllable_other_above_lines_text) @string.special
 (syllable_other_special_character) @string.escape
 
+; Lyric tie: ~ in syllable text (Gregorio 6.2.0+, PR #1684)
+(lyric_tie) @punctuation.special
+
 ; Style tags - highlight text within complete tags
 (syllable_style_bold
   (syllable

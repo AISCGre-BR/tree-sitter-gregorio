@@ -1,0 +1,139 @@
+================================================================================
+Lyric tie: simple tilde between syllable characters
+================================================================================
+
+name: test;
+%%
+San~ctus(g)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      (header_generic
+        (header_name))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (syllable
+        (syllable_text)
+        (lyric_tie)
+        (syllable_text))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              (pitch_lowercase))))))))
+
+================================================================================
+Lyric tie: multiple tildes
+================================================================================
+
+name: test;
+%%
+a~b~c(g)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      (header_generic
+        (header_name))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (syllable
+        (syllable_text)
+        (lyric_tie)
+        (syllable_text)
+        (lyric_tie)
+        (syllable_text))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              (pitch_lowercase))))))))
+
+================================================================================
+Lyric tie: tilde after styled text
+================================================================================
+
+name: test;
+%%
+<b>word</b>~more(g)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      (header_generic
+        (header_name))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (syllable
+        (syllable_style_bold
+          (syllable
+            (syllable_text)))
+        (lyric_tie)
+        (syllable_text))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              (pitch_lowercase))))))))
+
+================================================================================
+Lyric tie: tilde-only syllable text
+================================================================================
+
+name: test;
+%%
+~(g)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      (header_generic
+        (header_name))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (syllable
+        (lyric_tie))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              (pitch_lowercase))))))))
+
+================================================================================
+Lyric tie: tilde inside centering braces
+================================================================================
+
+name: test;
+%%
+{a~b}(g)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      (header_generic
+        (header_name))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (syllable
+        (syllable_centering))
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              (pitch_lowercase))))))))

@@ -155,6 +155,7 @@ module.exports = grammar({
     syllable: $ => repeat1(
       choice(
         $.syllable_text,
+        $.lyric_tie,
         $.syllable_style_bold,
         $.syllable_style_colored,
         $.syllable_style_italic,
@@ -192,7 +193,13 @@ module.exports = grammar({
       )
     ),
 
-    syllable_text: $ => /[^\s${}\\<>%()\[\]]+/,
+    // 6.2.0: Tilde (~) in syllable text is a lyric tie shorthand (\GreLyricTie).
+    // Use <sp>~</sp> for a literal tilde character.
+    syllable_text: $ => /[^\s~${}\\<>%()\[\]]+/,
+
+    // Lyric tie shorthand: ~ in syllable text (outside note groups).
+    // Introduced in Gregorio 6.2.0 (PR #1684).
+    lyric_tie: _ => '~',
 
     // Syllable style tags
     // Complete tags: <b>text</b> - preferred for self-contained content
@@ -382,17 +389,26 @@ module.exports = grammar({
     ),
 
     // Snippet list: GABC snippets and/or NABC snippets separated by |
+    //
+    // As of Gregorio 6.2.0 (fix for issue #1700), empty snippets are allowed.
+    // Valid examples:
+    //   (gf)        — simple GABC only
+    //   (gf|vi)     — GABC voice, then NABC voice
+    //   (|vi)       — empty GABC voice, NABC voice
+    //   (gf||ta)    — GABC voice, empty NABC voice, second NABC voice
+    //   (|vi|ta)    — empty GABC, two NABC voices
     snippet_list: $ => choice(
-      // Simple case: single GABC snippet (no alternation)
+      // Simple case: single GABC snippet (no alternation, no pipe)
       $.gabc_snippet,
 
-      // Complex case: alternating snippets
+      // Alternating case: optional first GABC + one or more | + optional alternates
+      // The presence of at least one | distinguishes this from the simple case.
       seq(
-        field('first', $.gabc_snippet),
+        field('first', optional($.gabc_snippet)),
         repeat1(
           seq(
             '|',
-            field('alternate', $._alternating_snippet)
+            field('alternate', optional($._alternating_snippet))
           )
         )
       )

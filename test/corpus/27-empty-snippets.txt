@@ -1,0 +1,134 @@
+================================================================================
+Empty GABC snippet before NABC: (|vi)
+================================================================================
+
+name: test;
+%%
+(|vi)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      (header_generic
+        (header_name))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                (virga)))))))))
+
+================================================================================
+Empty NABC snippet between two NABC snippets: (g||ta)
+================================================================================
+
+name: test;
+%%
+(g||ta)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      (header_generic
+        (header_name))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              (pitch_lowercase)))
+          (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                (tractulus)))))))))
+
+================================================================================
+Two NABC snippets with empty first GABC: (|vi|ta)
+================================================================================
+
+name: test;
+%%
+(|vi|ta)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      (header_generic
+        (header_name))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                (virga))))
+          (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                (tractulus)))))))))
+
+================================================================================
+All-empty snippet list: (||ta)
+================================================================================
+
+name: test;
+%%
+(||ta)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      (header_generic
+        (header_name))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                (tractulus)))))))))
+
+================================================================================
+Normal GABC+NABC snippet still parses correctly: (g|vi)
+================================================================================
+
+name: test;
+%%
+(g|vi)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (header_section
+    (header
+      (header_generic
+        (header_name))))
+  (section_separator)
+  (notation_section
+    (notation_item
+      (note_group
+        (snippet_list
+          (gabc_snippet
+            (gabc_neume
+              (pitch_lowercase)))
+          (nabc_snippet
+            (nabc_complex_glyph_descriptor
+              (nabc_glyph_descriptor
+                (virga)))))))))

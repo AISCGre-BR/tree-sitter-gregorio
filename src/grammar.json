@@ -633,6 +633,10 @@
           },
           {
             "type": "SYMBOL",
+            "name": "lyric_tie"
+          },
+          {
+            "type": "SYMBOL",
             "name": "syllable_style_bold"
           },
           {
@@ -772,7 +776,11 @@
     },
     "syllable_text": {
       "type": "PATTERN",
-      "value": "[^\\s${}\\\\<>%()\\[\\]]+"
+      "value": "[^\\s~${}\\\\<>%()\\[\\]]+"
+    },
+    "lyric_tie": {
+      "type": "STRING",
+      "value": "~"
     },
     "syllable_style_bold": {
       "type": "PREC_DYNAMIC",
@@ -1792,8 +1800,16 @@
               "type": "FIELD",
               "name": "first",
               "content": {
-                "type": "SYMBOL",
-                "name": "gabc_snippet"
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "gabc_snippet"
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
               }
             },
             {
@@ -1809,8 +1825,16 @@
                     "type": "FIELD",
                     "name": "alternate",
                     "content": {
-                      "type": "SYMBOL",
-                      "name": "_alternating_snippet"
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "SYMBOL",
+                          "name": "_alternating_snippet"
+                        },
+                        {
+                          "type": "BLANK"
+                        }
+                      ]
                     }
                   }
                 ]

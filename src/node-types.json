@@ -1241,6 +1241,11 @@
     "fields": {}
   },
   {
+    "type": "lyric_tie",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "nabc_complex_glyph_descriptor",
     "named": true,
     "fields": {},
@@ -2065,6 +2070,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "lyric_tie",
+          "named": true
+        },
         {
           "type": "syllable_centering",
           "named": true
@@ -3607,6 +3616,10 @@
   },
   {
     "type": "}",
+    "named": false
+  },
+  {
+    "type": "~",
     "named": false
   }
 ]
