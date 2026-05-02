@@ -3,6 +3,12 @@
 This document is the primary reference for AI agents (GitHub Copilot, Claude, etc.)
 contributing code to this repository. Read it before making any changes.
 
+> **Language policy**: All content in this repository **must be in English** — without
+> exception. This applies to: source code identifiers (variables, functions, constants,
+> types), code comments, documentation (`.md` files, docstrings), commit messages,
+> corpus test case titles, query file comments, error messages, and any other
+> human-readable text added or modified in a contribution.
+
 ---
 
 ## 1. Project Overview
@@ -14,7 +20,7 @@ Gregorian chant in LaTeX.
 
 The grammar parses `.gabc` files into a concrete syntax tree (CST). It is consumed by:
 
-- **`gregorio-lsp`** (sibling repo at `../gregorio-lsp`) — a language server that uses
+- **[`gregorio-lsp`](https://github.com/aiscgre-br/gregorio-lsp)** — a language server that uses
   the tree optionally via the `tree-sitter` Cargo feature.
 - Editor plugins (Helix, Neovim, etc.) using the standard tree-sitter query interface.
 
@@ -380,14 +386,12 @@ The grammar targets **Gregorio ≥ 6.2.0**. Key syntax additions by version:
 
 ## 11. Companion Project: gregorio-lsp
 
-`tree-sitter-gregorio` is consumed by **gregorio-lsp** (sibling directory
-`../gregorio-lsp`), a Language Server Protocol implementation in Rust. When
-making grammar changes, also check:
+`tree-sitter-gregorio` is consumed by **[gregorio-lsp](https://github.com/aiscgre-br/gregorio-lsp)**,
+a Language Server Protocol implementation in Rust. When making grammar changes, also check:
 
-- `../gregorio-lsp/src/parser/tree-sitter-integration.rs` — uses node kinds and
-  field names from the grammar for diagnostic extraction and incremental parsing.
-- `../gregorio-lsp/Cargo.toml` — depends on this crate via `path = "../tree-sitter-gregorio"`
-  (with optional feature `tree-sitter`).
+- `src/parser/tree-sitter-integration.rs` — uses node kinds and field names from the grammar
+  for diagnostic extraction and incremental parsing.
+- `Cargo.toml` — depends on this crate with optional feature `tree-sitter`.
 - If `STABLE_NODE_KIND_CONTRACT_VERSION` is bumped, update the version check in
   `gregorio-lsp` accordingly.
 
@@ -395,7 +399,7 @@ After grammar changes, run the full test suite in `gregorio-lsp`:
 
 ```bash
 nix shell nixpkgs#cargo nixpkgs#rustc nixpkgs#gcc -c \
-  cargo test --manifest-path ../gregorio-lsp/Cargo.toml --features tree-sitter
+  cargo test --features tree-sitter
 ```
 
 ---
@@ -409,7 +413,8 @@ nix shell nixpkgs#cargo nixpkgs#rustc nixpkgs#gcc -c \
   git -c gpg.program=gpg -c commit.gpgsign=true commit \
     --gpg-sign=BAC0B1B569777A733E37447FB10712C404063D38 -m "feat(grammar): ..."
   ```
-- Keep messages in English.
+- Keep **all text in English**: commit messages, comments, documentation, identifiers,
+  test case titles, and error strings.
 - Reference Gregorio upstream issues when implementing syntax from a specific release:
   `feat(grammar): add lyric tie ~ in syllable text (gregorio#1684)`
 
