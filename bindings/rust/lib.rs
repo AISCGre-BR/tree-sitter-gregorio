@@ -33,12 +33,19 @@ pub fn language() -> Language {
 /// [`node-types.json`]: https://tree-sitter.github.io/tree-sitter/using-parsers#static-node-types
 pub const NODE_TYPES: &'static str = include_str!("../../src/node-types.json");
 
-// Uncomment these to include any queries that this grammar contains
+/// Stable node-kind contract version consumed by downstream tooling.
+///
+/// Bump this value whenever a breaking node-kind rename/removal is introduced.
+pub const STABLE_NODE_KIND_CONTRACT_VERSION: &str = "1";
 
-// pub const HIGHLIGHTS_QUERY: &'static str = include_str!("../../queries/highlights.scm");
-// pub const INJECTIONS_QUERY: &'static str = include_str!("../../queries/injections.scm");
-// pub const LOCALS_QUERY: &'static str = include_str!("../../queries/locals.scm");
-// pub const TAGS_QUERY: &'static str = include_str!("../../queries/tags.scm");
+/// Query for syntax highlighting.
+pub const HIGHLIGHTS_QUERY: &'static str = include_str!("../../queries/highlights.scm");
+
+/// Query for language injections (e.g. LaTeX fragments).
+pub const INJECTIONS_QUERY: &'static str = include_str!("../../queries/injections.scm");
+
+/// Query dedicated to diagnostics captures consumed by language servers.
+pub const DIAGNOSTICS_QUERY: &'static str = include_str!("../../queries/diagnostics.scm");
 
 #[cfg(test)]
 mod tests {

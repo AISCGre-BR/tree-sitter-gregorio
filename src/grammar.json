@@ -1824,12 +1824,20 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "gabc_snippet"
+          "type": "PREC",
+          "value": 2,
+          "content": {
+            "type": "SYMBOL",
+            "name": "nabc_snippet"
+          }
         },
         {
-          "type": "SYMBOL",
-          "name": "nabc_snippet"
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "SYMBOL",
+            "name": "gabc_snippet"
+          }
         }
       ]
     },

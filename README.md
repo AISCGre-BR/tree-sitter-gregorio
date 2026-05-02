@@ -16,6 +16,19 @@ This project provides a [tree-sitter](https://tree-sitter.github.io/tree-sitter/
 
 ## Features
 
+## Stable Node-Kind Contract
+
+This grammar exposes a stable node-kind contract for downstream tools (such as
+Rust LSP integrations). The current contract version is available in
+`bindings/rust/lib.rs` as `STABLE_NODE_KIND_CONTRACT_VERSION`.
+
+Rules:
+
+- Any breaking rename/removal of existing node kinds requires bumping the
+  contract version.
+- Non-breaking additions of new node kinds do not require a bump.
+- Consumers should gate strict matching behavior by contract version.
+
 ### ✅ Complete GABC+NABC Support (240 tests passing)
 
 - **Header Section**:

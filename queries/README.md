@@ -8,6 +8,13 @@ This directory contains query files for Tree-sitter features like syntax highlig
 
 Syntax highlighting queries for GABC (Gregorio ABC) and NABC (Cardine-Based Adiastematic Notation) files.
 
+### `diagnostics.scm`
+
+Diagnostic captures used by language servers. The current captures include:
+
+- `@error.syntax` for generic parser `ERROR` nodes.
+- `@warning.alternation` for ambiguous `GABC|NABC` alternation sites.
+
 #### Supported Highlighting Categories
 
 **Comments:**

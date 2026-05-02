@@ -398,9 +398,12 @@ module.exports = grammar({
       )
     ),
 
-    // Alternating snippet: either GABC or NABC
-    // The parser will determine based on content patterns
-    _alternating_snippet: $ => choice($.gabc_snippet, $.nabc_snippet),
+    // Alternating snippet: prefer NABC in alternation contexts to reduce
+    // ambiguity with generic GABC repetitions when using `|`.
+    _alternating_snippet: $ => choice(
+      prec(2, $.nabc_snippet),
+      prec(1, $.gabc_snippet)
+    ),
 
     // GABC snippet: notes and other GABC elements
     gabc_snippet: $ => repeat1(
