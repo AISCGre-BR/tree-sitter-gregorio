@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.0-alpha.1] - 2026-05-02
+
+### Added
+- Gregorio 6.2.0 syntax support in the grammar:
+  - `lyric_tie` token (`~`) in syllable text contexts.
+  - Empty GABC/NABC snippets in alternation contexts (for example `(|vi)`, `(g||ta)`, `(||ta)`).
+- New corpus coverage for Gregorio 6.2.0 features:
+  - `test/corpus/26-lyric-tie.txt`
+  - `test/corpus/27-empty-snippets.txt`
+- `AGENTS.md` with repository-specific guidance for coding agents.
+
+### Changed
+- Updated `queries/highlights.scm` to capture `lyric_tie` as `@punctuation.special`.
+- Standardized project metadata and ownership information for AISCGre Brasil.
+- Added project `LICENSE` file (MIT) with copyright notice:
+  `Copyright (c) 2026 AISCGre Brasil`.
+
 ## [0.4.0] - 2024-12-22
 
 ### Added
@@ -205,3 +222,4 @@ This release marks the completion of comprehensive basic GABC notation support w
 [0.3.0]: https://github.com/AISCGre-BR/tree-sitter-gregorio/releases/tag/v0.3.0
 [0.2.0]: https://github.com/AISCGre-BR/tree-sitter-gregorio/releases/tag/v0.2.0
 [0.1.0]: https://github.com/AISCGre-BR/tree-sitter-gregorio/releases/tag/v0.1.0
+[1.0.0-alpha.1]: https://github.com/aiscgre-br/tree-sitter-gregorio/releases/tag/v1.0.0-alpha.1

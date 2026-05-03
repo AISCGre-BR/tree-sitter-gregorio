@@ -2,9 +2,9 @@
 
 Tree-sitter grammar for GABC+NABC notation (Gregorian chant).
 
-[![Tests](https://img.shields.io/badge/tests-240%20passing-brightgreen)](test/corpus/)
+[![Tests](https://img.shields.io/badge/tests-250%20passing-brightgreen)](test/corpus/)
 [![Grammar](https://img.shields.io/badge/grammar-GABC%2BNABC%20complete-blue)](#features)
-[![Compatibility](https://img.shields.io/badge/gregorio-6.1.0-blue)](https://gregorio-project.github.io/)
+[![Compatibility](https://img.shields.io/badge/gregorio-6.2.0-blue)](https://gregorio-project.github.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ## Overview
@@ -13,7 +13,7 @@ This project provides a [tree-sitter](https://tree-sitter.github.io/tree-sitter/
 
 **Current Status**: ✅ **Complete GABC+NABC support** - The parser has been fully reviewed and tested for core GABC notation and comprehensive NABC (adiastematic notation) support including all glyph descriptors, modifiers, spacing, and significant letters.
 
-**Target Compatibility**: [Gregorio 6.1.0](https://gregorio-project.github.io/) — This parser targets full compatibility with the GABC+NABC specification from Gregorio version 6.1.0. This compatibility target will be maintained for the future 1.0.0 release.
+**Target Compatibility**: [Gregorio 6.2.0](https://gregorio-project.github.io/) — This parser targets full compatibility with the GABC+NABC specification from Gregorio version 6.2.0. This compatibility target will be maintained for the future 1.0.0 release.
 
 ## Features
 
@@ -30,7 +30,7 @@ Rules:
 - Non-breaking additions of new node kinds do not require a bump.
 - Consumers should gate strict matching behavior by contract version.
 
-### ✅ Complete GABC+NABC Support (240 tests passing)
+### ✅ Complete GABC+NABC Support (250 tests passing)
 
 - **Header Section**:
   - Single-line headers (`name: value;`)
