@@ -4,7 +4,8 @@ description = "gregorio grammar for the tree-sitter parsing library"
 version = "0.0.1"
 keywords = ["incremental", "parsing", "gregorio"]
 categories = ["parsing", "text-editors"]
-repository = "https://github.com/tree-sitter/tree-sitter-gregorio"
+repository = "https://github.com/aiscgre-br/tree-sitter-gregorio"
+authors = ["AISCGre Brasil"]
 edition = "2018"
 license = "MIT"
 

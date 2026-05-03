@@ -5,6 +5,7 @@ Tree-sitter grammar for GABC+NABC notation (Gregorian chant).
 [![Tests](https://img.shields.io/badge/tests-240%20passing-brightgreen)](test/corpus/)
 [![Grammar](https://img.shields.io/badge/grammar-GABC%2BNABC%20complete-blue)](#features)
 [![Compatibility](https://img.shields.io/badge/gregorio-6.1.0-blue)](https://gregorio-project.github.io/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ## Overview
 
