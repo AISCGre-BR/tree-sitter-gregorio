@@ -5,20 +5,18 @@
       "name": "gregorio",
       "camelcase": "Gregorio",
       "scope": "source.gabc",
-      "file-types": [
-        "gabc"
-      ],
+      "file-types": ["gabc"],
       "injection-regex": "^(gabc|gregorio)$"
     }
   ],
   "metadata": {
-    "version": "0.5.1"
+    "version": "0.5.2",
     "license": "MIT",
     "description": "Tree-sitter grammar for GABC+NABC notation (Gregorian chant)",
     "authors": [
       {
         "name": "Laércio de Sousa",
-        "email": "laercio@sivali.sousa.nom.br"
+        "email": "laercio.sousa@aiscgre.org.br"
       }
     ],
     "links": {

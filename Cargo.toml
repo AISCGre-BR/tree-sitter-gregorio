@@ -1,7 +1,7 @@
 [package]
 name = "tree-sitter-gregorio"
 description = "gregorio grammar for the tree-sitter parsing library"
-version = "0.5.1"
+version = "0.5.2"
 keywords = ["incremental", "parsing", "gregorio"]
 categories = ["parsing", "text-editors"]
 repository = "https://github.com/aiscgre-br/tree-sitter-gregorio"
