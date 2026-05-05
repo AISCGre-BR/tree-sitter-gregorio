@@ -12,7 +12,7 @@
     }
   ],
   "metadata": {
-    "version": "1.0.0-alpha.1",
+    "version": "0.5.0"
     "license": "MIT",
     "description": "Tree-sitter grammar for GABC+NABC notation (Gregorian chant)",
     "authors": [
